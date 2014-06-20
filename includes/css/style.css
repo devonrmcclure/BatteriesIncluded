@@ -1,0 +1,72 @@
+/*
+	Dark Blue:  #0064AB
+	Light Blue: #B3C5EE
+
+
+*/
+h1, h2, h3, h4 {
+  font-weight: 300;
+}
+p {
+
+}
+.top {
+	background-color: #0064AB;
+}
+.top .navbar-brand {
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	padding: 0 10px;
+	background-color: #0064AB;
+	color: #FFF;
+	text-decoration: none;
+  cursor: default;
+}
+
+.top .container {
+	padding: 0;
+}
+
+.navbar-nav li a {
+  color: #FFF; //Originally #D8DFEE
+}
+.navbar-nav li a:hover {
+  background-color: #007BAB;
+}
+
+.active {
+	background-color: #007BAB;
+  cursor: default;
+}
+.navbar-toggle {
+	color: #B3C5EE;
+	font-size: 32px;
+	margin: 3px;
+	padding: 2px 5px;
+	line-height: 32px;
+}
+.navbar-toggle:hover {
+    background-color: #007BAB;
+}
+.navbar-nav {
+    margin: 0;
+}
+
+.content p {
+    line-height: 30px;
+    font-size: 16px;
+}
+
+.bottom{
+	font-size: 12px;
+}
+
+.text {
+	text-indent: 20px;
+}
+
+.bottom-nav{
+	list-style-type: none;
+	margin-left: -40px;
+}
