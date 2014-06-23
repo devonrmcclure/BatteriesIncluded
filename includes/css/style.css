@@ -70,3 +70,11 @@ p {
 	list-style-type: none;
 	margin-left: -40px;
 }
+
+.call-for-price{
+  background-color: #0064AB;
+  border: 1px solid black;
+  color: #fff;
+  font-style: italic;
+  padding: 5px;
+}

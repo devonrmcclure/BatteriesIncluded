@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <!-- Site header and navigation -->
+    <!-- Site header and navigation --> 
     <header class="top" role="header">
       <div class="container">
         <a class="navbar-brand pull-left">
@@ -34,13 +34,62 @@
     
     <!-- Middle content section -->
     <div class="container">
-        <div class="col-md-7 content">
-            <h2>Who We Are</h2>
-            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sagittis diam metus, a fermentum arcu fermentum ac. Sed sit amet lorem in leo laoreet pretium. Etiam auctor ornare mi a cursus. Morbi interdum nibh quis ante malesuada facilisis. Praesent pharetra sapien sapien, eu sollicitudin risus rutrum vitae. Quisque id orci eu libero volutpat semper in id velit. Duis pretium volutpat turpis non feugiat.</p>
+        <div class="col-md-2 content">
+          <h2>Categories</h2>
+            <ul class="catalog-categories">
+              <li><a href="#">Batteries</a></li>
+              <li><a href="#">Batteries</a></li>
+              <li><a href="#">Batteries</a></li>
+              <li><a href="#">Batteries</a></li>
+              <li><a href="#">Batteries</a></li>
+              <li><a href="#">Batteries</a></li>
+            </ul>
         </div>
-        <div class="col-md-5 content">
-            <h2>WHAT TO PUT HERE?!?</h2>
-            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sagittis diam metus, a fermentum arcu fermentum ac. Sed sit amet lorem in leo laoreet pretium. Etiam auctor ornare mi a cursus. Morbi interdum nibh quis ante malesuada facilisis. Praesent pharetra sapien sapien, eu sollicitudin risus rutrum vitae. Quisque id orci eu libero volutpat semper in id velit. Duis pretium volutpat turpis non feugiat.</p>
+
+        <div class="col-md-10 content">
+          <div class="col-md-12">
+            <h2>Recently Viewed</h2>
+          </div>
+          <div class="row content">
+            <div class="col-md-4">
+              <h4>CR2032 3V Button Cell</h4>
+              <img src="http://placehold.it/100x100" class="img-responsive"/>
+              <p>CR2032 button cell battery used in watches, car fobs, scales, etc.<span class="pull-right call-for-price">Call For Price</span></p>
+            </div>
+            
+            <div class="col-md-4">
+              <h4>CR2032 3V Button Cell</h4>
+              <img src="http://placehold.it/100x100" class="img-responsive"/>
+              <p>CR2032 button cell battery used in watches, car fobs, scales, etc.<span class="pull-right call-for-price">Call For Price</span></p>
+            </div>
+
+            <div class="col-md-4">
+              <h4>CR2032 3V Button Cell</h4>
+              <img src="http://placehold.it/100x100" class="img-responsive"/>
+              <p>CR2032 button cell battery used in watches, car fobs, scales, etc.<span class="pull-right call-for-price">Call For Price</span></p>
+              
+            </div>
+          </div>
+
+          <div class="row content">
+            <div class="col-md-4">
+              <h4>CR2032 3V Button Cell</h4>
+              <img src="http://placehold.it/100x100" class="img-responsive"/>
+              <p>CR2032 button cell battery used in watches, car fobs, scales, etc.<span class="pull-right call-for-price">Call For Price</span></p>
+            </div>
+            
+            <div class="col-md-4">
+              <h4>CR2032 3V Button Cell</h4>
+              <img src="http://placehold.it/100x100" class="img-responsive"/>
+              <p>CR2032 button cell battery used in watches, car fobs, scales, etc.<span class="pull-right call-for-price">Call For Price</span></p>
+            </div>
+
+            <div class="col-md-4">
+              <h4>CR2032 3V Button Cell</h4>
+              <img src="http://placehold.it/100x100" class="img-responsive"/>
+              <p>CR2032 button cell battery used in watches, car fobs, scales, etc.<span class="pull-right call-for-price">Call For Price</span></p>
+            </div>
+          </div>     
         </div>
     </div>
     
