@@ -8,6 +8,7 @@
     <!-- Include bootstrap CSS -->
     <link href="includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="includes/css/style.css" rel="stylesheet"> 
+    <script src="includes/js/validate.js" type="text/javascript"></script>
   </head>
 
   <body>
@@ -87,7 +88,7 @@
         <div class="col-md-5 content">
             <h2>Contact</h2>
             <hr />
-            <form class="form-horizontal" role="form" method="post">
+            <form class="form-horizontal" role="form" method="post" onsubmit=return(validate());>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Location</label>
                 <div class="col-sm-10">
@@ -142,5 +143,3 @@
     
     <?php require_once('includes/php/footer.php') ?>
     
-  </body>
-</html>
