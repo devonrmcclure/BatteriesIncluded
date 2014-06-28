@@ -96,4 +96,7 @@
     <hr />
     
     <?php require_once('includes/php/footer.php') ?>
+
+  </body>
+</html>
     

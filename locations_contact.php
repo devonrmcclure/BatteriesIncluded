@@ -3,12 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <!-- Set the viewport so this responsive site displays correctly on mobile devices -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Batteries Included | They Make It First, We Make It Last!</title>
     <!-- Include bootstrap CSS -->
-    <link href="includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="includes/css/style.css" rel="stylesheet"> 
-    <script src="includes/js/validate.js" type="text/javascript"></script>
+    <link href="includes/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="includes/css/style.css" rel="stylesheet" /> 
   </head>
 
   <body>
@@ -87,59 +86,88 @@
         </div>
         <div class="col-md-5 content">
             <h2>Contact</h2>
+            <noscript>
+              It appears you have JavaScript disabled. You will not be able to see this form unless you have it enabled
+              as it uses JavaScript to send the information.
+            </noscript>
             <hr />
-            <form class="form-horizontal" role="form" method="post" onsubmit=return(validate());>
+            <span class="bg-success">Your message has been successfully sent! We will be with you shortly!</span>
+            <?php
+              if(isset($_POST['submit'])) {
+
+              } else {
+            ?>
+            <form class="form-horizontal noscript contact-form" id="contact-form" role="form" method="post">
               <div class="form-group">
                 <label class="col-sm-2 control-label">Location</label>
                 <div class="col-sm-10">
-                  <select class="form-control col-xs-4">
+                  <select class="form-control col-xs-4" id="location" name="location">
                     <option selected="selected">-- Select Your Location --</option>
                     <option>Surrey</option>
                     <option>Richmond</option>
                     <option>White Rock</option>
                     <option>Nanaimo</option>
                   </select>
+                  <label class="bg-danger" for="location" id="location-error">Please select a location.</label>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="name" class="col-sm-2 control-label">Name</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="name" placeholder="Name">
+                  <input type="text" class="form-control" id="name" placeholder="Name" name="name">
+                  <label class="bg-danger" for="name" id="name-error">Please enter your name. We need to know who we're talking to!</label>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="phone" class="col-sm-2 control-label">Phone Number</label>
                 <div class="col-sm-10">
-                  <input type="tel" class="form-control" id="phone" placeholder="Phone">
+                  <input type="tel" class="form-control" id="phone" placeholder="Phone" name="phone_num">
+                  <label class="bg-danger" for="phone" id="phone-error">Please enter a valid phone number including area code.</label>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="email" class="col-sm-2 control-label">Email</label>
                 <div class="col-sm-10">
-                  <input type="email" class="form-control" id="email" placeholder="Email">
+                  <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                  <label class="bg-danger" for="email" id="email-error">Please enter a valid email.</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Subject</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="subject" placeholder="Subject" name="subject">
+                  <label class="bg-danger" for="subject" id="subject-error">Please enter the reason for contacting us.</label>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="message" class="col-sm-2 control-label">Message</label>
                 <div class="col-sm-10">
-                  <textarea class="form-control" rows="6" placeholder="Message" id="message"></textarea>
+                  <textarea class="form-control" rows="6" placeholder="Message" id="message" name="message"></textarea>
+                  <label class="bg-danger" for="message" id="message-error">Please enter a message longer than 20 characters.</label>
                 </div>
               </div>
 
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-default">Submit</button>
+                  <button type="submit" class="btn btn-default submit_button" id="submit_button" name="submit">Submit</button>
                 </div>
               </div>
             </form>
+            <?php 
+              } // End else 
+            ?>
         </div>
     </div>
     
     <hr />
     
     <?php require_once('includes/php/footer.php') ?>
-    
+    <script src="includes/js/send_form.js" type="text/javascript"></script>  
+
+  </body>
+</html>
