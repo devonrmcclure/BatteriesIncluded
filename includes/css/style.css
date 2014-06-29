@@ -87,3 +87,7 @@ label.bg-danger, span.bg-success{
 .noscript {
   visibility: hidden;
 }
+
+.catalog-categories{
+  list-style-type: none;
+}

@@ -1,5 +1,5 @@
 $(function() {
-
+  
   $("label.bg-danger").hide();
   $("span.bg-success").hide();
   $("form").removeClass("noscript");
