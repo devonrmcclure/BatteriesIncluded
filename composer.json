@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
 	"name": "laravel/laravel",
 	"description": "The Laravel Framework.",
@@ -34,3 +35,6 @@
 	},
 	"minimum-stability": "stable"
 }
+=======
+require: "symfony/symfony": "2.5.*"
+>>>>>>> 831250abf8c17fd5d5e14139ee40229ab0fbd136
