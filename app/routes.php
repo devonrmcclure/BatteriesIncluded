@@ -13,5 +13,30 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('index');
+});
+
+Route::get('catalog', function()
+{
+	return View::make('catalog');
+});
+
+Route::get('servicing', function()
+{
+	return View::make('servicing');
+});
+
+Route::get('faq', function()
+{
+	return View::make('faq');
+});
+
+Route::get('locations-contact', function()
+{
+	return View::make('locations-contact');
+});
+
+Route::get('privacy-policy', function()
+{
+	return View::make('privacy-policy');
 });
