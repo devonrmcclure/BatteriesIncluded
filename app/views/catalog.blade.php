@@ -9,7 +9,7 @@
 	<div class="col-md-2 content">
       <h2>Categories</h2>
         <ul class="catalog-categories">
-          <li><a href="#">Batteries</a></li>
+          <li><a href="catalog/batteries">Batteries</a></li>
           <li><a href="#">Batteries</a></li>
           <li><a href="#">Batteries</a></li>
           <li><a href="#">Batteries</a></li>
