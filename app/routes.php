@@ -16,10 +16,7 @@ Route::get('/', function()
 	return View::make('index');
 });
 
-Route::get('catalog', function()
-{
-	return View::make('catalog');
-});
+Route::get('catalog', 'CatalogController@index');
 
 Route::get('servicing', function()
 {
@@ -40,3 +37,5 @@ Route::get('privacy-policy', function()
 {
 	return View::make('privacy-policy');
 });
+
+Route::resource('admin', 'AdminController');
