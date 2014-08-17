@@ -7,6 +7,4 @@
       @yield('content')
 
   </div>
-
-  <hr />
 @include('layouts.partials.footer')
