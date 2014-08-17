@@ -77,9 +77,10 @@ p {
   color: #fff;
   font-style: italic;
   padding: 5px;
+  margin-bottom: 20px;
 }
 
-label.bg-danger, span.bg-success{
+label.bg-danger, span.bg-success {
   padding: 5px;
   margin-top: 5px;
 }
@@ -88,6 +89,7 @@ label.bg-danger, span.bg-success{
   visibility: hidden;
 }
 
-.catalog-categories{
+.catalog-categories {
   list-style-type: none;
+  margin-left: -38px;
 }
