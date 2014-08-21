@@ -25,79 +25,18 @@
       <h2>Newest Items</h2>
     </div>
     <div class="row content">
-      <div class="col-md-3">
-        <img src="http://placehold.it/100x100" class="img-responsive"/>
-        <h4>CR2032 3V Button Cell</h4>
-        <p>
-          CR2032 button cell battery used in watches, car fobs, scales, etc
-        </p>
-        <span class="pull-right call-for-price">Call For Price</span>
-      </div>
+      @foreach($products as $product)
+        <div class="col-md-3">
+        <span class="pull-right call-for-price">${{ $product->price }}</span>
+          <img src="http://placehold.it/100x100" class="img-responsive"/>
+          <small>Category: {{ $product->subcategory->subcategory_name }} </small>
+          <h4 class="product-name">{{ $product->product_name }}</h4>
+          <p>
+            {{ $product->product_description }}
+          </p>
 
-      <div class="col-md-3">
-        <img src="http://placehold.it/100x100" class="img-responsive"/>
-        <h4>CR2032 3V Button Cell</h4>
-        <p>
-          CR2032 button cell battery used in watches, car fobs, scales, etc
-        </p>
-        <span class="pull-right call-for-price">Call For Price</span>
-      </div>
-
-      <div class="col-md-3">
-        <img src="http://placehold.it/100x100" class="img-responsive"/>
-        <h4>CR2032 3V Button Cell</h4>
-        <p>
-          CR2032 button cell battery used in watches, car fobs, scales, etc
-        </p>
-        <span class="pull-right call-for-price">Call For Price</span>
-      </div>
-
-      <div class="col-md-3">
-        <img src="http://placehold.it/100x100" class="img-responsive"/>
-        <h4>CR2032 3V Button Cell</h4>
-        <p>
-          CR2032 button cell battery used in watches, car fobs, scales, etc
-        </p>
-        <span class="pull-right call-for-price">Call For Price</span>
-      </div>
-    </div>
-
-    <div class="row content">
-      <div class="col-md-3">
-        <img src="http://placehold.it/100x100" class="img-responsive"/>
-        <h4>CR2032 3V Button Cell</h4>
-        <p>
-          CR2032 button cell battery used in watches, car fobs, scales, etc
-        </p>
-        <span class="pull-right call-for-price">Call For Price</span>
-      </div>
-
-      <div class="col-md-3">
-        <img src="http://placehold.it/100x100" class="img-responsive"/>
-        <h4>CR2032 3V Button Cell</h4>
-        <p>
-          CR2032 button cell battery used in watches, car fobs, scales, etc
-        </p>
-        <span class="pull-right call-for-price">Call For Price</span>
-      </div>
-
-      <div class="col-md-3">
-        <img src="http://placehold.it/100x100" class="img-responsive"/>
-        <h4>CR2032 3V Button Cell</h4>
-        <p>
-          CR2032 button cell battery used in watches, car fobs, scales, etc
-        </p>
-        <span class="pull-right call-for-price">Call For Price</span>
-      </div>
-
-      <div class="col-md-3">
-        <img src="http://placehold.it/100x100" class="img-responsive"/>
-        <h4>CR2032 3V Button Cell</h4>
-        <p>
-          CR2032 button cell battery used in watches, car fobs, scales, etc
-        </p>
-        <span class="pull-right call-for-price">Call For Price</span>
-      </div>
+        </div>
+      @endforeach
     </div>
   </div>
 

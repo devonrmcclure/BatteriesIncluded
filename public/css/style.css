@@ -93,3 +93,7 @@ label.bg-danger, span.bg-success {
   list-style-type: none;
   margin-left: -38px;
 }
+
+.product-name {
+    font-weight: bold;
+}
