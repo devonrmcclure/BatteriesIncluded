@@ -10,12 +10,9 @@
     <h2>Categories</h2>
     <div >
       <ul class="catalog-categories">
-        <li><a href="catalog/batteries">Batteries</a></li>
-        <li><a href="#">Batteries</a></li>
-        <li><a href="#">Batteries</a></li>
-        <li><a href="#">Batteries</a></li>
-        <li><a href="#">Batteries</a></li>
-        <li><a href="#">Batteries</a></li>
+        @foreach($categories as $category)
+          <li><a href="catalog/{{ $category->category_name }}"> {{ $category->category_name }} </a></li>
+        @endforeach
       </ul>
     </div>
   </div>
@@ -34,9 +31,9 @@
         @endif
           <img src="http://placehold.it/100x100" class="img-responsive"/>
           @if($product->subcategory->subcategory_name != 'Uncategorized')
-            <small>Category: {{ $product->subcategory->subcategory_name }} </small>
+            <small><b>Category:</b> <a href="#"> {{ $product->subcategory->subcategory_name }} </a></small>
           @elseif($product->category->category_name)
-            <small>Category: {{ $product->category->category_name }} </small>
+            <small><b>Category:</b> <a href="#"> {{ $product->category->category_name }} </a></small>
           @endif
           <h4 class="product-name">{{ $product->product_name }}</h4>
           <p>

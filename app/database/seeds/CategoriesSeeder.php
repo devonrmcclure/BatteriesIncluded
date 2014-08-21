@@ -14,7 +14,7 @@ class CategoriesSeeder extends Seeder {
             ['category_name' => 'Batteries'],
             ['category_name' => 'Shavers'],
             ['category_name' => 'Blenders'],
-            ['category_name' => 'accessories']
+            ['category_name' => 'Accessories']
         ];
 
         DB::table('categories')->insert($categories);
