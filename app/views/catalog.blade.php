@@ -27,9 +27,17 @@
     <div class="row content">
       @foreach($products as $product)
         <div class="col-md-3">
-        <span class="pull-right call-for-price">${{ $product->price }}</span>
+        @if($product->price != 0.00)
+          <span class="pull-right call-for-price">${{ $product->price }}</span>
+        @else
+          <span class="pull-right call-for-price">Call for price</span>
+        @endif
           <img src="http://placehold.it/100x100" class="img-responsive"/>
-          <small>Category: {{ $product->subcategory->subcategory_name }} </small>
+          @if($product->subcategory->subcategory_name != 'Uncategorized')
+            <small>Category: {{ $product->subcategory->subcategory_name }} </small>
+          @elseif($product->category->category_name)
+            <small>Category: {{ $product->category->category_name }} </small>
+          @endif
           <h4 class="product-name">{{ $product->product_name }}</h4>
           <p>
             {{ $product->product_description }}

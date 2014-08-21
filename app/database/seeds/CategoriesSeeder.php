@@ -10,10 +10,11 @@ class CategoriesSeeder extends Seeder {
     public function run()
     {
         $categories = [
+            ['category_name' => 'Uncategorized'],
             ['category_name' => 'Batteries'],
-            ['category_name' => 'Shaver Parts'],
-            ['category_name' => 'Blender Parts'],
-            ['category_name' => 'Banana']
+            ['category_name' => 'Shavers'],
+            ['category_name' => 'Blenders'],
+            ['category_name' => 'accessories']
         ];
 
         DB::table('categories')->insert($categories);
