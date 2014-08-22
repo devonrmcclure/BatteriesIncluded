@@ -4,6 +4,7 @@
 	"description": "Batteries Included Website",
 	"keywords": ["framework", "laravel", "batteries", "included"],
 	"license": "MIT",
+	"type": "project",
 	"require": {
 		"laravel/framework": "4.2.*"
 	},
