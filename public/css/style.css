@@ -6,6 +6,8 @@
 */
 h1, h2, h3, h4 {
   font-weight: 300;
+  margin-right: 0;
+  margin-left: 0;
 }
 p {
 
@@ -76,7 +78,7 @@ p {
   border: 1px solid black;
   color: #fff;
   font-style: italic;
-  padding: 5px;
+  padding: 3px;
   margin-bottom: 20px;
 }
 
@@ -96,4 +98,8 @@ label.bg-danger, span.bg-success {
 
 .product-name {
     font-weight: bold;
+}
+
+.col-md-3 {
+    height: 310px;
 }
