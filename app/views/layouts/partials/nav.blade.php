@@ -12,7 +12,7 @@
               <li><a id="home" href="http://batteriesincluded.dev/">Home</a></li>
               <li><a id="catalog" href="http://batteriesincluded.dev/catalog">Catalog</a></li>
               <li><a id="servicing" href="http://batteriesincluded.dev/servicing">Servicing</a></li>
-              <li><a id="aq" href="http://batteriesincluded.dev/ffaq">FAQ</a></li>
+              <li><a id="faq" href="http://batteriesincluded.dev/faq">FAQ</a></li>
               <li><a id="locations-contact" href="http://batteriesincluded.dev/locations-contact">Locations & Contact</a></li>
             </ul>
           </nav>
