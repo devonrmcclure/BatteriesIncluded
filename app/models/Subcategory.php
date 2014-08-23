@@ -2,7 +2,7 @@
 
 class Subcategory extends Eloquent {
 
-    public function products()
+    public function product()
     {
         return $this->hasMany('Product');
     }
