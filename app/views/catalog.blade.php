@@ -8,16 +8,12 @@
 
 	<div class="col-md-3">
     <h2>
-      @if(count($categories) == 1 && count($subCategories) != 1)
-        @foreach($categories as $category)
-          {{ $category->category_name }}
-        @endforeach
-      @elseif(count($categories) == 1 && count($subCategories) == 1)
-        @foreach($categories as $category)
-          {{ $category->category_name }}
-        @endforeach
-      @else
+      @if(count($subCategories) == 0 && count($categories) > 1)
         Categories
+      @else
+        @foreach($categories as $category)
+          {{ $category->category_name }}
+        @endforeach
       @endif
     </h2>
     <hr />
