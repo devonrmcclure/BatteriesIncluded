@@ -17,7 +17,7 @@ class CatalogController extends \BaseController {
         }
 
 		return View::make('catalog')
-            ->with('products', Product::paginate(16))
+            ->with('products', Product::paginate(9))
             ->with('categories', $data)
             ->with('subCategories', NULL)
             ->with('subCategoryLinks', $subCatLinks)
@@ -39,7 +39,7 @@ class CatalogController extends \BaseController {
             }
             foreach($data as $i)
             {
-                $products = Product::orderBy('product_name', 'ASC')->wherecategory_id($i->id)->paginate(16);
+                $products = Product::orderBy('product_name', 'ASC')->wherecategory_id($i->id)->paginate(9);
             }
             return View::make('catalog')
                 ->with('products', $products)
@@ -63,7 +63,7 @@ class CatalogController extends \BaseController {
             }
             foreach($data as $i)
             {
-                $products = Product::orderBy('product_name', 'ACS')->wheresubcategory_id($i->id)->paginate(16);
+                $products = Product::orderBy('product_name', 'ACS')->wheresubcategory_id($i->id)->paginate(9);
             }
 
             return View::make('catalog')
