@@ -46,7 +46,7 @@
       <h2>
         @if(count($categories) == 1 && count($subCategories) != 1)
           @foreach($categories as $category)
-            {{ $category->category_name }}
+            All {{ $category->category_name }}
           @endforeach
         @elseif(count($categories) == 1 && count($subCategories) == 1)
           @foreach($subCategories as $subCategory)
