@@ -8,7 +8,7 @@
 
 	<div class="col-md-3">
     <h2>
-      @if(count($subCategories) == 0 && count($categories) > 1)
+      @if(count($categories) > 1 && count($subCategories) == 0)
         Categories
       @else
         @foreach($categories as $category)
@@ -19,15 +19,11 @@
     <hr />
     <div >
       <ul class="catalog-categories">
-      @if(count($categories) > 1)
+      @if(count($categories) > 1 && count($subCategories) == 0)
         @foreach($categories as $category)
           <li><a href="http://batteriesincluded.dev/catalog/{{ $category->category_name }}"> {{ $category->category_name }} </a></li>
         @endforeach
-      @elseif(count($categories) == 1)
-        @foreach($subCategoryLinks as $subCat)
-          <li><a href="http://batteriesincluded.dev/catalog/{{ $subCat->subcategory_name }}"> {{ $subCat->subcategory_name }} </a></li>
-        @endforeach
-      @elseif(count($categories) == 1 && count($subCategories) == 1)
+      @else
         @foreach($subCategoryLinks as $subCat)
           <li><a href="http://batteriesincluded.dev/catalog/{{ $subCat->subcategory_name }}"> {{ $subCat->subcategory_name }} </a></li>
         @endforeach
@@ -82,7 +78,7 @@
       @endif
 
   </div>
-
+  <div class="col-md-3"></div>
   <div class="row content text-center product-pagination">
     <?php
       echo $products->links();
