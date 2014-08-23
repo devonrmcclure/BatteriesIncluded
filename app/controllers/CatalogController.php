@@ -17,7 +17,7 @@ class CatalogController extends \BaseController {
         }
 
 		return View::make('catalog')
-            ->with('products', Product::paginate(9))
+            ->with('products', Product::orderBy('created_at', 'ASC')->paginate(9))
             ->with('categories', $data)
             ->with('subCategories', NULL)
             ->with('subCategoryLinks', $subCatLinks)
