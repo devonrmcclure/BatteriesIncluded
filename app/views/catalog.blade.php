@@ -10,7 +10,7 @@
     <h2>Categories</h2>
     <div >
       <ul class="catalog-categories">
-        @foreach($categories as $category)
+        @foreach($categoryLinks as $category)
           <li><a href="catalog/{{ $category->category_name }}"> {{ $category->category_name }} </a></li>
         @endforeach
       </ul>
@@ -18,50 +18,17 @@
   </div>
 
   <div class="col-md-10 content">
-    <div class="col-md-12">
-      <h2>Newest Items</h2>
-    </div>
-      @foreach($products as $product)
-        <div class="col-md-3">
-        @if($product->price != 0.00)
-          <span class="pull-right call-for-price">${{ $product->price }}</span>
-        @else
-          <span class="pull-right call-for-price">Call for price</span>
-        @endif
-          <img src="http://placehold.it/100x100" class="img-responsive"/>
-          @if($product->subcategory->subcategory_name != 'Uncategorized')
-            <small><b>Category:</b> <a href="#"> {{ $product->subcategory->subcategory_name }} </a></small>
-          @elseif($product->category->category_name)
-            <small><b>Category:</b> <a href="#">{{ $product->category->category_name }}</a></small>
-          @endif
-          <h4 class="product-name">{{ $product->product_name }}</h4>
-          <p>
-            {{ $product->product_description }}
-          </p>
-        </div>
-      @endforeach
-
-      @foreach($products as $product)
-        <div class="col-md-3">
-        @if($product->price != 0.00)
-          <span class="pull-right call-for-price">${{ $product->price }}</span>
-        @else
-          <span class="pull-right call-for-price">Call for price</span>
-        @endif
-          <img src="http://placehold.it/100x100" class="img-responsive"/>
-          @if($product->subcategory->subcategory_name != 'Uncategorized')
-            <small><b>Category:</b> <a href="#"> {{ $product->subcategory->subcategory_name }} </a></small>
-          @elseif($product->category->category_name)
-            <small><b>Category:</b> <a href="#">{{ $product->category->category_name }}</a></small>
-          @endif
-          <h4 class="product-name">{{ $product->product_name }}</h4>
-          <p>
-            {{ $product->product_description }}
-          </p>
-        </div>
-      @endforeach
-
-      <!-- Here for tessting purposes because I only have 4 products in the database atm -->
+  <div class="col-md-12">
+    <h2>
+      @if(count($categories) == 1)
+        @foreach($categories as $category)
+          {{ $category->category_name }}
+        @endforeach
+      @else
+        Newest Items
+      @endif
+    </h2>
+  </div>
       @foreach($products as $product)
         <div class="col-md-3">
         @if($product->price != 0.00)
@@ -82,5 +49,4 @@
         </div>
       @endforeach
   </div>
-
 @stop
