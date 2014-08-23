@@ -22,10 +22,11 @@
       @if(count($categories) > 1 && count($subCategories) == 0)
         @foreach($categories as $category)
           <li class="list-group-item">
-          <span class="badge">
+            <span class="badge">
               {{ count(Product::wherecategory_id($category->id)->get()); }}
-          </span>
-          <a href="http://batteriesincluded.dev/catalog/{{ $category->category_name }}"> {{ $category->category_name }} </a></li>
+           </span>
+            <a href="http://batteriesincluded.dev/catalog/{{ $category->category_name }}"> {{ $category->category_name }} </a>
+          </li>
         @endforeach
       @else
         @foreach($subCategoryLinks as $subCat)
