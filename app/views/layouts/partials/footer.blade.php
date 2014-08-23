@@ -37,13 +37,13 @@
             <div class="col-md-3">
                 <h3>Useful Links</h3>
                 <ul class="bottom-nav">
-                  <li><a href="/">Home</a></li>
-                  <li><a href="catalog">Catalog</a></li>
-                  <li><a href="servicing">Servicing</a></li>
-                  <li><a href="faq">FAQ</a></li>
-                  <li><a href="locations-contact">Locations & Contact</a></li>
-                  <li><a href="privacy-policy">Privacy Policy</a></li>
-                  
+                  <li><a href="http://batteriesincluded.dev//">Home</a></li>
+                  <li><a href="http://batteriesincluded.dev/catalog">Catalog</a></li>
+                  <li><a href="http://batteriesincluded.dev/servicing">Servicing</a></li>
+                  <li><a href="http://batteriesincluded.dev/faq">FAQ</a></li>
+                  <li><a href="http://batteriesincluded.dev/locations-contact">Locations & Contact</a></li>
+                  <li><a href="http://batteriesincluded.dev/privacy-policy">Privacy Policy</a></li>
+
               </ul>
             </div>
         </div>
