@@ -1,9 +1,9 @@
 $(function() {
-  
+
   $("label.bg-danger").hide();
   $("span.bg-success").hide();
   $("form").removeClass("noscript");
-  $(".submit_button").click(function() {
+  $(".submit-button").click(function() {
     // validate and process form here
     var to;
     var location = $("select#location").val();
@@ -15,22 +15,22 @@ $(function() {
     // alert(location + name +  phone + email + subject + message); // Used for testing purposes.
 
     switch(location){
-      case "Surrey":
+      case "surrey":
         to = "guildford@batteriesincluded.ca";
         $("label#location-error").hide();
         break;
 
-      case "Richmond":
+      case "richmond":
         to = "lansdowne@batteriesincluded.ca";
         $("label#location-error").hide();
         break;
 
-      case "White Rock":
+      case "white rock":
         to = "whiterock@batteriesincluded.ca";
         $("label#location-error").hide();
         break;
 
-      case "Nanaimo":
+      case "nanaimo":
         to = "nanaimo@batteriesincluded.ca";
         $("label#location-error").hide();
         break;
@@ -59,7 +59,7 @@ $(function() {
 
     if (email.match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/) || email == "") {
       $("label#email-error").show();
-      $("input#email").focus();    
+      $("input#email").focus();
       return false;
     } else {
       $("label#email-error").hide();
