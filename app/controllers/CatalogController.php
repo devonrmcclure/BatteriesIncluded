@@ -7,7 +7,7 @@ class CatalogController extends \BaseController {
         $this->beforeFilter('csfr', array('on' => 'post'));
     }
 
-	public function index()
+	public function showIndex()
 	{
         $data = Category::orderBy('category_name', 'ASC')->get(); // Get all category names and order them Alphabetically.
 
