@@ -43,19 +43,30 @@
 
   <div class="col-md-9 content">
     <div class="col-md-12">
-      <h2>
         @if(count($categories) == 1 && count($subCategories) != 1)
           @foreach($categories as $category)
-            All {{ $category->category_name }}
+            <h2>All {{ $category->category_name }}</h2>
+            <ol class="breadcrumb">
+              <li><a href="http://batteriesincluded.dev/catalog">Catalog Home</a></li>
+              <li>{{ $category->category_name }}</li>
+            </ol>
           @endforeach
         @elseif(count($categories) == 1 && count($subCategories) == 1)
           @foreach($subCategories as $subCategory)
-            {{ $subCategory->subcategory_name }}
+            <h2>{{ $subCategory->subcategory_name }}</h2>
+            <ol class="breadcrumb">
+              <li><a href="http://batteriesincluded.dev/catalog">Catalog Home</a></li>
+              <li>
+              @foreach($categories as $category)
+                <a href="http://batteriesincluded.dev/{{ $category->category_name }}">{{ $category->category_name }}</a>
+              @endforeach
+              </li>
+              <li>{{ $subCategory->subcategory_name }}</li>
+            </ol>
           @endforeach
         @else
-          Newest Items
+          <h2>Newest Items</h2>
         @endif
-      </h2>
       <hr />
     </div>
 
@@ -67,9 +78,9 @@
         @foreach($products as $product)
           <div class="col-md-4 product-tile">
           @if($product->price != 0.00)
-            <span class="pull-right call-for-price">${{ $product->price }}</span>
+            <span class="pull-right product-price">${{ $product->price }}</span>
           @else
-            <span class="pull-right call-for-price">Call for price</span>
+            <span class="pull-right product-price">Call for price</span>
           @endif
             <img src="http://placehold.it/130x100" class="img-responsive"/>
             @if($product->subcategory->subcategory_name != 'Uncategorized')
