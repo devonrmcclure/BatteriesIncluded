@@ -16,7 +16,7 @@ Route::get('/', function()
 	return View::make('index');
 });
 
-Route::get('catalog', 'CatalogController@index');
+Route::get('catalog', 'CatalogController@showIndex');
 Route::get('catalog/{category}', 'CatalogController@showCategory');
 
 Route::get('servicing', function()
@@ -29,10 +29,8 @@ Route::get('faq', function()
 	return View::make('faq');
 });
 
-Route::get('locations-contact', function()
-{
-	return View::make('locations-contact');
-});
+Route::get('locations-contact', 'ContactController@showIndex');
+Route::post('locations-contact', 'ContactController@postContact');
 
 Route::get('privacy-policy', function()
 {
