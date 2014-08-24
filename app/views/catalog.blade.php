@@ -58,7 +58,7 @@
               <li><a href="http://batteriesincluded.dev/catalog">Catalog Home</a></li>
               <li>
               @foreach($categories as $category)
-                <a href="http://batteriesincluded.dev/{{ $category->category_name }}">{{ $category->category_name }}</a>
+                <a href="http://batteriesincluded.dev/catalog/{{ $category->category_name }}">{{ $category->category_name }}</a>
               @endforeach
               </li>
               <li>{{ $subCategory->subcategory_name }}</li>
