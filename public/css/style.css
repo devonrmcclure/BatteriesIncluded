@@ -37,10 +37,6 @@ p {
   background-color: #007BAB;
 }
 
-.active {
-	background-color: #007BAB;
-  cursor: default;
-}
 .navbar-toggle {
 	color: #B3C5EE;
 	font-size: 32px;
@@ -107,4 +103,9 @@ label.bg-danger, span.bg-success {
 
 .product-pagination li a .active{
     color: red;
+}
+
+.breadcrumb {
+  background-color: #fff;
+  margin-left: -13px;
 }
