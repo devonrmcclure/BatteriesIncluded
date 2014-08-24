@@ -8,7 +8,7 @@
 
 <div class="col-md-7 content">
   <h2>Locations</h2>
-  <p class="text">We have a variety of locations throughout the lower mainland, please see which store is 
+  <p class="text">We have a variety of locations throughout the lower mainland, please see which store is
     closest to you, and how to get to it below.
   </p>
 
@@ -19,8 +19,8 @@
     <li><strong>Email:</strong> <a href="mailto:guildford@batteriesincluded.ca">guildford@batteriesincluded.ca</a></li>
   </ul>
 
-  <p class="text">Our Surrey store is located on the southeast corner of the 102A and 152nd Street 
-    intersection. It's located in the strip mall right across the street from Red Robins 
+  <p class="text">Our Surrey store is located on the southeast corner of the 102A and 152nd Street
+    intersection. It's located in the strip mall right across the street from Red Robins
     near Guildford Mall. There is a big white sign that reads "Hobbies" and we are located in there.
   </p>
 
@@ -64,67 +64,78 @@
   </noscript>
   <hr />
   <span class="bg-success">Your message has been successfully sent! We will be with you shortly!</span>
-  <form class="form-horizontal noscript contact-form" id="contact-form" role="form" method="post">
+  {{ Form::open(array('url' => 'users', 'class' => 'form-horizontal noscript contact-form', 'id' => 'contact-form', 'role' => 'form')) }}
     <div class="form-group">
-      <label class="col-sm-2 control-label">Location</label>
+      {{ Form::label('location', 'Location', array('class' => 'col-sm-2 control-label')) }}
+
       <div class="col-sm-10">
-        <select class="form-control col-xs-4" id="location" name="location">
-          <option selected="selected">-- Select Your Location --</option>
-          <option>Surrey</option>
-          <option>Richmond</option>
-          <option>White Rock</option>
-          <option>Nanaimo</option>
-        </select>
-        <label class="bg-danger" for="location" id="location-error">Please select a location.</label>
+        {{ Form::select('Location', array(
+            'select location' => '-- Select Your Location --',
+            'surrey' => 'Surrey',
+            'richmond' => 'Richmond',
+            'white rock' => 'White Rock',
+            'nanaimo' => 'Nanaimo',
+        ), null, array('class' => 'form-control col-xs-4', 'id' => 'location'))}}
+
+        {{ Form::label('location', 'Please select a location.', array('class' => 'bg-danger', 'id' => 'location-error'))}}
       </div>
     </div>
 
     <div class="form-group">
-      <label for="name" class="col-sm-2 control-label">Name</label>
+      {{ Form::label('name', 'Name', array('class' => 'col-sm-2 control-label')) }}
+
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="name" placeholder="Name" name="name">
-        <label class="bg-danger" for="name" id="name-error">Please enter your name. We need to know who we're talking to!</label>
+        {{ Form::text('name', '', array('class' => 'form-control', 'id' => 'name', 'placeholder' => 'Your Name')) }}
+
+        {{ Form::label('name', 'Please enter your name. We need to know who we\'re talking to!', array('class' => 'bg-danger', 'id' => 'name-error'))}}
       </div>
     </div>
 
     <div class="form-group">
-      <label for="phone" class="col-sm-2 control-label">Phone Number</label>
+      {{ Form::label('phone', 'Phone', array('class' => 'col-sm-2 control-label')) }}
       <div class="col-sm-10">
-        <input type="tel" class="form-control" id="phone" placeholder="Phone" name="phone_num">
-        <label class="bg-danger" for="phone" id="phone-error">Please enter a valid phone number including area code.</label>
+        {{ Form::text('phone_num', '', array('class' => 'form-control', 'id' => 'phone', 'placeholder' => 'Phone Number')) }}
+
+        {{ Form::label('phone', 'Please enter a valid phone number including area code.', array('class' => 'bg-danger', 'id' => 'phone-error')) }}
       </div>
     </div>
 
     <div class="form-group">
-      <label for="email" class="col-sm-2 control-label">Email</label>
+      {{ Form::label('email', 'Email', array('class' => 'col-sm-2 control-label')) }}
+
       <div class="col-sm-10">
-        <input type="email" class="form-control" id="email" placeholder="Email" name="email">
-        <label class="bg-danger" for="email" id="email-error">Please enter a valid email.</label>
+        {{ Form::email('email', '', array('class' => 'form-control', 'id' => 'email', 'placeholder' => 'Email')) }}
+
+        {{ Form::label('email', 'Please enter a valid email address.', array('class' => 'bg-danger', 'id' => 'email-error')) }}
       </div>
     </div>
 
     <div class="form-group">
-      <label for="email" class="col-sm-2 control-label">Subject</label>
+      {{ Form::label('subject', 'Subject', array('class' => 'col-sm-2 control-label')) }}
+
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="subject" placeholder="Subject" name="subject">
-        <label class="bg-danger" for="subject" id="subject-error">Please enter the reason for contacting us.</label>
+        {{ Form::text('subject', '', array('class' => 'form-control', 'id' => 'subject', 'placeholder' => 'Subject')) }}
+
+        {{ Form::label('subject', 'Please enter a subject.', array('class' => 'bg-danger', 'id' => 'subject-error')) }}
       </div>
     </div>
 
     <div class="form-group">
-      <label for="message" class="col-sm-2 control-label">Message</label>
+      {{ Form::label('message', 'Message', array('class' => 'col-sm-2 control-label')) }}
+
       <div class="col-sm-10">
-        <textarea class="form-control" rows="6" placeholder="Message" id="message" name="message"></textarea>
-        <label class="bg-danger" for="message" id="message-error">Please enter a message longer than 20 characters.</label>
+        {{ Form::textarea('message', '', array('class' => 'form-control', 'id' => 'message', 'placeholder' => 'Message', 'rows' => '6')) }}
+
+        {{ Form::label('message', 'Please enter a message longer than 20 characters.', array('class' => 'bg-danger', 'id' => 'message-error')) }}
       </div>
     </div>
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default submit_button" id="submit_button" name="submit">Submit</button>
+        {{ Form::button('Submit', array('class' => 'btn btn-default submit-button submit-button', 'id' => 'submit-button', 'name' => 'submit')) }}
       </div>
     </div>
-  </form>
+  {{ Form::close() }}
 </div>
 
 @stop
