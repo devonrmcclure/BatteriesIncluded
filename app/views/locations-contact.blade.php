@@ -63,8 +63,7 @@
     as it uses JavaScript to send the information.
   </noscript>
   <hr />
-  <span class="bg-success">Your message has been successfully sent! We will be with you shortly!</span>
-  {{ Form::open(array('url' => 'users', 'class' => 'form-horizontal noscript contact-form', 'id' => 'contact-form', 'role' => 'form')) }}
+  {{ Form::open(array('url' => 'http://batteriesincluded.dev/locations-contact/send', 'class' => 'form-horizontal noscript contact-form', 'id' => 'contact-form', 'role' => 'form')) }}
     <div class="form-group">
       {{ Form::label('location', 'Location', array('class' => 'col-sm-2 control-label')) }}
 
@@ -132,7 +131,7 @@
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        {{ Form::button('Submit', array('class' => 'btn btn-default submit-button submit-button', 'id' => 'submit-button', 'name' => 'submit')) }}
+        {{ Form::submit('Submit', array('class' => 'btn btn-default submit-button submit-button', 'id' => 'submit-button', 'name' => 'submit')) }}
       </div>
     </div>
   {{ Form::close() }}
