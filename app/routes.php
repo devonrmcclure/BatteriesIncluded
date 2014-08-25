@@ -30,7 +30,7 @@ Route::get('faq', function()
 });
 
 Route::get('locations-contact', 'ContactController@showIndex');
-Route::post('locations-contact', 'ContactController@postContact');
+Route::post('locations-contact/send', 'ContactController@postContact');
 
 Route::get('privacy-policy', function()
 {
