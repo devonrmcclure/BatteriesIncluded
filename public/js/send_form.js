@@ -1,7 +1,6 @@
 $(function() {
 
   $("label.bg-danger").hide();
-  $("span.bg-success").hide();
   $("form").removeClass("noscript");
   $(".submit-button").click(function() {
     // validate and process form here
@@ -81,23 +80,7 @@ $(function() {
       $("label#message-error").hide();
     }
 
-    var dataString = 'to=' + to + '&name='+ name + '&phone=' + phone + '&email=' + email + '&subject=' +
-                      subject + '&message=' + message;
-
-    alert(dataString);
-
-    $.ajax({
-      type: "POST",
-      url:'http://localhost/batteriesincluded/includes/php/contact.php',
-      data: dataString,
-
-      success: function(data){
-        alert(data);//only for testing purposes
-        $("#contact-form").hide();
-        $("span.bg-success").show();
-      }
     });
 
-    return false; // avoid to execute the actual submit of the form.
-  });
+    //return false; // avoid to execute the actual submit of the form.
 });
