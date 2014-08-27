@@ -15,6 +15,15 @@
               <li><a id="faq" href="http://batteriesincluded.dev/faq">FAQ</a></li>
               <li><a id="locations-contact" href="http://batteriesincluded.dev/locations-contact">Locations & Contact</a></li>
             </ul>
+            @if(Auth::check())
+              <p class="navbar-text navbar-right">
+                <a href="http://batteriesincluded.dev/admin" class="navbar-link">{{ Auth::user()->username }}</a>
+              </p>
+              <a href="http://batteriesincluded.dev/admin/logout">
+                <button type="button" class="btn btn-default navbar-btn pull-right">Sign Out</button>
+              </a>
+            @endif
           </nav>
+
         </div>
       </header>
