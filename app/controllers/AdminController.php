@@ -2,21 +2,41 @@
 
 class AdminController extends \BaseController {
 
-	public function __construct()
-	{
-	    $this->beforeFilter('csfr', array('on' => 'post'));
-	}
-
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function showIndex()
 	{
-		return 'Hi';
+		// View make Admin dashboard
+		//
+		//
+		if(Auth::guest())
+		{
+			return Redirect::to('http://batteriesincluded.dev/admin/login');
+		} else
+		{
+			return View::make('admin.index');
+		}
 	}
 
+	public function showLogin()
+	{
+		// View make login page.
+
+		if(Auth::guest())
+		{
+			// Get login info then attempt to login.
+			if(Auth::attempt(array('username' => 'Batteries Included', 'password' => 'root')))
+			{
+				//Auth::login(Auth::user());
+				return Redirect::to('http://batteriesincluded.dev/admin');
+			} else {
+				return 'penis';
+			}
+		}
+	}
 
 	/**
 	 * Show the form for creating a new resource.
@@ -82,9 +102,11 @@ class AdminController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy()
 	{
-		//
+		Auth::logout();
+
+		return Redirect::to('http://batteriesincluded.dev/');
 	}
 
 
