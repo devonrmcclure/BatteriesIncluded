@@ -10,7 +10,6 @@ class ContactController extends \BaseController {
     //Contact Form
     public function postContact(){
 
-        echo 'WOOOOO';
         //Get all the data and store it inside Store Variable
         $data = Input::all();
 
@@ -23,22 +22,41 @@ class ContactController extends \BaseController {
             'message' => 'required|min:20'
         );
 
+
         //Validate data
         $validator = Validator::make ($data, $rules);
 
         //If everything is correct than run passes.
         if ($validator -> passes()){
 
+            switch($data['location'])
+            {
+                case 'surrey':
+                    $data['location'] = 'guildford@batteriesincluded.ca';
+                    break;
+                case 'richmond':
+                    $data['location'] = 'lansdowne@batteriesincluded.ca';
+                    break;
+                case 'white rock':
+                    $data['location'] = 'whiterock@batteriesincluded.ca';
+                    break;
+                case 'nanaimo':
+                    $data['location'] = 'nanaimo@batteriesincluded.ca';
+                    break;
+                default:
+                    $data['location'] = '';
+            }
+
             //Send email using Laravel send function
-            Mail::send('locations-contact', $data, function($message) use ($data)
+            Mail::send('emails.test', $data, function($message) use ($data)
             {
                 //email 'From' field: Get users email add and name
                 $message->from($data['email'] , $data['name']);
                 //email 'To' field: change this to emails that you want to be notified.
-                $message->to('whiterock@batteriesincluded.ca', 'Batteries Included')->cc('devon.r.mcclure@gmail.com')->subject($data['subject']);
+                $message->to($data['location'], 'Batteries Included')->subject($data['subject']);
             });
 
-        return View::make('locations-contact');
+            return Redirect::to('http://batteriesincluded.dev/locations-contact')->with('flash-message', 'Your message has been sent! Someone will get back to you shortly!')->withInput();
         }else{
             //return contact form with errors
             return Redirect::to('http://batteriesincluded.dev/locations-contact')

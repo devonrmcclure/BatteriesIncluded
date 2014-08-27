@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => null, 'name' => null),
+	'from' => array('address' => 'contact@batteriesincluded.ca', 'name' => 'Contact'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => 'whiterock@batteriesincluded.ca',
+	'username' => '',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => $_ENV['MANDRILL_API_KEY'],
+	'password' => '',
 
 	/*
 	|--------------------------------------------------------------------------

@@ -68,8 +68,8 @@
       {{ Form::label('location', 'Location', array('class' => 'col-sm-2 control-label')) }}
 
       <div class="col-sm-10">
-        {{ Form::select('Location', array(
-            'select location' => '-- Select Your Location --',
+        {{ Form::select('location', array(
+            'select_location' => '-- Select Your Location --',
             'surrey' => 'Surrey',
             'richmond' => 'Richmond',
             'white rock' => 'White Rock',

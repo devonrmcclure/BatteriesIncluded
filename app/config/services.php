@@ -1,6 +1,6 @@
 <?php
 
-return array(
+return [
 
 	/*
 	|--------------------------------------------------------------------------
@@ -14,18 +14,8 @@ return array(
 	|
 	*/
 
-	'mailgun' => array(
-		'domain' => '',
-		'secret' => '',
-	),
+	'mandrill' => [
+		'secret' => $_ENV['MANDRILL_SECRET'],
+	],
 
-	'mandrill' => array(
-		'secret' => '',
-	),
-
-	'stripe' => array(
-		'model'  => 'User',
-		'secret' => '',
-	),
-
-);
+];

@@ -109,3 +109,8 @@ label.bg-danger, span.bg-success {
   background-color: #fff;
   margin-left: -13px;
 }
+
+.flash-message {
+  padding: 1em;
+  margin: .7em 0;
+}
