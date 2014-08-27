@@ -110,9 +110,9 @@ label.bg-danger, span.bg-success {
   margin-left: -13px;
 }
 
-.flash-message {
+.alert-info, .alert-success, .alert-danger, .alert-warning {
   padding: 1em;
-  margin: .7em 0;
+  margin: 1em 0;
 }
 
 .navbar-text {

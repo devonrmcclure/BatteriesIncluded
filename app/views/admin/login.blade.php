@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layouts.admin')
 
 @section('title')
     Batteries Included - Home
@@ -6,13 +6,33 @@
 
 @section('content')
 
-    <div class="col-md-7 content">
-        <h2>Who We Are</h2>
-        <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sagittis diam metus, a fermentum arcu fermentum ac. Sed sit amet lorem in leo laoreet pretium. Etiam auctor ornare mi a cursus. Morbi interdum nibh quis ante malesuada facilisis. Praesent pharetra sapien sapien, eu sollicitudin risus rutrum vitae. Quisque id orci eu libero volutpat semper in id velit. Duis pretium volutpat turpis non feugiat.</p>
+    <div class="col-md-4"></div>
+    <div class="col-md-5">
+        <h1>Please login!</h1>
+        <hr />
+        {{ Form::open(array('url' => 'http://batteriesincluded.dev/admin/login', 'class' => 'form-horizontal contact-form', 'id' => 'contact-form', 'role' => 'form')) }}
+
+            <div class="form-group">
+              {{ Form::label('username', 'Userame', array('class' => 'col-sm-2 control-label')) }}
+
+              <div class="col-sm-10">
+                {{ Form::text('username', '', array('class' => 'form-control', 'id' => 'username', 'placeholder' => 'Username')) }}
+              </div>
+            </div>
+
+            <div class="form-group">
+              {{ Form::label('password', 'Password', array('class' => 'col-sm-2 control-label')) }}
+
+              <div class="col-sm-10">
+                {{ Form::password('password', array('class' => 'form-control', 'id' => 'password', 'placeholder' => 'Password')) }}
+              </div>
+            </div>
+
+
+            {{ Form::submit('Submit', array('class' => 'btn btn-default submit-button submit-button', 'id' => 'submit-button', 'name' => 'submit')) }}
+
+        {{ Form::close() }}
     </div>
-    <div class="col-md-5 content">
-        <h2>WHAT TO PUT HERE?!?</h2>
-        <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sagittis diam metus, a fermentum arcu fermentum ac. Sed sit amet lorem in leo laoreet pretium. Etiam auctor ornare mi a cursus. Morbi interdum nibh quis ante malesuada facilisis. Praesent pharetra sapien sapien, eu sollicitudin risus rutrum vitae. Quisque id orci eu libero volutpat semper in id velit. Duis pretium volutpat turpis non feugiat.</p>
-    </div>
+    <div class="col-md-4"></div>
 
 @stop

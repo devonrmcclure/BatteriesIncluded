@@ -4,7 +4,9 @@
 @if(Session::has('flash-message'))
     <div class="col-md-3"></div>
     <div class="flash-message col-md-6 text-center">
-        <span class="bg-success">{{ Session::get('flash-message') }}</span>
+        <span class="{{ Session::get('alert-class', 'alert-info') }}">
+          {{ Session::get('flash-message') }}
+        </span>
     </div>
     <div class="col-md-3"></div>
 @endif
