@@ -39,3 +39,4 @@ Route::get('privacy-policy', function()
 
 Route::get('admin', 'AdminController@showIndex');
 Route::get('admin/login', 'AdminController@showLogin');
+Route::get('admin/logout', 'AdminController@destroy');
