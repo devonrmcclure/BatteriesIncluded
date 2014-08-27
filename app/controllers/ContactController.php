@@ -2,6 +2,12 @@
 
 class ContactController extends \BaseController {
 
+    public function __construct()
+    {
+        $this->beforeFilter('csfr', array('on' => 'post'));
+    }
+
+
     public function showIndex()
     {
         return View::make('locations-contact');
