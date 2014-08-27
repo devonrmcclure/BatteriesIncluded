@@ -21,7 +21,7 @@ class ContactController extends \BaseController {
 
         //Validation rules
         $rules = array (
-            'name' => 'required|alpha',
+            'name' => 'required',
             'phone'=>'numeric|min:8',
             'email' => 'required|email',
             'subject' => 'required',
@@ -54,7 +54,7 @@ class ContactController extends \BaseController {
             }
 
             //Send email using Laravel send function
-            Mail::send('emails.test', $data, function($message) use ($data)
+            Mail::send('emails.contact', $data, function($message) use ($data)
             {
                 //email 'From' field: Get users email add and name
                 $message->from($data['email'] , $data['name']);
