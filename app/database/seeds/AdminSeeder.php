@@ -7,7 +7,28 @@ class AdminSeeder extends Seeder {
         {
             $products = [
                 [
-                    'username' => 'batteriesincluded',
+                    'username' => 'Guildford',
+                    'password' => Hash::make('root'),
+                    'created_at' => new DateTime(),
+                    'updated_at' => new DateTime()
+                ],
+
+                [
+                    'username' => 'Richmond',
+                    'password' => Hash::make('root'),
+                    'created_at' => new DateTime(),
+                    'updated_at' => new DateTime()
+                ],
+
+                [
+                    'username' => 'White Rock',
+                    'password' => Hash::make('root'),
+                    'created_at' => new DateTime(),
+                    'updated_at' => new DateTime()
+                ],
+
+                [
+                    'username' => 'Nanaimo',
                     'password' => Hash::make('root'),
                     'created_at' => new DateTime(),
                     'updated_at' => new DateTime()
