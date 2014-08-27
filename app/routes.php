@@ -37,4 +37,5 @@ Route::get('privacy-policy', function()
 	return View::make('privacy-policy');
 });
 
-Route::resource('admin', 'AdminController');
+Route::get('admin', 'AdminController@showIndex');
+Route::get('admin/login', 'AdminController@showLogin');
