@@ -56,7 +56,7 @@ class ContactController extends \BaseController {
                 $message->to($data['location'], 'Batteries Included')->subject($data['subject']);
             });
 
-            return Redirect::to('http://batteriesincluded.dev/locations-contact')->with('flash-message', 'Your message has been sent! Someone will get back to you shortly!')->withInput();
+            return Redirect::to('http://batteriesincluded.dev/locations-contact')->with('flash-message', 'Your message has been sent! Someone will get back to you shortly!');
         }else{
             //return contact form with errors
             return Redirect::to('http://batteriesincluded.dev/locations-contact')
