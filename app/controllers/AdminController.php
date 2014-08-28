@@ -128,16 +128,25 @@ class AdminController extends \BaseController {
 										->with('alert-class', 'alert-success');
 						break;
 					case 'subcategory':
-						$subCategory = new Subcategory;
-						$subCategory->parent_category = $data['parentcategory-name'];
-						$subCategory->subcategory_name = $data['subcategory-name'];
-						$subCategory->created_at = new DateTime();
-						$subCategory->updated_at = new DateTime();
-						$subCategory->save();
-						return Redirect::to('http://batteriesincluded.dev/admin/add/subcategory')
-										->with('flash-message', 'Subcategory ' . $data['subcategory-name'] . ' has been successfully added!')
-										->with('alert-class', 'alert-success');
-						break;
+
+						if($data['parentcategory-name'] != 'selectparentcategory')
+						{
+							$subCategory = new Subcategory;
+							$subCategory->parent_category = $data['parentcategory-name'];
+							$subCategory->subcategory_name = $data['subcategory-name'];
+							$subCategory->created_at = new DateTime();
+							$subCategory->updated_at = new DateTime();
+							$subCategory->save();
+							return Redirect::to('http://batteriesincluded.dev/admin/add/subcategory')
+											->with('flash-message', 'Subcategory ' . $data['subcategory-name'] . ' has been successfully added!')
+											->with('alert-class', 'alert-success');
+							break;
+						} else {
+							return Redirect::to('http://batteriesincluded.dev/admin/add/subcategory')
+											->with('flash-message', 'Please select a parent category!')
+											->with('alert-class', 'alert-danger')
+											->withInput();
+						}
 					default:
 						return '404';
 				}

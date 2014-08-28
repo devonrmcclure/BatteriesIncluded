@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Batteries Included - Add Category
+    Batteries Included - Add Subcategory
 @stop
 
 @section('content')
@@ -28,7 +28,7 @@
 
               <div class="col-sm-5">
                 <select class="form-control col-xs-4" id="parentcategory-name" name="parentcategory-name">
-                    <option value="0">-- Select Your Location --</option>
+                    <option value="selectparentcategory">-- Select a Parent Category --</option>
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                     @endforeach
