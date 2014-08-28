@@ -4,13 +4,27 @@
     Batteries Included - Home
 @stop
 
+@section('sidebar')
+
+@stop
+@if(Session::has('flash-message'))
+  <div class="row content">
+    <div class="col-md-3"></div>
+    <div class="flash-message col-md-6 text-center">
+        <span class="{{ Session::get('alert-class', 'alert-info') }}">
+            {{ Session::get('flash-message') }}
+        </span>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+@endif
 @section('content')
 
     <div class="col-md-4"></div>
     <div class="col-md-5">
         <h1>Please login!</h1>
         <hr />
-        {{ Form::open(array('url' => 'http://batteriesincluded.dev/admin/login', 'class' => 'form-horizontal contact-form', 'id' => 'contact-form', 'role' => 'form')) }}
+        {{ Form::open(array('url' => 'http://batteriesincluded.dev/admin/login', 'class' => 'form-horizontal', 'id' => 'login-form', 'role' => 'form')) }}
 
             <div class="form-group">
               {{ Form::label('username', 'Userame', array('class' => 'col-sm-2 control-label')) }}

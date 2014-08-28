@@ -41,3 +41,7 @@ Route::get('admin', 'AdminController@showIndex');
 Route::get('admin/login', 'AdminController@showLogin');
 Route::post('admin/login', 'AdminController@postLogin');
 Route::get('admin/logout', 'AdminController@destroy');
+Route::get('admin/add/{type?}', 'AdminController@getCreate');
+Route::post('admin/add/{type?}/post', 'AdminController@store');
+Route::get('admin/edit/{type?}', 'AdminController@getShowEditIndex');
+Route::get('admin/edit/product/{product-name}', 'AdminController@getShowEditProduct');

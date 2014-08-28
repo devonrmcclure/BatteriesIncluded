@@ -17,7 +17,9 @@ class AdminController extends \BaseController {
 			return Redirect::to('http://batteriesincluded.dev/admin/login');
 		} else
 		{
-			return View::make('admin.index');
+			$products = Product::all();
+
+			return View::make('admin.index')->with('products', $products);
 		}
 	}
 
@@ -60,9 +62,33 @@ class AdminController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function getCreate($type = NULL)
 	{
-
+		if(Auth::guest())
+		{
+			return Redirect::to('http://batteriesincluded.dev/admin/login');
+		} else {
+			if($type)
+			{
+				switch($type)
+				{
+					case 'product':
+						// Show Catalog add form.
+						return View::make('admin.add.product');
+						break;
+					case 'category':
+						return View::make('admin.add.category');
+						break;
+					case 'subcategory':
+						return $type . ' added';
+						break;
+					default:
+						return '404';
+				}
+			} else {
+				return 'add index added';
+			}
+		}
 	}
 
 
@@ -71,9 +97,42 @@ class AdminController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store($type = NULL)
 	{
-		//
+		if(Auth::guest())
+		{
+			return Redirect::to('http://batteriesincluded.dev/admin/login');
+		} else {
+			if($type)
+			{
+				$data = Input::all();
+				switch($type)
+				{
+					case 'product':
+						// TOTO: Added catalog item to catalog.
+						echo $data['product_name'];
+						return $type . ' added';
+						break;
+					case 'category':
+						$category = new Category;
+						$category->category_name = $data['category-name'];
+						$category->created_at = new DateTime();
+						$category->updated_at = new DateTime();
+						$category->save();
+						return Redirect::to('http://batteriesincluded.dev/admin/add/category')
+										->with('flash-message', 'Category ' . $data['category-name'] . ' has been successfully added!')
+										->with('alert-class', 'alert-success');
+						break;
+					case 'subcategory':
+						return $type . ' added';
+						break;
+					default:
+						return '404';
+				}
+			} else {
+				return 'add index added';
+			}
+		}
 	}
 
 

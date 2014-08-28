@@ -122,3 +122,29 @@ label.bg-danger, span.bg-success {
 .navbar-text a {
   color: #fff;
 }
+
+.admin-sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #000;
+  padding: 0 20px 0 10px;
+  color: #888;
+}
+
+.admin-sidebar-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.admin-sidebar-nav li {
+  margin: 10px 0;
+}
+
+.admin-sidebar-nav a {
+  color: #888;
+}

@@ -1,19 +1,11 @@
 @include('layouts.partials.header')
-@include('layouts.partials.nav')
+@include('admin.partials.nav')
 
-@if(Session::has('flash-message'))
-    <div class="col-md-3"></div>
-    <div class="flash-message col-md-6 text-center">
-        <span class="{{ Session::get('alert-class', 'alert-info') }}">
-            {{ Session::get('flash-message') }}
-        </span>
-    </div>
-    <div class="col-md-3"></div>
-@endif
-
+@section('sidebar')
+  @include('admin.partials.sidebar')
+@show
   <!-- Container -->
   <div class="container">
-
       <!-- Content -->
       @yield('content')
 
