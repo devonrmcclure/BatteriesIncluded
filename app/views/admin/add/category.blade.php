@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="col-md-9 content">
+    <div class="col-md-10 content">
         @if(Session::has('flash-message'))
             <div class="col-md-3"></div>
                 <div class="col-md-6">
@@ -26,7 +26,7 @@
             <div class="form-group">
               {{ Form::label('category-name', 'Category Name', array('class' => 'col-sm-2 control-label')) }}
 
-              <div class="col-sm-10">
+              <div class="col-sm-5">
                 {{ Form::text('category-name', '', array('class' => 'form-control', 'id' => 'category-name', 'placeholder' => 'Category Name')) }}
               </div>
             </div>

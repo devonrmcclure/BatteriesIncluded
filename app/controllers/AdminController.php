@@ -54,6 +54,8 @@ class AdminController extends \BaseController {
 					->with('alert-class', 'alert-danger')
 					->with('flash-message', 'The username and password combination does not exist!');
 			}
+		} else {
+			return 'what?';
 		}
 	}
 
@@ -80,7 +82,9 @@ class AdminController extends \BaseController {
 						return View::make('admin.add.category');
 						break;
 					case 'subcategory':
-						return $type . ' added';
+						$categories = Category::all();
+						return View::make('admin.add.subcategory')
+									->with('categories', $categories);
 						break;
 					default:
 						return '404';
@@ -124,7 +128,15 @@ class AdminController extends \BaseController {
 										->with('alert-class', 'alert-success');
 						break;
 					case 'subcategory':
-						return $type . ' added';
+						$subCategory = new Subcategory;
+						$subCategory->parent_category = $data['parentcategory-name'];
+						$subCategory->subcategory_name = $data['subcategory-name'];
+						$subCategory->created_at = new DateTime();
+						$subCategory->updated_at = new DateTime();
+						$subCategory->save();
+						return Redirect::to('http://batteriesincluded.dev/admin/add/subcategory')
+										->with('flash-message', 'Subcategory ' . $data['subcategory-name'] . ' has been successfully added!')
+										->with('alert-class', 'alert-success');
 						break;
 					default:
 						return '404';
