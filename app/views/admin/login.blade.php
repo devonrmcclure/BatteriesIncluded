@@ -7,6 +7,9 @@
 @section('sidebar')
 
 @stop
+
+@section('content')
+
 @if(Session::has('flash-message'))
   <div class="row content">
     <div class="col-md-3"></div>
@@ -18,8 +21,6 @@
     <div class="col-md-3"></div>
   </div>
 @endif
-@section('content')
-
     <div class="col-md-4"></div>
     <div class="col-md-5">
         <h1>Please login!</h1>
