@@ -25,7 +25,7 @@
             <span class="badge">
               {{ count(Product::wherecategory_id($category->id)->get()); }}
            </span>
-            <a href="http://batteriesincluded.dev/catalog/{{ $category->category_name }}"> {{ $category->category_name }} </a>
+            <a href="http://batteriesincluded.dev/catalog/{{ $category->category_name }}">{{ $category->category_name }} </a>
           </li>
         @endforeach
       @else
@@ -33,7 +33,7 @@
           <li class="list-group-item">
           <span class="badge">
               {{ count(Product::wheresubcategory_id($subCat->id)->get()); }}
-          </span><a href="http://batteriesincluded.dev/catalog/{{ $subCat->subcategory_name }}"> {{ $subCat->subcategory_name }} </a></li>
+          </span><a href="http://batteriesincluded.dev/catalog/{{ $subCat->subcategory_name }}">{{ $subCat->subcategory_name }}</a></li>
         @endforeach
       @endif
 
@@ -56,10 +56,8 @@
             <h2>{{ $subCategory->subcategory_name }}</h2>
             <ol class="breadcrumb">
               <li><a href="http://batteriesincluded.dev/catalog">Catalog Home</a></li>
-              <li>
-              @foreach($categories as $category)
-                <a href="http://batteriesincluded.dev/catalog/{{ $category->category_name }}">{{ $category->category_name }}</a>
-              @endforeach
+              <li>@foreach($categories as $category)<a href="http://batteriesincluded.dev/catalog/{{ $category->category_name }}">{{ $category->category_name }}</a>
+                @endforeach
               </li>
               <li>{{ $subCategory->subcategory_name }}</li>
             </ol>

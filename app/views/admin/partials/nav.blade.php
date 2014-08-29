@@ -20,7 +20,7 @@
                 <a href="http://batteriesincluded.dev/admin" class="navbar-link">{{ Auth::user()->username }}</a>
               </p>
               <a href="http://batteriesincluded.dev/admin/logout">
-                <button type="button" class="btn btn-default navbar-btn pull-right">Sign Out</button>
+                <button type="button" class="btn btn-default btn-sm navbar-btn pull-right">Sign Out</button>
               </a>
             @endif
           </nav>
