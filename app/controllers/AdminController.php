@@ -72,11 +72,15 @@ class AdminController extends \BaseController {
 		} else {
 			if($type)
 			{
+				$categories = Category::all();
+				$subCategories = Subcategory::all();
 				switch($type)
 				{
 					case 'product':
 						// Show Catalog add form.
-						return View::make('admin.add.product');
+						return View::make('admin.add.product')
+									->with('categories', $categories)
+									->with('subCategories', $subCategories);
 						break;
 					case 'category':
 						return View::make('admin.add.category');
@@ -114,8 +118,36 @@ class AdminController extends \BaseController {
 				{
 					case 'product':
 						// TOTO: Added catalog item to catalog.
-						echo $data['product_name'];
-						return $type . ' added';
+						if($data['parentcategory-name'] != 'selectparentcategory' && $data['subcategory-name'] != 'selectsubcategory')
+						{
+							$productExists = Product::whereproduct_name($data['product-name'])->first();
+							if($productExists)
+							{
+								return Redirect::to('http://batteriesincluded.dev/admin/add/product')
+												->with('flash-message', 'Product <b>' . $data['product-name'] . '</b> already exists so not added!')
+												->with('alert-class', 'alert-danger');
+							} else {
+								$product = new Product;
+								$product->category_id = $data['parentcategory-name'];
+								$product->subcategory_id = $data['subcategory-name'];
+								$product->product_name = $data['product-name'];
+								$product->product_description = $data['product-description'];
+								$product->price = $data['product-price'];
+								$product->image = '';
+								$product->created_at = new DateTime();
+								$product->updated_at = new DateTime();
+								$product->save();
+								return Redirect::to('http://batteriesincluded.dev/admin/add/product')
+												->with('flash-message', 'Product <b>' . $data['product-name'] . '</b> has been successfully added!')
+												->with('alert-class', 'alert-success');
+								break;
+							}
+						} else {
+							return Redirect::to('http://batteriesincluded.dev/admin/add/product')
+											->with('flash-message', 'Please select a category and subcategory!')
+											->with('alert-class', 'alert-danger')
+											->withInput();
+						}
 						break;
 					case 'category':
 						$categoryExists = Category::wherecategory_name($data['category-name'])->first();
@@ -126,7 +158,6 @@ class AdminController extends \BaseController {
 											->with('alert-class', 'alert-danger');
 						} else {
 							$category = new Category;
-
 							$category->category_name = $data['category-name'];
 							$category->created_at = new DateTime();
 							$category->updated_at = new DateTime();
