@@ -16,7 +16,6 @@
         @endforeach
       @endif
     </h2>
-    <hr />
     <div class="col-md-12">
       <ul class="catalog-categories list-group">
       @if(count($categories) > 1 && count($subCategories) == 0)
@@ -65,7 +64,6 @@
         @else
           <h2>Newest Items</h2>
         @endif
-      <hr />
     </div>
 
       @if(count($products) == 0)
