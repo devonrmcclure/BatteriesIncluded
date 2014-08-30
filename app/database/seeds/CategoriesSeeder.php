@@ -10,8 +10,6 @@ class CategoriesSeeder extends Seeder {
     public function run()
     {
         $categories = [
-            ['category_name' => 'Uncategorized', 'created_at' => new DateTime(),
-                'updated_at' => new DateTime()],
             ['category_name' => 'Batteries', 'created_at' => new DateTime(),
                 'updated_at' => new DateTime()],
             ['category_name' => 'Shavers', 'created_at' => new DateTime(),

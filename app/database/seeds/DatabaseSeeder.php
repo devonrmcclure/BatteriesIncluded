@@ -12,9 +12,9 @@ class DatabaseSeeder extends Seeder {
 		Eloquent::unguard();
 
 		$this->call('AdminSeeder');
-		$this->call('CategoriesSeeder');
-		$this->call('SubCategoriesSeeder');
-		$this->call('ProductsSeeder');
+		//$this->call('CategoriesSeeder');
+		//$this->call('SubCategoriesSeeder');
+		//$this->call('ProductsSeeder');
 	}
 
 }

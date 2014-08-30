@@ -7,8 +7,8 @@ class ProductsSeeder extends Seeder {
         {
             $products = [
                 [
-                'category_id' => 2,
-                'subcategory_id' => 2,
+                'category_id' => 1,
+                'subcategory_id' => 1,
                 'product_name' => 'Samsung Galaxy S3',
                 'product_description' => '3.7 Volt Lithium-Ion battery for Samsung Galaxy S3 phones.',
                 'price' => 24.98,
@@ -18,8 +18,8 @@ class ProductsSeeder extends Seeder {
                 ],
 
                 [
-                'category_id' => 2,
-                'subcategory_id' => 3,
+                'category_id' => 1,
+                'subcategory_id' => 2,
                 'product_name' => 'CR2032 3V Button Cell',
                 'product_description' => '3V CR2032 Button Cell battery for Watches, Scales, and other items.',
                 'price' => 4.98,
@@ -29,8 +29,8 @@ class ProductsSeeder extends Seeder {
                 ],
 
                 [
-                'category_id' => 2,
-                'subcategory_id' => 3,
+                'category_id' => 1,
+                'subcategory_id' => 2,
                 'product_name' => 'CR2025 3V Button Cell',
                 'product_description' => '3V CR2025 Button Cell battery for Watches, Scales, and other items.',
                 'price' => 4.98,
@@ -40,8 +40,8 @@ class ProductsSeeder extends Seeder {
                 ],
 
                 [
-                'category_id' => 2,
-                'subcategory_id' => 4,
+                'category_id' => 1,
+                'subcategory_id' => 3,
                 'product_name' => '2.4V 2AA Cordless Phone',
                 'product_description' => '2.4V 2AA sized cordless phone battery.',
                 'price' => 14.98,
@@ -51,8 +51,8 @@ class ProductsSeeder extends Seeder {
                 ],
 
                 [
-                'category_id' => 3,
-                'subcategory_id' => 5,
+                'category_id' => 2,
+                'subcategory_id' => 4,
                 'product_name' => 'Philips RQ1260 Shaver',
                 'product_description' => 'Philips RQ1260 Shaver unit.',
                 'price' => 144.98,
@@ -62,7 +62,7 @@ class ProductsSeeder extends Seeder {
                 ],
 
                 [
-                'category_id' => 5,
+                'category_id' => 4,
                 'subcategory_id' => 1,
                 'product_name' => '1 Metre Cell Data Cable',
                 'product_description' => 'One meter cell data cable for use with android phones and some other brands of phones.',
@@ -73,7 +73,7 @@ class ProductsSeeder extends Seeder {
                 ],
 
                 [
-                'category_id' => 5,
+                'category_id' => 4,
                 'subcategory_id' => 1,
                 'product_name' => 'Apple iPhone 4 Data Cable',
                 'product_description' => 'iPhone 4 data cable for use with iPhone 4 and earlier versions.',
@@ -84,7 +84,7 @@ class ProductsSeeder extends Seeder {
                 ],
 
                 [
-                'category_id' => 5,
+                'category_id' => 4,
                 'subcategory_id' => 1,
                 'product_name' => 'Apple iPhone 5 Data Cable',
                 'product_description' => 'iPhone 5 data cable for use with iPhone 5 models.',
@@ -95,7 +95,7 @@ class ProductsSeeder extends Seeder {
                 ],
 
                 [
-                'category_id' => 2,
+                'category_id' => 1,
                 'subcategory_id' => 1,
                 'product_name' => '12v 5.0AH SLA Alarm System Battery',
                 'product_description' => 'A 12 volt 5.0 amp hour SLA (sealed lead acid) battery for home alarm systems.',
@@ -106,7 +106,7 @@ class ProductsSeeder extends Seeder {
                 ],
 
                 [
-                'category_id' => 2,
+                'category_id' => 1,
                 'subcategory_id' => 3,
                 'product_name' => 'SR626SW 1.55V Button Cell',
                 'product_description' => 'SR626SW 1.55V button cell battery used in watches and other small items.',
@@ -117,8 +117,8 @@ class ProductsSeeder extends Seeder {
                 ],
 
                 [
-                'category_id' => 2,
-                'subcategory_id' => 4,
+                'category_id' => 1,
+                'subcategory_id' => 3,
                 'product_name' => '2.4V 2AAA Cordless Phone',
                 'product_description' => '2.4V 2AAA sized cordless phone battery.',
                 'price' => 14.98,
@@ -128,7 +128,7 @@ class ProductsSeeder extends Seeder {
                 ],
 
                 [
-                'category_id' => 2,
+                'category_id' => 1,
                 'subcategory_id' => 1,
                 'product_name' => 'Panasonic AA cell 2 Pack.',
                 'product_description' => '2 pack of Panasonic AA batteries.',
@@ -139,7 +139,7 @@ class ProductsSeeder extends Seeder {
                 ],
 
                 [
-                'category_id' => 2,
+                'category_id' => 1,
                 'subcategory_id' => 1,
                 'product_name' => 'Maxell AA cell 2 Pack',
                 'product_description' => '2 pack of Maxell AA batteries.',
@@ -150,7 +150,7 @@ class ProductsSeeder extends Seeder {
                 ],
 
                 [
-                'category_id' => 2,
+                'category_id' => 1,
                 'subcategory_id' => 1,
                 'product_name' => 'Maxell D cell 2 pack.',
                 'product_description' => '2 pack of Maxell D cell batteries.',
@@ -161,8 +161,8 @@ class ProductsSeeder extends Seeder {
                 ],
 
                 [
-                'category_id' => 2,
-                'subcategory_id' => 3,
+                'category_id' => 1,
+                'subcategory_id' => 2,
                 'product_name' => 'SR621SW 1.55V Button Cell',
                 'product_description' => 'SR621SW 1.55V button cell battery used in watches and other small items.',
                 'price' => 14.98,
