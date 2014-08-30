@@ -127,6 +127,7 @@ class AdminController extends \BaseController {
 												->with('flash-message', 'Product <b>' . $data['product-name'] . '</b> already exists so not added!')
 												->with('alert-class', 'alert-danger');
 							} else {
+								// TODO: Auto set parent category based on sub category. (Take out category choosing and ony have subcategory option)
 								$product = new Product;
 								$product->category_id = $data['parentcategory-name'];
 								$product->subcategory_id = $data['subcategory-name'];

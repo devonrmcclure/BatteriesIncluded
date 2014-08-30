@@ -4,6 +4,7 @@ class SubCategoriesSeeder extends Seeder {
 
     public function run()
     {
+        // TODO: Create "Misc $parentCategory" subcategories.
         $subcategories = [
             ['parent_category' => 1, 'subcategory_name' => 'Panasonic Phone Battery', 'created_at' => new DateTime(),
                 'updated_at' => new DateTime()],
