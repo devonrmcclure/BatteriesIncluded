@@ -6,6 +6,7 @@
 @show
   <!-- Container -->
   <div class="container">
+
       <!-- Content -->
       @yield('content')
 
