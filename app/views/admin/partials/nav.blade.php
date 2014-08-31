@@ -1,5 +1,5 @@
       <!-- Site header and navigation -->
-      <header class="top" role="header">
+      <header class="top navbar-fixed-top" role="header">
         <div class="container">
           <a class="navbar-brand pull-left" href="http://batteriesincluded.dev/">
             Batteries Included
