@@ -78,17 +78,20 @@ class AdminController extends \BaseController {
 				{
 					case 'product':
 						// Show Catalog add form.
-						return View::make('admin.add.product')
+						return View::make('admin.add.catalog')
 									->with('categories', $categories)
 									->with('subCategories', $subCategories);
 						break;
 					case 'category':
-						return View::make('admin.add.category');
+						return View::make('admin.add.catalog')
+									->with('categories', $categories)
+									->with('subCategories', $subCategories);
 						break;
 					case 'subcategory':
 						$categories = Category::all();
-						return View::make('admin.add.subcategory')
-									->with('categories', $categories);
+						return View::make('admin.add.catalog')
+									->with('categories', $categories)
+									->with('subCategories', $subCategories);
 						break;
 					default:
 						return '404';
@@ -152,7 +155,8 @@ class AdminController extends \BaseController {
 						break;
 					case 'category':
 						$categoryExists = Category::wherecategory_name($data['category-name'])->first();
-						if($categoryExists)
+						$categoryEmpty  = $data['category-name'];
+						if($categoryExists || $categoryEmpty == '')
 						{
 							return Redirect::to('http://batteriesincluded.dev/admin/add/category')
 											->with('flash-message', 'Category <b>' . $data['category-name'] . '</b> already exists so not added!')
