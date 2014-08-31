@@ -17,7 +17,7 @@
             <div class="col-md-3"></div>
         @endif
         <h2>
-            Add Category
+            Add Subategory
         </h2>
 
         <div class="text-center content">
