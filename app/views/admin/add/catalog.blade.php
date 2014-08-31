@@ -6,46 +6,48 @@
 
 @section('content')
 
-<div class="col-md-10 content">
-    @if(Session::has('flash-message'))
-        <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <span class="{{ Session::get('alert-class', 'alert-info') }}">
-                    {{ Session::get('flash-message') }}
-                </span>
+<div class="col-md-8 content">
+    <div class="flash-message row">
+      @if(Session::has('flash-message'))
+          <div class="alert {{ Session::get('alert-class', 'alert-info') }} alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close/span></button>
+            {{ Session::get('flash-message') }}
           </div>
-        <div class="col-md-3"></div>
-    @endif
-
+      @endif
+    </div>
     <h2>
         Add Category
     </h2>
 
-    <div class="text-center content">
+
         {{ Form::open(array('url' => 'http://batteriesincluded.dev/admin/add/category/post', 'class' => 'form-horizontal', 'id' => 'categoryadd-form', 'role' => 'form')) }}
 
         <div class="form-group">
-          {{ Form::label('category-name', 'Category Name', array('class' => 'col-sm-2 control-label')) }}
+          {{ Form::label('category-name', 'Category Name', array('class' => 'col-sm-3 control-label')) }}
 
           <div class="col-sm-5">
             {{ Form::text('category-name', '', array('class' => 'form-control', 'id' => 'category-name', 'placeholder' => 'Category Name')) }}
           </div>
         </div>
 
-        {{ Form::submit('Submit', array('class' => 'btn btn-default submit-button submit-button', 'id' => 'submit-button', 'name' => 'submit')) }}
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-10">
+            {{ Form::submit('Submit', array('class' => 'btn btn-default submit-button submit-button', 'id' => 'submit-button', 'name' => 'submit')) }}
+          </div>
+        </div>
 
     {{ Form::close() }}
-    </div>
+
 
     <h2>
         Add Subategory
     </h2>
 
-    <div class="text-center content">
+
         {{ Form::open(array('url' => 'http://batteriesincluded.dev/admin/add/subcategory/post', 'class' => 'form-horizontal', 'id' => 'subcategoryadd-form', 'role' => 'form')) }}
 
         <div class="form-group">
-          {{ Form::label('parentcategory-name', 'Parent Category Name', array('class' => 'col-sm-2 control-label')) }}
+          {{ Form::label('parentcategory-name', 'Parent Category Name', array('class' => 'col-sm-3 control-label')) }}
 
           <div class="col-sm-5">
             <select class="form-control col-xs-4" id="parentcategory-name" name="parentcategory-name">
@@ -58,27 +60,31 @@
         </div>
 
         <div class="form-group">
-          {{ Form::label('subcategory-name', 'Subcategory Name', array('class' => 'col-sm-2 control-label')) }}
+          {{ Form::label('subcategory-name', 'Subcategory Name', array('class' => 'col-sm-3 control-label')) }}
 
           <div class="col-sm-5">
             {{ Form::text('subcategory-name', '', array('class' => 'form-control', 'id' => 'subcategory-name', 'placeholder' => 'Subcategory Name')) }}
           </div>
         </div>
 
-        {{ Form::submit('Submit', array('class' => 'btn btn-default submit-button submit-button', 'id' => 'submit-button', 'name' => 'submit')) }}
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-10">
+            {{ Form::submit('Submit', array('class' => 'btn btn-default submit-button submit-button', 'id' => 'submit-button', 'name' => 'submit')) }}
+          </div>
+        </div>
 
     {{ Form::close() }}
-    </div>
+
 
     <h2>
         Add Product
     </h2>
 
-    <div class="text-center content">
+
         {{ Form::open(array('url' => 'http://batteriesincluded.dev/admin/add/product/post', 'class' => 'form-horizontal', 'id' => 'productadd-form', 'role' => 'form')) }}
 
         <div class="form-group">
-          {{ Form::label('productsubcategory-name', 'Subcategory', array('class' => 'col-sm-2 control-label')) }}
+          {{ Form::label('productsubcategory-name', 'Subcategory', array('class' => 'col-sm-3 control-label')) }}
 
           <div class="col-sm-5">
             <select class="form-control col-xs-4" id="productsubcategory-name" name="productsubcategory-name">
@@ -91,7 +97,7 @@
         </div>
 
         <div class="form-group">
-          {{ Form::label('product-name', 'Product', array('class' => 'col-sm-2 control-label')) }}
+          {{ Form::label('product-name', 'Product', array('class' => 'col-sm-3 control-label')) }}
 
           <div class="col-sm-5">
             {{ Form::text('product-name', '', array('class' => 'form-control', 'id' => 'product-name', 'placeholder' => 'Product Name')) }}
@@ -99,7 +105,7 @@
         </div>
 
         <div class="form-group">
-          {{ Form::label('product-description', 'Description', array('class' => 'col-sm-2 control-label')) }}
+          {{ Form::label('product-description', 'Description', array('class' => 'col-sm-3 control-label')) }}
 
           <div class="col-sm-5">
             {{ Form::textarea('product-description', '', array('class' => 'form-control', 'id' => 'product-description', 'placeholder' => 'Product Description')) }}
@@ -107,7 +113,7 @@
         </div>
 
         <div class="form-group">
-          {{ Form::label('product-price', 'Price', array('class' => 'col-sm-2 control-label')) }}
+          {{ Form::label('product-price', 'Price', array('class' => 'col-sm-3 control-label')) }}
 
           <div class="col-sm-5">
             {{ Form::text('product-price', '0.00', array('class' => 'form-control', 'id' => 'product-price', 'placeholder' => 'Price')) }}
@@ -118,10 +124,14 @@
             TODO: Upload image.
         -->
 
-        {{ Form::submit('Submit', array('class' => 'btn btn-default submit-button submit-button', 'id' => 'submit-button', 'description' => 'submit')) }}
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-10">
+            {{ Form::submit('Submit', array('class' => 'btn btn-default submit-button submit-button', 'id' => 'submit-button', 'name' => 'submit')) }}
+          </div>
+        </div>
 
     {{ Form::close() }}
-    </div>
+
 </div>
 
 @stop
