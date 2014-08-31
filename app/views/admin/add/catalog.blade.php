@@ -78,24 +78,11 @@
         {{ Form::open(array('url' => 'http://batteriesincluded.dev/admin/add/product/post', 'class' => 'form-horizontal', 'id' => 'productadd-form', 'role' => 'form')) }}
 
         <div class="form-group">
-          {{ Form::label('parentcategory-name', 'Category', array('class' => 'col-sm-2 control-label')) }}
+          {{ Form::label('productsubcategory-name', 'Subcategory', array('class' => 'col-sm-2 control-label')) }}
 
           <div class="col-sm-5">
-            <select class="form-control col-xs-4" id="parentcategory-name" name="parentcategory-name">
-                <option value="selectparentcategory">-- Select a Category --</option>
-                @foreach($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
-                @endforeach
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          {{ Form::label('subcategory-name', 'Subcategory', array('class' => 'col-sm-2 control-label')) }}
-
-          <div class="col-sm-5">
-            <select class="form-control col-xs-4" id="subcategory-name" name="subcategory-name">
-                <option value="selectsubcategory">-- Select a Subcategory --</option>
+            <select class="form-control col-xs-4" id="productsubcategory-name" name="productsubcategory-name">
+                <option value="selectproductsubcategory">-- Select a Subcategory --</option>
                 @foreach($subCategories as $subCategory)
                     <option value="{{ $subCategory->id }}">{{ $subCategory->subcategory_name }}</option>
                 @endforeach
