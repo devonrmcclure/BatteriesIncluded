@@ -16,12 +16,18 @@
               <li><a id="locations-contact" href="http://batteriesincluded.dev/locations-contact">Locations & Contact</a></li>
             </ul>
             @if(Auth::check())
-              <p class="navbar-text navbar-right">
-                <a href="http://batteriesincluded.dev/admin" class="navbar-link">{{ Auth::user()->username }}</a>
-              </p>
-              <a href="http://batteriesincluded.dev/admin/logout">
-                <button type="button" class="btn btn-default btn-sm navbar-btn pull-right">Sign Out</button>
-              </a>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->username }} <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{ $_ENV['URL'] }}/admin">Admin Panel</a></li>
+                    <li><a href="{{ $_ENV['URL'] }}/admin/add">Add Catalog Item</a></li>
+                    <li><a href="{{ $_ENV['URL'] }}/admin/edit">Edit Catalog Item</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{{ $_ENV['URL'] }}/admin/logout">Logout</a></li>
+                  </ul>
+                </li>
+              </ul>
             @endif
           </nav>
 
