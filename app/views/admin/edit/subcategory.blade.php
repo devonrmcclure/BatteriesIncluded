@@ -19,7 +19,7 @@
         Edit Subcategory Name
     </h2>
 
-        {{ Form::open(array('url' => 'http://batteriesincluded.dev/admin/edit/subcategory', 'class' => 'form-horizontal', 'id' => 'categoryedit-form', 'role' => 'form', 'method' => 'put')) }}
+        {{ Form::open(array('url' => $_ENV['URL'] . '/admin/edit/subcategory', 'class' => 'form-horizontal', 'id' => 'categoryedit-form', 'role' => 'form', 'method' => 'put')) }}
 
         <div class="form-group">
           {{ Form::label('parentcategory-name', 'Parent Category Name', array('class' => 'col-sm-3 control-label')) }}

@@ -63,7 +63,7 @@
     as it uses JavaScript to send the information.
   </noscript>
   <hr />
-  {{ Form::open(array('url' => 'http://batteriesincluded.dev/locations-contact/send', 'class' => 'form-horizontal noscript contact-form', 'id' => 'contact-form', 'role' => 'form')) }}
+  {{ Form::open(array('url' => $_ENV['URL'] . '/locations-contact/send', 'class' => 'form-horizontal noscript contact-form', 'id' => 'contact-form', 'role' => 'form')) }}
     <div class="form-group">
       {{ Form::label('location', 'Location', array('class' => 'col-sm-2 control-label')) }}
 

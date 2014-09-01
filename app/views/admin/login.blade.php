@@ -21,7 +21,7 @@
 </div>
     <h1>Please login!</h1>
     <hr />
-    {{ Form::open(array('url' => 'http://batteriesincluded.dev/admin/login', 'class' => 'form-horizontal', 'id' => 'login-form', 'role' => 'form')) }}
+    {{ Form::open(array('url' => $_ENV['URL'] . '/admin/login', 'class' => 'form-horizontal', 'id' => 'login-form', 'role' => 'form')) }}
 
         <div class="form-group">
           {{ Form::label('username', 'Userame', array('class' => 'col-sm-2 control-label')) }}

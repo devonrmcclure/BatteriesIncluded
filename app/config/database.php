@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'batteries_included',
 			'username'  => 'root',
-			'password'  => 'root',
+			'password'  => $_ENV['MYSQL_PASS'],
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

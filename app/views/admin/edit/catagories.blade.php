@@ -20,7 +20,7 @@
     </h2>
 
 
-        {{ Form::open(array('url' => 'http://batteriesincluded.dev/admin/edit/category/', 'class' => 'form-horizontal', 'id' => 'categoryedit-form', 'role' => 'form')) }}
+        {{ Form::open(array('url' => $_ENV['URL'] . '/admin/edit/category/', 'class' => 'form-horizontal', 'id' => 'categoryedit-form', 'role' => 'form')) }}
         <div class="form-group">
           {{ Form::label('category-name', 'Category Name', array('class' => 'col-sm-3 control-label')) }}
 
@@ -48,7 +48,7 @@
     </h2>
 
 
-        {{ Form::open(array('url' => 'http://batteriesincluded.dev/admin/edit/subcategory', 'class' => 'form-horizontal', 'id' => 'subcategoryadd-form', 'role' => 'form')) }}
+        {{ Form::open(array('url' => $_ENV['URL'] . '/admin/edit/subcategory', 'class' => 'form-horizontal', 'id' => 'subcategoryadd-form', 'role' => 'form')) }}
 
         <div class="form-group">
           {{ Form::label('subcategory-name', 'Subcategory Name', array('class' => 'col-sm-3 control-label')) }}

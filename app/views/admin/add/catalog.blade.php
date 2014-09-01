@@ -20,7 +20,7 @@
     </h2>
 
 
-        {{ Form::open(array('url' => 'http://batteriesincluded.dev/admin/add/category', 'class' => 'form-horizontal', 'id' => 'categoryadd-form', 'role' => 'form')) }}
+        {{ Form::open(array('url' => $_ENV['URL'] . '/admin/add/category', 'class' => 'form-horizontal', 'id' => 'categoryadd-form', 'role' => 'form')) }}
 
         <div class="form-group">
           {{ Form::label('category-name', 'Category Name', array('class' => 'col-sm-3 control-label')) }}
@@ -44,7 +44,7 @@
     </h2>
 
 
-        {{ Form::open(array('url' => 'http://batteriesincluded.dev/admin/add/subcategory', 'class' => 'form-horizontal', 'id' => 'subcategoryadd-form', 'role' => 'form')) }}
+        {{ Form::open(array('url' =>  $_ENV['URL'] . '/admin/add/subcategory', 'class' => 'form-horizontal', 'id' => 'subcategoryadd-form', 'role' => 'form')) }}
 
         <div class="form-group">
           {{ Form::label('parentcategory-name', 'Parent Category Name', array('class' => 'col-sm-3 control-label')) }}
@@ -81,7 +81,7 @@
     </h2>
 
 
-        {{ Form::open(array('url' => 'http://batteriesincluded.dev/admin/add/product', 'class' => 'form-horizontal', 'id' => 'productadd-form', 'role' => 'form')) }}
+        {{ Form::open(array('url' =>  $_ENV['URL'] . '/admin/add/product', 'class' => 'form-horizontal', 'id' => 'productadd-form', 'role' => 'form')) }}
 
         <div class="form-group">
           {{ Form::label('productsubcategory-name', 'Subcategory', array('class' => 'col-sm-3 control-label')) }}
