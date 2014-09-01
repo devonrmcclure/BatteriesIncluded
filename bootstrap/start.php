@@ -26,7 +26,8 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array
 (
-    'local' => array('Devon-PC', 'Devon')
+    'local' => array('Devon-PC', 'Devon'),
+    'prod' => array('devonmcclure')
 ));
 
 /*
