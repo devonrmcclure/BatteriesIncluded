@@ -24,7 +24,7 @@
             <span class="badge">
               {{ count(Product::wherecategory_id($category->id)->get()); }}
            </span>
-            <a href="http://batteriesincluded.dev/catalog/{{ $category->category_name }}">{{ $category->category_name }} </a>
+            <a href="$_ENV['URL'] . '/catalog/{{ $category->category_name }}">{{ $category->category_name }} </a>
           </li>
         @endforeach
       @else
@@ -32,7 +32,7 @@
           <li class="list-group-item">
           <span class="badge">
               {{ count(Product::wheresubcategory_id($subCat->id)->get()); }}
-          </span><a href="http://batteriesincluded.dev/catalog/{{ $subCat->subcategory_name }}">{{ $subCat->subcategory_name }}</a></li>
+          </span><a href="$_ENV['URL'] . '/catalog/{{ $subCat->subcategory_name }}">{{ $subCat->subcategory_name }}</a></li>
         @endforeach
       @endif
 
@@ -46,7 +46,7 @@
           @foreach($categories as $category)
             <h2>All {{ $category->category_name }}</h2>
             <ol class="breadcrumb">
-              <li><a href="http://batteriesincluded.dev/catalog">Catalog Home</a></li>
+              <li><a href="$_ENV['URL'] . '/catalog">Catalog Home</a></li>
               <li>{{ $category->category_name }}</li>
             </ol>
           @endforeach
@@ -54,8 +54,8 @@
           @foreach($subCategories as $subCategory)
             <h2>{{ $subCategory->subcategory_name }}</h2>
             <ol class="breadcrumb">
-              <li><a href="http://batteriesincluded.dev/catalog">Catalog Home</a></li>
-              <li>@foreach($categories as $category)<a href="http://batteriesincluded.dev/catalog/{{ $category->category_name }}">{{ $category->category_name }}</a>
+              <li><a href="$_ENV['URL'] . '/catalog">Catalog Home</a></li>
+              <li>@foreach($categories as $category)<a href="$_ENV['URL'] . '/catalog/{{ $category->category_name }}">{{ $category->category_name }}</a>
                 @endforeach
               </li>
               <li>{{ $subCategory->subcategory_name }}</li>
@@ -80,9 +80,9 @@
           @endif
             <img src="http://placehold.it/130x100" class="img-responsive"/>
             @if($product->subcategory->subcategory_name != 'Uncategorized')
-              <small><b>Category:</b> <a href="http://batteriesincluded.dev/catalog/{{ $product->subcategory->subcategory_name }}"> {{ $product->subcategory->subcategory_name }} </a></small>
+              <small><b>Category:</b> <a href="$_ENV['URL'] . '/catalog/{{ $product->subcategory->subcategory_name }}"> {{ $product->subcategory->subcategory_name }} </a></small>
             @elseif($product->category->category_name)
-              <small><b>Category:</b> <a href="http://batteriesincluded.dev/catalog/{{ $product->category->category_name }}">{{ $product->category->category_name }}</a></small>
+              <small><b>Category:</b> <a href="$_ENV['URL'] . '/catalog/{{ $product->category->category_name }}">{{ $product->category->category_name }}</a></small>
             @endif
             <h4 class="product-name">{{ $product->product_name }}</h4>
             <p>

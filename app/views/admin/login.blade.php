@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Batteries Included - Home
+    Batteries Included - Login
 @stop
 
 @section('sidebar')
