@@ -46,4 +46,6 @@ Route::post('admin/add/{type?}', 'AdminController@store');
 Route::get('admin/edit/categories', 'AdminController@getEditCategoriesIndex');
 Route::post('admin/edit/category', 'AdminController@getEditCategory');
 Route::put('admin/edit/category', 'AdminController@putEditCategory');
+Route::post('admin/edit/subcategory', 'AdminController@getEditSubcategory');
+Route::put('admin/edit/subcategory', 'AdminController@putEditSubcategory');
 Route::get('admin/edit/product', 'AdminController@getEditProducts');

@@ -48,26 +48,19 @@
     </h2>
 
 
-        {{ Form::open(array('url' => 'http://batteriesincluded.dev/admin/add/subcategory', 'class' => 'form-horizontal', 'id' => 'subcategoryadd-form', 'role' => 'form')) }}
-
-        <div class="form-group">
-          {{ Form::label('parentcategory-name', 'Parent Category Name', array('class' => 'col-sm-3 control-label')) }}
-
-          <div class="col-sm-5">
-            <select class="form-control col-xs-4" id="parentcategory-name" name="parentcategory-name">
-                <option value="selectparentcategory">-- Select a Parent Category --</option>
-                @foreach($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
-                @endforeach
-            </select>
-          </div>
-        </div>
+        {{ Form::open(array('url' => 'http://batteriesincluded.dev/admin/edit/subcategory', 'class' => 'form-horizontal', 'id' => 'subcategoryadd-form', 'role' => 'form')) }}
 
         <div class="form-group">
           {{ Form::label('subcategory-name', 'Subcategory Name', array('class' => 'col-sm-3 control-label')) }}
 
           <div class="col-sm-5">
-            {{ Form::text('subcategory-name', '', array('class' => 'form-control', 'id' => 'subcategory-name', 'placeholder' => 'Subcategory Name')) }}
+            <select class="form-control col-xs-4" id="subcategory-name" name="subcategory-name">
+                <option value="selectsubcategory">-- Select a Subcategory to Edit--</option>
+                @foreach($subCategories as $subCategory)
+                    <option value="{{ $subCategory->id }}">{{ $subCategory->subcategory_name }}</option>
+                @endforeach
+             </select>
+            </select>
           </div>
         </div>
 

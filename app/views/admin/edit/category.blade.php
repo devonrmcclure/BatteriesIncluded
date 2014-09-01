@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Batteries Included - Add Catalog Item
+    Batteries Included - Edit Category Name
 @stop
 
 @section('content')

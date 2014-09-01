@@ -254,6 +254,7 @@ class AdminController extends \BaseController {
 			$category = Category::find($data['category-id']);
 			$oldName  = $category->category_name;
 			$category->category_name = $data['category-name'];
+			$category->updated_at = new DateTime();
 			$category->save();
 
 			return Redirect::to('http://batteriesincluded.dev/admin/edit/categories')
@@ -263,6 +264,56 @@ class AdminController extends \BaseController {
 			return Redirect::to('http://batteriesincluded.dev/admin/edit/categories')
 							->with('alert-class', 'alert-danger')
 							->with('flash-message', 'You can not have an empty category name!');
+		}
+	}
+
+	public function getEditSubcategory()
+	{
+		$data = Input::all();
+
+		$subcategory = Subcategory::find($data['subcategory-name']);
+		$categories  = Category::orderBy('category_name', 'ASC')->get();
+		return View::make('admin.edit.subcategory')
+					->with('categories', $categories)
+					->with('subCategory', $subcategory);
+	}
+
+	public function putEditsubcategory()
+	{
+		$data = Input::all();
+
+		if($data['subcategory-name'] != '' && $data['parentcategory-name'] != 'selectparentcategory')
+		{
+			$subCategory = Subcategory::find($data['subcategory-id']);
+			$category    = Category::find($data['parentcategory-name']);
+			$oldName  = $subCategory->subcategory_name;
+			$oldParentCat = $category->category_name;
+			$subCategory->parent_category = $data['parentcategory-name'];
+			$parentCat    = Category::find($subCategory->parent_category);
+			$parentCat    = $parentCat->category_name;
+			$subCategory->subcategory_name = $data['subcategory-name'];
+			$subCategory->updated_at = new DateTime();
+			$subCategory->save();
+
+			//Update products accordingly
+			$categoryID = Subcategory::find($data['subcategory-id']);
+			$categoryID = $categoryID->parent_category;
+			$products   = Product::wheresubcategory_id($subCategory->id)->get();
+			foreach($products as $product)
+			{
+				$product->category_id = $categoryID;
+				$product->updated_at  = new DateTime();
+				$product->save();
+			}
+
+			return Redirect::to('http://batteriesincluded.dev/admin/edit/categories')
+							->with('alert-class', 'alert-success')
+							->with('flash-message', 'Subcategory updated!');
+
+		} else {
+			return Redirect::to('http://batteriesincluded.dev/admin/edit/categories')
+							->with('alert-class', 'alert-danger')
+							->with('flash-message', 'You can not have an empty subcategory name!');
 		}
 	}
 
