@@ -104,7 +104,7 @@ class AdminController extends \BaseController {
 							$categoryID = Subcategory::find($data['productsubcategory-name']);
 							if($productExists || $productEmpty == '')
 							{
-								return Redirect::to($_ENV['URL'] . '/admin/add/')
+								return Redirect::to($_ENV['URL'] . '/admin/add')
 												->with('flash-message', 'Product already exists or left empty so not added!')
 												->with('alert-class', 'alert-danger')
 												->withInput();
@@ -120,13 +120,13 @@ class AdminController extends \BaseController {
 								$product->created_at = new DateTime();
 								$product->updated_at = new DateTime();
 								$product->save();
-								return Redirect::to($_ENV['URL'] . '/admin/add/')
+								return Redirect::to($_ENV['URL'] . '/admin/add')
 												->with('flash-message', 'Product <b>' . $data['product-name'] . '</b> has been successfully added!')
 												->with('alert-class', 'alert-success');
 								break;
 							}
 						} else {
-							return Redirect::to($_ENV['URL'] . '/admin/add/')
+							return Redirect::to($_ENV['URL'] . '/admin/add')
 											->with('flash-message', 'Please select a subcategory!')
 											->with('alert-class', 'alert-danger')
 											->withInput();
@@ -137,7 +137,7 @@ class AdminController extends \BaseController {
 						$categoryEmpty  = $data['category-name'];
 						if($categoryExists || $categoryEmpty == '')
 						{
-							return Redirect::to($_ENV['URL'] . '/admin/add/')
+							return Redirect::to($_ENV['URL'] . '/admin/add')
 											->with('flash-message', 'Category already exists or left empty so not added!')
 											->with('alert-class', 'alert-danger');
 						} else {
@@ -146,7 +146,7 @@ class AdminController extends \BaseController {
 							$category->created_at = new DateTime();
 							$category->updated_at = new DateTime();
 							$category->save();
-							return Redirect::to($_ENV['URL'] . '/admin/add/')
+							return Redirect::to($_ENV['URL'] . '/admin/add')
 											->with('flash-message', 'Category <b>' . $data['category-name'] . '</b> has been successfully added!')
 											->with('alert-class', 'alert-success');
 							break;
@@ -159,7 +159,7 @@ class AdminController extends \BaseController {
 							$subCategoryEmpty  = $data['subcategory-name'];
 							if($subcategoryExists || $subCategoryEmpty == '')
 							{
-								return Redirect::to($_ENV['URL'] . '/admin/add/')
+								return Redirect::to($_ENV['URL'] . '/admin/add')
 												->with('flash-message', 'Subcategory already exists or left empty so not added!')
 												->with('alert-class', 'alert-danger')
 												->withInput();
@@ -170,13 +170,13 @@ class AdminController extends \BaseController {
 								$subCategory->created_at = new DateTime();
 								$subCategory->updated_at = new DateTime();
 								$subCategory->save();
-								return Redirect::to($_ENV['URL'] . '/admin/add/')
+								return Redirect::to($_ENV['URL'] . '/admin/add')
 												->with('flash-message', 'Subcategory <b>' . $data['subcategory-name'] . '</b> has been successfully added!')
 												->with('alert-class', 'alert-success');
 								break;
 							}
 						} else {
-							return Redirect::to($_ENV['URL'] . '/admin/add/')
+							return Redirect::to($_ENV['URL'] . '/admin/add')
 											->with('flash-message', 'Please select a parent category!')
 											->with('alert-class', 'alert-danger')
 											->withInput();
