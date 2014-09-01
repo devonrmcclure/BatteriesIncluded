@@ -14,7 +14,7 @@ class AdminController extends \BaseController {
 		//
 		if(Auth::guest())
 		{
-			return Redirect::to('http://batteriesincluded.dev/admin/login');
+			return Redirect::to($_ENV['URL'] . '/admin/login');
 		} else
 		{
 			$products = Product::all();
@@ -31,7 +31,7 @@ class AdminController extends \BaseController {
 			return View::make('admin.login');
 		} else
 		{
-			return Redirect::to('http://batteriesincluded.dev/admin');
+			return Redirect::to($_ENV['URL'] . '/admin');
 		}
 
 
@@ -48,9 +48,9 @@ class AdminController extends \BaseController {
 			if(Auth::attempt(array('username' => $username, 'password' => $password)))
 			{
 				//Auth::login(Auth::user());
-				return Redirect::to('http://batteriesincluded.dev/admin');
+				return Redirect::to($_ENV['URL'] . '/admin');
 			} else {
-				return Redirect::to('http://batteriesincluded.dev/admin/login')
+				return Redirect::to($_ENV['URL'] . '/admin/login')
 					->with('alert-class', 'alert-danger')
 					->with('flash-message', 'The username and password combination does not exist!');
 			}
@@ -68,7 +68,7 @@ class AdminController extends \BaseController {
 	{
 		if(Auth::guest())
 		{
-			return Redirect::to('http://batteriesincluded.dev/admin/login');
+			return Redirect::to($_ENV['URL'] . '/admin/login');
 		} else {
 			$categories    = Category::orderBy('category_name', 'ASC')->get();;
 			$subCategories = Subcategory::orderBy('subcategory_name', 'ASC')->get();;
@@ -88,7 +88,7 @@ class AdminController extends \BaseController {
 	{
 		if(Auth::guest())
 		{
-			return Redirect::to('http://batteriesincluded.dev/admin/login');
+			return Redirect::to($_ENV['URL'] . '/admin/login');
 		} else {
 			if($type)
 			{
@@ -104,7 +104,7 @@ class AdminController extends \BaseController {
 							$categoryID = Subcategory::find($data['productsubcategory-name']);
 							if($productExists || $productEmpty == '')
 							{
-								return Redirect::to('http://batteriesincluded.dev/admin/add/')
+								return Redirect::to($_ENV['URL'] . '/admin/add/')
 												->with('flash-message', 'Product already exists or left empty so not added!')
 												->with('alert-class', 'alert-danger')
 												->withInput();
@@ -120,13 +120,13 @@ class AdminController extends \BaseController {
 								$product->created_at = new DateTime();
 								$product->updated_at = new DateTime();
 								$product->save();
-								return Redirect::to('http://batteriesincluded.dev/admin/add/')
+								return Redirect::to($_ENV['URL'] . '/admin/add/')
 												->with('flash-message', 'Product <b>' . $data['product-name'] . '</b> has been successfully added!')
 												->with('alert-class', 'alert-success');
 								break;
 							}
 						} else {
-							return Redirect::to('http://batteriesincluded.dev/admin/add/')
+							return Redirect::to($_ENV['URL'] . '/admin/add/')
 											->with('flash-message', 'Please select a subcategory!')
 											->with('alert-class', 'alert-danger')
 											->withInput();
@@ -137,7 +137,7 @@ class AdminController extends \BaseController {
 						$categoryEmpty  = $data['category-name'];
 						if($categoryExists || $categoryEmpty == '')
 						{
-							return Redirect::to('http://batteriesincluded.dev/admin/add/')
+							return Redirect::to($_ENV['URL'] . '/admin/add/')
 											->with('flash-message', 'Category already exists or left empty so not added!')
 											->with('alert-class', 'alert-danger');
 						} else {
@@ -146,7 +146,7 @@ class AdminController extends \BaseController {
 							$category->created_at = new DateTime();
 							$category->updated_at = new DateTime();
 							$category->save();
-							return Redirect::to('http://batteriesincluded.dev/admin/add/')
+							return Redirect::to($_ENV['URL'] . '/admin/add/')
 											->with('flash-message', 'Category <b>' . $data['category-name'] . '</b> has been successfully added!')
 											->with('alert-class', 'alert-success');
 							break;
@@ -159,7 +159,7 @@ class AdminController extends \BaseController {
 							$subCategoryEmpty  = $data['subcategory-name'];
 							if($subcategoryExists || $subCategoryEmpty == '')
 							{
-								return Redirect::to('http://batteriesincluded.dev/admin/add/')
+								return Redirect::to($_ENV['URL'] . '/admin/add/')
 												->with('flash-message', 'Subcategory already exists or left empty so not added!')
 												->with('alert-class', 'alert-danger')
 												->withInput();
@@ -170,13 +170,13 @@ class AdminController extends \BaseController {
 								$subCategory->created_at = new DateTime();
 								$subCategory->updated_at = new DateTime();
 								$subCategory->save();
-								return Redirect::to('http://batteriesincluded.dev/admin/add/')
+								return Redirect::to($_ENV['URL'] . '/admin/add/')
 												->with('flash-message', 'Subcategory <b>' . $data['subcategory-name'] . '</b> has been successfully added!')
 												->with('alert-class', 'alert-success');
 								break;
 							}
 						} else {
-							return Redirect::to('http://batteriesincluded.dev/admin/add/')
+							return Redirect::to($_ENV['URL'] . '/admin/add/')
 											->with('flash-message', 'Please select a parent category!')
 											->with('alert-class', 'alert-danger')
 											->withInput();
@@ -257,11 +257,11 @@ class AdminController extends \BaseController {
 			$category->updated_at = new DateTime();
 			$category->save();
 
-			return Redirect::to('http://batteriesincluded.dev/admin/edit/categories')
+			return Redirect::to($_ENV['URL'] . '/admin/edit/categories')
 							->with('alert-class', 'alert-success')
 							->with('flash-message', 'The category <b>' . $oldName . '</b> was successfully updated to <b>' . $category->category_name . '</b>!');
 		} else {
-			return Redirect::to('http://batteriesincluded.dev/admin/edit/categories')
+			return Redirect::to($_ENV['URL'] . '/admin/edit/categories')
 							->with('alert-class', 'alert-danger')
 							->with('flash-message', 'You can not have an empty category name!');
 		}
@@ -306,12 +306,12 @@ class AdminController extends \BaseController {
 				$product->save();
 			}
 
-			return Redirect::to('http://batteriesincluded.dev/admin/edit/categories')
+			return Redirect::to($_ENV['URL'] . '/admin/edit/categories')
 							->with('alert-class', 'alert-success')
 							->with('flash-message', 'Subcategory updated!');
 
 		} else {
-			return Redirect::to('http://batteriesincluded.dev/admin/edit/categories')
+			return Redirect::to($_ENV['URL'] . '/admin/edit/categories')
 							->with('alert-class', 'alert-danger')
 							->with('flash-message', 'You can not have an empty subcategory name!');
 		}
@@ -327,7 +327,7 @@ class AdminController extends \BaseController {
 	{
 		Auth::logout();
 
-		return Redirect::to('http://batteriesincluded.dev/');
+		return Redirect::to($_ENV['URL'] . '/');
 	}
 
 
