@@ -123,7 +123,7 @@ label.bg-danger, span.bg-success {
 }
 
 .navbar-text a {
-  color: #fff;
+  color: #FFF;
 }
 
 .admin-sidebar-wrapper {
@@ -133,9 +133,9 @@ label.bg-danger, span.bg-success {
   height: 100%;
   margin-left: -250px;
   overflow-y: auto;
-  background: #000;
+  background: #007BAB;
   padding: 0 20px 0 10px;
-  color: #888;
+  color: #FFF;
 }
 
 .admin-sidebar-nav {
@@ -149,7 +149,7 @@ label.bg-danger, span.bg-success {
 }
 
 .admin-sidebar-nav a {
-  color: #888;
+  color: #FFF;
 }
 
 ul.navbar-nav li.dropdown a.dropdown-toggle:hover,
@@ -167,45 +167,5 @@ ul.navbar-nav li.dropdown ul.dropdown-menu {
 
 ul.navbar-nav li.dropdown ul.dropdown-menu li a:hover{
   background: #007BAB;
-  color: #fff;
-}
-
-
-/*
-ul.nav li.dropdown:hover ul.dropdown-menu {
-  background: #000;
-  display:block;
-  margin: 0px 0px 0px 10px;
-  border-bottom: 1px solid #000;
-  border-left: 1px solid #000;
-  border-right: 1px solid #000;
-  border-top: none;
-  border-top-left-radius:0px;
-}
-.navbar .dropdown-menu:before, .navbar .dropdown-menu:after {
-  border:none;
-}
-.navbar .nav > li > a {
-  background: #eee;
-  margin: 0px 10px;
-  border-top: 1px solid #FFF;
-  border-left: 1px solid #FFF;
-  border-right: 1px solid #FFF;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  color: #000;
-  text-shadow:none;
-}
-.navbar .nav > li > a:hover, .navbar .nav > li > a:active{
-  background: #000;
-  border-top: 1px solid #000;
-  border-left: 1px solid #000;
-  border-right: 1px solid #000;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  color: #000;
-  text-shadow:none;
-}
-a.menu:after, .dropdown-toggle:after {
-    content: none;
+  color: #FFF;
 }
