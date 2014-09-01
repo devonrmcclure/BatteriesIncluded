@@ -10,7 +10,7 @@
         <h2>
             Stats
         </h2>
-
+        <p>TODO: Monthly work schedule for each store</p>
 
     </div>
 
