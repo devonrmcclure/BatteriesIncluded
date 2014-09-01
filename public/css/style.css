@@ -152,6 +152,12 @@ label.bg-danger, span.bg-success {
   color: #FFF;
 }
 
+@media(max-width:768px) {
+   .admin-sidebar-wrapper {
+     margin-left: -500px;
+   }
+}
+
 ul.navbar-nav li.dropdown a.dropdown-toggle:hover,
 ul.navbar-nav li.dropdown a.dropdown-toggle:active,
 ul.navbar-nav li.dropdown a.dropdown-toggle:visited,

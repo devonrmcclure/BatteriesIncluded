@@ -1,5 +1,5 @@
 @include('layouts.partials.header')
-@include('admin.partials.nav')
+@include('layouts.partials.nav')
 
 @section('sidebar')
   @include('admin.partials.sidebar')

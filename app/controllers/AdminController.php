@@ -317,6 +317,19 @@ class AdminController extends \BaseController {
 		}
 	}
 
+	public function getEditProducts()
+	{
+		$data = Category::orderBy('category_name', 'ASC')->get(); // Get all category names and order them Alphabetically.
+
+		foreach($data as $i)
+		{
+		    $subCatLinks = Subcategory::orderBy('subcategory_name', 'ASC')->whereparent_category($i->id)->get();
+		}
+
+		return View::make('admin.edit.products')
+		    ->with('products', Product::orderBy('product_name', 'ASC')->paginate(9));
+	}
+
 	/**
 	 * Remove the specified resource from storage.
 	 *
