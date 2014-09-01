@@ -45,7 +45,7 @@ class AdminController extends \BaseController {
 			$username = Input::get('username');
 			$password = Input::get('password');
 			// Get login info then attempt to login.
-			if(Auth::attempt(array('username' => $username, 'password' => 'root')))
+			if(Auth::attempt(array('username' => $username, 'password' => $password)))
 			{
 				//Auth::login(Auth::user());
 				return Redirect::to('http://batteriesincluded.dev/admin');
