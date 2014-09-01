@@ -37,12 +37,12 @@
             <div class="col-md-3">
                 <h3>Useful Links</h3>
                 <ul class="bottom-nav">
-                  <li><a href="$_ENV['URL'] . '//">Home</a></li>
-                  <li><a href="$_ENV['URL'] . '/catalog">Catalog</a></li>
-                  <li><a href="$_ENV['URL'] . '/servicing">Servicing</a></li>
-                  <li><a href="$_ENV['URL'] . '/faq">FAQ</a></li>
-                  <li><a href="$_ENV['URL'] . '/locations-contact">Locations & Contact</a></li>
-                  <li><a href="$_ENV['URL'] . '/privacy-policy">Privacy Policy</a></li>
+                  <li><a href="{{ $_ENV['URL'] }}/">Home</a></li>
+                  <li><a href="{{ $_ENV['URL'] }}/catalog">Catalog</a></li>
+                  <li><a href="{{ $_ENV['URL'] }}/servicing">Servicing</a></li>
+                  <li><a href="{{ $_ENV['URL'] }}/faq">FAQ</a></li>
+                  <li><a href="{{ $_ENV['URL'] }}/locations-contact">Locations & Contact</a></li>
+                  <li><a href="{{ $_ENV['URL'] }}/privacy-policy">Privacy Policy</a></li>
 
               </ul>
             </div>
