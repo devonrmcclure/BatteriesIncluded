@@ -2,6 +2,11 @@
 
 class AdminController extends \BaseController {
 
+	public function __construct()
+	{
+		$this->beforeFilter('auth', array('except' => array('showLogin', 'postLogin')));
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -21,20 +26,13 @@ class AdminController extends \BaseController {
 
 			return View::make('admin.index')->with('products', $products);
 		}
+
 	}
 
 	public function showLogin()
 	{
 		// View make login page.
-		if(Auth::guest())
-		{
 			return View::make('admin.login');
-		} else
-		{
-			return Redirect::to($_ENV['URL'] . '/admin');
-		}
-
-
 
 	}
 
