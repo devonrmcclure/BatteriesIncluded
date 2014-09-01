@@ -1,7 +1,7 @@
       <!-- Site header and navigation -->
       <header class="top navbar-fixed-top" role="header">
         <div class="container">
-          <a class="navbar-brand pull-left" href="$_ENV['URL'] . '/">
+          <a class="navbar-brand pull-left" href="{{ $_ENV['URL'] }}/">
             Batteries Included
           </a>
           <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -9,11 +9,11 @@
           </button>
           <nav class="navbar-collapse collapse" role="navigation">
             <ul class="nav navbar-nav">
-              <li><a id="home" href="$_ENV['URL'] . '/">Home</a></li>
-              <li><a id="catalog" href="$_ENV['URL'] . '/catalog">Catalog</a></li>
-              <li><a id="servicing" href="$_ENV['URL'] . '/servicing">Servicing</a></li>
-              <li><a id="faq" href="$_ENV['URL'] . '/faq">FAQ</a></li>
-              <li><a id="locations-contact" href="$_ENV['URL'] . '/locations-contact">Locations & Contact</a></li>
+              <li><a id="home" href="{{ $_ENV['URL'] }}/">Home</a></li>
+              <li><a id="catalog" href="{{ $_ENV['URL'] }}/catalog">Catalog</a></li>
+              <li><a id="servicing" href="{{ $_ENV['URL'] }}/servicing">Servicing</a></li>
+              <li><a id="faq" href="{{ $_ENV['URL'] }}/faq">FAQ</a></li>
+              <li><a id="locations-contact" href="{{ $_ENV['URL'] }}/locations-contact">Locations & Contact</a></li>
             </ul>
             @if(Auth::check())
               <ul class="nav navbar-nav navbar-right">
