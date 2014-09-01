@@ -22,7 +22,7 @@
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="{{ $_ENV['URL'] }}/admin">Admin Home</a></li>
                     <li><a href="{{ $_ENV['URL'] }}/admin/add">Add Catalog Item</a></li>
-                    <li><a href="{{ $_ENV['URL'] }}/admin/edit/product">Edit/Delete Product</a></li>
+                    <li><a href="{{ $_ENV['URL'] }}/admin/edit/products">Edit/Delete Product</a></li>
                     <li><a href="{{ $_ENV['URL'] }}/admin/edit/categories">Edit Category Or Subcategory</a></li>
                     <li class="divider"></li>
                     <li><a href="{{ $_ENV['URL'] }}/admin/logout">Logout</a></li>

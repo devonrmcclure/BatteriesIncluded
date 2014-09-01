@@ -70,8 +70,8 @@ class AdminController extends \BaseController {
 		{
 			return Redirect::to($_ENV['URL'] . '/admin/login');
 		} else {
-			$categories    = Category::orderBy('category_name', 'ASC')->get();;
-			$subCategories = Subcategory::orderBy('subcategory_name', 'ASC')->get();;
+			$categories    = Category::orderBy('category_name', 'ASC')->get();
+			$subCategories = Subcategory::orderBy('subcategory_name', 'ASC')->get();
 			return View::make('admin.add.catalog')
 						->with('categories', $categories)
 						->with('subCategories', $subCategories);
@@ -328,6 +328,68 @@ class AdminController extends \BaseController {
 
 		return View::make('admin.edit.products')
 		    ->with('products', Product::orderBy('product_name', 'ASC')->paginate(9));
+	}
+
+	public function postEditProducts($id)
+	{
+
+		$product = Product::find($id);
+		$subCategories = Subcategory::orderBy('subcategory_name', 'ASC')->get();
+
+		return View::make('admin.edit.product')
+					->with('product', $product)
+					->with('subCategories', $subCategories);
+	}
+
+
+	public function putEditProducts($id)
+	{
+		$data = Input::all();
+		if($data['productsubcategory-name'] != '')
+		{
+			$product = Product::find($id);
+			//Update products accordingly
+			$categoryID = Subcategory::find($data['productsubcategory-name']);
+			$categoryID = $categoryID->parent_category;
+
+			$product->category_id = $categoryID;
+			$product->subCategory_id = $data['productsubcategory-name'];
+			$product->product_name = $data['product-name'];
+			$product->product_description = $data['product-description'];
+			$product->price = $data['product-price'];
+			$product->image = '';
+			$product->updated_at = new DateTime();
+			$product->save();
+
+			return Redirect::to($_ENV['URL'] . '/admin/edit/products')
+							->with('alert-class', 'alert-success')
+							->with('flash-message', 'Subcategory updated!');
+
+		} else {
+			return Redirect::to($_ENV['URL'] . '/admin/edit/products')
+							->with('alert-class', 'alert-danger')
+							->with('flash-message', 'You can not have an empty subcategory name!');
+		}
+	}
+
+	public function getDeleteProducts($id)
+	{
+		$product = Product::find($id);
+		$subCategories = Subcategory::orderBy('subcategory_name', 'ASC')->get();
+
+		return View::make('admin.delete.product')
+					->with('product', $product)
+					->with('subCategories', $subCategories);
+	}
+
+	public function delDeleteProducts($id)
+	{
+		$product = Product::find($id);
+		$product->delete();
+
+		return Redirect::to($_ENV['URL'] . '/admin/edit/products')
+						->with('alert-class', 'alert-success')
+						->with('flash-message', 'Product Deleted!');
 	}
 
 	/**
