@@ -357,13 +357,22 @@ class AdminController extends \BaseController {
 			//Update products accordingly
 			$categoryID = Subcategory::find($data['productsubcategory-name']);
 			$categoryID = $categoryID->parent_category;
+			$file = Input::file('image');
+			if($file)
+			{
+				$destinationPath = 'public/img/catalog/';
+				$filename = $file->getClientOriginalName();
+				$uploadSuccess = Input::file('image')->move($destinationPath, $filename);
+			} else {
+				$filename = 'no_image.png';
+			}
 
 			$product->category_id = $categoryID;
 			$product->subCategory_id = $data['productsubcategory-name'];
 			$product->product_name = $data['product-name'];
 			$product->product_description = $data['product-description'];
 			$product->price = $data['product-price'];
-			$product->image = '';
+			$product->image = $filename;
 			$product->updated_at = new DateTime();
 			$product->save();
 

@@ -21,7 +21,7 @@
     </h2>
 
 
-        {{ Form::open(array('url' =>  $_ENV['URL'] . '/admin/edit/product/' . $product->id, 'class' => 'form-horizontal', 'id' => 'productadd-form', 'role' => 'form', 'method' => 'put')) }}
+        {{ Form::open(array('url' =>  $_ENV['URL'] . '/admin/edit/product/' . $product->id, 'class' => 'form-horizontal', 'id' => 'productadd-form', 'role' => 'form', 'method' => 'put', 'files' => true)) }}
 
         <div class="form-group">
           {{ Form::label('productsubcategory-name', 'Subcategory', array('class' => 'col-sm-3 control-label')) }}
@@ -60,9 +60,13 @@
           </div>
         </div>
 
-        <!--
-            TODO: Upload image.
-        -->
+        <div class="form-group">
+          {{ Form::label('image', 'Image', array('class' => 'col-sm-3 control-label')) }}
+
+          <div class="col-sm-5">
+            {{ Form::file('image', '', array('class' => 'form-control', 'id' => 'image')) }}
+          </div>
+        </div>
 
         <div class="form-group">
           <div class="col-sm-offset-3 col-sm-10">

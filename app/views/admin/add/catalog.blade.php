@@ -120,10 +120,6 @@
           </div>
         </div>
 
-        <!--
-            TODO: Upload image.
-        -->
-
         <div class="form-group">
           {{ Form::label('image', 'Image', array('class' => 'col-sm-3 control-label')) }}
 
