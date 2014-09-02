@@ -107,14 +107,22 @@ class AdminController extends \BaseController {
 												->with('alert-class', 'alert-danger')
 												->withInput();
 							} else {
-								// TODO: Auto set parent category based on sub category. (Take out category choosing and ony have subcategory option)
+								//Upload File
+								if($file = Input::file('image'))
+								{
+									$destinationPath = 'public/img/catalog/';
+									$filename = $file->getClientOriginalName();
+									$uploadSuccess = Input::file('image')->move($destinationPath, $filename);
+								} else {
+									$filename = 'no_image.png';
+								}
 								$product = new Product;
 								$product->category_id = $categoryID->parent_category;
 								$product->subcategory_id = $data['productsubcategory-name'];
 								$product->product_name = $data['product-name'];
 								$product->product_description = $data['product-description'];
 								$product->price = $data['product-price'];
-								$product->image = '';
+								$product->image = $filename;
 								$product->created_at = new DateTime();
 								$product->updated_at = new DateTime();
 								$product->save();

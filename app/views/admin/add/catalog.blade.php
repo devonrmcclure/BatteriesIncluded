@@ -81,7 +81,7 @@
     </h2>
 
 
-        {{ Form::open(array('url' =>  $_ENV['URL'] . '/admin/add/product', 'class' => 'form-horizontal', 'id' => 'productadd-form', 'role' => 'form')) }}
+        {{ Form::open(array('url' =>  $_ENV['URL'] . '/admin/add/product', 'class' => 'form-horizontal', 'id' => 'productadd-form', 'role' => 'form', 'files' => true, 'method' => 'post')) }}
 
         <div class="form-group">
           {{ Form::label('productsubcategory-name', 'Subcategory', array('class' => 'col-sm-3 control-label')) }}
@@ -123,6 +123,14 @@
         <!--
             TODO: Upload image.
         -->
+
+        <div class="form-group">
+          {{ Form::label('image', 'Image', array('class' => 'col-sm-3 control-label')) }}
+
+          <div class="col-sm-5">
+            {{ Form::file('image', '', array('class' => 'form-control', 'id' => 'image')) }}
+          </div>
+        </div>
 
         <div class="form-group">
           <div class="col-sm-offset-3 col-sm-10">

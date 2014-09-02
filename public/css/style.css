@@ -175,3 +175,8 @@ ul.navbar-nav li.dropdown ul.dropdown-menu li a:hover{
   background: #007BAB;
   color: #FFF;
 }
+
+.img-catalog {
+  max-width: 150px;
+  max-height: 150px;
+}
