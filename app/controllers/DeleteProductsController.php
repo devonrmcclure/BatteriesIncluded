@@ -35,10 +35,11 @@ class DeleteProductsController extends \BaseController {
     public function deleteProduct($id)
     {
         $product = Product::find($id);
+        $oldName = $product->product_name;
         $product->delete();
 
         return Redirect::to($_ENV['URL'] . '/admin/edit/products')
                         ->with('alert-class', 'alert-success')
-                        ->with('flash-message', 'Product Deleted!');
+                        ->with('flash-message', 'Product <b>' . $oldName . '</b> has been deleted!');
     }
 }

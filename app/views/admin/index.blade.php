@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Batteries Included - Admin
+    Batteries Included - Admin Dashboard
 @stop
 
 @section('content')

@@ -64,7 +64,7 @@ class EditSubcategoryController extends \BaseController {
         } else {
             return Redirect::to($_ENV['URL'] . '/admin/edit/categories')
                             ->with('alert-class', 'alert-danger')
-                            ->with('flash-message', 'You can not have an empty subcategory name!');
+                            ->with('flash-message', 'You can not have an empty subcategory or parent category name!');
         }
     }
 

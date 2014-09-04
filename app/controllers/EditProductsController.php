@@ -35,12 +35,19 @@ class EditProductsController extends \BaseController {
     public function postEditProducts($id)
     {
 
-        $product = Product::find($id);
-        $subCategories = Subcategory::orderBy('subcategory_name', 'ASC')->get();
+        if($product = Product::find($id))
+        {
+            $subCategories = Subcategory::orderBy('subcategory_name', 'ASC')->get();
 
-        return View::make('admin.edit.product')
+            return View::make('admin.edit.product')
                     ->with('product', $product)
                     ->with('subCategories', $subCategories);
+        } else {
+            // Product doesn't exits (IE: User enters a number in the URL)
+            return Redirect::to($_ENV['URL'] . '/admin/edit/products')
+                            ->with('alert-class', 'alert-danger')
+                            ->with('flash-message', 'The product you requested does\'nt exist!');
+        }
     }
 
     /**
@@ -51,20 +58,19 @@ class EditProductsController extends \BaseController {
     public function putEditProducts($id)
     {
         $data = Input::all();
-        if($data['productsubcategory-name'] != '')
+        if($data['productsubcategory-name'] != '' && $data['product-name'] != '')
         {
             $product = Product::find($id);
             //Update products accordingly
             $categoryID = Subcategory::find($data['productsubcategory-name']);
             $categoryID = $categoryID->parent_category;
-            $file = Input::file('image');
-            if($file)
+            if($file = Input::file('image'))
             {
                 $destinationPath = 'img/catalog/';
                 $filename = $file->getClientOriginalName();
                 $uploadSuccess = Input::file('image')->move($destinationPath, $filename);
             } else {
-                $filename = 'no_image.png';
+                $filename = $product->image;
             }
 
             $product->category_id = $categoryID;
@@ -78,12 +84,12 @@ class EditProductsController extends \BaseController {
 
             return Redirect::to($_ENV['URL'] . '/admin/edit/products')
                             ->with('alert-class', 'alert-success')
-                            ->with('flash-message', 'Subcategory updated!');
+                            ->with('flash-message', 'Product <b>' . $product->product_name . '</b> updated!');
 
         } else {
             return Redirect::to($_ENV['URL'] . '/admin/edit/products')
                             ->with('alert-class', 'alert-danger')
-                            ->with('flash-message', 'You can not have an empty subcategory name!');
+                            ->with('flash-message', 'You can not have an empty product or subcategory name!');
         }
     }
 
