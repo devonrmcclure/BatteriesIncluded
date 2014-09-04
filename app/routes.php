@@ -41,15 +41,23 @@ Route::get('admin', 'AdminController@showIndex');
 Route::get('admin/login', 'AdminController@showLogin');
 Route::post('admin/login', 'AdminController@postLogin');
 Route::get('admin/logout', 'AdminController@destroy');
-Route::get('admin/add/', 'AdminController@getCreate');
-Route::post('admin/add/{type?}', 'AdminController@store');
-Route::get('admin/edit/categories', 'AdminController@getEditCategoriesIndex');
-Route::post('admin/edit/category', 'AdminController@getEditCategory');
-Route::put('admin/edit/category', 'AdminController@putEditCategory');
-Route::post('admin/edit/subcategory', 'AdminController@getEditSubcategory');
-Route::put('admin/edit/subcategory', 'AdminController@putEditSubcategory');
-Route::get('admin/edit/products', 'AdminController@getEditProducts');
-Route::get('admin/edit/product/{id}', 'AdminController@postEditProducts');
-Route::put('admin/edit/product/{id}', 'AdminController@putEditProducts');
-Route::get('admin/delete/product/{id}', 'AdminController@getDeleteProducts');
-Route::delete('admin/delete/product/{id}', 'AdminController@delDeleteProducts');
+
+Route::get('admin/add/', 'CreateCatalogItemController@showIndex');
+Route::post('admin/add/category', 'CreateCatalogItemController@postCreateCategory');
+Route::post('admin/add/subcategory', 'CreateCatalogItemController@postCreateSubcategory');
+Route::post('admin/add/product', 'CreateCatalogItemController@postCreateProduct');
+
+Route::get('admin/edit/categories', 'EditCategorySubcategoryController@showIndex');
+
+Route::post('admin/edit/category', 'EditCategoryController@getEditCategory');
+Route::put('admin/edit/category', 'EditCategoryController@putEditCategory');
+
+Route::post('admin/edit/subcategory', 'EditSubcategoryController@getEditSubcategory');
+Route::put('admin/edit/subcategory', 'EditSubcategoryController@putEditSubcategory');
+
+Route::get('admin/edit/products', 'EditProductsController@showIndex');
+Route::get('admin/edit/product/{id}', 'EditProductsController@postEditProducts');
+Route::put('admin/edit/product/{id}', 'EditProductsController@putEditProducts');
+
+Route::get('admin/delete/product/{id}', 'DeleteProductsController@getProduct');
+Route::delete('admin/delete/product/{id}', 'DeleteProductsController@deleteProduct');

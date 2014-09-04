@@ -1,0 +1,118 @@
+<?php
+
+class CreateCatalogItemController extends \BaseController {
+
+    public function __construct()
+    {
+        $this->beforeFilter('auth');
+    }
+
+    public function showIndex()
+    {
+        $categories    = Category::orderBy('category_name', 'ASC')->get();
+        $subCategories = Subcategory::orderBy('subcategory_name', 'ASC')->get();
+        return View::make('admin.add.catalog')
+                    ->with('categories', $categories)
+                    ->with('subCategories', $subCategories);
+    }
+
+    public function postCreateCategory()
+    {
+        $data = Input::all();
+        $categoryExists = Category::wherecategory_name($data['category-name'])->first();
+        $categoryEmpty  = $data['category-name'];
+        if($categoryExists || $categoryEmpty == '')
+        {
+            return Redirect::to($_ENV['URL'] . '/admin/add')
+                            ->with('flash-message', 'Category already exists or left empty so not added!')
+                            ->with('alert-class', 'alert-danger');
+        } else {
+            $category = new Category;
+            $category->category_name = $data['category-name'];
+            $category->created_at = new DateTime();
+            $category->updated_at = new DateTime();
+            $category->save();
+            return Redirect::to($_ENV['URL'] . '/admin/add')
+                            ->with('flash-message', 'Category <b>' . $data['category-name'] . '</b> has been successfully added!')
+                            ->with('alert-class', 'alert-success');
+        }
+    }
+
+    public function postCreateSubcategory()
+    {
+        $data = Input::all();
+        if($data['parentcategory-name'] != 'selectparentcategory')
+        {
+            $subcategoryExists = Subcategory::wheresubcategory_name($data['subcategory-name'])->first();
+            $subCategoryEmpty  = $data['subcategory-name'];
+            if($subcategoryExists || $subCategoryEmpty == '')
+            {
+                return Redirect::to($_ENV['URL'] . '/admin/add')
+                                ->with('flash-message', 'Subcategory already exists or left empty so not added!')
+                                ->with('alert-class', 'alert-danger')
+                                ->withInput();
+            } else {
+                $subCategory = new Subcategory;
+                $subCategory->parent_category = $data['parentcategory-name'];
+                $subCategory->subcategory_name = $data['subcategory-name'];
+                $subCategory->created_at = new DateTime();
+                $subCategory->updated_at = new DateTime();
+                $subCategory->save();
+                return Redirect::to($_ENV['URL'] . '/admin/add')
+                                ->with('flash-message', 'Subcategory <b>' . $data['subcategory-name'] . '</b> has been successfully added!')
+                                ->with('alert-class', 'alert-success');
+            }
+        } else {
+            return Redirect::to($_ENV['URL'] . '/admin/add')
+                            ->with('flash-message', 'Please select a parent category!')
+                            ->with('alert-class', 'alert-danger')
+                            ->withInput();
+        }
+    }
+
+    public function postCreateProduct()
+    {
+        $data = Input::all();
+        if($data['productsubcategory-name'] != 'selectproductsubcategory')
+        {
+            $productExists = Product::whereproduct_name($data['product-name'])->first();
+            $productEmpty  = $data['product-name'];
+            $categoryID = Subcategory::find($data['productsubcategory-name']);
+            if($productExists || $productEmpty == '')
+            {
+                return Redirect::to($_ENV['URL'] . '/admin/add')
+                                ->with('flash-message', 'Product already exists or left empty so not added!')
+                                ->with('alert-class', 'alert-danger')
+                                ->withInput();
+            } else {
+                //Upload File
+                if($file = Input::file('image'))
+                {
+                    $destinationPath = 'public/img/catalog/';
+                    $filename = $file->getClientOriginalName();
+                    $uploadSuccess = Input::file('image')->move($destinationPath, $filename);
+                } else {
+                    $filename = 'no_image.png';
+                }
+                $product = new Product;
+                $product->category_id = $categoryID->parent_category;
+                $product->subcategory_id = $data['productsubcategory-name'];
+                $product->product_name = $data['product-name'];
+                $product->product_description = $data['product-description'];
+                $product->price = $data['product-price'];
+                $product->image = $filename;
+                $product->created_at = new DateTime();
+                $product->updated_at = new DateTime();
+                $product->save();
+                return Redirect::to($_ENV['URL'] . '/admin/add')
+                                ->with('flash-message', 'Product <b>' . $data['product-name'] . '</b> has been successfully added!')
+                                ->with('alert-class', 'alert-success');
+            }
+        } else {
+            return Redirect::to($_ENV['URL'] . '/admin/add')
+                            ->with('flash-message', 'Please select a subcategory!')
+                            ->with('alert-class', 'alert-danger')
+                            ->withInput();
+        }
+    }
+}
