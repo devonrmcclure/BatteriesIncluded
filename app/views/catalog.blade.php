@@ -78,7 +78,7 @@
           @else
             <span class="pull-right product-price">Call for price</span>
           @endif
-            <img src="/public/img/catalog/{{ $product->image }}" class="img-responsive img-catalog"/>
+            <img src="/img/catalog/{{ $product->image }}" class="img-responsive img-catalog"/>
             @if($product->subcategory->subcategory_name != 'Uncategorized')
               <small><b>Category:</b> <a href="{{ $_ENV['URL'] }}/catalog/{{ $product->subcategory->subcategory_name }}"> {{ $product->subcategory->subcategory_name }} </a></small>
             @elseif($product->category->category_name)

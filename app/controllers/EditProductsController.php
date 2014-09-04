@@ -60,7 +60,7 @@ class EditProductsController extends \BaseController {
             $file = Input::file('image');
             if($file)
             {
-                $destinationPath = 'public/img/catalog/';
+                $destinationPath = 'img/catalog/';
                 $filename = $file->getClientOriginalName();
                 $uploadSuccess = Input::file('image')->move($destinationPath, $filename);
             } else {

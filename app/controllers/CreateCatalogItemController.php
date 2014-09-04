@@ -107,7 +107,7 @@ class CreateCatalogItemController extends \BaseController {
                 //Upload File
                 if($file = Input::file('image'))
                 {
-                    $destinationPath = 'public/img/catalog/';
+                    $destinationPath = 'img/catalog/';
                     $filename = $file->getClientOriginalName();
                     $uploadSuccess = Input::file('image')->move($destinationPath, $filename);
                 } else {
