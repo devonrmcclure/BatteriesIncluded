@@ -92,8 +92,8 @@ class CatalogController extends \BaseController {
                 ->with('subCategoryLinks', $subCatLinks)
                 ->with('categoryLinks', $categoryLinks);
         } else {
-            // TODO: 404 Error.
-            return 'Hi';
+            // Redirect to main page if category/subcategory doesn't exist.
+            return Redirect::to($_ENV['URL'] . '/catalog');
         }
     }
 }

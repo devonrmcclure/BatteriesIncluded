@@ -69,6 +69,9 @@
       @if(count($products) == 0)
         <div class="col-md-12">
           <p>There doesn't seem to be anything here!</p>
+          @if(Auth::check())
+            Why not <a href="{{ $_ENV['URL'] }}/admin/add#product">add a product?</a>
+          @endif
         </div>
       @else
         @foreach($products as $product)

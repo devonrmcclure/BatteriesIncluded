@@ -15,6 +15,7 @@
           </div>
       @endif
     </div>
+    <a id="category"></a>
     <h2>
         Add Category
     </h2>
@@ -38,9 +39,9 @@
 
     {{ Form::close() }}
 
-
+    <a id="subcategory"></a>
     <h2>
-        Add Subategory
+        Add Subcategory
     </h2>
 
 
@@ -75,7 +76,7 @@
 
     {{ Form::close() }}
 
-
+    <a id="product"></a>
     <h2>
         Add Product
     </h2>
