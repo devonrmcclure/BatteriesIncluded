@@ -2,11 +2,18 @@
 
 class EditSubcategoryController extends \BaseController {
 
+    /**
+     * Apply a before filter to check if a user is logged in.
+     */
     public function __construct()
     {
         $this->beforeFilter('auth', array('except' => array('showLogin', 'postLogin')));
     }
 
+    /**
+     * Get the subcategory to edit.
+     * @return [View] [create the view to edit a specific subcategory]
+     */
     public function getEditSubcategory()
     {
         $data = Input::all();
@@ -18,6 +25,10 @@ class EditSubcategoryController extends \BaseController {
                     ->with('subCategory', $subcategory);
     }
 
+    /**
+     * Update the category with the input values.
+     * @return [Redirect] [redirect to the editing category or subcategory index with success or error message]
+     */
     public function putEditsubcategory()
     {
         $data = Input::all();

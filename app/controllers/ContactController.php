@@ -2,18 +2,27 @@
 
 class ContactController extends \BaseController {
 
+    /**
+     * Apply a beforeFilter of csfr to prevent csfr.
+     */
     public function __construct()
     {
         $this->beforeFilter('csfr', array('on' => 'post'));
     }
 
-
+    /**
+     * Create the locations-contact page view.
+     * @return [View] [load the view for the locations-contact page]
+     */
     public function showIndex()
     {
         return View::make('locations-contact');
     }
 
-    //Contact Form
+    /**
+     * Procress the contact form and validate it again (it will already have been validated by javascript by this point) and return to the locations-contact page with any errors.
+     * @return [Redirect] [Redirect back to the locaitons-contact page]
+     */
     public function postContact(){
 
         //Get all the data and store it inside Store Variable
@@ -53,23 +62,23 @@ class ContactController extends \BaseController {
                     $data['location'] = '';
             }
 
-            //Send email using Laravel send function
+            // Send email using Mandrill
             Mail::send('emails.contact', $data, function($message) use ($data)
             {
-                //email 'From' field: Get users email add and name
+                // Message from information using the customers input Email and Name.
                 $message->from($data['email'] , $data['name']);
-                //email 'To' field: change this to emails that you want to be notified.
                 $message->to($data['location'], 'Batteries Included')->subject($data['subject']);
             });
 
             return Redirect::to($_ENV['URL'] . '/locations-contact')
-                ->with('alert-class', 'alert-success')
-                ->with('flash-message', 'Your message has been sent! Someone will get back to you shortly!');
+                            ->with('alert-class', 'alert-success')
+                            ->with('flash-message', 'Your message has been sent! Someone will get back to you shortly!');
         }else{
-            //return contact form with errors
+            // Return contact form with errors
             return Redirect::to($_ENV['URL'] . '/locations-contact')
-                ->withErrors($validator)
-                ->withInput();
+                            ->with('alert-class', 'alert-danger')
+                            ->with('flash-message', 'There was an error! Please look over your message and try again!')
+                            ->withInput();
         }
     }
 

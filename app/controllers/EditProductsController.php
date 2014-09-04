@@ -2,11 +2,18 @@
 
 class EditProductsController extends \BaseController {
 
+    /**
+     * Apply a before filter to check if a user is logged in.
+     */
     public function __construct()
     {
         $this->beforeFilter('auth');
     }
 
+    /**
+     * Show the index for editing a product.
+     * @return [View] [create the view with each product in the database]
+     */
     public function showIndex()
     {
         $data = Category::orderBy('category_name', 'ASC')->get(); // Get all category names and order them Alphabetically.
@@ -20,6 +27,11 @@ class EditProductsController extends \BaseController {
             ->with('products', Product::orderBy('product_name', 'ASC')->paginate(9));
     }
 
+    /**
+     * Create the view for editing a specific product.
+     * @param  [int] $id [ID of the product in the database]
+     * @return [View]     [create the view for editing a product]
+     */
     public function postEditProducts($id)
     {
 
@@ -31,6 +43,11 @@ class EditProductsController extends \BaseController {
                     ->with('subCategories', $subCategories);
     }
 
+    /**
+     * Update the product with the input data.
+     * @param  [int] $id [ID of the product in the database]
+     * @return [Redirect]     [redirect back to the products index page with a success or error message]
+     */
     public function putEditProducts($id)
     {
         $data = Input::all();

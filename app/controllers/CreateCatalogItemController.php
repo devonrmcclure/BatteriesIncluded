@@ -2,11 +2,18 @@
 
 class CreateCatalogItemController extends \BaseController {
 
+    /**
+     * Apply a beforeFilter of auth to check if a user is logged in.
+     */
     public function __construct()
     {
         $this->beforeFilter('auth');
     }
 
+    /**
+     * Show index for creating catalog items (Category, Subcategory, Product)
+     * @return [View] [create the view for adding items to the catalog.]
+     */
     public function showIndex()
     {
         $categories    = Category::orderBy('category_name', 'ASC')->get();
@@ -16,6 +23,10 @@ class CreateCatalogItemController extends \BaseController {
                     ->with('subCategories', $subCategories);
     }
 
+    /**
+     * Create a Category.
+     * @return [Redirect] [redirect to the create catalog item index with success or error message]
+     */
     public function postCreateCategory()
     {
         $data = Input::all();
@@ -38,6 +49,10 @@ class CreateCatalogItemController extends \BaseController {
         }
     }
 
+    /**
+     * Create a Subcategory
+     * @return [Redirect] [redirect to the create catalog item index with success or error message]
+     */
     public function postCreateSubcategory()
     {
         $data = Input::all();
@@ -70,6 +85,10 @@ class CreateCatalogItemController extends \BaseController {
         }
     }
 
+    /**
+     * Create a Product
+     * @return [Redirect] [redirect to the create catalog item index with success or error message]
+     */
     public function postCreateProduct()
     {
         $data = Input::all();

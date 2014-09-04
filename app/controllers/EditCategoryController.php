@@ -2,13 +2,19 @@
 
 class EditCategoryController extends \BaseController {
 
+    /**
+     * Apply a before filter to check if a user is logged in.
+     */
     public function __construct()
     {
         $this->beforeFilter('auth');
     }
 
 
-
+    /**
+     * Get the category name for the category to edit.
+     * @return [View] [Make the view with the form to edit the category with default value of category_name]
+     */
     public function getEditCategory()
     {
         $data = Input::all();
@@ -19,6 +25,10 @@ class EditCategoryController extends \BaseController {
                     ->with('category', $category);
     }
 
+    /**
+     * Update the category name in the database.
+     * @return [Redirect] [Redirect to the categories edit page with a success or error message.]
+     */
     public function putEditCategory()
     {
         $data = Input::all();

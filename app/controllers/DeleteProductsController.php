@@ -2,11 +2,19 @@
 
 class DeleteProductsController extends \BaseController {
 
+    /**
+     * Apply a before filter to check if a user is logged in.
+     */
     public function __construct()
     {
-        $this->beforeFilter('auth', array('except' => array('showLogin', 'postLogin')));
+        $this->beforeFilter('auth');
     }
 
+    /**
+     * Show the information of a specific product.
+     * @param  [int] $id [the ID of the product in the database]
+     * @return [View]     [Show the specific product]
+     */
     public function getProduct($id)
     {
         $product = Product::find($id);
@@ -17,6 +25,13 @@ class DeleteProductsController extends \BaseController {
                     ->with('subCategories', $subCategories);
     }
 
+    /**
+     * TODO: Validate that the product actually got deleted.
+     *
+     * Delete the specific product.
+     * @param  [int] $id [the ID of the product in the database]
+     * @return [Redirect]     [Redirect back to products edit/delete page with a success or error message]
+     */
     public function deleteProduct($id)
     {
         $product = Product::find($id);

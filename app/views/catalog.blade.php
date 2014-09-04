@@ -96,6 +96,7 @@
   <div class="col-md-3"></div>
   <div class="row content text-center product-pagination">
     <?php
+      // Pagination links
       echo $products->links();
     ?>
   </div>

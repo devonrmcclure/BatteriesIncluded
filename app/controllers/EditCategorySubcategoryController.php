@@ -2,11 +2,18 @@
 
 class EditCategorySubcategoryController extends \BaseController {
 
+    /**
+     * Apply a before filter to check if a user is logged in.
+     */
     public function __construct()
     {
         $this->beforeFilter('auth');
     }
 
+    /**
+     * Show the index for editing a category or a subcategory.
+     * @return [View] [create the index for editing a category or subcategory]
+     */
     public function showIndex()
     {
         $categories    = Category::orderBy('category_name', 'ASC')->get();

@@ -2,6 +2,9 @@
 
 class AdminController extends \BaseController {
 
+	/**
+	 * Apply a beforeFilter of auth to check if a user is logged in, except on showLogin and postLogin.
+	 */
 	public function __construct()
 	{
 		$this->beforeFilter('auth', array('except' => array('showLogin', 'postLogin')));
@@ -9,15 +12,17 @@ class AdminController extends \BaseController {
 
 	/**
 	 * Show index for the Admin page if logged in.
-	 * @return [type] [description]
+	 * @return [View] [views/admin/index/]
 	 */
 	public function showIndex()
 	{
-		$products = Product::all();
-
-		return View::make('admin.index')->with('products', $products);
+		return View::make('admin.index');
 	}
 
+	/**
+	 * Show the login form if the user is not logged in. Otherwise redirect to admin main page.
+	 * @return [View/Redirect] [loginform/admin page]
+	 */
 	public function showLogin()
 	{
 		// View make login page.
@@ -30,6 +35,10 @@ class AdminController extends \BaseController {
 
 	}
 
+	/**
+	 * Process the log in form and return back to the login page if there's an error.
+	 * @return [Redirect] [redirect to the correct page]
+	 */
 	public function postLogin()
 	{
 		if(Auth::guest())
@@ -52,16 +61,15 @@ class AdminController extends \BaseController {
 	}
 
 	/**
-	 * Remove the specified resource from storage.
+	 * Log the user out.
 	 *
-	 * @param  int  $id
-	 * @return Response
+	 * @return [Redirect] [to index]
 	 */
 	public function destroy()
 	{
 		Auth::logout();
 
-		return Redirect::to($_ENV['URL'] . '/');
+		return Redirect::to($_ENV['URL']);
 	}
 
 
