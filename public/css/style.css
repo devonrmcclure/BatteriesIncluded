@@ -152,7 +152,7 @@ label.bg-danger, span.bg-success {
   color: #FFF;
 }
 
-@media(max-width:768px) {
+@media(max-width:864px) {
    .admin-sidebar-wrapper {
      margin-left: -500px;
    }
