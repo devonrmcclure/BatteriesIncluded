@@ -1,13 +1,14 @@
       <!-- Site header and navigation -->
-      <header class="top navbar-fixed-top" role="header">
-        <div class="container">
-          <a class="navbar-brand pull-left" href="{{ $_ENV['URL'] }}/">
-            Batteries Included
-          </a>
-          <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="glyphicon glyphicon-align-justify"></span>
-          </button>
-          <nav class="navbar-collapse collapse" role="navigation">
+      <div class="navbar top navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="glyphicon glyphicon-align-justify"></span>
+            </button>
+            <a class="navbar-brand" href="#">Batteries Included</a>
+          </div>
+          <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li><a id="home" href="{{ $_ENV['URL'] }}/">Home</a></li>
               <li><a id="catalog" href="{{ $_ENV['URL'] }}/catalog">Catalog</a></li>
@@ -30,7 +31,9 @@
                 </li>
               </ul>
             @endif
-          </nav>
-
+          </div><!--/.nav-collapse -->
         </div>
-      </header>
+      </div>
+
+
+
