@@ -20,7 +20,6 @@
   @endif
 </div>
     <h1>Update Password</h1>
-    <hr />
     {{ Form::open(array('url' => $_ENV['URL'] . '/admin/password', 'class' => 'form-horizontal', 'id' => 'login-form', 'role' => 'form', 'method' => 'put')) }}
 
         <div class="form-group">
