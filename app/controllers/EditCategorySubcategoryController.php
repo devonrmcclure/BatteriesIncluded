@@ -8,6 +8,7 @@ class EditCategorySubcategoryController extends \BaseController {
     public function __construct()
     {
         $this->beforeFilter('auth');
+        $this->beforeFilter('pass_expired');
     }
 
     /**

@@ -8,6 +8,7 @@ class EditCategoryController extends \BaseController {
     public function __construct()
     {
         $this->beforeFilter('auth');
+        $this->beforeFilter('pass_expired');
     }
 
 
@@ -38,7 +39,7 @@ class EditCategoryController extends \BaseController {
             $category = Category::find($data['category-id']);
             $oldName  = $category->category_name;
             $category->category_name = $data['category-name'];
-            $category->updated_at = new DateTime();
+            $category->updated_at = Carbon::now();
             $category->save();
 
             return Redirect::to($_ENV['URL'] . '/admin/edit/categories')

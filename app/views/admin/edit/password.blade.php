@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Batteries Included - Login
+    Batteries Included - Change Password!
 @stop
 
 @section('sidebar')
@@ -19,23 +19,23 @@
       </div>
   @endif
 </div>
-    <h1>Please login!</h1>
+    <h1>Update Password</h1>
     <hr />
-    {{ Form::open(array('url' => $_ENV['URL'] . '/admin/login', 'class' => 'form-horizontal', 'id' => 'login-form', 'role' => 'form')) }}
+    {{ Form::open(array('url' => $_ENV['URL'] . '/admin/password', 'class' => 'form-horizontal', 'id' => 'login-form', 'role' => 'form', 'method' => 'put')) }}
 
         <div class="form-group">
-          {{ Form::label('username', 'Username', array('class' => 'col-sm-2 control-label')) }}
+          {{ Form::label('pass1', 'Password', array('class' => 'col-sm-2 control-label')) }}
 
           <div class="col-sm-10">
-            {{ Form::text('username', '', array('class' => 'form-control', 'id' => 'username', 'placeholder' => 'Username')) }}
+            {{ Form::password('pass1', array('class' => 'form-control', 'id' => 'pass1', 'placeholder' => 'Password')) }}
           </div>
         </div>
 
         <div class="form-group">
-          {{ Form::label('password', 'Password', array('class' => 'col-sm-2 control-label')) }}
+          {{ Form::label('pass2', 'Confirm Password', array('class' => 'col-sm-2 control-label')) }}
 
           <div class="col-sm-10">
-            {{ Form::password('password', array('class' => 'form-control', 'id' => 'password', 'placeholder' => 'Password')) }}
+            {{ Form::password('pass2', array('class' => 'form-control', 'id' => 'pass2', 'placeholder' => 'Confirm Password')) }}
           </div>
         </div>
 

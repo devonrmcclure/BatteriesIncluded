@@ -61,3 +61,13 @@ Route::put('admin/edit/product/{id}', 'EditProductsController@putEditProducts');
 
 Route::get('admin/delete/product/{id}', 'DeleteProductsController@getProduct');
 Route::delete('admin/delete/product/{id}', 'DeleteProductsController@deleteProduct');
+
+Route::get('admin/password', 'AdminController@getUpdatePassword');
+Route::put('admin/password', 'AdminController@putUpdatePassword');
+
+Route::get('test', function()
+{
+    $user = Auth::user();
+
+    echo $user->last_password_change->diffInMonths();
+});

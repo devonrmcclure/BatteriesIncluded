@@ -7,7 +7,8 @@ class EditSubcategoryController extends \BaseController {
      */
     public function __construct()
     {
-        $this->beforeFilter('auth', array('except' => array('showLogin', 'postLogin')));
+        $this->beforeFilter('auth');
+        $this->beforeFilter('pass_expired');
     }
 
     /**
@@ -43,7 +44,7 @@ class EditSubcategoryController extends \BaseController {
             $parentCat    = Category::find($subCategory->parent_category);
             $parentCat    = $parentCat->category_name;
             $subCategory->subcategory_name = $data['subcategory-name'];
-            $subCategory->updated_at = new DateTime();
+            $subCategory->updated_at = Carbon::now();
             $subCategory->save();
 
             //Update products accordingly
@@ -53,7 +54,7 @@ class EditSubcategoryController extends \BaseController {
             foreach($products as $product)
             {
                 $product->category_id = $categoryID;
-                $product->updated_at  = new DateTime();
+                $product->updated_at  = Carbon::now();
                 $product->save();
             }
 

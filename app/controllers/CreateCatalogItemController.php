@@ -8,6 +8,7 @@ class CreateCatalogItemController extends \BaseController {
     public function __construct()
     {
         $this->beforeFilter('auth');
+        $this->beforeFilter('pass_expired');
     }
 
     /**
@@ -40,8 +41,8 @@ class CreateCatalogItemController extends \BaseController {
         } else {
             $category = new Category;
             $category->category_name = $data['category-name'];
-            $category->created_at = new DateTime();
-            $category->updated_at = new DateTime();
+            $category->created_at = Carbon::now();
+            $category->updated_at = Carbon::now();
             $category->save();
             return Redirect::to($_ENV['URL'] . '/admin/add')
                             ->with('flash-message', 'Category <b>' . $data['category-name'] . '</b> has been successfully added!')
@@ -70,8 +71,8 @@ class CreateCatalogItemController extends \BaseController {
                 $subCategory = new Subcategory;
                 $subCategory->parent_category = $data['parentcategory-name'];
                 $subCategory->subcategory_name = $data['subcategory-name'];
-                $subCategory->created_at = new DateTime();
-                $subCategory->updated_at = new DateTime();
+                $subCategory->created_at = Carbon::now();
+                $subCategory->updated_at = Carbon::now();
                 $subCategory->save();
                 return Redirect::to($_ENV['URL'] . '/admin/add')
                                 ->with('flash-message', 'Subcategory <b>' . $data['subcategory-name'] . '</b> has been successfully added!')
@@ -120,8 +121,8 @@ class CreateCatalogItemController extends \BaseController {
                 $product->product_description = $data['product-description'];
                 $product->price = $data['product-price'];
                 $product->image = $filename;
-                $product->created_at = new DateTime();
-                $product->updated_at = new DateTime();
+                $product->created_at = Carbon::now();
+                $product->updated_at = Carbon::now();
                 $product->save();
                 return Redirect::to($_ENV['URL'] . '/admin/add')
                                 ->with('flash-message', 'Product <b>' . $data['product-name'] . '</b> has been successfully added!')

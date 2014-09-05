@@ -8,6 +8,7 @@ class AdminController extends \BaseController {
 	public function __construct()
 	{
 		$this->beforeFilter('auth', array('except' => array('showLogin', 'postLogin')));
+		$this->beforeFilter('pass_expired', array('except' => array('showLogin', 'postLogin', 'getUpdatePassword', 'putUpdatePassword')));
 	}
 
 	/**
@@ -48,7 +49,7 @@ class AdminController extends \BaseController {
 			// Get login info then attempt to login.
 			if(Auth::attempt(array('username' => $username, 'password' => $password)))
 			{
-				//Auth::login(Auth::user());
+
 				return Redirect::to($_ENV['URL'] . '/admin');
 			} else {
 				return Redirect::to($_ENV['URL'] . '/admin/login')
@@ -57,6 +58,44 @@ class AdminController extends \BaseController {
 			}
 		} else {
 			return Redirect::to($_ENV['URL']);
+		}
+	}
+
+	/**
+	 * Update the user's password. Upon first login, force change of password. After every 3 months (90 days) required password change again.
+	 * @return [View] [make the view for changing password]
+	 */
+	public function getUpdatePassword()
+	{
+		return View::make('admin.edit.password');
+	}
+
+	/**
+	 * Update the user's password. Upon first login, force change of password. After every 3 months (90 days) required password change again.
+	 * @return [Redirect] [redirect to correct page after checking update]
+	 */
+	public function putUpdatePassword()
+	{
+		$user = Auth::user();
+		$data = Input::all();
+
+		$pass1 = $data['pass1'];
+		$pass2 = $data['pass2'];
+
+		if($pass1 === $pass2 && $pass1 != '' && $pass2 != '')
+		{
+			$user->password = Hash::make($pass1);
+			$user->last_password_change = Carbon::now();
+			$user->updated_at = Carbon::now();
+			$user->save();
+
+			return Redirect::to($_ENV['URL'] . '/admin')
+					->with('alert-class', 'alert-success')
+					->with('flash-message', 'Password for <b>' . $user->username . '</b> has been updated!');
+		} else {
+			return Redirect::to($_ENV['URL'] . '/admin/password')
+					->with('alert-class', 'alert-danger')
+					->with('flash-message', 'The passwords did not match!');
 		}
 	}
 

@@ -88,3 +88,15 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+Route::filter('pass_expired', function()
+{
+	//$lastChanged = Auth::user()->last_password_change;
+	//$lastChanged = $lastChanged->diffForHumans();
+	if(Auth::user()->last_password_change->diffInMonths() >= '3')
+	{
+		return Redirect::to($_ENV['URL'] . '/admin/password')
+						->with('alert-class', 'alert-danger')
+						->with('flash-message', 'Your password has not been updated in over 90 days! Please update the password to proceed!');
+	}
+});

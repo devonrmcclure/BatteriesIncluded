@@ -8,6 +8,7 @@ class EditProductsController extends \BaseController {
     public function __construct()
     {
         $this->beforeFilter('auth');
+        $this->beforeFilter('pass_expired');
     }
 
     /**
@@ -79,7 +80,7 @@ class EditProductsController extends \BaseController {
             $product->product_description = $data['product-description'];
             $product->price = $data['product-price'];
             $product->image = $filename;
-            $product->updated_at = new DateTime();
+            $product->updated_at = Carbon::now();
             $product->save();
 
             return Redirect::to($_ENV['URL'] . '/admin/edit/products')
