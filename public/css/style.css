@@ -17,6 +17,7 @@ p {
 }
 .top {
 	background-color: #0064AB;
+  padding: 0 15px;
 }
 .top .navbar-brand {
 	height: 50px;
@@ -27,6 +28,10 @@ p {
 	color: #FFF;
 	text-decoration: none;
   cursor: default;
+}
+
+.top .navbar-collapse {
+  padding: 0px;
 }
 
 .top .container {
