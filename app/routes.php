@@ -64,10 +64,3 @@ Route::delete('admin/delete/product/{id}', 'DeleteProductsController@deleteProdu
 
 Route::get('admin/password', 'AdminController@getUpdatePassword');
 Route::put('admin/password', 'AdminController@putUpdatePassword');
-
-Route::get('test', function()
-{
-    $user = Auth::user();
-
-    echo $user->last_password_change->diffInMonths();
-});
