@@ -80,11 +80,19 @@ p {
 
 .product-price{
   background-color: #0064AB;
-  border: 1px solid black;
-  color: #fff;
+  bforder: 1px solid black;
+  color: #FFF;
   font-style: italic;
-  padding: 3px;
+  padding: 5px;
   margin-bottom: 20px;
+}
+
+.modal-admin a {
+  color: #FFF;
+}
+
+.product-price a {
+  color: #FFF;
 }
 
 label.bg-danger, span.bg-success {
@@ -106,8 +114,30 @@ label.bg-danger, span.bg-success {
     font-weight: bold;
 }
 
+.product-description {
+  font-size: 12px;
+  height: 150px;
+}
+
 .product-tile {
-    height: 310px;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.product-modal {
+  margin: 0 auto;
+}
+
+.modal-header {
+  background: #0064AB;
+  color: #FFF;
+  border: none;
+  box-shadow: 0px 0px 20px #000;
+}
+
+.modal-body {
+  width: auto;
+  margin: 0 auto;
 }
 
 .product-pagination li a .active{
@@ -183,8 +213,8 @@ ul.navbar-nav li.dropdown ul.dropdown-menu li a:hover{
 }
 
 .img-catalog {
-  max-width: 150px;
-  max-height: 150px;
+  height: 250px;
+  max-height: 250px;
 }
 
 .location-image {
