@@ -19,11 +19,25 @@ class EditSubcategoryController extends \BaseController {
     {
         $data = Input::all();
 
-        $subcategory = Subcategory::find($data['subcategory-name']);
-        $categories  = Category::orderBy('category_name', 'ASC')->get();
-        return View::make('admin.edit.subcategory')
-                    ->with('categories', $categories)
-                    ->with('subCategory', $subcategory);
+        if($data['subcategory-name'] != "selectsubcategory")
+        {
+           $subcategory = Subcategory::find($data['subcategory-name']);
+           $categories  = Category::orderBy('category_name', 'ASC')->get();
+           return View::make('admin.edit.subcategory')
+                       ->with('categories', $categories)
+                       ->with('subCategory', $subcategory);
+
+        } elseif($data['subcategory-name'] == 'selectsubcategory') {
+            return Redirect::to($_ENV['URL'] . '/admin/edit/categories')
+                            ->with('alert-class', 'alert-danger')
+                            ->with('flash-message', 'Please select a subcategory!');
+        } else {
+            return Redirect::to($_ENV['URL'] . '/admin/edit/categories')
+                            ->with('alert-class', 'alert-danger')
+                            ->with('flash-message', 'Something went wrong!');
+        }
+
+
     }
 
     /**

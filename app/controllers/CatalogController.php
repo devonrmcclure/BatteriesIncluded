@@ -17,20 +17,20 @@ class CatalogController extends \BaseController {
 	public function showIndex()
 	{
         // Get all category names and order them Alphabetically.
-        $data = Category::orderBy('category_name', 'ASC')->get();
+        $subCategories = Category::orderBy('category_name', 'ASC')->get();
 
         // Get all subcategories for a parent category for linking purposes.
-        foreach($data as $i)
+        foreach($subCategories as $subCat)
         {
-            $subCatLinks = Subcategory::orderBy('subcategory_name', 'ASC')->whereparent_category($i->id)->get();
+            $subCatLinks = Subcategory::orderBy('subcategory_name', 'ASC')->whereparent_category($subCat->id)->get();
         }
 
 		return View::make('catalog')
             ->with('products', Product::orderBy('created_at', 'DESC')->paginate(9))
-            ->with('categories', $data)
+            ->with('categories', $subCategories)
             ->with('subCategories', NULL) // Must be null for if statements in catalog view.
             ->with('subCategoryLinks', $subCatLinks)
-            ->with('categoryLinks', $data);
+            ->with('categoryLinks', $subCategories);
 
 	}
 

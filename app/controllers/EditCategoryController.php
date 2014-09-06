@@ -20,6 +20,22 @@ class EditCategoryController extends \BaseController {
     {
         $data = Input::all();
 
+        if($data['category-name'] != "selectcategory")
+        {
+           $category = Category::find($data['category-name']);
+
+                   return View::make('admin.edit.category')
+                               ->with('category', $category);
+        } elseif($data['category-name'] == 'selectcategory') {
+            return Redirect::to($_ENV['URL'] . '/admin/edit/categories')
+                            ->with('alert-class', 'alert-danger')
+                            ->with('flash-message', 'Please select a category!');
+        } else {
+            return Redirect::to($_ENV['URL'] . '/admin/edit/categories')
+                            ->with('alert-class', 'alert-danger')
+                            ->with('flash-message', 'Something went wrong!');
+        }
+
         $category = Category::find($data['category-name']);
 
         return View::make('admin.edit.category')
