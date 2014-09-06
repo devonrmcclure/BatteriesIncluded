@@ -13,6 +13,9 @@
   </p>
 
   <h3>Surrey</h3>
+  <div class="location-image">
+    <img class="img-responsive" src="img/locations/Guildford.png"/>
+  </div>
   <ul>
     <li><strong>Address:</strong> 10236 152nd Street Surrey, BC</li>
     <li><strong>Phone:</strong> (604) - 930 - 9889</li>
@@ -25,6 +28,9 @@
   </p>
 
   <h3>Richmond</h3>
+  <div class="location-image">
+    <img class="img-responsive" src="img/locations/Richmond.png"/>
+  </div>
   <ul>
     <li><strong>Address:</strong> 5300 No. 3 Road Richmond, BC</li>
     <li><strong>Phone:</strong> (604) - 270 - 9989</li>
@@ -37,6 +43,9 @@
   </p>
 
   <h3>White Rock</h3>
+  <div class="location-image">
+    <img class="img-responsive" src="img/locations/White Rock.png"/>
+  </div>
   <ul>
     <li><strong>Address:</strong> 1711 152nd Street</li>
     <li><strong>Phone:</strong> (604) - 536 - 8108</li>
@@ -47,6 +56,9 @@
   </p>
 
   <h3>Nanaimo</h3>
+  <div class="location-image">
+    <img class="img-responsive" src="img/locations/Nanaimo.png"/>
+  </div>
   <ul>
     <li><strong>Address:</strong> 3200 North Island Way</li>
     <li><strong>Phone:</strong> (250) - 756 - 2838</li>

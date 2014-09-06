@@ -185,3 +185,8 @@ ul.navbar-nav li.dropdown ul.dropdown-menu li a:hover{
   max-width: 150px;
   max-height: 150px;
 }
+
+.location-image {
+  border: 1px solid #000;
+  margin-bottom: 10px;
+}
