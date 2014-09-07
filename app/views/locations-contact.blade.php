@@ -24,7 +24,7 @@
 
   <p class="text">Our Surrey store is located on the southeast corner of the 102A and 152nd Street
     intersection. It's located in the strip mall right across the street from Red Robins
-    near Guildford Mall. There is a big white sign that reads "Hobbies" and we are located in there.
+    near Guildford Mall.
   </p>
 
   <h3>Richmond</h3>
