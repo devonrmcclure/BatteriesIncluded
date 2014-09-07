@@ -3,7 +3,7 @@
         <h2 class="admin-sidebar-header">
             Admin Panel
         </h2>
-
+        <hr />
         <ul class="admin-sidebar-nav">
             <li><a href="{{ $_ENV['URL'] }}/admin">Admin Home</a></li>
             <li><a href="{{ $_ENV['URL'] }}/admin/add">Add Catalog Item</a></li>
