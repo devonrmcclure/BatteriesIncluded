@@ -10,7 +10,7 @@
         <div class="col-md-4 product-tile">
             <div class="col-md-12 img-catalog">
               <a href="#" data-toggle="modal" data-target="#productModal{{$product->id}}">
-                <img src="/img/catalog/{{ $product->image }}" class="img-responsive" />
+                <img src="{{ $_ENV['URL'] }}/img/catalog/{{ $product->image }}" class="img-responsive" />
               </a>
             </div>
                 <small><b>Category:</b> <a href="{{ $_ENV['URL'] }}/catalog/{{ $product->subcategory->subcategory_name }}"> {{ $product->subcategory->subcategory_name }} </a></small>
@@ -45,7 +45,7 @@
                   @else
                     <span class="pull-right btn btn-md btn-primary product-price">Call for price</span>
                   @endif
-                  <img src="/img/catalog/{{ $product->image }}" class="img-responsive center-block" />
+                  <img src="{{ $_ENV['URL'] }}/img/catalog/{{ $product->image }}" class="img-responsive center-block" />
                   <div class="center-block">
                       <small><b>Category:</b> <a href="{{ $_ENV['URL'] }}/catalog/{{ $product->subcategory->subcategory_name }}"> {{ $product->subcategory->subcategory_name }} </a></small>
                       <h5 class="product-name">{{ $product->product_name }}</h5>
