@@ -75,25 +75,6 @@
           </div>
         </div>
       @endforeach
-      <!--@foreach($products as $product)
-        <div class="col-md-4 product-tile">
-        @if($product->price != 0.00)
-          <span class="pull-right product-price">${{ $product->price }}</span>
-        @else
-          <span class="pull-right product-price">Call for price</span>
-        @endif
-          <img src="/img/catalog/{{ $product->image }}" class="img-responsive img-catalog"/>
-          @if($product->subcategory->subcategory_name != 'Uncategorized')
-            <small><b>Category:</b> <a href="{{ $_ENV['URL'] }}/catalog/{{ $product->subcategory->subcategory_name }}"> {{ $product->subcategory->subcategory_name }} </a></small>
-          @elseif($product->category->category_name)
-            <small><b>Category:</b> <a href="{{ $_ENV['URL'] }}/catalog/{{ $product->category->category_name }}">{{ $product->category->category_name }}</a></small>
-          @endif
-          <h4 class="product-name">{{ $product->product_name }}</h4>
-          <p>
-            {{ $product->product_description }}
-          </p>
-        </div>
-      @endforeach-->
     @endif
 
 </div>

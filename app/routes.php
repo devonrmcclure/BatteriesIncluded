@@ -64,3 +64,5 @@ Route::delete('admin/delete/product/{id}', 'DeleteProductsController@deleteProdu
 
 Route::get('admin/password', 'AdminController@getUpdatePassword');
 Route::put('admin/password', 'AdminController@putUpdatePassword');
+
+Route::get('search', 'SearchController@getResults');

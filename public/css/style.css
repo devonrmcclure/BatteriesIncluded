@@ -222,3 +222,7 @@ ul.navbar-nav li.dropdown ul.dropdown-menu li a:hover{
   box-shadow: 5px 5px 5px #AAA;
   margin-bottom: 10px;
 }
+
+.search-products {
+  margin-bottom: 15px;
+}
