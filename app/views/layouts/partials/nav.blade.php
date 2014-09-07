@@ -6,7 +6,7 @@
               <span class="sr-only">Toggle navigation</span>
               <span class="glyphicon glyphicon-align-justify"></span>
             </button>
-            <a class="navbar-brand" href="#">Batteries Included</a>
+            <a class="navbar-brand" href="{{ $_ENV['URL'] }}">Batteries Included</a>
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -19,7 +19,7 @@
             @if(Auth::check())
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->username }} <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"> {{ Auth::user()->username }} </span><span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="{{ $_ENV['URL'] }}/admin">Admin Home</a></li>
                     <li><a href="{{ $_ENV['URL'] }}/admin/add">Add Catalog Item</a></li>
