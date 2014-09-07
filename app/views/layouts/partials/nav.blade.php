@@ -21,12 +21,12 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->username }} <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="{{ $_ENV['URL'] }}/admin">Admin Home</a></li>
-                    <li><a href="{{ $_ENV['URL'] }}/admin/add">Add Catalog Item</a></li>
-                    <li><a href="{{ $_ENV['URL'] }}/admin/edit/products">Edit/Delete Product</a></li>
-                    <li><a href="{{ $_ENV['URL'] }}/admin/edit/categories">Edit Category Or Subcategory</a></li>
+                    <li><a href="{{ $_ENV['URL'] }}/admin"><span class="glyphicon glyphicon-home"></span> Admin Home</a></li>
+                    <li><a href="{{ $_ENV['URL'] }}/admin/add"><span class="glyphicon glyphicon-plus"></span> Add Catalog Item</a></li>
+                    <li><a href="{{ $_ENV['URL'] }}/admin/edit/products"><span class="glyphicon glyphicon-edit"></span> Edit/Delete Product</a></li>
+                    <li><a href="{{ $_ENV['URL'] }}/admin/edit/categories"><span class="glyphicon glyphicon-edit"></span> Edit Category Or Subcategory</a></li>
                     <li class="divider"></li>
-                    <li><a href="{{ $_ENV['URL'] }}/admin/logout">Logout</a></li>
+                    <li><a href="{{ $_ENV['URL'] }}/admin/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                   </ul>
                 </li>
               </ul>
