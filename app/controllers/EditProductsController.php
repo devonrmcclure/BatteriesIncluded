@@ -84,22 +84,22 @@ class EditProductsController extends \BaseController {
             $product->updated_at = Carbon::now();
             $product->save();
 
-            return Redirect::to($_ENV['URL'] . '/admin/edit/products/')
+            return Redirect::to($_ENV['URL'] . '/admin/edit/products')
                             ->with('alert-class', 'alert-success')
                             ->with('flash-message', 'Product <b>' . $product->product_name . '</b> updated!');
 
         } elseif($data['productsubcategory-name'] == 'selectproductsubcategory') {
-            return Redirect::to($_ENV['URL'] . '/admin/edit/product/'. $product->id)
+            return Redirect::to($_ENV['URL'] . '/admin/edit/product'. $product->id)
                             ->with('alert-class', 'alert-danger')
                             ->with('flash-message', 'Please select a subcategory!');
 
         } elseif($data['product-name'] == '') {
-            return Redirect::to($_ENV['URL'] . '/admin/edit/product/'. $product->id)
+            return Redirect::to($_ENV['URL'] . '/admin/edit/product'. $product->id)
                             ->with('alert-class', 'alert-danger')
                             ->with('flash-message', 'You cannot have an empty product name!');
 
         } else {
-            return Redirect::to($_ENV['URL'] . '/admin/edit/product/'. $product->id)
+            return Redirect::to($_ENV['URL'] . '/admin/edit/product'. $product->id)
                             ->with('alert-class', 'alert-danger')
                             ->with('flash-message', 'Something went wrong!');
         }
