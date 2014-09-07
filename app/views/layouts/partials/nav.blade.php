@@ -19,7 +19,7 @@
             @if(Auth::check())
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"> {{ Auth::user()->username }} </span><span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->username }} <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="{{ $_ENV['URL'] }}/admin">Admin Home</a></li>
                     <li><a href="{{ $_ENV['URL'] }}/admin/add">Add Catalog Item</a></li>
