@@ -60,12 +60,11 @@ class EditProductsController extends \BaseController {
     {
         $data = Input::all();
         $product = Product::find($id);
-        if($data['productsubcategory-name'] != 'selectproductsubcategory' && $data['product-name'] != '')
+        if($data['product-name'] != '')
         {
             $product = Product::find($id);
-            //Update products accordingly
             $categoryID = Subcategory::find($data['productsubcategory-name']);
-            $categoryID = $categoryID->parent_category;
+
             if($file = Input::file('image'))
             {
                 $destinationPath = 'img/catalog/';
@@ -75,8 +74,15 @@ class EditProductsController extends \BaseController {
                 $filename = $product->image;
             }
 
-            $product->category_id = $categoryID;
-            $product->subCategory_id = $data['productsubcategory-name'];
+            // If subcategory was changed from the original, update the subcategory and category.
+            if($data['productsubcategory-name'] != 'selectproductsubcategory' && $product->subCategory_id != $categoryID->id)
+            {
+                // Update category and subcategory
+                $categoryID = $categoryID->parent_category;
+                $product->category_id = $categoryID;
+                $product->subCategory_id = $data['productsubcategory-name'];
+            }
+
             $product->product_name = $data['product-name'];
             $product->product_description = $data['product-description'];
             $product->price = $data['product-price'];
@@ -88,18 +94,13 @@ class EditProductsController extends \BaseController {
                             ->with('alert-class', 'alert-success')
                             ->with('flash-message', 'Product <b>' . $product->product_name . '</b> updated!');
 
-        } elseif($data['productsubcategory-name'] == 'selectproductsubcategory') {
-            return Redirect::to($_ENV['URL'] . '/admin/edit/product'. $product->id)
-                            ->with('alert-class', 'alert-danger')
-                            ->with('flash-message', 'Please select a subcategory!');
-
         } elseif($data['product-name'] == '') {
-            return Redirect::to($_ENV['URL'] . '/admin/edit/product'. $product->id)
+            return Redirect::to($_ENV['URL'] . '/admin/edit/product/'. $product->id)
                             ->with('alert-class', 'alert-danger')
                             ->with('flash-message', 'You cannot have an empty product name!');
 
         } else {
-            return Redirect::to($_ENV['URL'] . '/admin/edit/product'. $product->id)
+            return Redirect::to($_ENV['URL'] . '/admin/edit/product/'. $product->id)
                             ->with('alert-class', 'alert-danger')
                             ->with('flash-message', 'Something went wrong!');
         }
