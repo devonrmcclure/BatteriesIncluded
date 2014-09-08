@@ -17,7 +17,7 @@
                 <h5 class="product-name">{{ $product->product_name }}</h5>
 
                 <p class="product-description">
-                    {{ $product->product_description}}
+                    {{ Str::limit($product->product_description, 120) }}
                 </p>
 
                 <span class="pull-left btn btn-md btn-primary product-price">
@@ -48,7 +48,7 @@
                   <img src="{{ $_ENV['URL'] }}/img/catalog/{{ $product->image }}" class="img-responsive center-block" />
                   <div class="center-block">
                       <small><b>Category:</b> <a href="{{ $_ENV['URL'] }}/catalog/{{ $product->subcategory->subcategory_name }}"> {{ $product->subcategory->subcategory_name }} </a></small>
-                      <h5 class="product-name">{{ $product->product_name }}</h5>
+                      <h4 class="product-name">{{ $product->product_name }}</h4>
 
                       <p class="product-description">
                           {{ $product->product_description}}
