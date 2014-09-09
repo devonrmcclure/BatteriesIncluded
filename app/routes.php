@@ -70,5 +70,5 @@ Route::get('search', 'SearchController@getResults');
 // TODO: Create 404 page.
 App::missing(function($exception)
 {
-    return View::make('index');
+    return View::make('404');
 });

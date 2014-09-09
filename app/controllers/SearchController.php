@@ -9,12 +9,17 @@ class SearchController extends \BaseController {
     public function getResults()
     {
         $search = Input::get('search');
-        $products = Product::where('product_name', 'LIKE', '%'.$search.'%')->paginate(9);
-        $categories = Category::orderby('category_name', 'ASC')->get();
+        if($search == '')
+        {
+            return Redirect::to($_ENV['URL'] . '/catalog');
+        } else {
+            $products = Product::where('product_name', 'LIKE', '%'.$search.'%')->paginate(9);
+            $categories = Category::orderby('category_name', 'ASC')->get();
 
-        return View::make('search.results')
-            ->with('products', $products)
-            ->with('categories', $categories)
-            ->with('search', $search);
+            return View::make('search.results')
+                ->with('products', $products)
+                ->with('categories', $categories)
+                ->with('search', $search);
+        }
     }
 }
