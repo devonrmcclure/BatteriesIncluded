@@ -93,7 +93,7 @@ class CatalogController extends \BaseController {
                 ->with('categoryLinks', $categoryLinks);
         } else {
             // Redirect to main page if category/subcategory doesn't exist.
-            return Redirect::to($_ENV['URL'] . '/catalog');
+            return Redirect::to($_ENV['URL'] . '/404');
         }
     }
 }

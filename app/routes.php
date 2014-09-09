@@ -67,8 +67,13 @@ Route::put('admin/password', 'AdminController@putUpdatePassword');
 
 Route::get('search', 'SearchController@getResults');
 
+Route::get('404', function()
+{
+    return View::make('404');
+});
+
 // TODO: Create 404 page.
 App::missing(function($exception)
 {
-    return View::make('404');
+    return Redirect::to($_ENV['URL'] . '/404');
 });
