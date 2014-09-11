@@ -59,13 +59,13 @@
                 @if(Auth::check())
                   <span class="pull-left btn btn-default btn-primary modal-admin">
                     <a href="{{ $_ENV['URL'] }}/admin/edit/product/{{ $product->id }}" data-toggle="modal">
-                      Edit
+                      <span class="glyphicon glyphicon-edit"></span> Edit
                     </a>
                   </span>
 
                   <span class="pull-left btn btn-default btn-danger modal-admin">
                     <a href="{{ $_ENV['URL'] }}/admin/delete/product/{{ $product->id }}" data-toggle="modal">
-                      Delete
+                      <span class="glyphicon glyphicon-trash"></span> Delete
                     </a>
                   </span>
                 @endif
