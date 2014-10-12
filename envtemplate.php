@@ -15,4 +15,6 @@ return array(
     'MANDRILL_SECRET' => 'CHANGEME',
     'URL'             => 'CHANGEME',
     'MYSQL_PASS'      => 'CHANGEME',
+    'MYSQL_USER'      => 'CHANGEME',
+    'MYSQL_DB'        => 'CHANGEME',
 );

@@ -55,8 +55,8 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'batteries_included',
-			'username'  => 'root',
+			'database'  => $_ENV['MYSQL_DB'],
+			'username'  => $_ENV['MYSQL_USER'],
 			'password'  => $_ENV['MYSQL_PASS'],
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
