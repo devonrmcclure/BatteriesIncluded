@@ -113,6 +113,7 @@ label.bg-danger, span.bg-success {
 
 .product-name {
     font-weight: bold;
+    height: 50px;
 }
 
 .product-description {
@@ -121,8 +122,8 @@ label.bg-danger, span.bg-success {
 }
 
 .product-tile {
-    height: auto;
-    margin-bottom: 5px;
+    height: 550px;
+    margin-bottom: 15px;
 }
 
 .product-modal {
@@ -214,7 +215,7 @@ ul.navbar-nav li.dropdown ul.dropdown-menu li a:hover{
   color: #FFF;
 }
 
-.img-catalog {
+.img-catalog img {
   height: 250px;
   max-height: 250px;
 }
