@@ -47,6 +47,15 @@ p {
 .navbar-nav li a:hover {
   background-color: #007BAB;
 }
+.navbar-nav li a:visited {
+
+}
+.navbar-nav li a:active {
+  background-color: #007BAB;
+}
+.navbar-nav li a:focus {
+  background-color: #007BAB;
+}
 
 .navbar-toggle {
 	color: #B3C5EE;
