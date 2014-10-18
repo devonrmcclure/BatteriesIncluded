@@ -32,8 +32,16 @@
               <td>{{ $product->category->category_name }}</td>
               <td>{{ $product->subcategory->subcategory_name }}</td>
               <td>
-                  <a href="{{ $_ENV['URL'] }}/admin/edit/product/{{ $product->id }}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-edit"> Edit</button></a>
-                  <a href="{{ $_ENV['URL'] }}/admin/delete/product/{{ $product->id }}"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"> Delete</button></a>
+                  <span class="btn btn-default btn-primary modal-admin">
+                    <a href="{{ $_ENV['URL'] }}/admin/edit/product/{{ $product->id }}" data-toggle="modal">
+                      <span class="glyphicon glyphicon-edit"></span> Edit
+                    </a>
+                  </span>
+                  <span class="btn btn-default btn-danger modal-admin">
+                    <a href="{{ $_ENV['URL'] }}/admin/delete/product/{{ $product->id }}" data-toggle="modal">
+                      <span class="glyphicon glyphicon-trash"></span> Delete
+                    </a>
+                  </span>
               </td>
             </tr>
         @endforeach
