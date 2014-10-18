@@ -6,6 +6,7 @@
 */
 body {
   margin-top: 70px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 h1, h2, h3, h4 {
   font-weight: 300;
@@ -118,7 +119,7 @@ label.bg-danger, span.bg-success {
 
 .product-description {
   font-size: 12px;
-  height: 170px;
+  height: 17 0px;
 }
 
 .product-tile {
