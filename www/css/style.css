@@ -207,11 +207,14 @@ label.bg-danger, span.bg-success {
    }
 }
 
+ul.navbar-nav li.dropdown a.dropdown-toggle:link{
+  background-color: #0064AB;
+}
+ul.navbar-nav li.dropdown a.dropdown-toggle:visited,
 ul.navbar-nav li.dropdown a.dropdown-toggle:hover,
 ul.navbar-nav li.dropdown a.dropdown-toggle:active,
-ul.navbar-nav li.dropdown a.dropdown-toggle:visited,
 ul.navbar-nav li.dropdown a.dropdown-toggle:focus {
-  background: #007BAB;
+  background-color: #007BAB;
 }
 
 ul.navbar-nav li.dropdown ul.dropdown-menu {
