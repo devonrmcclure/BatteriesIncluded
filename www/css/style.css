@@ -30,7 +30,6 @@ p {
 	background-color: #0064AB;
 	color: #FFF;
 	text-decoration: none;
-  cursor: default;
 }
 
 .top .navbar-collapse {
@@ -221,9 +220,11 @@ ul.navbar-nav li.dropdown ul.dropdown-menu {
   background: #0064AB;
   border: 1px solid black;
   border-top: 0px;
+  color: #FFF;
 }
 
-ul.navbar-nav li.dropdown ul.dropdown-menu li a:hover{
+ul.navbar-nav li.dropdown ul.dropdown-menu li a:hover,
+ul.navbar-nav li.dropdown ul.dropdown-menu li a:focus{
   background: #007BAB;
   color: #FFF;
 }
