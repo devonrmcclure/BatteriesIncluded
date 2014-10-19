@@ -86,6 +86,7 @@ class EditProductsController extends \BaseController {
             $product->product_name = $data['product-name'];
             $product->product_description = $data['product-description'];
             $product->brand = $data['product-brand'];
+            $product->quantity = $data['product-quantity'];
             $product->price = $data['product-price'];
             $product->image = $filename;
             $product->updated_at = Carbon::now();

@@ -61,6 +61,14 @@
         </div>
 
         <div class="form-group">
+          {{ Form::label('product-quantity', 'Quantity', array('class' => 'col-sm-3 control-label')) }}
+
+          <div class="col-sm-5">
+            {{ Form::text('product-quantity', $product->quantity, array('class' => 'form-control', 'id' => 'product-quantity', 'placeholder' => 'Quantity')) }}
+          </div>
+        </div>
+
+        <div class="form-group">
           {{ Form::label('product-price', 'Price', array('class' => 'col-sm-3 control-label')) }}
 
           <div class="col-sm-5">

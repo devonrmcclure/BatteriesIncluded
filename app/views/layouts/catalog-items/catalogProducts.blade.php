@@ -13,8 +13,14 @@
                 <img src="{{ $_ENV['URL'] }}/img/catalog/{{ $product->image }}" class="img-responsive" />
               </a>
             </div>
-                <small><b>Brand:</b> <a href="{{ $_ENV['URL'] }}/catalog/{{ $product->subcategory->subcategory_name }}"> {{ $product->brand }} </a></small><br />
-                <small><b>Category:</b> <a href="{{ $_ENV['URL'] }}/catalog/{{ $product->subcategory->subcategory_name }}"> {{ $product->subcategory->subcategory_name }} </a></small>
+                <small><b>Brand:</b> {{ $product->brand }} </small><br />
+                <small><b>Category:</b> <a href="{{ $_ENV['URL'] }}/catalog/{{ $product->subcategory->subcategory_name }}"> {{ $product->subcategory->subcategory_name }} </a></small><br />
+
+                @if($product->quantity != 0)
+                  <small class='in-stock'>In Stock!</small>
+                @else
+                  <small class='out-of-stock'>Out Of Stock!</small>
+                @endif
 
                 <h5 class="product-name">{{ $product->product_name }}</h5>
 
@@ -51,7 +57,14 @@
                   @endif
                   <img src="{{ $_ENV['URL'] }}/img/catalog/{{ $product->image }}" class="img-responsive center-block" />
                   <div class="center-block">
-                      <small><b>Category:</b> <a href="{{ $_ENV['URL'] }}/catalog/{{ $product->subcategory->subcategory_name }}"> {{ $product->subcategory->subcategory_name }} </a></small>
+                      <small><b>Brand:</b> {{ $product->brand }} </small><br />
+                      <small><b>Category:</b> <a href="{{ $_ENV['URL'] }}/catalog/{{ $product->subcategory->subcategory_name }}"> {{ $product->subcategory->subcategory_name }} </a></small><br />
+
+                      @if($product->quantity != 0)
+                        <small class='in-stock'>In Stock!</small>
+                      @else
+                        <small class='out-of-stock'>Out Of Stock!</small>
+                      @endif
                       <h4 class="product-name">{{ $product->product_name }}</h4>
 
                       <p class="product-description">
