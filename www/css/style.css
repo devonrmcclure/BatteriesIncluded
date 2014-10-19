@@ -131,7 +131,7 @@ label.bg-danger, span.bg-success {
 }
 
 .product-tile {
-    height: 550px;
+    height: 570px;
     margin-bottom: 15px;
 }
 
@@ -242,4 +242,14 @@ ul.navbar-nav li.dropdown ul.dropdown-menu li a:focus{
 
 .search-products {
   margin-bottom: 15px;
+}
+
+.in-stock {
+  color: green;
+  font-weight: bold;
+}
+
+.out-of-stock {
+  color: red;
+  font-weight: bold;
 }
