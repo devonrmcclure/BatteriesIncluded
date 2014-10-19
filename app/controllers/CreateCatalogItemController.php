@@ -104,6 +104,11 @@ class CreateCatalogItemController extends \BaseController {
                                 ->with('flash-message', 'Product already exists or left empty so not added!')
                                 ->with('alert-class', 'alert-danger')
                                 ->withInput();
+            } else if($data['product-brand'] == '') {
+                return Redirect::to($_ENV['URL'] . '/admin/add')
+                                ->with('flash-message', 'Please enter a Brand!')
+                                ->with('alert-class', 'alert-danger')
+                                ->withInput();
             } else {
                 //Upload File
                 if($file = Input::file('image'))
@@ -119,6 +124,7 @@ class CreateCatalogItemController extends \BaseController {
                 $product->subcategory_id = $data['productsubcategory-name'];
                 $product->product_name = $data['product-name'];
                 $product->product_description = $data['product-description'];
+                $product->brand = $data['product-brand'];
                 $product->price = $data['product-price'];
                 $product->image = $filename;
                 $product->created_at = Carbon::now();

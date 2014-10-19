@@ -114,6 +114,14 @@
         </div>
 
         <div class="form-group">
+          {{ Form::label('product-brand', 'Brand', array('class' => 'col-sm-3 control-label')) }}
+
+          <div class="col-sm-5">
+            {{ Form::text('product-brand', '', array('class' => 'form-control', 'id' => 'product-brand', 'placeholder' => 'Brand')) }}
+          </div>
+        </div>
+
+        <div class="form-group">
           {{ Form::label('product-price', 'Price', array('class' => 'col-sm-3 control-label')) }}
 
           <div class="col-sm-5">

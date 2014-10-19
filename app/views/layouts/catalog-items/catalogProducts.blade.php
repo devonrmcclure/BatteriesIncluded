@@ -13,7 +13,9 @@
                 <img src="{{ $_ENV['URL'] }}/img/catalog/{{ $product->image }}" class="img-responsive" />
               </a>
             </div>
+                <small><b>Brand:</b> <a href="{{ $_ENV['URL'] }}/catalog/{{ $product->subcategory->subcategory_name }}"> {{ $product->brand }} </a></small><br />
                 <small><b>Category:</b> <a href="{{ $_ENV['URL'] }}/catalog/{{ $product->subcategory->subcategory_name }}"> {{ $product->subcategory->subcategory_name }} </a></small>
+
                 <h5 class="product-name">{{ $product->product_name }}</h5>
 
                 <p class="product-description">
@@ -28,7 +30,9 @@
                 @if($product->price != 0.00)
                   <span class="pull-right btn btn-md btn-primary product-price">${{ $product->price }}</span>
                 @else
-                  <span class="pull-right btn btn-md btn-primary product-price">Call for price</span>
+                  <!-- TODO: Modal with phone number to call and pre-filled out form with email
+                  querying about price of item.-->
+                  <span class="pull-right btn btn-md btn-primary product-price">Call or Email for price</span>
                 @endif
         </div>
 
