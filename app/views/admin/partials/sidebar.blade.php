@@ -9,6 +9,7 @@
             <li><a href="{{ $_ENV['URL'] }}/admin/add">Add Catalog Item</a></li>
             <li><a href="{{ $_ENV['URL'] }}/admin/edit/products">Edit/Delete Product</a></li>
             <li><a href="{{ $_ENV['URL'] }}/admin/edit/categories">Edit Category Or Subcategory</a></li>
+            <li><a href="{{ $_ENV['URL'] }}/admin/password">Change Password</a></li>
         </ul>
     </div>
 </div>
