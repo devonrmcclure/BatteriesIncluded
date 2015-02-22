@@ -79,10 +79,12 @@ class AdminController extends \BaseController {
 		$user = Auth::user();
 		$data = Input::all();
 
+		$currentPass = $data['currentPass'];
+		$userPass = Auth::user()->password;
 		$pass1 = $data['pass1'];
 		$pass2 = $data['pass2'];
 
-		if($pass1 === $pass2 && $pass1 != '' && $pass2 != '')
+		if($pass1 === $pass2 && $pass1 != '' && $pass2 != '' && Hash::check($currentPass, Auth::user()->password))
 		{
 			$user->password = Hash::make($pass1);
 			$user->last_password_change = Carbon::now();
