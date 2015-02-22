@@ -25,7 +25,20 @@ class EditProductsController extends \BaseController {
         }
 
         return View::make('admin.edit.products')
-            ->with('products', Product::orderBy('product_name', 'ASC')->paginate(9));
+            ->with('categories', Category::orderBy('category_name', 'ASC')->get());
+    }
+
+    public function showCategoryItems($category)
+    {
+        $data = Category::orderBy('category_name', 'ASC')->wherecategory_name($category)->get();
+
+        foreach($data as $i)
+        {
+            $products = Product::orderBy('product_name', 'ASC')->wherecategory_id($i->id)->paginate(9);
+        }
+
+        return View::make('admin.edit.categoryProducts')
+            ->with('products', $products);
     }
 
     /**

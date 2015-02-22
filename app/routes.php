@@ -56,6 +56,7 @@ Route::post('admin/edit/subcategory', 'EditSubcategoryController@getEditSubcateg
 Route::put('admin/edit/subcategory', 'EditSubcategoryController@putEditSubcategory');
 
 Route::get('admin/edit/products', 'EditProductsController@showIndex');
+Route::get('admin/edit/products/{category}', 'EditProductsController@showCategoryItems');
 Route::get('admin/edit/product/{id}', 'EditProductsController@postEditProducts');
 Route::put('admin/edit/product/{id}', 'EditProductsController@putEditProducts');
 

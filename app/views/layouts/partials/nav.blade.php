@@ -25,6 +25,7 @@
                     <li><a href="{{ $_ENV['URL'] }}/admin/add"><span class="glyphicon glyphicon-plus"></span> Add Catalog Item</a></li>
                     <li><a href="{{ $_ENV['URL'] }}/admin/edit/products"><span class="glyphicon glyphicon-edit"></span> Edit/Delete Product</a></li>
                     <li><a href="{{ $_ENV['URL'] }}/admin/edit/categories"><span class="glyphicon glyphicon-edit"></span> Edit Category Or Subcategory</a></li>
+                    <li><a href="{{ $_ENV['URL'] }}/admin/password"><span class="glyphicon glyphicon-edit"></span> Change Password</a></li>
                     <li class="divider"></li>
                     <li><a href="{{ $_ENV['URL'] }}/admin/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                   </ul>
