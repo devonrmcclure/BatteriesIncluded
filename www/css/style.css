@@ -90,7 +90,7 @@ p {
 
 .product-price{
   background-color: #0064AB;
-  bforder: 1px solid black;
+  border: 1px solid black;
   color: #FFF;
   font-style: italic;
   padding: 5px;
@@ -127,12 +127,13 @@ label.bg-danger, span.bg-success {
 
 .product-description {
   font-size: 12px;
-  height: 17 0px;
+  min-height: 150px;
+  max-height: 150px;
 }
 
 .product-tile {
     height: 570px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .product-modal {
