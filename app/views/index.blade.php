@@ -77,14 +77,55 @@
 	      </a>
 	    </div><!-- /.carousel -->
 
-	<div class="col-md-7 content">
+
+
+
+	         <!-- START THE FEATURETTES -->
+
+	         <hr class="featurette-divider">
+
+	         <div class="row featurette">
+	           <div class="col-md-7">
+	             <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+	             <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+	           </div>
+	           <div class="col-md-5">
+	             <img class="featurette-image img-responsive center-block" src="http://placehold.it/500x500" alt="Generic placeholder image">
+	           </div>
+	         </div>
+
+	         <hr class="featurette-divider">
+
+	         <div class="row featurette">
+	           <div class="col-md-7 col-md-push-5">
+	             <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+	             <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+	           </div>
+	           <div class="col-md-5 col-md-pull-7">
+	             <img class="featurette-image img-responsive center-block" src="http://placehold.it/500x500" alt="Generic placeholder image">
+	           </div>
+	         </div>
+
+	         <hr class="featurette-divider">
+
+	         <div class="row featurette">
+	           <div class="col-md-7">
+	             <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+	             <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+	           </div>
+	           <div class="col-md-5">
+	             <img class="featurette-image img-responsive center-block" src="http://placehold.it/500x500" alt="Generic placeholder image">
+	           </div>
+	         </div>
+
+	<!--<div class="col-md-7 content">
 		<h2>Who We Are</h2>
         <img src="/img/batt-inc-logo.JPG" />
 		<p class="text">Welcome! The site is currently undergoing a few upgrades, so please bare with us if there are any errors, or the site doesn't load properly at times. We will be back up fully very soon! In the mean time, why not take a look at our catalog, or use the contact page to ask us any questions you may have.</p>
 	</div>
 	<div class="col-md-5 content">
-		<!--<h2>WHAT TO PUT HERE?!?</h2>
+		<!-<h2>WHAT TO PUT HERE?!?</h2>
 		<p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sagittis diam metus, a fermentum arcu fermentum ac. Sed sit amet lorem in leo laoreet pretium. Etiam auctor ornare mi a cursus. Morbi interdum nibh quis ante malesuada facilisis. Praesent pharetra sapien sapien, eu sollicitudin risus rutrum vitae. Quisque id orci eu libero volutpat semper in id velit. Duis pretium volutpat turpis non feugiat.</p>-->
-	</div>
+	<!--</div>-->
 
 @stop
