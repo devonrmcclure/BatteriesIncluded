@@ -20,9 +20,9 @@
 	          <img class="first-slide" src="http://placehold.it/900x500" alt="First slide">
 	          <div class="container">
 	            <div class="carousel-caption">
-	              <h1>Shaver Service!</h1>
+	              <h1>Shaver Service</h1>
 	              <p>We offer electric shaver cleaning and lubing service, and can change the battery! Come get your shaver serviced today!</p>
-	              <p><a class="btn btn-lg btn-primary" href="#" role="button">More Info</a></p>
+	              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn More</a></p>
 	            </div>
 	          </div>
 	        </div>
@@ -30,9 +30,8 @@
 	          <img class="second-slide" src="http://placehold.it/900x500" alt="Second slide">
 	          <div class="container">
 	            <div class="carousel-caption">
-	              <h1>Slide 2</h1>
-	              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-	              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+	              <h1>Battery Changes</h1>
+	              <p>We change the batteries in your watches, clocks, key fobs, and much more!</p>
 	            </div>
 	          </div>
 	        </div>
@@ -40,9 +39,9 @@
 	          <img class="third-slide" src="http://placehold.it/900x500" alt="Third slide">
 	          <div class="container">
 	            <div class="carousel-caption">
-	              <h1>Slide 3</h1>
-	              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-	              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+	              <h1>Home Alarm Batteries</h1>
+	              <p>We have many different home alarm batteries to suit your needs.
+	              <p><a class="btn btn-lg btn-primary" href="http://batteriesincluded.dev/catalog/Alarm%20Batteries" role="button">Browse Catalog</a></p>
 	            </div>
 	          </div>
 	        </div>
@@ -50,9 +49,9 @@
 	          <img class="fourth-slide" src="http://placehold.it/900x500" alt="Fourth slide">
 	          <div class="container">
 	            <div class="carousel-caption">
-	              <h1>Slide 4</h1>
-	              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-	              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+	              <h1>Small Appliance Repair</h1>
+	              <p>Have a small appliance that's no longer working? We can fix it!</p>
+	              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn More</a></p>
 	            </div>
 	          </div>
 	        </div>
@@ -60,9 +59,9 @@
 	          <img class="fifth-slide" src="http://placehold.it/900x500" alt="Fifth slide">
 	          <div class="container">
 	            <div class="carousel-caption">
-	              <h1>Slide 5</h1>
-	              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-	              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+	              <h1>Warranty Servicing</h1>
+	              <p>Have a small appliance that's still under warranty? Bring it to us and we can take care of it! We service most brands.</p>
+	              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn More</a></p>
 	            </div>
 	          </div>
 	        </div>
@@ -82,15 +81,15 @@
 
 	         <!-- START THE FEATURETTES -->
 
-	         <hr class="featurette-divider">
+
 
 	         <div class="row featurette">
 	           <div class="col-md-7">
-	             <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-	             <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+	             <h2 class="featurette-heading">Who We Are</h2>
+	             <p class="lead">Welcome! The site is currently undergoing a few upgrades, so please bare with us if there are any errors, or the site doesn't load properly at times. We will be back up fully very soon! In the mean time, why not take a look at our catalog, or use the contact page to ask us any questions you may have.</p>
 	           </div>
-	           <div class="col-md-5">
-	             <img class="featurette-image img-responsive center-block" src="http://placehold.it/500x500" alt="Generic placeholder image">
+	           <div class="col-md-5"><br /><br /><br /><br /><br />
+	             <img class="featurette-image img-responsive center-block" src="img/batt-inc-logo.JPG" alt="Generic placeholder image">
 	           </div>
 	         </div>
 
