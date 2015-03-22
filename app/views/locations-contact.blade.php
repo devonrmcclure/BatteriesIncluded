@@ -37,9 +37,7 @@
     <li><strong>Email:</strong> <a href="mailto:lansdowne@batteriesincluded.ca">lansdowne@batteriesincluded.ca</a></li>
   </ul>
 
-  <p class="text">Our Richmond store is located inside Lansdowne Centre on No. 3 Road. We are near the east side of
-    the building. The closest enterance to us is the Kwantlen Street enterance, and we are a few shops
-    down on the right from that enterance.
+  <p class="text">Our Richmond store is located inside Lansdowne Centre on No. 3 Road. We are near the east side of the building. The closest entrance to us is the Kwantlen Street enterance, and we are a few shops down on the right from that entrance.
   </p>
 
   <h3>White Rock</h3>
