@@ -48,30 +48,30 @@ class EditSubcategoryController extends \BaseController {
     {
         $data = Input::all();
 
-        if($data['subcategory-name'] != '' && $data['parentcategory-name'] != 'selectparentcategory')
+        if($data['subcategory-name'] != '' )
         {
-            $subCategory = Subcategory::find($data['subcategory-id']);
-            $category    = Category::find($data['parentcategory-name']);
-            $oldName  = $subCategory->subcategory_name;
-            $oldParentCat = $category->category_name;
-            $subCategory->parent_category = $data['parentcategory-name'];
-            $parentCat    = Category::find($subCategory->parent_category);
-            $parentCat    = $parentCat->category_name;
-            $subCategory->subcategory_name = $data['subcategory-name'];
-            $subCategory->updated_at = Carbon::now();
-            $subCategory->save();
-
-            //Update products accordingly
-            $categoryID = Subcategory::find($data['subcategory-id']);
-            $categoryID = $categoryID->parent_category;
-            $products   = Product::wheresubcategory_id($subCategory->id)->get();
-            foreach($products as $product)
+            if($data['parentcategory-name'] != 'selectparentcategory')
             {
-                $product->category_id = $categoryID;
-                $product->updated_at  = Carbon::now();
-                $product->save();
-            }
+                $subCategory = Subcategory::find($data['subcategory-id']);
+                $category    = Category::find($data['parentcategory-name']);
+                $oldName  = $subCategory->subcategory_name;
+                $oldParentCat = $category->category_name;
+                $subCategory->parent_category = $data['parentcategory-name'];
+                $parentCat    = Category::find($subCategory->parent_category);
+                $parentCat    = $parentCat->category_name;
+                $subCategory->subcategory_name = $data['subcategory-name'];
+                $subCategory->updated_at = Carbon::now();
+                $subCategory->save();
 
+                //else only update subcategory name.
+            } else if($data['parentcategory-name'] == 'selectparentcategory')
+            {
+                $subCategory = Subcategory::find($data['subcategory-id']);
+                $oldName  = $subCategory->subcategory_name;
+                $subCategory->subcategory_name = $data['subcategory-name'];
+                $subCategory->updated_at = Carbon::now();
+                $subCategory->save();
+            }
             return Redirect::to($_ENV['URL'] . '/admin/edit/categories')
                             ->with('alert-class', 'alert-success')
                             ->with('flash-message', 'Subcategory updated!');
