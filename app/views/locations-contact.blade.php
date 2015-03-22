@@ -39,7 +39,7 @@
 
   <p class="text">Our Richmond store is located inside Lansdowne Centre on No. 3 Road. We are near the east side of
     the building. The closest enterance to us is the Kwantlen Street enterance, and we are a few shops
-    down on the rigt from that enterance.
+    down on the right from that enterance.
   </p>
 
   <h3>White Rock</h3>
