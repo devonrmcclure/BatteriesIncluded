@@ -15,11 +15,7 @@
           </div>
       @endif
     </div>
-        <h2>
-            Stats
-        </h2>
-        <p>TODO: Monthly work schedule for each store</p>
-
+        <h2>WHAT DO HERE</h2>
     </div>
 
 @stop

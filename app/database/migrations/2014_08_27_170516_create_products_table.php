@@ -19,6 +19,8 @@ class CreateProductsTable extends Migration {
 			$table->integer('subcategory_id')->unsigned(); // Foreign key
 			$table->string('product_name');
 			$table->text('product_description');
+			$table->string('brand');
+			$table->integer('quantity');
 			$table->decimal('price', 5, 2); // Price with max 5 digits, 2 of which must be decimal. Max price: $999.99
 			$table->string('image');
 			$table->timestamps();
