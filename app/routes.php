@@ -24,10 +24,7 @@ Route::get('servicing', function()
 	return View::make('servicing');
 });
 
-Route::get('faq', function()
-{
-	return View::make('faq');
-});
+Route::get('faq', 'FAQController@showIndex');
 
 Route::get('locations-contact', 'ContactController@showIndex');
 Route::post('locations-contact/send', 'ContactController@postContact');
@@ -46,6 +43,8 @@ Route::get('admin/add/', 'CreateCatalogItemController@showIndex');
 Route::post('admin/add/category', 'CreateCatalogItemController@postCreateCategory');
 Route::post('admin/add/subcategory', 'CreateCatalogItemController@postCreateSubcategory');
 Route::post('admin/add/product', 'CreateCatalogItemController@postCreateProduct');
+
+Route::get('admin/add/faq', 'CreateFAQController@showIndex');
 
 Route::get('admin/edit/categories', 'EditCategorySubcategoryController@showIndex');
 
