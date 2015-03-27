@@ -17,7 +17,7 @@
 	      </ol>
 	      <div class="carousel-inner" role="listbox">
 	        <div class="item active">
-	          <img class="first-slide" src="http://placehold.it/900x500" alt="First slide">
+	          <img class="first-slide" src="img/carousel/shavers.jpg" alt="Shaver Service">
 	          <div class="container">
 	            <div class="carousel-caption">
 	              <h1>Shaver Service</h1>
@@ -27,7 +27,7 @@
 	          </div>
 	        </div>
 	        <div class="item">
-	          <img class="second-slide" src="http://placehold.it/900x500" alt="Second slide">
+	          <img class="second-slide" src="img/carousel/replace-batteries.jpg" alt="Battery Replacement">
 	          <div class="container">
 	            <div class="carousel-caption">
 	              <h1>Battery Changes</h1>
@@ -36,7 +36,7 @@
 	          </div>
 	        </div>
 	        <div class="item">
-	          <img class="third-slide" src="http://placehold.it/900x500" alt="Third slide">
+	          <img class="third-slide" src="img/carousel/home-alarm-batteries.jpg" alt="Home Alarm Batteries">
 	          <div class="container">
 	            <div class="carousel-caption">
 	              <h1>Home Alarm Batteries</h1>
@@ -46,7 +46,7 @@
 	          </div>
 	        </div>
 	        <div class="item">
-	          <img class="fourth-slide" src="http://placehold.it/900x500" alt="Fourth slide">
+	          <img class="fourth-slide" src="img/carousel/small-appliances.jpg" alt="Small Appliance Repair">
 	          <div class="container">
 	            <div class="carousel-caption">
 	              <h1>Small Appliance Repair</h1>
@@ -56,7 +56,7 @@
 	          </div>
 	        </div>
 	        <div class="item">
-	          <img class="fifth-slide" src="http://placehold.it/900x500" alt="Fifth slide">
+	          <img class="fifth-slide" src="img/carousel/small-appliances.jpg" alt="Warranty Service">
 	          <div class="container">
 	            <div class="carousel-caption">
 	              <h1>Warranty Servicing</h1>

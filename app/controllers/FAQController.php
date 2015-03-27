@@ -8,6 +8,10 @@ class FAQController extends \BaseController {
      */
     public function showIndex()
     {
-        return View::make('faq');
+        // Get all FAQs and order them by the set priority.
+        $faqs = FAQ::orderBy('priority', 'DESC')->get();
+
+        return View::make('faq')
+            ->with('faqs', $faqs);
     }
 }
