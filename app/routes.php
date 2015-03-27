@@ -44,7 +44,14 @@ Route::post('admin/add/category', 'CreateCatalogItemController@postCreateCategor
 Route::post('admin/add/subcategory', 'CreateCatalogItemController@postCreateSubcategory');
 Route::post('admin/add/product', 'CreateCatalogItemController@postCreateProduct');
 
-Route::get('admin/add/faq', 'CreateFAQController@showIndex');
+Route::get('admin/add/faqs', 'CreateFAQController@showIndex');
+Route::post('admin/add/faqs', 'CreateFAQController@postAddFAQ');
+Route::get('admin/edit/faqs', 'EditFAQController@showIndex');
+Route::get('admin/edit/faqs/{id}', 'EditFAQController@getEditFAQ');
+Route::put('admin/edit/faqs/{id}', 'EditFAQController@putEditFAQ');
+
+Route::get('admin/delete/faqs/{id}', 'DeleteFAQController@getFAQ');
+Route::delete('admin/delete/faqs/{id}', 'DeleteFAQController@deleteFAQ');
 
 Route::get('admin/edit/categories', 'EditCategorySubcategoryController@showIndex');
 
