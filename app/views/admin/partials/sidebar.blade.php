@@ -7,6 +7,8 @@
         <ul class="admin-sidebar-nav">
             <li><a href="{{ $_ENV['URL'] }}/admin">Admin Home</a></li>
             <li><a href="{{ $_ENV['URL'] }}/admin/add">Add Catalog Item</a></li>
+            <li><a href="{{ $_ENV['URL'] }}/admin/add/faqs">Add a FAQ</a></li>
+            <li><a href="{{ $_ENV['URL'] }}/admin/edit/faqs">Edit/Delete a FAQ</a></li>
             <li><a href="{{ $_ENV['URL'] }}/admin/edit/products">Edit/Delete Product</a></li>
             <li><a href="{{ $_ENV['URL'] }}/admin/edit/categories">Edit Category Or Subcategory</a></li>
             <li><a href="{{ $_ENV['URL'] }}/admin/password">Change Password</a></li>

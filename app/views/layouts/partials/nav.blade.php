@@ -23,6 +23,8 @@
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="{{ $_ENV['URL'] }}/admin"><span class="glyphicon glyphicon-home"></span> Admin Home</a></li>
                     <li><a href="{{ $_ENV['URL'] }}/admin/add"><span class="glyphicon glyphicon-plus"></span> Add Catalog Item</a></li>
+                    <li><a href="{{ $_ENV['URL'] }}/admin/add/faqs"><span class="glyphicon glyphicon-plus"></span> Add FAQ</a></li>
+                    <li><a href="{{ $_ENV['URL'] }}/admin/edit/faqs"><span class="glyphicon glyphicon-edit"></span> Edit/Delete FAQ</a></li>
                     <li><a href="{{ $_ENV['URL'] }}/admin/edit/products"><span class="glyphicon glyphicon-edit"></span> Edit/Delete Product</a></li>
                     <li><a href="{{ $_ENV['URL'] }}/admin/edit/categories"><span class="glyphicon glyphicon-edit"></span> Edit Category Or Subcategory</a></li>
                     <li><a href="{{ $_ENV['URL'] }}/admin/password"><span class="glyphicon glyphicon-edit"></span> Change Password</a></li>
