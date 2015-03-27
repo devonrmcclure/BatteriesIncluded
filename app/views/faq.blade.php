@@ -39,7 +39,7 @@
             </div>
         @endforeach
     </div>
-    <div class="col-md-2">spacer</div>
-    <div class="col-md-2">stuff</div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2">WHAT DO HERE</div>
 
 @stop
