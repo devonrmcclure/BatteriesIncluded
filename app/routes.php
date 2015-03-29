@@ -19,10 +19,11 @@ Route::get('/', function()
 Route::get('catalog', 'CatalogController@showIndex');
 Route::get('catalog/{category}', 'CatalogController@showCategory');
 
-Route::get('servicing', function()
-{
-	return View::make('servicing');
-});
+Route::get('servicing', 'ServicingController@showIndex');
+Route::get('servicing/shavers', 'ServicingController@showShavers');
+Route::get('servicing/appliance-repair', 'ServicingController@showApplianceRepair');
+Route::get('servicing/warranty', 'ServicingController@showWarranty');
+Route::get('servicing/battery-changes', 'ServicingController@showBatteryChanges');
 
 Route::get('faq', 'FAQController@showIndex');
 

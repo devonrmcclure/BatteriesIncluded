@@ -22,7 +22,7 @@
 	            <div class="carousel-caption">
 	              <h1>Shaver Service</h1>
 	              <p>We offer electric shaver cleaning and lubing service, and can change the battery! Come get your shaver serviced today!</p>
-	              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn More</a></p>
+	              <p><a class="btn btn-lg btn-primary" href="{{ $_ENV['URL'] }}/servicing/shavers" role="button">Learn More</a></p>
 	            </div>
 	          </div>
 	        </div>
@@ -32,6 +32,7 @@
 	            <div class="carousel-caption">
 	              <h1>Battery Changes</h1>
 	              <p>We change the batteries in your watches, clocks, key fobs, and much more!</p>
+                  <p><a class="btn btn-lg btn-primary" href="{{ $_ENV['URL'] }}/servicing/battery-changes" role="button">Learn More</a></p>
 	            </div>
 	          </div>
 	        </div>
@@ -51,7 +52,7 @@
 	            <div class="carousel-caption">
 	              <h1>Small Appliance Repair</h1>
 	              <p>Have a small appliance that's no longer working? We can fix it!</p>
-	              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn More</a></p>
+	              <p><a class="btn btn-lg btn-primary" href="{{ $_ENV['URL'] }}/servicing/appliance-repair" role="button">Learn More</a></p>
 	            </div>
 	          </div>
 	        </div>
@@ -61,7 +62,7 @@
 	            <div class="carousel-caption">
 	              <h1>Warranty Servicing</h1>
 	              <p>Have a small appliance that's still under warranty? Bring it to us and we can take care of it! We service most brands.</p>
-	              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn More</a></p>
+	              <p><a class="btn btn-lg btn-primary" href="{{ $_ENV['URL'] }}/servicing/warranty" role="button">Learn More</a></p>
 	            </div>
 	          </div>
 	        </div>
