@@ -18,6 +18,7 @@ class CreateServicingTable extends Migration {
 			$table->increments('id');
 			$table->string('subject');
 			$table->text('service_info');
+			$table->string('image');
 			$table->timestamps();
 		});
 	}
@@ -29,7 +30,7 @@ class CreateServicingTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('servicing');
 	}
 
 }
