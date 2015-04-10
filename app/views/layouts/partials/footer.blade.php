@@ -14,7 +14,7 @@
                   <th>Nanaimo</th>
                 </tr>
                 <tr>
-                  <td>Guildford</td>
+                  <td>Guildford Area</td>
                   <td>Lansdowne Centre</td>
                   <td>Semiahmoo Mall</td>
                   <td>Country Club Centre</td>
