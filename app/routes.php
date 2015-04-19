@@ -20,6 +20,7 @@ Route::get('catalog', 'CatalogController@showIndex');
 Route::get('catalog/{category}', 'CatalogController@showCategory');
 
 Route::get('servicing', 'ServicingController@showIndex');
+//Route::get('servicing/{subject}', 'ServicingController@showSubject');
 Route::get('servicing/shavers', 'ServicingController@showShavers');
 Route::get('servicing/appliance-repair', 'ServicingController@showApplianceRepair');
 Route::get('servicing/warranty', 'ServicingController@showWarranty');
