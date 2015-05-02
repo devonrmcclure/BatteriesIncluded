@@ -13,8 +13,8 @@
 return array(
 
     'MANDRILL_SECRET' => 'CHANGEME',
-    'URL'             => 'CHANGEME',
-    'MYSQL_PASS'      => 'CHANGEME',
-    'MYSQL_USER'      => 'CHANGEME',
-    'MYSQL_DB'        => 'CHANGEME',
+    'URL'             => 'http://batteriesincluded.dev',
+    'MYSQL_PASS'      => 'root',
+    'MYSQL_USER'      => 'root',
+    'MYSQL_DB'        => 'batteriesincluded',
 );

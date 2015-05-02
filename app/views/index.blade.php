@@ -42,7 +42,7 @@
 	            <div class="carousel-caption">
 	              <h1>Home Alarm Batteries</h1>
 	              <p>We have many different home alarm batteries to suit your needs.
-	              <p><a class="btn btn-lg btn-primary" href="http://batteriesincluded.dev/catalog/Alarm%20Batteries" role="button">Browse Catalog</a></p>
+	              <p><a class="btn btn-lg btn-primary" href="{{ $_ENV['URL'] }}/catalog/Alarm%20Batteries" role="button">Browse Catalog</a></p>
 	            </div>
 	          </div>
 	        </div>
