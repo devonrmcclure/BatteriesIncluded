@@ -1,4 +1,4 @@
-y<?php
+<?php
 
 class CatalogController extends \BaseController {
 
