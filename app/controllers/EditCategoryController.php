@@ -12,32 +12,16 @@ class EditCategoryController extends \BaseController {
     }
 
 
-    /**
-     * Get the category name for the category to edit.
-     * @return [View] [Make the view with the form to edit the category with default value of category_name]
-     */
-    public function getEditCategory()
+    public function showIndex()
     {
-        $data = Input::all();
+        $categories    = Category::orderBy('category_name', 'ASC')->get();
+        return View::make('admin.edit.catagories')
+                    ->with('categories', $categories);
+    }
 
-        if($data['category-name'] != "selectcategory")
-        {
-           $category = Category::find($data['category-name']);
-
-                   return View::make('admin.edit.category')
-                               ->with('category', $category);
-        } elseif($data['category-name'] == 'selectcategory') {
-            return Redirect::to($_ENV['URL'] . '/admin/edit/categories')
-                            ->with('alert-class', 'alert-danger')
-                            ->with('flash-message', 'Please select a category!');
-        } else {
-            return Redirect::to($_ENV['URL'] . '/admin/edit/categories')
-                            ->with('alert-class', 'alert-danger')
-                            ->with('flash-message', 'Something went wrong!');
-        }
-
-        $category = Category::find($data['category-name']);
-
+    public function getCategory($id)
+    {
+        $category = Category::find($id);
         return View::make('admin.edit.category')
                     ->with('category', $category);
     }

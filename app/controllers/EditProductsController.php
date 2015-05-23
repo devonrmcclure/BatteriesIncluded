@@ -19,11 +19,6 @@ class EditProductsController extends \BaseController {
     {
         $data = Category::orderBy('category_name', 'ASC')->get(); // Get all category names and order them Alphabetically.
 
-        foreach($data as $i)
-        {
-            $subCatLinks = Subcategory::orderBy('subcategory_name', 'ASC')->whereparent_category($i->id)->get();
-        }
-
         return View::make('admin.edit.products')
             ->with('categories', Category::orderBy('category_name', 'ASC')->get());
     }
@@ -51,11 +46,11 @@ class EditProductsController extends \BaseController {
 
         if($product = Product::find($id))
         {
-            $subCategories = Subcategory::orderBy('subcategory_name', 'ASC')->get();
+            $categories = Category::orderBy('category_name', 'ASC')->get();
 
             return View::make('admin.edit.product')
                     ->with('product', $product)
-                    ->with('subCategories', $subCategories);
+                    ->with('categories', $categories);
         } else {
             // Product doesn't exits (IE: User enters a number in the URL)
             return Redirect::to($_ENV['URL'] . '/admin/edit/products')
@@ -76,7 +71,7 @@ class EditProductsController extends \BaseController {
         if($data['product-name'] != '')
         {
             $product = Product::find($id);
-            $categoryID = Subcategory::find($data['productsubcategory-name']);
+            $categoryID = Category::find($data['productcategory-name']);
 
             if($file = Input::file('image'))
             {
@@ -88,12 +83,11 @@ class EditProductsController extends \BaseController {
             }
 
             // If subcategory was changed from the original, update the subcategory and category.
-            if($data['productsubcategory-name'] != 'selectproductsubcategory' && $product->subCategory_id != $categoryID->id)
+            if($data['productcategory-name'] != 'selectproductcategory' && $product->subCategory_id != $categoryID->id)
             {
                 // Update category and subcategory
                 $categoryID = $categoryID->parent_category;
-                $product->category_id = $categoryID;
-                $product->subCategory_id = $data['productsubcategory-name'];
+                $product->category_id = $data['productcategory-name'];
             }
 
             $product->product_name = $data['product-name'];

@@ -18,10 +18,8 @@ class CreateCatalogItemController extends \BaseController {
     public function showIndex()
     {
         $categories    = Category::orderBy('category_name', 'ASC')->get();
-        $subCategories = Subcategory::orderBy('subcategory_name', 'ASC')->get();
         return View::make('admin.add.catalog')
-                    ->with('categories', $categories)
-                    ->with('subCategories', $subCategories);
+                    ->with('categories', $categories);
     }
 
     /**
@@ -39,50 +37,29 @@ class CreateCatalogItemController extends \BaseController {
                             ->with('flash-message', 'Category already exists or left empty so not added!')
                             ->with('alert-class', 'alert-danger');
         } else {
-            $category = new Category;
-            $category->category_name = $data['category-name'];
-            $category->created_at = Carbon::now();
-            $category->updated_at = Carbon::now();
-            $category->save();
-            return Redirect::to($_ENV['URL'] . '/admin/add')
-                            ->with('flash-message', 'Category <b>' . $data['category-name'] . '</b> has been successfully added!')
-                            ->with('alert-class', 'alert-success');
-        }
-    }
-
-    /**
-     * Create a Subcategory
-     * @return [Redirect] [redirect to the create catalog item index with success or error message]
-     */
-    public function postCreateSubcategory()
-    {
-        $data = Input::all();
-        if($data['parentcategory-name'] != 'selectparentcategory')
-        {
-            $subcategoryExists = Subcategory::wheresubcategory_name($data['subcategory-name'])->first();
-            $subCategoryEmpty  = $data['subcategory-name'];
-            if($subcategoryExists || $subCategoryEmpty == '')
+            if($data['parent-category'] == 'selectparentcategory')
             {
+                $category = new Category;
+                $category->category_name = $data['category-name'];
+                $category->parent_id = NULL;
+                $category->created_at = Carbon::now();
+                $category->updated_at = Carbon::now();
+                $category->save();
                 return Redirect::to($_ENV['URL'] . '/admin/add')
-                                ->with('flash-message', 'Subcategory already exists or left empty so not added!')
-                                ->with('alert-class', 'alert-danger')
-                                ->withInput();
+                                ->with('flash-message', 'Category <b>' . $data['category-name'] . '</b> has been successfully added!')
+                            ->with('alert-class', 'alert-success');
             } else {
-                $subCategory = new Subcategory;
-                $subCategory->parent_category = $data['parentcategory-name'];
-                $subCategory->subcategory_name = $data['subcategory-name'];
-                $subCategory->created_at = Carbon::now();
-                $subCategory->updated_at = Carbon::now();
-                $subCategory->save();
-                return Redirect::to($_ENV['URL'] . '/admin/add')
-                                ->with('flash-message', 'Subcategory <b>' . $data['subcategory-name'] . '</b> has been successfully added!')
+                    //If there is a parent category, add that.
+                    $category = new Category;
+                    $category->category_name = $data['category-name'];
+                    $category->parent_id = $data['parent-category'];
+                    $category->created_at = Carbon::now();
+                    $category->updated_at = Carbon::now();
+                    $category->save();
+                    return Redirect::to($_ENV['URL'] . '/admin/add')
+                                    ->with('flash-message', 'Category <b>' . $data['category-name'] . '</b> has been successfully added!')
                                 ->with('alert-class', 'alert-success');
             }
-        } else {
-            return Redirect::to($_ENV['URL'] . '/admin/add')
-                            ->with('flash-message', 'Please select a parent category!')
-                            ->with('alert-class', 'alert-danger')
-                            ->withInput();
         }
     }
 
@@ -93,11 +70,11 @@ class CreateCatalogItemController extends \BaseController {
     public function postCreateProduct()
     {
         $data = Input::all();
-        if($data['productsubcategory-name'] != 'selectproductsubcategory')
+        if($data['productcategory-name'] != 'selectproductcategory')
         {
             $productExists = Product::whereproduct_name($data['product-name'])->first();
             $productEmpty  = $data['product-name'];
-            $categoryID = Subcategory::find($data['productsubcategory-name']);
+            $categoryID = Category::find($data['productcategory-name']);
             if($productExists || $productEmpty == '')
             {
                 return Redirect::to($_ENV['URL'] . '/admin/add')
@@ -121,7 +98,7 @@ class CreateCatalogItemController extends \BaseController {
                 }
                 $product = new Product;
                 $product->category_id = $categoryID->parent_category;
-                $product->subcategory_id = $data['productsubcategory-name'];
+                $product->category_id = $data['productcategory-name'];
                 $product->product_name = $data['product-name'];
                 $product->product_description = $data['product-description'];
                 $product->brand = $data['product-brand'];
@@ -137,7 +114,7 @@ class CreateCatalogItemController extends \BaseController {
             }
         } else {
             return Redirect::to($_ENV['URL'] . '/admin/add')
-                            ->with('flash-message', 'Please select a subcategory!')
+                            ->with('flash-message', 'Please select a category!')
                             ->with('alert-class', 'alert-danger')
                             ->withInput();
         }

@@ -16,7 +16,6 @@ class CreateProductsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('category_id')->unsigned();
-			$table->integer('subcategory_id')->unsigned(); // Foreign key
 			$table->string('product_name');
 			$table->text('product_description');
 			$table->string('brand');
@@ -27,7 +26,6 @@ class CreateProductsTable extends Migration {
 
 			// Map Foreign Key
 			$table->foreign('category_id')->references('id')->on('categories');
-			$table->foreign('subcategory_id')->references('id')->on('subcategories');
 		});
 	}
 

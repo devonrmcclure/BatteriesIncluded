@@ -24,13 +24,13 @@
         {{ Form::open(array('url' =>  $_ENV['URL'] . '/admin/edit/product/' . $product->id, 'class' => 'form-horizontal', 'id' => 'productadd-form', 'role' => 'form', 'method' => 'put', 'files' => true)) }}
 
         <div class="form-group">
-          {{ Form::label('productsubcategory-name', 'Subcategory', array('class' => 'col-sm-3 control-label')) }}
+          {{ Form::label('productcategory-name', 'Category', array('class' => 'col-sm-3 control-label')) }}
 
           <div class="col-sm-5">
-            <select class="form-control col-xs-4" id="productsubcategory-name" name="productsubcategory-name">
-                <option value="selectproductsubcategory">-- Select a Subcategory --</option>
-                @foreach($subCategories as $subCategory)
-                    <option value="{{ $subCategory->id }}">{{ $subCategory->subcategory_name }}</option>
+            <select class="form-control col-xs-4" id="productcategory-name" name="productcategory-name">
+                <option value="selectproductcategory">-- Select a Category --</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                 @endforeach
             </select>
           </div>

@@ -43,7 +43,6 @@ Route::get('admin/logout', 'AdminController@destroy');
 
 Route::get('admin/add/', 'CreateCatalogItemController@showIndex');
 Route::post('admin/add/category', 'CreateCatalogItemController@postCreateCategory');
-Route::post('admin/add/subcategory', 'CreateCatalogItemController@postCreateSubcategory');
 Route::post('admin/add/product', 'CreateCatalogItemController@postCreateProduct');
 
 Route::get('admin/add/faqs', 'CreateFAQController@showIndex');
@@ -55,13 +54,10 @@ Route::put('admin/edit/faqs/{id}', 'EditFAQController@putEditFAQ');
 Route::get('admin/delete/faqs/{id}', 'DeleteFAQController@getFAQ');
 Route::delete('admin/delete/faqs/{id}', 'DeleteFAQController@deleteFAQ');
 
-Route::get('admin/edit/categories', 'EditCategorySubcategoryController@showIndex');
+Route::get('admin/edit/categories', 'EditCategoryController@showIndex');
 
-Route::post('admin/edit/category', 'EditCategoryController@getEditCategory');
-Route::put('admin/edit/category', 'EditCategoryController@putEditCategory');
-
-Route::post('admin/edit/subcategory', 'EditSubcategoryController@getEditSubcategory');
-Route::put('admin/edit/subcategory', 'EditSubcategoryController@putEditSubcategory');
+Route::get('admin/edit/category/{id}', 'EditCategoryController@getCategory');
+Route::put('admin/edit/category/{id}', 'EditCategoryController@putEditCategory');
 
 Route::get('admin/edit/products', 'EditProductsController@showIndex');
 Route::get('admin/edit/products/{category}', 'EditProductsController@showCategoryItems');

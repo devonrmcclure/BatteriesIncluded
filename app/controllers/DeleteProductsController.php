@@ -19,11 +19,11 @@ class DeleteProductsController extends \BaseController {
     public function getProduct($id)
     {
         $product = Product::find($id);
-        $subCategories = Subcategory::orderBy('subcategory_name', 'ASC')->get();
+        $categories = Category::orderBy('category_name', 'ASC')->get();
 
         return View::make('admin.delete.product')
                     ->with('product', $product)
-                    ->with('subCategories', $subCategories);
+                    ->with('categories', $categories);
     }
 
     /**

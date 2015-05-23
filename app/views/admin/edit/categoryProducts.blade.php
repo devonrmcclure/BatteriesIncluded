@@ -23,14 +23,12 @@
       <tr>
         <th>Name</th>
         <th>Category</th>
-        <th>Subcategory</th>
         <th>Edit/Delete</th>
       </tr>
       @foreach($products as $product)
           <tr>
             <td>{{ $product->product_name }}</td>
             <td>{{ $product->category->category_name }}</td>
-            <td>{{ $product->subcategory->subcategory_name }}</td>
             <td>
                 <span class="btn btn-default btn-primary modal-admin">
                   <a href="{{ $_ENV['URL'] }}/admin/edit/product/{{ $product->id }}" data-toggle="modal">

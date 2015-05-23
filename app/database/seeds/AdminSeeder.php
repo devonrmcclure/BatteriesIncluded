@@ -27,13 +27,6 @@ class AdminSeeder extends Seeder {
                     'updated_at' => new DateTime()
                 ],
 
-                [
-                    'username' => 'Nanaimo',
-                    'password' => Hash::make('root'),
-                    'created_at' => new DateTime(),
-                    'updated_at' => new DateTime()
-                ]
-
             ];
 
             DB::table('users')->insert($products);

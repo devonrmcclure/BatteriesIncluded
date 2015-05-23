@@ -32,39 +32,15 @@
         </div>
 
         <div class="form-group">
-          <div class="col-sm-offset-3 col-sm-10">
-            {{ Form::submit('Submit', array('class' => 'btn btn-default submit-button submit-button', 'id' => 'submit-button', 'name' => 'submit')) }}
-          </div>
-        </div>
-
-    {{ Form::close() }}
-
-    <a id="subcategory"></a>
-    <h2>
-        Add Subcategory
-    </h2>
-
-
-        {{ Form::open(array('url' =>  $_ENV['URL'] . '/admin/add/subcategory', 'class' => 'form-horizontal', 'id' => 'subcategoryadd-form', 'role' => 'form')) }}
-
-        <div class="form-group">
-          {{ Form::label('parentcategory-name', 'Parent Category Name', array('class' => 'col-sm-3 control-label')) }}
+          {{ Form::label('parent-category', 'Parent Category', array('class' => 'col-sm-3 control-label')) }}
 
           <div class="col-sm-5">
-            <select class="form-control col-xs-4" id="parentcategory-name" name="parentcategory-name">
-                <option value="selectparentcategory">-- Select a Parent Category --</option>
+            <select class="form-control col-xs-4" id="parent-cateogry" name="parent-category">
+                <option value="selectparentcategory">-- Select a Category --</option>
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                 @endforeach
             </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          {{ Form::label('subcategory-name', 'Subcategory Name', array('class' => 'col-sm-3 control-label')) }}
-
-          <div class="col-sm-5">
-            {{ Form::text('subcategory-name', '', array('class' => 'form-control', 'id' => 'subcategory-name', 'placeholder' => 'Subcategory Name')) }}
           </div>
         </div>
 
@@ -85,13 +61,13 @@
         {{ Form::open(array('url' =>  $_ENV['URL'] . '/admin/add/product', 'class' => 'form-horizontal', 'id' => 'productadd-form', 'role' => 'form', 'files' => true, 'method' => 'post')) }}
 
         <div class="form-group">
-          {{ Form::label('productsubcategory-name', 'Subcategory', array('class' => 'col-sm-3 control-label')) }}
+          {{ Form::label('productcategory-name', 'Category', array('class' => 'col-sm-3 control-label')) }}
 
           <div class="col-sm-5">
-            <select class="form-control col-xs-4" id="productsubcategory-name" name="productsubcategory-name">
-                <option value="selectproductsubcategory">-- Select a Subcategory --</option>
-                @foreach($subCategories as $subCategory)
-                    <option value="{{ $subCategory->id }}">{{ $subCategory->subcategory_name }}</option>
+            <select class="form-control col-xs-4" id="productcategory-name" name="productcategory-name">
+                <option value="selectproductcategory">-- Select a Category --</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                 @endforeach
             </select>
           </div>

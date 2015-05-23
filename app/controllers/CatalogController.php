@@ -16,22 +16,17 @@ class CatalogController extends \BaseController {
      */
 	public function showIndex()
 	{
-        // Get all category names and order them Alphabetically.
-        $subCategories = Category::orderBy('category_name', 'ASC')->get();
+        $menuItems = Category::orderBy('category_name', 'ASC')->whereparent_id(NULL)->get();
+        $menu = new CatalogMenuController;
+        $menu = $menu->drawMenu($menuItems);
 
-        // Get all subcategories for a parent category for linking purposes.
-        foreach($subCategories as $subCat)
-        {
-            $subCatLinks = Subcategory::orderBy('subcategory_name', 'ASC')->whereparent_category($subCat->id)->get();
-        }
+        $category = NULL;
+        $products = new ProductsController;
+        $products = $products->getProducts($category);
 
 		return View::make('catalog')
-            ->with('products', Product::orderBy('created_at', 'DESC')->paginate(9))
-            ->with('categories', $subCategories)
-            ->with('subCategories', NULL) // Must be null for if statements in catalog view.
-            ->with('subCategoryLinks', $subCatLinks)
-            ->with('categoryLinks', $subCategories);
-
+            ->with('menu', $menu)
+            ->with('products', $products);
 	}
 
     /**
@@ -41,59 +36,35 @@ class CatalogController extends \BaseController {
      */
     public function showCategory($category)
     {
-        /*
-            If the passed in $category is equal to a Category Name, show all products in that Parent Category, and show links on the left for Subcategories with that $category as a Parent Category.
-         */
-        if(count(Category::wherecategory_name($category)->get()) != 0)
-        {
-            $categoryLinks = Category::orderBy('category_name', 'ASC')->get();
-            $data = Category::wherecategory_name($category)->get();
+        $menuItems = Category::orderBy('category_name', 'ASC')->wherecategory_name($category)->get();
+        if(count($menuItems) == 0)
+            {
+                return View::make('404');
+            }
+        $menu = new CatalogMenuController;
+        $menu = $menu->drawMenu($menuItems);
 
-            foreach($data as $i)
-            {
-                $subCatLinks = Subcategory::orderBy('subcategory_name', 'ASC')->whereparent_category($i->id)->get();
-            }
-            foreach($data as $i)
-            {
-                $products = Product::orderBy('product_name', 'ASC')->wherecategory_id($i->id)->paginate(9);
-            }
-            return View::make('catalog')
-                ->with('products', $products)
-                ->with('categories', $data)
-                ->with('subCategories', NULL)
-                ->with('subCategoryLinks', $subCatLinks)
-                ->with('categoryLinks', $categoryLinks);
+        $category = Category::orderBy('category_name', 'ASC')->wherecategory_name($category)->get();
+        $crumbs = new BreadcrumbsController;
+        $crumbs = $crumbs->drawBreadcrumbs($category);
 
-            /*
-                If the passed in $category is equal to a Subcategory get and show all Products in that Subcategory with links on the left of other Subcategories in the Parent Category.
-             */
-        } elseif(count(Subcategory::wheresubcategory_name($category)->get()) != 0)
-        {
-            $categoryLinks = Category::orderBy('category_name', 'ASC')->get();
-            $data = Subcategory::wheresubcategory_name($category)->get();
+        $products = new ProductsController;
+        $products = $products->getProducts($category);
 
-            foreach($data as $i)
-            {
-                $subCatLinks = Subcategory::orderBy('subcategory_name', 'ASC')->whereparent_category($i->parent_category)->get();
-            }
-            foreach($data as $i)
-            {
-                $parentCat = Category::whereid($i->parent_category)->get();
-            }
-            foreach($data as $i)
-            {
-                $products = Product::orderBy('product_name', 'ASC')->wheresubcategory_id($i->id)->paginate(9);
-            }
+        /*echo '<pre>';
+        var_dump($products);
+        echo '</pre>';
+        die;*/
 
-            return View::make('catalog')
-                ->with('products', $products)
-                ->with('categories', $parentCat)
-                ->with('subCategories', $data)
-                ->with('subCategoryLinks', $subCatLinks)
-                ->with('categoryLinks', $categoryLinks);
-        } else {
-            // Redirect to main page if category/subcategory doesn't exist.
-            return Redirect::to($_ENV['URL'] . '/404');
-        }
+        // TODO: Create a class to get all products from all sub categories. So essentially add a query of products to the breadcrumbs code.
+
+        return View::make('catalog')
+            ->with('menu', $menu)
+            ->with('breadcrumbs', $crumbs)
+            ->with('category', $category)
+            ->with('products', $products);
     }
+
+
+
 }
