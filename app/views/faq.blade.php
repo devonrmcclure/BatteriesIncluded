@@ -40,6 +40,6 @@
         @endforeach
     </div>
     <div class="col-md-2"></div>
-    <div class="col-md-2">WHAT DO HERE</div>
+    <div class="col-md-2"></div>
 
 @stop
