@@ -5,7 +5,7 @@
 @stop
 
 @section('content')
-    <div class="col-md-3">
+    <div class="col-md-4">
         <h2>
             Categories
         </h2>
@@ -30,7 +30,7 @@
         </div>
     </div>
 
-    <div class="col-md-9 content">
+    <div class="col-md-8 content">
         <div class="col-md-12">
             <h2>{{{ isset($category) ? $category[0]->category_name : 'Newest Products' }}}</h2>
             <ol class="breadcrumb">

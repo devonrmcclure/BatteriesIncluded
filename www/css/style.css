@@ -151,6 +151,15 @@ label.bg-danger, span.bg-success {
   padding: 2px 0;
 }
 
+.catalog-categories > li > ul > li {
+  margin-left: -10px;
+  list-style-type: none;
+}
+
+.catalog-categories > li > ul > li > ul{
+  margin-left: -5px;
+}
+
 .product-name {
     font-weight: bold;
     height: 50px;

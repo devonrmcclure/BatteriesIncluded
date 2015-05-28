@@ -3,10 +3,11 @@
 class ProductsController extends \BaseController {
 
     public $products = array();
+    public $productCount = array();
     public $pagination;
 
 
-    public function getChild($categoryID)
+    public function hasChild($categoryID)
     {
         if(Category::whereparent_id($categoryID)->get())
         {
@@ -16,7 +17,8 @@ class ProductsController extends \BaseController {
         }
     }
 
-    public function makeProducts($category)
+    // Get products for displaying.
+    public function makeProducts($category = '')
     {
         if(!$category)
         {
@@ -39,9 +41,24 @@ class ProductsController extends \BaseController {
         }
     }
 
-    public function getProducts($category)
+    // Return the products
+    public function getProducts($category = '')
     {
         $this->makeProducts($category);
         return $this->products;
+    }
+
+    // Get the count of products
+    public function productCount($categories = '')
+    {
+        foreach($categories as $category)
+        {
+            $this->roductCount[$category->category_name] = count(Product::wherecategory_id($category->id)->get());
+        }
+        echo '<pre>';
+        var_dump($this->productCount);
+        echo '</pre>';
+        die;
+        return $this->productCount;
     }
 }
