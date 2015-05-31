@@ -63,7 +63,7 @@
     <li><strong>Email:</strong> <a href="mailto:nanaimo@batteriesincluded.ca">nanaimo@batteriesincluded.ca</a></li>
   </ul>
 
-  <p class="text">Our Nanimo store is located in the Country Club Centre on North Island Way right by the food court.
+  <p class="text">Our Nanimo store is located in the Country Club Centre on North Island Highway right by the food court.
   </p>
 </div>
 <div class="col-md-5 content">
