@@ -17,7 +17,12 @@ class AdminController extends \BaseController {
 	 */
 	public function showIndex()
 	{
-		return View::make('admin.index');
+
+		$id = Auth::user()->id;
+		$userInfo = User::find($id);
+
+		return View::make('admin.index')
+			->with('userInfo', $userInfo);
 	}
 
 	/**
