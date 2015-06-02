@@ -1,5 +1,5 @@
-/bootstrap/compiled.php
-/vendor
+bootstrap/compiled.php
+vendor/
 composer.lock
 .env.*.php
 .env.php
@@ -7,3 +7,4 @@ www/img/catalog/
 www/css/style.css
 node_modules/
 npm_debug.log
+www/bower_components
