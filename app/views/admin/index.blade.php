@@ -15,6 +15,7 @@
           </div>
       @endif
     </div>
+      Test
         <h2>Info For <em>{{ $userInfo->username }}</em></h2>
 
         <p><b>Created at:</b> {{ $userInfo->created_at }}</p>

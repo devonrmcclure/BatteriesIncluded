@@ -55,10 +55,10 @@ class ProductsController extends \BaseController {
         {
             $this->roductCount[$category->category_name] = count(Product::wherecategory_id($category->id)->get());
         }
-        echo '<pre>';
+        /*echo '<pre>';
         var_dump($this->productCount);
         echo '</pre>';
-        die;
+        die;*/
         return $this->productCount;
     }
 }

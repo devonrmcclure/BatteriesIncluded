@@ -8,3 +8,4 @@ www/css/style.css
 node_modules/
 npm_debug.log
 www/bower_components
+.ftppass

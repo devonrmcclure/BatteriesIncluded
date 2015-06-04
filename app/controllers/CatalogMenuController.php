@@ -30,13 +30,13 @@ class CatalogMenuController extends \BaseController {
     function drawMenu($items)
     {
         // Loop through each item and generate the navigation.
-        $productCount = new ProductsController;
-        $productCount = $productCount->productCount($items);
+        /*$productCount = new ProductsController;
+        $productCount = $productCount->productCount($items);*/
         foreach($items as $item)
         {
 
             //var_dump($productCount);
-            $this->text .= "<li class=\"catalog-nav-item\"><a href=\"" . $_ENV['URL'] . "/catalog/" . $item->category_name . "\">" . $item->category_name ." (" . $productCount[$item->category_name] . ")</a>";
+            $this->text .= "<li class=\"catalog-nav-item\"><a href=\"" . $_ENV['URL'] . "/catalog/" . $item->category_name . "\">" . $item->category_name . "</a>";
                 if($this->hasChildren($item))
                 {
                     $this->text .= "<ul class=\"list-group-inner\">";
