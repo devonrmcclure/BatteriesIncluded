@@ -13,7 +13,7 @@ class SearchController extends \BaseController {
         {
             return Redirect::to($_ENV['URL'] . '/catalog');
         } else {
-            $products = Product::where('product_name', 'LIKE', '%'.$search.'%')->paginate(9);
+            $products = Product::where('product_name', 'LIKE', '%'.$search.'%')->get();
             $categories = Category::orderby('category_name', 'ASC')->get();
 
             return View::make('search.results')

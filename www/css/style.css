@@ -35,23 +35,6 @@
 .list-group-inner li {
   border: none;
 }
-.product-price {
-  background-color: #0064ab;
-  border: 1px solid black;
-  color: #FFF;
-  font-style: italic;
-  padding: 5px;
-  margin-bottom: 20px;
-}
-.modal-admin a {
-  color: #FFF;
-}
-.modal-admin {
-  margin: 0 3px;
-}
-.product-price a {
-  color: #FFF;
-}
 .catalog-categories {
   list-style-type: none;
   margin-left: -15px;
@@ -80,21 +63,47 @@
 .catalog-categories > li > ul > li > ul {
   margin-left: -5px;
 }
+.breadcrumb {
+  background-color: #fff;
+  margin-left: -13px;
+}
+.breadcrumb li:last-of-type a {
+  pointer-events: none;
+  color: black;
+}
+.search-products {
+  margin-bottom: 15px;
+}
+.product-container {
+  margin: 10px 0;
+  height: 400px;
+}
+.product-img {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+.product-img img {
+  height: auto;
+  width: 150px;
+}
 .product-name {
   font-weight: bold;
   height: 50px;
+  font-size: 14px;
 }
 .product-description {
-  font-size: 12px;
-  min-height: 150px;
-  max-height: 150px;
+  min-height: 100px;
 }
-.product-tile {
-  height: 570px;
-  margin-bottom: 25px;
+.product-modal a {
+  color: #fff;
 }
-.product-modal {
-  margin: 0 auto;
+.modal-admin a {
+  color: #FFF;
+}
+.modal-admin {
+  margin: 0 3px;
 }
 .modal-header {
   background: #0064ab;
@@ -108,24 +117,6 @@
 .modal-body {
   width: auto;
   margin: 0 auto;
-}
-.product-pagination li a .active {
-  color: red;
-}
-.breadcrumb {
-  background-color: #fff;
-  margin-left: -13px;
-}
-.breadcrumb li:last-of-type a {
-  pointer-events: none;
-  color: black;
-}
-.img-catalog img {
-  height: 250px;
-  max-height: 250px;
-}
-.search-products {
-  margin-bottom: 15px;
 }
 .faq-question {
   margin: 7px 0;

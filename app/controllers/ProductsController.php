@@ -22,7 +22,7 @@ class ProductsController extends \BaseController {
     {
         if(!$category)
         {
-            $this->products[] = Product::orderBy('created_at', 'DESC')->get();
+            $this->products[] = Product::orderBy('created_at', 'DESC')->take(12)->get();
             //$this->pagination = Paginator::make($this->products, count($this->products), 9);
         } else {
             // Get all products in this category

@@ -51,11 +51,6 @@ class CatalogController extends \BaseController {
         $products = new ProductsController;
         $products = $products->getProducts($category);
 
-        /*echo '<pre>';
-        var_dump($products);
-        echo '</pre>';
-        die;*/
-
         // TODO: Create a class to get all products from all sub categories. So essentially add a query of products to the breadcrumbs code.
 
         return View::make('catalog')

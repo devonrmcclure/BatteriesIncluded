@@ -23,7 +23,7 @@
             {{ Form::close() }}
         </div>
         <!-- End Search -->
-        <div class="col-md-12">
+        <div class="col-md-10">
             <ul class="nav nav-list catalog-categories ">
             {{ $menu }}
             </ul>
