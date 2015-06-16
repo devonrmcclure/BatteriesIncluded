@@ -11,14 +11,6 @@
 @section('content')
 <div class="col-md-4"></div>
 <div class="col-md-5">
-<div class="flash-message row">
-  @if(Session::has('flash-message'))
-      <div class="alert {{ Session::get('alert-class', 'alert-info') }} alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close/span></button>
-        {{ Session::get('flash-message') }}
-      </div>
-  @endif
-</div>
     <h1>Please login!</h1>
     {{ Form::open(array('url' => $_ENV['URL'] . '/admin/login', 'class' => 'form-horizontal', 'id' => 'login-form', 'role' => 'form')) }}
 
