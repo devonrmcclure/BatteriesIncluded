@@ -6,7 +6,64 @@
 
 @section('content')
 
+<h2>Hours</h2>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    <tr>
+      <th></th>
+      <th>Sunday</th>
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wednesday</th>
+      <th>Thursday</th>
+      <th>Friday</th>
+      <th>Saturday</th>
+    </tr>
+    <tr>
+      <th>Guildford</th>
+      <td>CLOSED</td>
+      <td>12:00pm - 6:00pm</td>
+      <td>12:00pm - 6:00pm</td>
+      <td>12:00pm - 6:00pm</td>
+      <td>12:00pm - 6:00pm</td>
+      <td>12:00pm - 6:00pm</td>
+      <td>10:00am - 3:30pm</td>
+    </tr>
+    <tr>
+      <th>Nanaimo</th>
+      <td>11:00am - 5:00pm</td>
+      <td>10:00am - 6:00pm</td>
+      <td>10:00am - 6:00pm</td>
+      <td>10:00am - 6:00pm</td>
+      <td>10:00am - 9:00pm</td>
+      <td>10:00am - 9:00pm</td>
+      <td>10:00am - 6:00pm</td>
+    </tr>
+    <tr>
+      <th>Richmond</th>
+      <td>11:00am - 6:00pm</td>
+      <td>10:00am - 6:00pm</td>
+      <td>10:00am - 6:00pm</td>
+      <td>10:00am - 9:00pm</td>
+      <td>10:00am - 9:00pm</td>
+      <td>10:00am - 9:00pm</td>
+      <td>9:30am - 6:00pm</td>
+    </tr>
+    <tr>
+      <th>White Rock</th>
+      <td>12:00pm - 5:00pm</td>
+      <td>10:00am - 6:00pm</td>
+      <td>10:00am - 6:00pm</td>
+      <td>10:00am - 6:00pm</td>
+      <td>10:00am - 8:00pm</td>
+      <td>10:00am - 8:00pm</td>
+      <td>10:00am - 6:00pm</td>
+    </tr>
+  </table>
+</div>
+
 <div class="col-md-7 content">
+
   <h2>Locations</h2>
   <p class="text">We have a variety of locations throughout the lower mainland, please see which store is
     closest to you, and how to get to it below.
@@ -27,6 +84,8 @@
     near Guildford Mall.
   </p>
 
+  <hr />
+
   <h3>Richmond</h3>
   <div class="location-image">
     <img class="img-responsive" src="img/locations/Richmond.png"/>
@@ -40,6 +99,8 @@
   <p class="text">Our Richmond store is located inside Lansdowne Centre on No. 3 Road. We are near the east side of the building. The closest entrance to us is the Kwantlen Street enterance, and we are a few shops down on the right from that entrance.
   </p>
 
+  <hr />
+
   <h3>White Rock</h3>
   <div class="location-image">
     <img class="img-responsive" src="img/locations/White Rock.png"/>
@@ -52,6 +113,8 @@
 
   <p class="text">Our White Rock store is located inside Semiahmoo Mall on 152nd Street right by customer service.
   </p>
+
+  <hr />
 
   <h3>Nanaimo</h3>
   <div class="location-image">
