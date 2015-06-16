@@ -26,8 +26,6 @@ class EditFAQController extends \BaseController {
     {
         if($faq = FAQ::find($id))
         {
-            $subCategories = Subcategory::orderBy('subcategory_name', 'ASC')->get();
-
             return View::make('admin.edit.editFAQ')
                     ->with('faq', $faq);
         } else {

@@ -9,8 +9,8 @@
 @stop
 
 @section('content')
-<div class="col-md-4"></div>
-<div class="col-md-5">
+<div class="col-md-3"></div>
+<div class="col-md-6">
     <h1>Please login!</h1>
     {{ Form::open(array('url' => $_ENV['URL'] . '/admin/login', 'class' => 'form-horizontal', 'id' => 'login-form', 'role' => 'form')) }}
 
@@ -35,6 +35,6 @@
 
     {{ Form::close() }}
 </div>
-<div class="col-md-4"></div>
+<div class="col-md-3"></div>
 
 @stop

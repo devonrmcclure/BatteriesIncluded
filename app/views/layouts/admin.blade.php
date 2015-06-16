@@ -8,7 +8,7 @@
 
   <!-- Container -->
   <div class="container">
-    <div class="col-md-8 content">
+    <div class="col-md-10 content">
       <div class="flash-message">
         @if(Session::has('flash-message'))
             <div class="alert {{ Session::get('alert-class', 'alert-info') }} alert-dismissible" role="alert">
