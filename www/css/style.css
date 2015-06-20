@@ -78,6 +78,11 @@
   margin: 10px 0;
   height: 400px;
 }
+@media (max-width: 1200px) {
+  .product-container {
+    margin: 10px 10px;
+  }
+}
 .product-img {
   width: 150px;
   height: 150px;
@@ -94,7 +99,8 @@
   font-size: 14px;
 }
 .product-description {
-  min-height: 100px;
+  min-height: 120px;
+  max-height: 120px;
 }
 .product-modal a {
   color: #fff;
