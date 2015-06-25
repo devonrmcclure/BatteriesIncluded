@@ -33,6 +33,7 @@
     <div class="col-md-8 content">
         <div class="col-md-12">
             <h2>{{{ isset($category) ? $category[0]->category_name : 'Newest Products' }}}</h2>
+            @if(isset($breadcrumbs))
             <ol class="breadcrumb">
                 @if(isset($category))
                     <li><a href=" {{ $_ENV['URL'] }}/catalog">Catalog Home</a></li>
@@ -41,6 +42,7 @@
                     @endfor
                 @endif
             </ol>
+            @endif
             @include('layouts.catalog-items.catalogProducts')
         </div>
     </div>

@@ -17,11 +17,13 @@
 	        	@endif
 	        </p>
 
-	        <span class="pull-left btn btn-md btn-primary product-modal">
+
             	<a href="#" data-toggle="modal" data-target="#productModal{{$product->id}}">
+            	<span class="pull-left btn btn-md btn-primary product-modal">
             		More Info
+            		</span>
             	</a>
-          	</span>
+
 
         </div>
 

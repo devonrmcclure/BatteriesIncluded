@@ -130,8 +130,11 @@
   </p>
 </div>
 <div class="col-md-5 content">
+
+
   <h2>Contact</h2>
-  <noscript>
+  <h4>Contact form currently disabled as we update it. Please check back shortly!</h4>
+  <!--<noscript>
     It appears you have JavaScript disabled. You will not be able to see this form unless you have it enabled
     as it uses JavaScript to send the information.
   </noscript>
@@ -206,7 +209,7 @@
         {{ Form::submit('Submit', array('class' => 'btn btn-default submit-button submit-button', 'id' => 'submit-button', 'name' => 'submit')) }}
       </div>
     </div>
-  {{ Form::close() }}
+  {{ Form::close() }}-->
 </div>
 
 @stop
