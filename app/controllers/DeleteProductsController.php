@@ -40,7 +40,7 @@ class DeleteProductsController extends \BaseController {
         $product->delete();
 
         return Redirect::to($_ENV['URL'] . '/admin/edit/products')
-                        ->with('alert-class', 'alert-success')
+                        ->with('alert-class', 'success')
                         ->with('flash-message', 'Product <b>' . $oldName . '</b> has been deleted!');
     }
 }

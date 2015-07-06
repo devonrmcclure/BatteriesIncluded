@@ -71,12 +71,12 @@ class ContactController extends \BaseController {
             });
 
             return Redirect::to($_ENV['URL'] . '/locations-contact')
-                            ->with('alert-class', 'alert-success')
+                            ->with('alert-class', 'success')
                             ->with('flash-message', 'Your message has been sent! Someone will get back to you shortly!');
         }else{
             // Return contact form with errors
             return Redirect::to($_ENV['URL'] . '/locations-contact')
-                            ->with('alert-class', 'alert-danger')
+                            ->with('alert-class', 'error')
                             ->with('flash-message', 'There was an error! Please look over your message and try again!')
                             ->withInput();
         }

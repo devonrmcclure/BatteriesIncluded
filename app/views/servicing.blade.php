@@ -6,7 +6,7 @@
 
 @section('content')
 
-	<div class="col-md-7 content">
+	<div class="content-card col-md-12">
 
 
         <p class="servicing-tag">We do servicing on a variety of items. Choose a category below to learn more!</p>

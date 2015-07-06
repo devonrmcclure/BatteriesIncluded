@@ -22,11 +22,6 @@ class CatalogMenuController extends \BaseController {
         }
     }
 
-    function getChildren()
-    {
-        return Category::whereparent_id($item->id);
-    }
-
     function drawMenu($items)
     {
         // Loop through each item and generate the navigation.

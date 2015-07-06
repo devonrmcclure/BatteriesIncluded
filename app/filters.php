@@ -95,8 +95,8 @@ Route::filter('pass_expired', function()
 	//$lastChanged = $lastChanged->diffForHumans();
 	if(Auth::user()->last_password_change->diffInDays() >= '90')
 	{
-		return Redirect::to($_ENV['URL'] . '/admin/password')
-						->with('alert-class', 'alert-danger')
+		return Redirect::to($_ENV['URL'] . '/admin/settings/password')
+						->with('alert-class', 'error')
 						->with('flash-message', 'Your password has not been updated in over 90 days! Please update the password to proceed!');
 	}
 });

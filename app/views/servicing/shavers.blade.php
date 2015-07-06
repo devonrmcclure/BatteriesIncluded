@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="col-md-7 content">
+    <div class="content-card">
 
 
         <p>We do servicing on shavers including replacing the battery, replacing the heads/foil and cutter, and cleaning and lubing them. Please call or come in for more details!</p>

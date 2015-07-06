@@ -4,18 +4,6 @@ class ProductsController extends \BaseController {
 
     public $products = array();
     public $productCount = array();
-    public $pagination;
-
-
-    public function hasChild($categoryID)
-    {
-        if(Category::whereparent_id($categoryID)->get())
-        {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
     // Get products for displaying.
     public function makeProducts($category = '')
@@ -53,7 +41,7 @@ class ProductsController extends \BaseController {
     {
         foreach($categories as $category)
         {
-            $this->roductCount[$category->category_name] = count(Product::wherecategory_id($category->id)->get());
+            $this->productCount[$category->category_name] = count(Product::wherecategory_id($category->id)->get());
         }
         /*echo '<pre>';
         var_dump($this->productCount);

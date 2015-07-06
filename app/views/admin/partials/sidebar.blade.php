@@ -1,17 +1,5 @@
-<div class="col-md-2">
-    <div class="admin-sidebar-wrapper .admin-sidebar-hide">
-        <h2 class="admin-sidebar-header">
-            Admin Panel
-        </h2>
-        <hr />
-        <ul class="admin-sidebar-nav">
-            <li><a href="{{ $_ENV['URL'] }}/admin">Admin Home</a></li>
-            <li><a href="{{ $_ENV['URL'] }}/admin/add">Add Catalog Item</a></li>
-            <li><a href="{{ $_ENV['URL'] }}/admin/add/faqs">Add a FAQ</a></li>
-            <li><a href="{{ $_ENV['URL'] }}/admin/edit/faqs">Edit/Delete a FAQ</a></li>
-            <li><a href="{{ $_ENV['URL'] }}/admin/edit/products">Edit/Delete Product</a></li>
-            <li><a href="{{ $_ENV['URL'] }}/admin/edit/categories">Edit Category Or Subcategory</a></li>
-            <li><a href="{{ $_ENV['URL'] }}/admin/password">Change Password</a></li>
-        </ul>
-    </div>
-</div>
+<li class="ripple-effect"><a href="{{$_ENV['URL']}}/admin"><i class="material-icons md-24 indigo500">home</i> Admin Home</a></li>
+<li class="ripple-effect"><a href="{{$_ENV['URL']}}/admin/add"><i class="material-icons md-24 green500">add</i>Add Item</a></li>
+<li class="ripple-effect"><a href="{{$_ENV['URL']}}/admin/edit"><i class="material-icons md-24 teal500">edit</i>Edit Item</a></li>
+<li class="ripple-effect"><a href="{{$_ENV['URL']}}/admin/settings"><i class="material-icons md-24 grey700">settings</i>Settings</a></li>
+<li class="ripple-effect"><a href="{{$_ENV['URL']}}/admin/logout"><i class="material-icons md-24 redA700">power_settings_new</i>Log out</a></li>

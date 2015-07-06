@@ -31,7 +31,7 @@ class EditFAQController extends \BaseController {
         } else {
             // Product doesn't exits (IE: User enters a number in the URL)
             return Redirect::to($_ENV['URL'] . '/admin/edit/faqs')
-                            ->with('alert-class', 'alert-danger')
+                            ->with('alert-class', 'error')
                             ->with('flash-message', 'The FAQ you requested does\'nt exist!');
         }
     }
@@ -53,7 +53,7 @@ class EditFAQController extends \BaseController {
                 $FAQ->save();
                 return Redirect::to($_ENV['URL'] . '/admin/edit/faqs')
                                 ->with('flash-message', 'FAQ has been successfully updated!')
-                                ->with('alert-class', 'alert-success');
+                                ->with('alert-class', 'success');
             } else {
                 $FAQ->question = $data['faq-question'];
                 $FAQ->answer = $data['faq-answer'];
@@ -61,12 +61,12 @@ class EditFAQController extends \BaseController {
                 $FAQ->save();
                 return Redirect::to($_ENV['URL'] . '/admin/edit/faqs')
                                 ->with('flash-message', 'FAQ has been successfully updated!')
-                                ->with('alert-class', 'alert-success');
+                                ->with('alert-class', 'success');
             }
         } else {
             return Redirect::to($_ENV['URL'] . '/admin/edit/faqs/' . $faq->id)
                             ->with('flash-message', 'Please fill out all fields to update a FAQ!')
-                            ->with('alert-class', 'alert-danger');
+                            ->with('alert-class', 'error');
         }
     }
 }

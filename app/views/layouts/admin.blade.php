@@ -1,30 +1,19 @@
-@include('layouts.partials.header')
-@include('layouts.partials.nav')
+@extends('layouts.base')
 
-@section('sidebar')
-  @include('admin.partials.sidebar')
-@show
+@section('title')
+    Batteries Included - Admin Dashboard
+@stop
 
+@section('sidebar-search')
+@stop
 
-  <!-- Container -->
-  <div class="container">
-    <div class="col-md-10 content">
-      <div class="flash-message">
-        @if(Session::has('flash-message'))
-            <div class="alert {{ Session::get('alert-class', 'alert-info') }} alert-dismissible" role="alert">
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              {{Session::get('flash-message')}}
-            </div>
-        @endif
-      </div>
-        <!-- Content -->
-        @yield('content')
+@section('sidebar-nav-links')
+	@include('admin.partials.sidebar')
+@stop
 
-    </div>
-  </div>
-  @section('footer-scripts')
-    <!-- Scripts are placed here -->
-    {{ HTML::script('bower_components/jquery/dist/jquery.min.js') }}
-    {{ HTML::script('bower_components/bootstrap/dist/js/bootstrap.min.js') }}
-  @show
-  </body>
+@section('content')
+@stop
+
+@section('footer')
+<!-- Admin pages don't need a footer -->
+@stop

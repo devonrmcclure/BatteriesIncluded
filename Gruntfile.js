@@ -8,6 +8,10 @@ module.exports = function(grunt) {
                 files: 'www/css/less/*',
                 tasks: ['less:development']
             },
+            js: {
+                files: 'www/js/app/*',
+                tasks: ['browserify']
+            }
         },
         less: {
             development: {
@@ -22,24 +26,16 @@ module.exports = function(grunt) {
                 compress: true,
             }
         },
-        'ftp-deploy': {
-          build: {
-            auth: {
-              host: 'ftp1.ehosting.ca',
-              port: 21,
-              authKey: 'key1'
-            },
-            src: '/',
-            dest: '/batteriesincluded.ca',
-            exclusions: ['www/img/catalog/', '.env.local.php', 'envtemplate.php', 'package.json', 'Gruntfile.js', '.ftppass', '.bowerrc', 'node_modules/', '.gitattributes', '.gitignore', 'bower.json']
-          }
+        browserify: {
+            options: {},
+            'www/js/app.js': ['www/js/app/**/*.js']
         }
     });
 
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-ftp-deploy');
+    grunt.loadNpmTasks('grunt-browserify');
 
     grunt.registerTask('default', ['watch']);
     grunt.registerTask('build-dev', ['less:development']);

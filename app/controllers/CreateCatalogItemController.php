@@ -35,7 +35,7 @@ class CreateCatalogItemController extends \BaseController {
         {
             return Redirect::to($_ENV['URL'] . '/admin/add')
                             ->with('flash-message', 'Category already exists or left empty so not added!')
-                            ->with('alert-class', 'alert-danger');
+                            ->with('alert-class', 'error');
         } else {
             if($data['parent-category'] == 'selectparentcategory')
             {
@@ -47,7 +47,7 @@ class CreateCatalogItemController extends \BaseController {
                 $category->save();
                 return Redirect::to($_ENV['URL'] . '/admin/add')
                                 ->with('flash-message', 'Category <b>' . $data['category-name'] . '</b> has been successfully added!')
-                            ->with('alert-class', 'alert-success');
+                            ->with('alert-class', 'success');
             } else {
                     //If there is a parent category, add that.
                     $category = new Category;
@@ -58,7 +58,7 @@ class CreateCatalogItemController extends \BaseController {
                     $category->save();
                     return Redirect::to($_ENV['URL'] . '/admin/add')
                                     ->with('flash-message', 'Category <b>' . $data['category-name'] . '</b> has been successfully added!')
-                                ->with('alert-class', 'alert-success');
+                                ->with('alert-class', 'success');
             }
         }
     }
@@ -79,12 +79,12 @@ class CreateCatalogItemController extends \BaseController {
             {
                 return Redirect::to($_ENV['URL'] . '/admin/add')
                                 ->with('flash-message', 'Product already exists or left empty so not added!')
-                                ->with('alert-class', 'alert-danger')
+                                ->with('alert-class', 'error')
                                 ->withInput();
             } else if($data['product-brand'] == '') {
                 return Redirect::to($_ENV['URL'] . '/admin/add')
                                 ->with('flash-message', 'Please enter a Brand!')
-                                ->with('alert-class', 'alert-danger')
+                                ->with('alert-class', 'error')
                                 ->withInput();
             } else {
                 //Upload File
@@ -110,12 +110,12 @@ class CreateCatalogItemController extends \BaseController {
                 $product->save();
                 return Redirect::to($_ENV['URL'] . '/admin/add')
                                 ->with('flash-message', 'Product <b>' . $data['product-name'] . '</b> has been successfully added!')
-                                ->with('alert-class', 'alert-success');
+                                ->with('alert-class', 'success');
             }
         } else {
             return Redirect::to($_ENV['URL'] . '/admin/add')
                             ->with('flash-message', 'Please select a category!')
-                            ->with('alert-class', 'alert-danger')
+                            ->with('alert-class', 'error')
                             ->withInput();
         }
     }

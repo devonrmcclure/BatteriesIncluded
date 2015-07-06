@@ -26,7 +26,7 @@ class DeleteFAQController extends \BaseController {
         $faq->delete();
 
         return Redirect::to($_ENV['URL'] . '/admin/edit/faqs')
-                        ->with('alert-class', 'alert-success')
+                        ->with('alert-class', 'success')
                         ->with('flash-message', 'FAQ has been deleted!');
     }
 }

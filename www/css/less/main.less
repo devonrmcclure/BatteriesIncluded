@@ -1,59 +1,67 @@
-@import "lib.less";
-@import "admin.less";
-@import "catalog.less";
-@import "products.less";
-@import "faq.less";
-@import "home.less";
-@import "nav.less";
-@import "servicing.less";
+@import "material-colors";
+@import "material-icons";
+@import "lib";
+@import "z-index";
+@import "nav";
+@import "sidebar";
+@import "carousel";
+@import "ripple";
+@import "content";
+@import "forms";
+@import "fab";
+@import "toast";
+@import "faq";
+
+::-webkit-scrollbar {
+	background-color: @indigo-50;
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+      background-color: @indigo-50;
+}
+
+::-webkit-scrollbar-thumb {
+      background-color: @indigo-100;
+}
+
+::-webkit-scrollbar-button {
+      background-color: @indigo-200;
+}
+
+::-webkit-scrollbar-corner {
+      background-color: @indigo-300;
+}
+
 
 body {
-  margin-top: 70px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-h1, h2, h3, h4 {
-  font-weight: 300;
-  margin-right: 0;
-  margin-left: 0;
-}
-p {
-
+	font-family: 'Roboto', sans-serif;
+	margin-top: 100px;
+	background: @indigo-50;
 }
 
-.content p {
-    line-height: 30px;
-    font-size: 16px;
-}
-
-.bottom{
-    font-size: 12px;
-}
-
-.text {
-    text-indent: 20px;
-}
-
-.bottom-nav{
-    list-style-type: none;
-    margin-left: -40px;
-}
-
-label.bg-danger, span.bg-success {
-  padding: 5px;
-  margin-top: 5px;
-}
-
-.noscript {
-  visibility: hidden;
-}
-
-.alert-info, .alert-success, .alert-danger, .alert-warning {
-  padding: 1em;
-  margin: 1em 0;
+.sidebar-header-link {
+	display: block;
 }
 
 .location-image {
-  bordger: 1px solid #000;
-  box-shadow: 5px 5px 5px #AAA;
+
+  .box-shadow(0 0 5px @boxShadowColor);
+  .border-radius(3px);
   margin-bottom: 10px;
+}
+
+a {
+	text-decoration: none;
+	color: @blue;
+	outline: none;
+}
+
+a:hover {
+	color: @blue-900;
+}
+
+p {
+	margin: 0;
+	padding: 0;
 }

@@ -54,7 +54,7 @@ class EditProductsController extends \BaseController {
         } else {
             // Product doesn't exits (IE: User enters a number in the URL)
             return Redirect::to($_ENV['URL'] . '/admin/edit/products')
-                            ->with('alert-class', 'alert-danger')
+                            ->with('alert-class', 'error')
                             ->with('flash-message', 'The product you requested does\'nt exist!');
         }
     }
@@ -100,17 +100,17 @@ class EditProductsController extends \BaseController {
             $product->save();
 
             return Redirect::to($_ENV['URL'] . '/admin/edit/products')
-                            ->with('alert-class', 'alert-success')
+                            ->with('alert-class', 'success')
                             ->with('flash-message', 'Product <b>' . $product->product_name . '</b> updated!');
 
         } elseif($data['product-name'] == '') {
             return Redirect::to($_ENV['URL'] . '/admin/edit/product/'. $product->id)
-                            ->with('alert-class', 'alert-danger')
+                            ->with('alert-class', 'error')
                             ->with('flash-message', 'You cannot have an empty product name!');
 
         } else {
             return Redirect::to($_ENV['URL'] . '/admin/edit/product/'. $product->id)
-                            ->with('alert-class', 'alert-danger')
+                            ->with('alert-class', 'error')
                             ->with('flash-message', 'Something went wrong!');
         }
     }

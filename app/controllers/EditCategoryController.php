@@ -43,11 +43,11 @@ class EditCategoryController extends \BaseController {
             $category->save();
 
             return Redirect::to($_ENV['URL'] . '/admin/edit/categories')
-                            ->with('alert-class', 'alert-success')
+                            ->with('alert-class', 'success')
                             ->with('flash-message', 'The category <b>' . $oldName . '</b> was successfully updated to <b>' . $category->category_name . '</b>!');
         } else {
             return Redirect::to($_ENV['URL'] . '/admin/edit/categories')
-                            ->with('alert-class', 'alert-danger')
+                            ->with('alert-class', 'error')
                             ->with('flash-message', 'You can not have an empty category name!');
         }
     }
