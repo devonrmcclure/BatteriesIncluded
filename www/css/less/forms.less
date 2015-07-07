@@ -1,0 +1,175 @@
+.form-header {
+  margin-bottom: 20px;
+}
+
+.group 			  {
+  position:relative;
+  margin-bottom:45px;
+
+  input         {
+    font-size:18px;
+    padding:10px 10px 10px 5px;
+    display:block;
+    width:100%;
+    border:none;
+    border-bottom:1px solid #757575;
+    background: transparent;
+  }
+  input:focus     { outline:none; }
+
+  /* LABEL ======================================= */
+  label          {
+    color:#999;
+    font-size:18px;
+    font-weight:normal;
+    position:absolute;
+    pointer-events:none;
+    left:5px;
+    top:10px;
+    transition:0.2s ease all;
+    -moz-transition:0.2s ease all;
+    -webkit-transition:0.2s ease all;
+  }
+
+  /* active state */
+  input:focus ~ label, input:valid ~ label    {
+    top:-20px;
+    font-size:14px;
+    color:#5264AE;
+    width: 100%;
+  }
+
+  /* BOTTOM BARS ================================= */
+  .bar  { position:relative; display:block; width:100%; }
+  .bar:before, .bar:after   {
+    content:'';
+    height:2px;
+    width:0;
+    bottom:1px;
+    position:absolute;
+    background:#5264AE;
+    transition:0.2s ease all;
+    -moz-transition:0.2s ease all;
+    -webkit-transition:0.2s ease all;
+  }
+  .bar:before {
+    left:50%;
+  }
+  .bar:after {
+    right:50%;
+  }
+
+  /* active state */
+  input:focus ~ .bar:before, input:focus ~ .bar:after {
+    width:50%;
+  }
+
+  /* HIGHLIGHTER ================================== */
+  .highlight {
+    position:absolute;
+    height:60%;
+    width:100px;
+    top:25%;
+    left:0;
+    pointer-events:none;
+    opacity:0.5;
+  }
+
+  /* active state */
+  input:focus ~ .highlight {
+    -webkit-animation:inputHighlighter 0.3s ease;
+    -moz-animation:inputHighlighter 0.3s ease;
+    animation:inputHighlighter 0.3s ease;
+  }
+
+  /* ANIMATIONS ================ */
+  @-webkit-keyframes inputHighlighter {
+    from { background:#5264AE; }
+    to  { width:0; background:transparent; }
+  }
+  @-moz-keyframes inputHighlighter {
+    from { background:#5264AE; }
+    to  { width:0; background:transparent; }
+  }
+  @keyframes inputHighlighter {
+    from { background:#5264AE; }
+    to  { width:0; background:transparent; }
+  }
+}
+
+.search {
+    margin-bottom: -45px;
+    width: 100%;
+
+    input, label, .bar {
+        width: 100%;
+    }
+}
+
+.checkbox-group {
+    position:relative
+}
+
+/* Hide Checkbox Input */
+.checkbox-group input[type=checkbox] {
+    display:none
+}
+
+/* Style Label */
+.checkbox-group label {
+    padding-left:30px;
+    cursor:pointer;
+}
+
+/* Style span tag */
+.checkbox-group label span {
+    display:block;
+    position:absolute;
+    left:0;
+    -webkit-transition-duration:.3s;
+    -moz-transition-duration:.3s;
+    transition-duration:.3s
+}
+/* Style box */
+.checkbox-group label .box {
+    border: 1px solid @grey-700;
+    height:20px;
+    width:20px;
+    z-index:9;
+    -webkit-transition-delay:.2s;
+    -moz-transition-delay:.2s;
+    transition-delay:.2s
+}
+
+/* Style check icon. give it a border on the bottom and right only and then rotate */
+.checkbox-group label .check {
+    top:0;
+    left:7px;
+    width:7px;
+    height:15px;
+    border:2px solid #ffffff;
+    border-top:none;
+    border-left:none;
+    opacity:0;
+    z-index:10;
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    transform:rotate(180deg);
+    /*-webkit-transition-delay:.3s;
+    -moz-transition-delay:.3s;
+    transition-delay:.3s*/
+}
+
+/* Change color of box when checkbox is checked */
+input[type=checkbox]:checked ~ label .box {
+    border: none;
+}
+
+/* Rotate and show check icon when checkbox is checked */
+input[type=checkbox]:checked ~ label .check {
+    border-color: @green;
+    opacity:1;
+    -webkit-transform:scale(1) rotate(45deg);
+    -moz-transform:scale(1) rotate(45deg);
+    transform:scale(1) rotate(45deg);
+}
