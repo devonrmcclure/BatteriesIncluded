@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top z-index-10">
+<nav class="navbar navbar-inverse navbar-fixed-top z-index-20">
 	<div class="navbar-header">
   	<a href="#" class="sidebar-toggle"><i class="material-icons">menu</i></a>
     <div class="brand-header">

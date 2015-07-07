@@ -30,7 +30,7 @@
 	@show
 
 	<!-- Content -->
-	<div class="content col-md-8 col-md-offset-2 z-index-20">
+	<div class="content col-md-10 col-md-offset-2">
 		@yield('content')
 	</div>
 	<!-- End Content -->

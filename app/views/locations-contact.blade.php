@@ -6,7 +6,7 @@
 
 @section('content')
 
-<div class="content-card">
+<div class="content-card col-md-12">
 <h2>Hours</h2>
   <div class="table-responsive">
     <table class="table table-striped table-bordered">
@@ -64,7 +64,7 @@
   </div>
 </div>
 
-<div class="content-card">
+<div class="content-card col-md-12">
 
   <h2>Locations</h2>
   <p class="text">We have a variety of locations throughout the lower mainland, please see which store is

@@ -24,9 +24,12 @@ class CatalogController extends \BaseController {
         $products = new ProductsController;
         $products = $products->getProducts($category);
 
+        $featured = Product::wherefeatured(1)->first();
+
 		return View::make('catalog')
             ->with('menu', $menu)
-            ->with('products', $products);
+            ->with('products', $products)
+            ->with('featured', $featured);
 	}
 
     /**

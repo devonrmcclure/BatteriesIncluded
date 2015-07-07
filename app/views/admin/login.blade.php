@@ -10,7 +10,7 @@
 
 @section('content')
 
-<div class="content-card col-md-4 col-md-offset-4">
+<div class="content-card col-md-4 col-md-offset-3">
     <h1 class="form-header">Please login!</h1>
 
     {{ Form::open(array('url' => $_ENV['URL'] . '/admin/login', 'class' => '', 'id' => 'login-form', 'role' => 'form', 'method' => 'POST')) }}
