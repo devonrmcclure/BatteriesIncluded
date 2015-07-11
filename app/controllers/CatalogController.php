@@ -24,7 +24,7 @@ class CatalogController extends \BaseController {
         $products = new ProductsController;
         $products = $products->getProducts($category);
 
-        $featured = Product::wherefeatured(1)->first();
+        $featured = Product::orderBy('featured', 'DESC')->first();
 
 		return View::make('catalog')
             ->with('menu', $menu)
