@@ -6,7 +6,7 @@
 
 @section('content')
 
-<div class="content-card">
+<div class="content-card col-md-10 col-md-offset-1">
   <h2>
       Add FAQ
   </h2>

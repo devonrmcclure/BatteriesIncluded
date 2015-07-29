@@ -20,9 +20,8 @@ class CatalogController extends \BaseController {
         $menu = new CatalogMenuController;
         $menu = $menu->drawMenu($menuItems);
 
-        $category = NULL;
         $products = new ProductsController;
-        $products = $products->getProducts($category);
+        $products = $products->getProducts();
 
         $featured = Product::orderBy('featured', 'DESC')->first();
 
@@ -39,22 +38,16 @@ class CatalogController extends \BaseController {
      */
     public function showCategory($category)
     {
-        $menuItems = Category::orderBy('category_name', 'ASC')->wherecategory_name($category)->get();
-        if(count($menuItems) == 0)
-            {
-                return View::make('404');
-            }
+        $menuItems = Category::orderBy('category_name', 'ASC')->whereparent_id(NULL)->get();
         $menu = new CatalogMenuController;
         $menu = $menu->drawMenu($menuItems);
 
-        $category = Category::orderBy('category_name', 'ASC')->wherecategory_name($category)->get();
+        $categories = Category::orderBy('category_name', 'ASC')->wherecategory_name($category)->get();
         $crumbs = new BreadcrumbsController;
-        $crumbs = $crumbs->drawBreadcrumbs($category);
+        $crumbs = $crumbs->drawBreadcrumbs($categories);
 
         $products = new ProductsController;
-        $products = $products->getProducts($category);
-
-        // TODO: Create a class to get all products from all sub categories. So essentially add a query of products to the breadcrumbs code.
+        $products = $products->getProducts($categories);
 
         return View::make('catalog')
             ->with('menu', $menu)
@@ -63,6 +56,18 @@ class CatalogController extends \BaseController {
             ->with('products', $products);
     }
 
+    public function showSingleProduct($id) {
+        $menuItems = Category::orderBy('category_name', 'ASC')->whereparent_id(NULL)->get();
+        $menu = new CatalogMenuController;
+        $menu = $menu->drawMenu($menuItems);
+
+        $product = Product::whereid($id)->first();
+
+        return View::make('catalog')
+            ->with('menu', $menu)
+            ->with('product', $product)
+            ->with('singleProduct', true);
+    }
 
 
 }

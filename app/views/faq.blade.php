@@ -6,7 +6,7 @@
 
 @section('content')
     @if(count($faqs) == 0)
-      <div class="content-card col-md-12">
+      <div class="content-card col-md-10 col-md-offset-1">
         <p>There doesn't seem to be anything here!</p>
         @if(Auth::check())
           Why not <a href="{{ $_ENV['URL'] }}/admin/add/faqs">add a FAQ?</a>
@@ -14,7 +14,7 @@
       </div>
     @else
         @foreach($faqs as $faq)
-            <div class="content-card faq col-md-12">
+            <div class="content-card faq col-md-10 col-md-offset-1">
                 <a class="question" data-toggle="collapse" href="#question{{$faq->id}}" aria-expanded="false" aria-controls="question">
                     <div class="question-heading">
                         <i class="material-icons md-36 indigo500">help</i>

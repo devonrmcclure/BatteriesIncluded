@@ -6,7 +6,7 @@
 
 @section('content')
 
-	<div class="content-card col-md-8 col-md-offset-2">
+	<div class="content-card col-md-10 col-md-offset-1">
 
 
         <p class="servicing-tag">We do servicing on a variety of items. Choose a category below to learn more!</p>

@@ -5,39 +5,35 @@
 @stop
 
 @section('content')
-    <div class="col-md-4">
-            <h2>
-                Categories
-            </h2>
-            <!-- Search -->
-            <div class="search-products">
-                {{ Form::open(array('url' => $_ENV['URL'] . '/search', 'class' => 'form-inline', 'id' => 'search-form', 'role' => 'form', 'method' => 'GET')) }}
-                <div class="form-group">
-                    <div class="input-group">
-                        {{ Form::text('search', '', array('class' => 'form-control', 'id' => 'search', 'placeholder' => 'Search All Products')) }}
-                        <span class="input-group-btn">
-                        {{ Form::submit('Go!', array('class' => 'btn btn-default submit-button')) }}
-                        </span>
-                    </div>
-                </div>
-                {{ Form::close() }}
-            </div>
-            <!-- End Search -->
-            <div class="col-md-10">
-                <ul class="nav nav-list catalog-categories ">
-                {{ $menu }}
-                </ul>
-            </div>
+    <div class="col-md-12">
+        <div class="content-card col-md-12">
+            <h2>Results For <b>{{ $search }}</b></h2>
         </div>
 
-  <div class="col-md-8 content">
-    <div class="col-md-12">
-        <h2>Results For <b>{{ $search }}</b></h2>
+        @include('layouts.catalog-items.menu')
+
+        @for($i = 0; $i < count($products); $i++)
+            @foreach($products[$i] as $product)
+                <div class="content-card product-tile col-md-2">
+                    <img src="/img/catalog/{{$product->image}}" class="img-responsive product-img" alt="{{$product->product_name}}"/>
+
+                    <h4 class="product-name">{{Str::limit($product->product_name, 35)}}</h4>
+
+                    <p class="product-description">
+                        @if($product->product_description)
+                            {{Str::limit($product->product_description, 40)}}
+                        @else
+                            There is no description for this product.
+                        @endif
+                    </p>
+
+                    <p class="material-flat-button material-flat-product ripple-effect"><a href="/catalog/product/{{$product->id}}">More Info</a></p>
+                </div>
+            @endforeach
+        @endfor
+
+
+
     </div>
-
-
-  @include('layouts.catalog-items.catalogProducts')
-
-  </div>
 
 @stop

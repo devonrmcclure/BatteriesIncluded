@@ -1,3 +1,51 @@
+::-webkit-scrollbar {
+  background-color: #e8eaf6;
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: #e8eaf6;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #c5cae9;
+}
+::-webkit-scrollbar-button {
+  background-color: #9fa8da;
+}
+::-webkit-scrollbar-corner {
+  background-color: #7986cb;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  margin-top: 100px;
+  background: #e8eaf6;
+}
+.sidebar-header-link {
+  display: block;
+}
+.location-image {
+  -webkit-box-shadow: 0 0 5px #5a5a5a;
+  -moz-box-shadow: 0 0 5px #5a5a5a;
+  box-shadow: 0 0 5px #5a5a5a;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+a {
+  text-decoration: none;
+  color: #2196f3;
+  outline: none;
+}
+a:hover {
+  color: #0d47a1;
+}
+a:visited {
+  color: #2196f3;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
 .material-icons.md-18 {
   font-size: 18px;
 }
@@ -379,6 +427,9 @@
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
+.content .content-wrapper {
+  padding: 0;
+}
 @media (max-width: 1280px) {
   .content {
     top: 0;
@@ -725,6 +776,17 @@ input[type=checkbox]:checked ~ label .check {
 .faq .faq-answer a:hover {
   color: #0d47a1;
 }
+.content {
+  max-width: 2000px;
+}
+.content .breadcrumb {
+  background: transparent;
+  padding: 0;
+}
+.content .breadcrumb li:last-of-type a {
+  color: #616161;
+  pointer-events: none;
+}
 .content .catalog-menu {
   max-width: 250px;
   margin-left: 0;
@@ -793,6 +855,8 @@ input[type=checkbox]:checked ~ label .check {
   float: left;
   margin-right: 20px;
   margin-bottom: 20px;
+  max-width: 400px;
+  max-height: 400px;
 }
 .content .featured .featured-product .featured-description {
   padding: 10px 0;
@@ -806,7 +870,7 @@ input[type=checkbox]:checked ~ label .check {
 .content .content-card {
   margin-right: 20px;
 }
-.content .newest-products {
+.content .product-heading {
   padding-bottom: 5px;
   border-bottom: 1px solid #3f51b5;
   color: #000;
@@ -814,7 +878,6 @@ input[type=checkbox]:checked ~ label .check {
 .content .product-tile {
   height: 370px;
   max-height: 500px;
-  margin-right: 60px;
 }
 .content .product-tile .product-img {
   disply: block;
@@ -831,6 +894,7 @@ input[type=checkbox]:checked ~ label .check {
   height: 70px;
 }
 .material-flat-button {
+  display: inline-block;
   text-transform: uppercase;
 }
 .material-flat-button a {
@@ -846,7 +910,7 @@ input[type=checkbox]:checked ~ label .check {
   background: #c5cae9;
 }
 .material-flat-product {
-  padding-top: 15px;
+  padding: 10px;
   color: #3f51b5;
   display: inline-block;
   margin: 5px;
@@ -856,56 +920,30 @@ input[type=checkbox]:checked ~ label .check {
   float: right;
 }
 .material-flat-delete {
-  padding-top: 10px;
+  padding: 10px;
+  margin-right: -10px;
+  padding-right: 0;
 }
 .material-flat-delete a {
   color: #f44336;
 }
-::-webkit-scrollbar {
-  background-color: #e8eaf6;
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background-color: #e8eaf6;
-}
-::-webkit-scrollbar-thumb {
-  background-color: #c5cae9;
-}
-::-webkit-scrollbar-button {
-  background-color: #9fa8da;
-}
-::-webkit-scrollbar-corner {
-  background-color: #7986cb;
-}
-body {
-  font-family: 'Roboto', sans-serif;
-  margin-top: 100px;
-  background: #e8eaf6;
-}
-.sidebar-header-link {
-  display: block;
-}
-.location-image {
-  -webkit-box-shadow: 0 0 5px #5a5a5a;
-  -moz-box-shadow: 0 0 5px #5a5a5a;
-  box-shadow: 0 0 5px #5a5a5a;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  margin-bottom: 10px;
-}
-a {
+.material-flat-delete a:hover {
+  color: #f44336;
+  background: #ffebee;
   text-decoration: none;
-  color: #2196f3;
-  outline: none;
 }
-a:hover {
-  color: #0d47a1;
+.material-flat-delete a:active {
+  background: #ffcdd2;
 }
-a:visited {
-  color: #2196f3;
+.material-flat-edit {
+  padding: 10px;
 }
-p {
-  margin: 0;
-  padding: 0;
+.location-list {
+  list-style-type: none;
+  margin: 5px 0;
+}
+.location-list .material-icons {
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-left: -30px;
 }

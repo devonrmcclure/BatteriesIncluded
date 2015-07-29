@@ -1,4 +1,15 @@
 .content {
+	max-width: 2000px;
+	.breadcrumb {
+		background: transparent;
+		padding: 0;
+		li:last-of-type {
+			a {
+				color: @grey-700;
+				pointer-events: none;
+			}
+		}
+	}
 
 	.catalog-menu {
 		max-width: 250px;
@@ -70,6 +81,8 @@
 				float: left;
 				margin-right: 20px;
 				margin-bottom: 20px;
+				max-width: 400px;
+				max-height: 400px;
 			}
 
 			.featured-description {
@@ -89,7 +102,7 @@
 		margin-right: 20px;
 	}
 
-	.newest-products {
+	.product-heading {
 		padding-bottom: 5px;
 		border-bottom: 1px solid @primaryColor;
 		color: #000;
@@ -98,7 +111,6 @@
 	.product-tile {
 		height: 370px;
 		max-height: 500px;
-		margin-right: 60px;
 
 		.product-img {
 			disply: block;

@@ -11,5 +11,8 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt-ftp-deploy": "^0.1.10",
     "grunt-text-replace": "~0.4.0"
+  },
+  "dependencies": {
+    "grunt-browserify": "~3.8.0"
   }
 }

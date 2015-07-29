@@ -6,10 +6,38 @@
 
 @section('content')
 
-    <div class="content-card">
-        <h2>Choose what to add here</h2>
-        <a href="/admin/add/product">Add a Product</a><br />
-        <a href="/admin/add/faq">Add a FAQ</a>
+    <div class="content-card col-md-5 col-md-offset-1">
+		<a href="/admin/add/product">Add a Product</a>
     </div>
+
+    <div class="content-card col-md-5">
+		<a href="/admin/add/faq">Add a FAQ</a>
+    </div>
+
+    <div class="content-card col-md-5 col-md-offset-1">
+		<a href="/admin/add/product">Add a Product</a>
+    </div>
+
+    <div class="content-card col-md-5">
+		<a href="/admin/add/faq">Add a FAQ</a>
+    </div>
+
+    <div class="content-card col-md-5 col-md-offset-1">
+		<a href="/admin/add/product">Add a Product</a>
+    </div>
+
+    <div class="content-card col-md-5">
+		<a href="/admin/add/faq">Add a FAQ</a>
+    </div>
+
+    <div class="content-card col-md-5 col-md-offset-1">
+		<a href="/admin/add/product">Add a Product</a>
+    </div>
+
+    <div class="content-card col-md-5">
+		<a href="/admin/add/faq">Add a FAQ</a>
+    </div>
+
+
 
 @stop

@@ -10,7 +10,7 @@
 	<!-- If logged in, show Admin drop down here -->
 	@if(Auth::check())
 	<div class="sidebar-header">
-		<span class="user-image"><i class="material-icons md-48">account_circle</i></span>
+		<span class="user-image"><a href="/admin"><i class="material-icons md-48">account_circle</i></a></span>
 		<div class="user-info dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 				<span class="username">{{Auth::user()->username}} <i class="caret"></i></span></a>

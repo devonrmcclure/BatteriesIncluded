@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="content-card">
+    <div class="content-card col-md-10 col-md-offset-1">
     <!--<a id="category"></a>
     <h2>
         Add Category

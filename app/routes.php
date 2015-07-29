@@ -18,6 +18,7 @@ Route::get('/', function()
 
 Route::get('/catalog', 'CatalogController@showIndex');
 Route::get('/catalog/{category}', 'CatalogController@showCategory');
+Route::geT('/catalog/product/{id}', 'CatalogController@showSingleProduct');
 
 Route::get('/servicing', 'ServicingController@showIndex');
 //Route::get('servicing/{subject}', 'ServicingController@showSubject');

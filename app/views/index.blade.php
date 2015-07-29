@@ -6,7 +6,7 @@
 
 @section('content')
 
-		<div class="content-card col-md-12">
+		<div class="content-card col-md-10 col-md-offset-1">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<!-- Indicators -->
 				<ol class="carousel-indicators">

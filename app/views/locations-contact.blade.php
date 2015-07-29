@@ -6,7 +6,7 @@
 
 @section('content')
 
-<div class="content-card col-md-12">
+<div class="content-card col-md-10 col-md-offset-1">
 <h2>Hours</h2>
   <div class="table-responsive">
     <table class="table table-striped table-bordered">
@@ -64,28 +64,32 @@
   </div>
 </div>
 
-<div class="content-card col-md-12">
+<div class="content-card col-md-10 col-md-offset-1">
 
   <h2>Locations</h2>
   <p class="text">We have a variety of locations throughout the lower mainland, please see which store is
     closest to you and how to get to it below.
   </p>
 
-  <h3>Surrey</h3>
+  <div class="location">
+    <h3>Surrey</h3>
 
-    <img class="img-responsive location-image" src="img/locations/Guildford.png"/>
+      <img class="img-responsive location-image" src="img/locations/Guildford.png"/>
 
-  <ul>
-    <li><strong>Address:</strong> 10236 152nd Street Surrey, BC</li>
-    <li><strong>Phone:</strong> (604) - 930 - 9889</li>
-    <li><strong>Email:</strong> guildford@batteriesincluded.ca</li>
-  </ul>
+    <ul>
+      <li class="location-list"><i class="material-icons md-24 green500">location_on</i> 10236 152nd Street Surrey, BC</li>
+      <li class="location-list"><i class="material-icons md-24 indigo500">call</i> (604) - 930 - 9889</li>
+      <li class="location-list"><i class="material-icons md-24 red500">mail</i> guildford@batteriesincluded.ca</li>
+    </ul>
 
-  <p class="text">Our Surrey store is located on the southeast corner of the 102A and 152nd Street
-    intersection. It's located in the strip mall right across the street from Red Robins
-    near Guildford Mall.
-  </p>
+    <p class="text">Our Surrey store is located on the southeast corner of the 102A and 152nd Street
+      intersection. It's located in the strip mall right across the street from Red Robins
+      near Guildford Mall.
+    </p>
+  </div>
+
   <hr />
+
   <h3>Richmond</h3>
 
     <img class="img-responsive location-image" src="img/locations/Richmond.png"/>

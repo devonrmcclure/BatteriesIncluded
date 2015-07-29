@@ -8,7 +8,7 @@
 @stop
 
 @section('sidebar-nav-links')
-	@include('admin.partials.sidebar')
+	@include('admin.partials.sidebar-links')
 @stop
 
 @section('content')

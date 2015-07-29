@@ -15,7 +15,7 @@
 
     {{ Form::open(array('url' => $_ENV['URL'] . '/admin/login', 'class' => '', 'id' => 'login-form', 'role' => 'form', 'method' => 'POST')) }}
     <div class="group">
-      {{ Form::text('username', '', array('class' => '', 'id' => 'username', 'required')) }}
+      {{ Form::text('username', '', array('class' => '', 'id' => 'username', 'required', 'autofocus')) }}
       <span class="highlight"></span>
       <span class="bar"></span>
       {{ Form::label('username', 'Username') }}
