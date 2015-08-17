@@ -83,6 +83,10 @@
 	         <!-- START THE FEATURETTES -->
 
 
+		<div class="row col-md-12">
+			<h1>New Location Coming Soon!</h1>
+			<p>We will be opening up a new location in <b>Maple Ridge</b> soon! Please check back for more details as we get closer to the opening date.</p>
+		</div>
 
          <div class="row featurette">
            <div class="col-md-7">
