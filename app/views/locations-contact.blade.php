@@ -21,6 +21,16 @@
         <th>Saturday</th>
       </tr>
       <tr>
+       <th>Maple Ridge</th>
+       <td>12:00pm - 5:00pm</td>
+       <td>9:30am - 5:30pm</td>
+       <td>9:30am - 5:30pm</td>
+       <td>9:30am - 5:30pm</td>
+       <td>9:30am - 9:00pm</td>
+       <td>9:30am - 9:00pm</td>
+       <td>9:30am - 5:30pm</td>
+     </tr>
+      <tr>
         <th>Guildford</th>
         <td>CLOSED</td>
         <td>12:00pm - 6:00pm</td>
@@ -71,22 +81,33 @@
     closest to you and how to get to it below.
   </p>
 
-  <div class="location">
-    <h3>Surrey</h3>
+  <h3>Maple Ridge</h3>
+      <img class="img-responsive location-image" src="img/locations/MapleRidge.png"/>
+  <ul>
+    <li><strong>Address:</strong> #500 22709 Lougheed Highway, Maple Ridge, BC</li>
+    <li><strong>Phone:</strong> (604) - 466 - 8378</li>
+    <li><strong>Email:</strong> <a href="mailto:mapleridge@batteriesincluded.ca">mapleridge@batteriesincluded.ca</a></li>
+  </ul>
 
-      <img class="img-responsive location-image" src="img/locations/Guildford.png"/>
+  <p class="text">Our Maple Ridge store is located inside ValleyFair Mall in Maple Ridge.
+  </p>
 
-    <ul>
-      <li class="location-list"><i class="material-icons md-24 green500">location_on</i> 10236 152nd Street Surrey, BC</li>
-      <li class="location-list"><i class="material-icons md-24 indigo500">call</i> (604) - 930 - 9889</li>
-      <li class="location-list"><i class="material-icons md-24 red500">mail</i> guildford@batteriesincluded.ca</li>
-    </ul>
+  <hr />
 
-    <p class="text">Our Surrey store is located on the southeast corner of the 102A and 152nd Street
-      intersection. It's located in the strip mall right across the street from Red Robins
-      near Guildford Mall.
-    </p>
-  </div>
+  <h3>Surrey</h3>
+
+    <img class="img-responsive location-image" src="img/locations/Guildford.png"/>
+
+  <ul>
+    <li class="location-list"><i class="material-icons md-24 green500">location_on</i> 10236 152nd Street Surrey, BC</li>
+    <li class="location-list"><i class="material-icons md-24 indigo500">call</i> (604) - 930 - 9889</li>
+    <li class="location-list"><i class="material-icons md-24 red500">mail</i> guildford@batteriesincluded.ca</li>
+  </ul>
+
+  <p class="text">Our Surrey store is located on the southeast corner of the 102A and 152nd Street
+    intersection. It's located in the strip mall right across the street from Red Robins
+    near Guildford Mall.
+  </p>
 
   <hr />
 

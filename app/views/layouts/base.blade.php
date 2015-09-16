@@ -15,7 +15,6 @@
 		    <link href='http://fonts.googleapis.com/css?family=Roboto:500,400italic,700italic,300,700,500italic,300italic,400' rel='stylesheet' type='text/css'>
 		    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 		          rel="stylesheet">
-		    <link rel="stylesheet" href="{{URL::asset('bower_components/inputs/dist/css/bootstrap-inputs.css')}}">
 		    <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
 	    @show
 
@@ -75,7 +74,6 @@
 		<!-- Scripts are placed here -->
 		{{HTML::script('bower_components/jquery/dist/jquery.min.js')}}
 		{{HTML::script('bower_components/bootstrap/dist/js/bootstrap.min.js')}}
-		{{HTML::script('bower_components/inputs/dist/js/inputs.js')}}
 		{{HTML::script('js/app.js')}}
 		<!-- End Scripts -->
 	@show
