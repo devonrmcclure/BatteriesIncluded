@@ -146,6 +146,18 @@ class AdminController extends \BaseController {
 		}
 	}
 
+	public function productIndex() {
+		$products = new ProductsController;
+		$products = $products->getProducts();
+
+		return View::make('admin.manage.products')
+				->with('products', $products);
+	}
+
+	public function productEdit($id) {
+		echo $id;
+	}
+
 	public function addProduct() {
 		$categories    = Category::orderBy('category_name', 'ASC')->get();
 		return View::make('admin.add.product')
@@ -204,7 +216,7 @@ class AdminController extends \BaseController {
 		}
 	}
 
-	public function editIndex() {
+	public function manageIndex() {
 		return View::make('admin.edit.index');
 	}
 

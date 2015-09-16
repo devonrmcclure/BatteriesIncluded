@@ -18,7 +18,7 @@ Route::get('/', function()
 
 Route::get('/catalog', 'CatalogController@showIndex');
 Route::get('/catalog/{category}', 'CatalogController@showCategory');
-Route::geT('/catalog/product/{id}', 'CatalogController@showSingleProduct');
+Route::get('/catalog/product/{id}', 'CatalogController@showSingleProduct');
 
 Route::get('/servicing', 'ServicingController@showIndex');
 //Route::get('servicing/{subject}', 'ServicingController@showSubject');
@@ -42,12 +42,10 @@ Route::get('/admin/login', 'AdminController@showLogin');
 Route::post('/admin/login', 'AdminController@postLogin');
 Route::get('/admin/logout', 'AdminController@destroy');
 
-Route::get('/admin/add', 'AdminController@addIndex');
-Route::get('/admin/add/faq', 'AdminController@addFAQ');
-Route::post('/admin/add/faq', 'AdminController@postFAQ');
-Route::get('/admin/add/product', 'AdminController@addProduct');
-Route::post('/admin/add/product', 'AdminController@postProduct');
-Route::get('/admin/edit', 'AdminController@editIndex');
+
+Route::get('/admin/manage', 'AdminController@manageIndex');
+Route::get('/admin/products', 'AdminController@productIndex');
+Route::get('/admin/products/edit/{id}', 'AdminController@productEdit');
 Route::get('/admin/settings', 'AdminController@settingsIndex');
 Route::get('/admin/settings/password', 'AdminController@getUpdatePassword');
 Route::put('/admin/settings/password', 'AdminController@putUpdatePassword');

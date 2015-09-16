@@ -21,7 +21,7 @@ class CatalogController extends \BaseController {
         $menu = $menu->drawMenu($menuItems);
 
         $products = new ProductsController;
-        $products = $products->getProducts();
+        $products = $products->getProducts(NULL, 12);
 
         $featured = Product::orderBy('featured', 'DESC')->first();
 

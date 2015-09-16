@@ -7,7 +7,7 @@
 @section('content')
 
 
-<div class="content-card col-md-12">
+<div class="content-card col-md-10 col-md-offset-1">
 	<h2>Oops! It looks like the page you are trying to reach does not exist!</h2>
 
 	<h3 class="form-header">Search Catalog</h3>

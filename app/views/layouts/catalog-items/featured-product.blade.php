@@ -3,8 +3,8 @@
 
 	@if(Auth::check())
 	<span class="pull-right">
-		<span class="ripple-effect material-flat-button material-flat-delete"><a href="#">DELETE</a></span>
 		<span class="ripple-effect material-flat-button material-flat-edit"><a href="#">edit</a></span>
+		<span class="ripple-effect material-flat-button material-flat-delete"><a href="#">delete</a></span>
 	</span>
 	@endif
 

@@ -879,6 +879,9 @@ input[type=checkbox]:checked ~ label .check {
   width: 20%;
   height: 370px;
   max-height: 500px;
+  float: right;
+  margin-right: 0;
+  margin-left: 3%;
 }
 .content .product-tile .product-img {
   disply: block;
@@ -897,6 +900,7 @@ input[type=checkbox]:checked ~ label .check {
 .material-flat-button {
   display: inline-block;
   text-transform: uppercase;
+  margin-bottom: -5px;
 }
 .material-flat-button a {
   padding: 15px;
@@ -904,11 +908,11 @@ input[type=checkbox]:checked ~ label .check {
 }
 .material-flat-button a:hover {
   color: #2196f3;
-  background: #e8eaf6;
+  background: #c5cae9;
   text-decoration: none;
 }
 .material-flat-button a:active {
-  background: #c5cae9;
+  background: #9fa8da;
 }
 .material-flat-product {
   padding: 10px;
@@ -920,24 +924,36 @@ input[type=checkbox]:checked ~ label .check {
   text-align: right;
   float: right;
 }
+.material-flat-add {
+  padding: 10px 0;
+}
+.material-flat-add a {
+  color: #4caf50;
+}
+.material-flat-add a:hover {
+  color: #4caf50;
+  background: #c8e6c9;
+  text-decoration: none;
+}
+.material-flat-add a:active {
+  background: #a5d6a7;
+}
 .material-flat-delete {
-  padding: 10px;
-  margin-right: -10px;
-  padding-right: 0;
+  padding: 10px 0;
 }
 .material-flat-delete a {
   color: #f44336;
 }
 .material-flat-delete a:hover {
   color: #f44336;
-  background: #ffebee;
+  background: #ffcdd2;
   text-decoration: none;
 }
 .material-flat-delete a:active {
-  background: #ffcdd2;
+  background: #ef9a9a;
 }
 .material-flat-edit {
-  padding: 10px;
+  padding: 10px 0;
 }
 .location-list {
   list-style-type: none;
@@ -947,4 +963,24 @@ input[type=checkbox]:checked ~ label .check {
   vertical-align: middle;
   margin-right: 10px;
   margin-left: -30px;
+}
+.material-table {
+  width: auto;
+  padding: 0;
+  margin: 0;
+}
+.material-table th {
+  text-align: center;
+  border-bottom: 1px solid black;
+  font-size: 24px;
+  width: 20%;
+}
+.material-table tr td {
+  text-align: center;
+  border-bottom: 1px solid black;
+  width: 20%;
+  padding: 10px 0;
+}
+.material-table tr:nth-child(even) {
+  background: #e8eaf6;
 }

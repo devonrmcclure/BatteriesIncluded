@@ -1,10 +1,13 @@
 <div class="content-card featured col-md-12">
+
+	<small class=""><a href="/catalog">Back to Catalog</a></small>
+
 	<h2>{{$product->product_name}}</h2>
 
 	@if(Auth::check())
 	<span class="pull-right">
-		<span class="ripple-effect material-flat-button material-flat-delete"><a href="#">delete</a></span>
 		<span class="ripple-effect material-flat-button material-flat-edit"><a href="#">edit</a></span>
+		<span class="ripple-effect material-flat-button material-flat-delete"><a href="#">delete</a></span>
 	</span>
 	@endif
 

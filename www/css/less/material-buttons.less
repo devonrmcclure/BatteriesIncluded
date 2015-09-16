@@ -1,6 +1,7 @@
 .material-flat-button {
 	display: inline-block;
 	text-transform: uppercase;
+	margin-bottom: -5px;
 	a {
 		padding: 15px;
 		text-decoration: none;
@@ -8,12 +9,12 @@
 
 	a:hover {
 		color: @blue;
-		background: @indigo-50;
+		background: @indigo-100;
 		text-decoration: none;
 	}
 
 	a:active {
-		background: @indigo-100;
+		background: @indigo-200;
 	}
 }
 
@@ -28,10 +29,27 @@
 	float: right;
 }
 
+.material-flat-add {
+	padding: 10px 0;
+
+	a {
+		color: @green;
+	}
+
+	a:hover {
+		color: @green;
+		background: @green-100;
+		text-decoration: none;
+	}
+
+	a:active {
+		background: @green-200;
+	}
+
+}
+
 .material-flat-delete {
-	padding: 10px;
-	margin-right: -10px;
-	padding-right: 0;
+	padding: 10px 0;
 
 	a {
 		color: @red;
@@ -39,15 +57,15 @@
 
 	a:hover {
 		color: @red;
-		background: @red-50;
+		background: @red-100;
 		text-decoration: none;
 	}
 
 	a:active {
-		background: @red-100;
+		background: @red-200;
 	}
 }
 
 .material-flat-edit {
-	padding: 10px;
+	padding: 10px 0;
 }

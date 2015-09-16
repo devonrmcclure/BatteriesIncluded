@@ -6,12 +6,15 @@ class ProductsController extends \BaseController {
     public $productCount = array();
 
     // Get products for displaying.
-    public function makeProducts($category = '')
+    public function makeProducts($category = '', $maxProducts = NULL)
     {
         if(!$category)
         {
-            $this->products[] = Product::orderBy('created_at', 'DESC')->take(12)->get();
-            //$this->pagination = Paginator::make($this->products, count($this->products), 9);
+            if($maxProducts) {
+                $this->products[] = Product::orderBy('created_at', 'DESC')->take($maxProducts)->get();
+            } else {
+                $this->products[] = Product::orderBy('created_at', 'DESC')->get();
+            }
         } else {
             // Get all products in this category
             foreach($category as $cat)
@@ -30,9 +33,9 @@ class ProductsController extends \BaseController {
     }
 
     // Return the products
-    public function getProducts($category = '')
+    public function getProducts($category = '', $maxProducts = NULL)
     {
-        $this->makeProducts($category);
+        $this->makeProducts($category, $maxProducts);
         return $this->products;
     }
 
