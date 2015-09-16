@@ -79,6 +79,11 @@
 			</div><!-- /.carousel -->
 
 			<!-- START THE FEATURETTES -->
+			<div class="row col-md-12">
+				<h2 class="featurette-heading">New Location Coming Soon!</h2>
+				<p class="lead">We will be opening up a new location in <b>Maple Ridge</b> soon! Offical opening day will be <b>October 1, 2015!</b> Please check out our <a href="/locations-contact">Locations & Contact</a> page for more info.</p>
+			</div>
+
 			<div class="row featurette">
 				<div class="col-md-7">
 					<h2 class="featurette-heading">Who We Are</h2>
