@@ -20,6 +20,16 @@
       <th>Saturday</th>
     </tr>
     <tr>
+      <th>Maple Ridge</th>
+      <td>12:00pm - 5:00pm</td>
+      <td>9:30am - 5:30pm</td>
+      <td>9:30am - 5:30pm</td>
+      <td>9:30am - 5:30pm</td>
+      <td>9:30am - 9:00pm</td>
+      <td>9:30am - 9:00pm</td>
+      <td>9:30am - 5:30pm</td>
+    </tr>
+    <tr>
       <th>Guildford</th>
       <td>CLOSED</td>
       <td>12:00pm - 6:00pm</td>
@@ -69,12 +79,27 @@
     closest to you, and how to get to it below.
   </p>
 
+  <h3>Maple Ridge</h3>
+  <div class="location-image">
+    <img class="img-responsive" src="img/locations/MapleRidge.png"/>
+  </div>
+  <ul>
+    <li><strong>Address:</strong> #500 22709 Lougheed Highway, Maple Ridge, BC</li>
+    <li><strong>Phone:</strong> (604) - 466 - 8378</li>
+    <li><strong>Email:</strong> <a href="mailto:mapleridge@batteriesincluded.ca">mapleridge@batteriesincluded.ca</a></li>
+  </ul>
+
+  <p class="text">Our Maple Ridge store is located inside ValleyFair Mall in Maple Ridge.
+  </p>
+
+  <hr />
+
   <h3>Surrey</h3>
   <div class="location-image">
     <img class="img-responsive" src="img/locations/Guildford.png"/>
   </div>
   <ul>
-    <li><strong>Address:</strong> 10236 152nd Street Surrey, BC</li>
+    <li><strong>Address:</strong> 10236 152nd Street, Surrey, BC</li>
     <li><strong>Phone:</strong> (604) - 930 - 9889</li>
     <li><strong>Email:</strong> <a href="mailto:guildford@batteriesincluded.ca">guildford@batteriesincluded.ca</a></li>
   </ul>
@@ -91,7 +116,7 @@
     <img class="img-responsive" src="img/locations/Richmond.png"/>
   </div>
   <ul>
-    <li><strong>Address:</strong> 5300 No. 3 Road Richmond, BC</li>
+    <li><strong>Address:</strong> 5300 No. 3 Road, Richmond, BC</li>
     <li><strong>Phone:</strong> (604) - 270 - 9989</li>
     <li><strong>Email:</strong> <a href="mailto:lansdowne@batteriesincluded.ca">lansdowne@batteriesincluded.ca</a></li>
   </ul>
@@ -106,7 +131,7 @@
     <img class="img-responsive" src="img/locations/White Rock.png"/>
   </div>
   <ul>
-    <li><strong>Address:</strong> 1711 152nd Street</li>
+    <li><strong>Address:</strong> 1711 152nd Street, Surrey, BC</li>
     <li><strong>Phone:</strong> (604) - 536 - 8108</li>
     <li><strong>Email:</strong> <a href="mailto:whiterock@batteriesincluded.ca">whiterock@batteriesincluded.ca</a></li>
   </ul>
