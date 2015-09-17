@@ -2,6 +2,7 @@
 
 class ProductsController extends \BaseController {
 
+    public $product;
     public $products = array();
     public $productCount = array();
 
@@ -51,5 +52,12 @@ class ProductsController extends \BaseController {
         echo '</pre>';
         die;*/
         return $this->productCount;
+    }
+
+    public function getProductByID($id)
+    {
+        $product = Product::whereid($id)->first();
+
+        return $product;
     }
 }

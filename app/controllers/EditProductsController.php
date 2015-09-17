@@ -64,7 +64,7 @@ class EditProductsController extends \BaseController {
      * @param  [int] $id [ID of the product in the database]
      * @return [Redirect]     [redirect back to the products index page with a success or error message]
      */
-    public function putEditProducts($id)
+    public function putEditProduct($id)
     {
         $data = Input::all();
         $product = Product::find($id);
@@ -90,6 +90,12 @@ class EditProductsController extends \BaseController {
                 $product->category_id = $data['productcategory-name'];
             }
 
+            if(isset($data['featured']))
+            {
+                $product->featured = Carbon::now();
+                $product->save();
+            }
+
             $product->product_name = $data['product-name'];
             $product->product_description = $data['product-description'];
             $product->brand = $data['product-brand'];
@@ -99,17 +105,17 @@ class EditProductsController extends \BaseController {
             $product->updated_at = Carbon::now();
             $product->save();
 
-            return Redirect::to($_ENV['URL'] . '/admin/edit/products')
+            return Redirect::to($_ENV['URL'] . '/admin/products')
                             ->with('alert-class', 'success')
                             ->with('flash-message', 'Product <b>' . $product->product_name . '</b> updated!');
 
         } elseif($data['product-name'] == '') {
-            return Redirect::to($_ENV['URL'] . '/admin/edit/product/'. $product->id)
+            return Redirect::to($_ENV['URL'] . '/admin/products/edit/'. $product->id)
                             ->with('alert-class', 'error')
                             ->with('flash-message', 'You cannot have an empty product name!');
 
         } else {
-            return Redirect::to($_ENV['URL'] . '/admin/edit/product/'. $product->id)
+            return Redirect::to($_ENV['URL'] . '/admin/products/edit/'. $product->id)
                             ->with('alert-class', 'error')
                             ->with('flash-message', 'Something went wrong!');
         }

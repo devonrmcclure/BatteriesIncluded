@@ -155,7 +155,14 @@ class AdminController extends \BaseController {
 	}
 
 	public function productEdit($id) {
-		echo $id;
+
+		$product = new ProductsController;
+		$product = $product->getProductByID($id);
+		$categories    = Category::orderBy('category_name', 'ASC')->get();
+
+		return View::make('admin.edit.product')
+				->with('product', $product)
+				->with('categories', $categories);
 	}
 
 	public function addProduct() {
