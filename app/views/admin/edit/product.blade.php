@@ -17,10 +17,10 @@
 		      {{ Form::label('productcategory-name', 'Category', array('class' => 'col-sm-3 control-label')) }}
 
 		      <div class="col-sm-5">
-		        <select class="form-control col-xs-4" id="productcategory-name" name="productcategory-name">
+		        <select class="form-control col-xs-4" id="productcategory-id" name="productcategory-id">
 		            <option value="selectproductcategory">-- Select a Category --</option>
 		            @foreach($categories as $category)
-		                <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+		                <option value="{{$category->id}}">{{$category->category_name}}</option>
 		            @endforeach
 		        </select>
 		      </div>

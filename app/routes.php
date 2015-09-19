@@ -45,6 +45,8 @@ Route::get('/admin/logout', 'AdminController@destroy');
 
 Route::get('/admin/manage', 'AdminController@manageIndex');
 Route::get('/admin/products', 'AdminController@productIndex');
+Route::get('/admin/products/add', 'AdminController@productAdd');
+Route::post('/admin/products/add', 'AdminController@postProduct');
 Route::get('/admin/products/edit/{id}', 'AdminController@productEdit');
 Route::put('/admin/products/edit/{id}', 'EditProductsController@putEditProduct');
 

@@ -31,7 +31,7 @@ class AdminController extends \BaseController {
 		{
 			return View::make('admin.login');
 		} else {
-			return Redirect::to($_ENV['URL'] . '/admin');
+			return Redirect::to('/admin');
 		}
 
 	}
@@ -49,9 +49,9 @@ class AdminController extends \BaseController {
 			// Get login info then attempt to login.
 			if(Auth::attempt(array('username' => $username, 'password' => $password)))
 			{
-				return Redirect::to($_ENV['URL'] . '/admin');
+				return Redirect::to('/admin');
 			} else {
-				return Redirect::to($_ENV['URL'] . '/admin/login')
+				return Redirect::to('/admin/login')
 					->with('alert-class', 'error')
 					->with('flash-message', 'The username and password combination does not exist!');
 			}
@@ -154,77 +154,99 @@ class AdminController extends \BaseController {
 				->with('products', $products);
 	}
 
+	public function productAdd() {
+		$categories = Category::orderBy('category_name', 'ASC')->get();
+		return View::make('admin.add.product')
+				->with('categories', $categories);
+	}
+
 	public function productEdit($id) {
 
-		$product = new ProductsController;
-		$product = $product->getProductByID($id);
-		$categories    = Category::orderBy('category_name', 'ASC')->get();
+		$product    = new ProductsController;
+		$product    = $product->getProductByID($id);
+		$categories = Category::orderBy('category_name', 'ASC')->get();
 
 		return View::make('admin.edit.product')
 				->with('product', $product)
 				->with('categories', $categories);
 	}
 
-	public function addProduct() {
-		$categories    = Category::orderBy('category_name', 'ASC')->get();
-		return View::make('admin.add.product')
-		            ->with('categories', $categories);
-	}
-
 	public function postProduct() {
+
 		$data = Input::all();
-		if($data['productcategory-name'] != 'selectproductcategory')
-		{
-		    $productExists = Product::whereproduct_name($data['product-name'])->first();
-		    $productEmpty  = $data['product-name'];
-		    $categoryID = Category::find($data['productcategory-name']);
-		    if($productExists || $productEmpty == '')
-		    {
-		        return Redirect::to($_ENV['URL'] . '/admin/add/product')
-		        				->with('alert-class', 'error')
-		                        ->with('flash-message', 'Product already exists or left empty so not added!')
-		                        ->withInput();
-		    } else if($data['product-brand'] == '') {
-		        return Redirect::to($_ENV['URL'] . '/admin/add/product')
-		        				->with('alert-class', 'error')
-		                        ->with('flash-message', 'Please enter a Brand!')
-		                        ->withInput();
-		    } else {
-		        //Upload File
-		        if($file = Input::file('image'))
-		        {
-		            $destinationPath = 'img/catalog/';
-		            $filename = $file->getClientOriginalName();
-		            $uploadSuccess = Input::file('image')->move($destinationPath, $filename);
-		        } else {
-		            $filename = 'no_image.png';
-		        }
-		        $product = new Product;
-		        $product->category_id = $categoryID->parent_category;
-		        $product->category_id = $data['productcategory-name'];
-		        $product->product_name = $data['product-name'];
-		        $product->product_description = $data['product-description'];
-		        $product->brand = $data['product-brand'];
-		        $product->quantity = $data['product-quantity'];
-		        $product->price = $data['product-price'];
-		        $product->image = $filename;
-		        $product->created_at = Carbon::now();
-		        $product->updated_at = Carbon::now();
-		        $product->save();
-		        return Redirect::to($_ENV['URL'] . '/admin/add/product')
-		        				->with('alert-class', 'success')
-		                        ->with('flash-message', 'Product <b>' . $data['product-name'] . '</b> has been successfully added!');
-		    }
+
+		if($data['productcategory-id'] != 'selectproductcategory' && $data['product-brand'] != '' && $data['product-name'] != '') {
+			//Check if product is already created.
+			if(Product::whereproduct_name($data['product-name'])->first()) {
+				return Redirect::to($_ENV['URL'] . '/admin/products/add')
+								->with('alert-class', 'error')
+				                ->with('flash-message', 'Product already exists!')
+				               	->withInput();
+			}
+
+			//Check if a file is being uploaded
+			if($file = Input::file('image'))
+			{
+			    $destinationPath = 'img/catalog/';
+			    $filename = $file->getClientOriginalName();
+			    $uploadSuccess = Input::file('image')->move($destinationPath, $filename);
+			} else {
+			    $filename = 'no_image.png';
+			}
+
+			if(isset($data['featured']))
+			{
+			    $featured = Carbon::now();
+			} else {
+				$featured = '0000-00-00 00:00:00';
+			}
+
+
+			//Upload the Product.
+			$product = new Product;
+			$product->category_id = $data['productcategory-id'];
+			$product->product_name = $data['product-name'];
+			$product->product_description = $data['product-description'];
+			$product->brand = $data['product-brand'];
+			$product->quantity = $data['product-quantity'];
+			$product->price = $data['product-price'];
+			$product->image = $filename;
+			$product->featured = $featured;
+			$product->created_at = Carbon::now();
+			$product->updated_at = Carbon::now();
+			$product->save();
+
+			return Redirect::to($_ENV['URL'] . '/admin/products')
+							->with('alert-class', 'success')
+			                ->with('flash-message', 'Product <b>' . $data['product-name'] . '</b> has been successfully added!');
+
+
+		} elseif($data['product-name'] == '') {
+			return Redirect::to($_ENV['URL'] . '/admin/products/add')
+							->with('alert-class', 'error')
+			                ->with('flash-message', 'Please enter a product name!')
+			               	->withInput();
+		} elseif($data['productcategory-id'] == 'selectproductcategory') {
+			return Redirect::to($_ENV['URL'] . '/admin/products/add')
+							->with('alert-class', 'error')
+			                ->with('flash-message', 'Please enter a category!')
+			               	->withInput();
+		} elseif($data['product-brand'] == '') {
+			return Redirect::to($_ENV['URL'] . '/admin/products/add')
+							->with('alert-class', 'error')
+			                ->with('flash-message', 'Please enter a brand!')
+			               	->withInput();
+
 		} else {
-		    return Redirect::to($_ENV['URL'] . '/admin/add/product')
-		    				->with('alert-class', 'error')
-		                    ->with('flash-message', 'Please select a category!')
-		                    ->withInput();
+			return Redirect::to($_ENV['URL'] . '/admin/products/add')
+							->with('alert-class', 'error')
+			                ->with('flash-message', 'Unknown error!')
+			               	->withInput();
 		}
 	}
 
 	public function manageIndex() {
-		return View::make('admin.edit.index');
+		return View::make('admin.manage.index');
 	}
 
 	public function settingsIndex() {
