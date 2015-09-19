@@ -2,6 +2,9 @@
 
 class CatalogController extends \BaseController {
 
+    public $text = '';
+    public $crumbs = array();
+
     /**
      * Apply a beforeFilter of csfr to prevent csfr.
      */
@@ -17,8 +20,7 @@ class CatalogController extends \BaseController {
 	public function showIndex()
 	{
         $menuItems = Category::orderBy('category_name', 'ASC')->whereparent_id(NULL)->get();
-        $menu = new CatalogMenuController;
-        $menu = $menu->drawMenu($menuItems);
+        $menu = $this->drawMenu($menuItems);
 
         $products = new ProductsController;
         $products = $products->getProducts(NULL, 12);
@@ -39,12 +41,10 @@ class CatalogController extends \BaseController {
     public function showCategory($category)
     {
         $menuItems = Category::orderBy('category_name', 'ASC')->whereparent_id(NULL)->get();
-        $menu = new CatalogMenuController;
-        $menu = $menu->drawMenu($menuItems);
+        $menu = $this->drawMenu($menuItems);
 
         $categories = Category::orderBy('category_name', 'ASC')->wherecategory_name($category)->get();
-        $crumbs = new BreadcrumbsController;
-        $crumbs = $crumbs->drawBreadcrumbs($categories);
+        $crumbs = $this->drawBreadcrumbs($categories);
 
         $products = new ProductsController;
         $products = $products->getProducts($categories);
@@ -58,8 +58,7 @@ class CatalogController extends \BaseController {
 
     public function showSingleProduct($id) {
         $menuItems = Category::orderBy('category_name', 'ASC')->whereparent_id(NULL)->get();
-        $menu = new CatalogMenuController;
-        $menu = $menu->drawMenu($menuItems);
+        $menu = $this->drawMenu($menuItems);
 
         $product = Product::whereid($id)->first();
 
@@ -69,5 +68,53 @@ class CatalogController extends \BaseController {
             ->with('singleProduct', true);
     }
 
+    function hasChildren($parent)
+    {
+        if(count(Category::whereparent_id($parent->id)->get()) > 0)
+        {
 
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function drawMenu($items)
+    {
+        foreach($items as $item)
+        {
+
+            //var_dump($productCount);
+            $this->text .= "<li class=\"catalog-nav-item\"><a href=\"" . $_ENV['URL'] . "/catalog/" . $item->category_name . "\">" . $item->category_name . "</a>";
+                if($this->hasChildren($item))
+                {
+                    $this->text .= "<ul class=\"list-group-inner\">";
+                    $this->drawMenu(Category::whereparent_id($item->id)->orderBy('category_name', 'ASC')->get());
+                    $this->text .= "</ul>";
+                }
+            $this->text .= "</li>";
+        }
+
+        return $this->text;
+    }
+
+    public function drawBreadcrumbs($category)
+    {
+
+        foreach($category as $crumb)
+        {
+            //Is it a top level category?
+            if(!$crumb->parent_id)
+            {
+                $this->crumbs[] = "<li><a href=\"/catalog/" . $crumb->category_name . "\">" . $crumb->category_name . "</a></li>";
+            } else {
+                // If it's not a top level category, get the parent categor(ies).
+                $parent = Category::whereid($crumb->parent_id)->get();
+                $this->crumbs[] = "<li><a href=\"/catalog/" . $crumb->category_name . "\">" . $crumb->category_name . "</a></li>";
+                // Loop through all categories.
+                $this->drawBreadcrumbs($parent);
+            }
+        }
+        return $this->crumbs;
+    }
 }

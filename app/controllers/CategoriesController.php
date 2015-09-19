@@ -1,6 +1,6 @@
 <?php
 
-class EditCategoryController extends \BaseController {
+class CategoriesController extends \BaseController {
 
     /**
      * Apply a before filter to check if a user is logged in.
