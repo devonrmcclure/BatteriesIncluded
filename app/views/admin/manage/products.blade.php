@@ -17,13 +17,13 @@
           	</tr>
         	@for($i = 0; $i < count($products); $i++)
         	    @foreach($products[$i] as $product)
-    				<tr>
+    				<tr class="test">
     				  	<td>{{$product->product_name}}</td>
     				  	<td>{{$product->category->category_name}}</td>
                         <td>{{$product->created_at->format('F j, Y')}}</td>
     				  	<td>
     				  		<span class="ripple-effect material-flat-button material-flat-edit"><a href="/admin/products/edit/{{$product->id}}">edit</a></span>
-    						<span class="ripple-effect material-flat-button material-flat-delete"><a href="#">delete</a></span></td>
+    						<span class="ripple-effect material-flat-button material-flat-delete" data-product-id="{{$product->id}}"><a href="#" class="deleteProduct">delete</a></span></td>
     				</tr>
         	    @endforeach
         	@endfor

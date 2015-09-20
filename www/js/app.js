@@ -1,4 +1,11 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+$(function() {
+	$('.deleteProduct').click(function(e) {
+		e.preventDefault();
+    	alert($(this).parent().data('product-id'));
+	});
+});
+},{}],2:[function(require,module,exports){
 /**
  * Created by Kupletsky Sergey on 16.09.14.
  *
@@ -104,7 +111,7 @@ function materialRipple() {
 function recycler() {
     $('html').find('.ripple:not(.active)').remove();
 }
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 $(function() {
 
   $("label.bg-danger").hide();
@@ -191,7 +198,7 @@ $(function() {
 
     //return false; // avoid to execute the actual submit of the form.
 });
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 $(".sidebar-toggle").click(function(e) {
     e.preventDefault();
     $(".sidebar").toggleClass("toggled");
@@ -204,10 +211,10 @@ $(".fab-toggle").click(function(e) {
 	e.preventDefault();
 	$(".fab-item").toggleClass("hidden");
 });
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 $(document).ready(function(){
 	$(".toast").fadeIn(1000);
 	$(".toast").delay(3000).fadeOut(1000);
 });
 
-},{}]},{},[1,2,3,4]);
+},{}]},{},[1,2,3,4,5]);
