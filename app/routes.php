@@ -49,6 +49,7 @@ Route::get('/admin/products/add', 'ProductsController@productAdd');
 Route::post('/admin/products/add', 'ProductsController@postProduct');
 Route::get('/admin/products/edit/{id}', 'ProductsController@productEdit');
 Route::put('/admin/products/edit/{id}', 'ProductsController@putEditProduct');
+Route::get('/admin/products/delete/{id}', 'ProductsController@destroy');
 
 Route::get('/admin/settings', 'AdminController@settingsIndex');
 Route::get('/admin/settings/password', 'AdminController@getUpdatePassword');

@@ -171,6 +171,15 @@ class ProductsController extends \BaseController {
         }
     }
 
+    public function destroy($id) {
+        $product = Product::find($id);
+        $oldName = $product->product_name;
+        $product->delete();
+        return Redirect::to($_ENV['URL'] . '/admin/products')
+                        ->with('alert-class', 'success')
+                        ->with('flash-message', 'Product <b>' . $oldName . '</b> has been deleted!');
+    }
+
 
     /* To be removed
     */
