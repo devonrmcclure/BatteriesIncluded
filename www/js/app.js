@@ -6,7 +6,7 @@ $(function() {
 		var productID = $(this).parent().data('product-id');
 		var productName = $(this).parent().data('product-name');
     	$('<p>Are you sure you want to delete <b>' + productName + '</b>?</p>').appendTo('.modal-body');
-    	$('.confirmDelete').attr('href', '/admin/products/delete/' + productID);
+    	$('.confirmDelete').attr('href', '/admin/products/' + productID);
 	});
 });
 

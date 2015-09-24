@@ -2,39 +2,26 @@
 
 class ProductsController extends \BaseController {
 
-    public function productIndex() {
-        $products = new ProductsController;
-        $products = $products->getProducts();
+    public function index() {
+        $products = Product::orderBy('created_at', 'DESC')->get();
 
         return View::make('admin.manage.products')
                 ->with('products', $products);
     }
 
-    public function productAdd() {
+    public function create() {
         $categories = Category::orderBy('category_name', 'ASC')->get();
         return View::make('admin.add.product')
                 ->with('categories', $categories);
     }
 
-    public function productEdit($id) {
-
-        $product    = new ProductsController;
-        $product    = $product->getProductByID($id);
-        $categories = Category::orderBy('category_name', 'ASC')->get();
-
-        return View::make('admin.edit.product')
-                ->with('product', $product)
-                ->with('categories', $categories);
-    }
-
-    public function postProduct() {
-
+    public function store() {
         $data = Input::all();
 
         if($data['productcategory-id'] != 'selectproductcategory' && $data['product-brand'] != '' && $data['product-name'] != '') {
             //Check if product is already created.
             if(Product::whereproduct_name($data['product-name'])->first()) {
-                return Redirect::to($_ENV['URL'] . '/admin/products/add')
+                return Redirect::to($_ENV['URL'] . '/admin/products/create')
                                 ->with('alert-class', 'error')
                                 ->with('flash-message', 'Product already exists!')
                                 ->withInput();
@@ -78,17 +65,17 @@ class ProductsController extends \BaseController {
 
 
         } elseif($data['product-name'] == '') {
-            return Redirect::to($_ENV['URL'] . '/admin/products/add')
+            return Redirect::to($_ENV['URL'] . '/admin/products/create')
                             ->with('alert-class', 'error')
                             ->with('flash-message', 'Please enter a product name!')
                             ->withInput();
         } elseif($data['productcategory-id'] == 'selectproductcategory') {
-            return Redirect::to($_ENV['URL'] . '/admin/products/add')
+            return Redirect::to($_ENV['URL'] . '/admin/products/create')
                             ->with('alert-class', 'error')
                             ->with('flash-message', 'Please enter a category!')
                             ->withInput();
         } elseif($data['product-brand'] == '') {
-            return Redirect::to($_ENV['URL'] . '/admin/products/add')
+            return Redirect::to($_ENV['URL'] . '/admin/products/create')
                             ->with('alert-class', 'error')
                             ->with('flash-message', 'Please enter a brand!')
                             ->withInput();
@@ -101,12 +88,21 @@ class ProductsController extends \BaseController {
         }
     }
 
+    public function edit($id) {
+        $product    = Product::find($id);
+        $categories = Category::orderBy('category_name', 'ASC')->get();
+
+        return View::make('admin.edit.product')
+                ->with('product', $product)
+                ->with('categories', $categories);
+    }
+
     /**
      * Update the product with the input data.
      * @param  [int] $id [ID of the product in the database]
      * @return [Redirect]     [redirect back to the products index page with a success or error message]
      */
-    public function putEditProduct($id)
+    public function update($id)
     {
 
         $data = Input::all();
@@ -153,25 +149,25 @@ class ProductsController extends \BaseController {
 
 
         } elseif($data['product-name'] == '') {
-            return Redirect::to($_ENV['URL'] . '/admin/products/edit/'. $product->id)
+            return Redirect::to($_ENV['URL'] . '/admin/products/'. $product->id . '/edit')
                             ->with('alert-class', 'error')
                             ->with('flash-message', 'Please enter a product name!')
                             ->withInput();
         }elseif($data['product-brand'] == '') {
-            return Redirect::to($_ENV['URL'] . '/admin/products/edit/'. $product->id)
+            return Redirect::to($_ENV['URL'] . '/admin/products/'. $product->id . '/edit')
                             ->with('alert-class', 'error')
                             ->with('flash-message', 'Please enter a brand!')
                             ->withInput();
 
         } else {
-            return Redirect::to($_ENV['URL'] . '/admin/products/edit/'. $product->id)
+            return Redirect::to($_ENV['URL'] . '/admin/products/'. $product->id . '/edit')
                             ->with('alert-class', 'error')
                             ->with('flash-message', 'Unknown error!')
                             ->withInput();
         }
     }
 
-    public function destroy($id) {
+    public function show($id) {
         $product = Product::find($id);
         $oldName = $product->product_name;
         $product->delete();

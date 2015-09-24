@@ -32,24 +32,19 @@ Route::get('/faq', 'FAQController@showIndex');
 Route::get('/locations-contact', 'ContactController@showIndex');
 //Route::post('/locations-contact/send', 'ContactController@postContact');
 
-Route::get('/privacy-policy', function()
-{
-	return View::make('privacy-policy');
-});
-
 Route::get('/admin', 'AdminController@showIndex');
 Route::get('/admin/login', 'AdminController@showLogin');
 Route::post('/admin/login', 'AdminController@postLogin');
 Route::get('/admin/logout', 'AdminController@destroy');
 
-
-Route::get('/admin/manage', 'AdminController@manageIndex');
-Route::get('/admin/products', 'ProductsController@productIndex');
+/*Route::get('/admin/products', 'ProductsController@productIndex');
 Route::get('/admin/products/add', 'ProductsController@productAdd');
-Route::post('/admin/products/add', 'ProductsController@postProduct');
+Route::post('/admin/products/add', 'ProductsController@productAdd');
 Route::get('/admin/products/edit/{id}', 'ProductsController@productEdit');
 Route::put('/admin/products/edit/{id}', 'ProductsController@putEditProduct');
-Route::get('/admin/products/delete/{id}', 'ProductsController@destroy');
+Route::get('/admin/products/delete/{id}', 'ProductsController@destroy');*/
+
+Route::resource('admin/products', 'ProductsController');
 
 Route::get('/admin/settings', 'AdminController@settingsIndex');
 Route::get('/admin/settings/password', 'AdminController@getUpdatePassword');

@@ -7,50 +7,12 @@
 @section('content')
 
     <div class="content-card col-md-10 col-md-offset-1">
-    <!--<a id="category"></a>
-    <h2>
-        Add Category
-    </h2>
-
-
-        {{ Form::open(array('url' => $_ENV['URL'] . '/admin/add/category', 'class' => 'form-horizontal', 'id' => 'categoryadd-form', 'role' => 'form')) }}
-
-        <div class="form-group">
-          {{ Form::label('category-name', 'Category Name', array('class' => 'col-sm-3 control-label')) }}
-
-          <div class="col-sm-5">
-            {{ Form::text('category-name', '', array('class' => 'form-control', 'id' => 'category-name', 'placeholder' => 'Category Name')) }}
-          </div>
-        </div>
-
-        <div class="form-group">
-          {{ Form::label('parent-category', 'Parent Category', array('class' => 'col-sm-3 control-label')) }}
-
-          <div class="col-sm-5">
-            <select class="form-control col-xs-4" id="parent-cateogry" name="parent-category">
-                <option value="selectparentcategory">-- Select a Category --</option>
-                @foreach($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
-                @endforeach
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-offset-3 col-sm-10">
-            {{ Form::submit('Submit', array('class' => 'btn btn-default submit-button submit-button', 'id' => 'submit-button', 'name' => 'submit')) }}
-          </div>
-        </div>
-
-    {{ Form::close() }}-->
-
-    <a id="product"></a>
     <h2>
         Add Product
     </h2>
 
 
-        {{ Form::open(array('url' =>  $_ENV['URL'] . '/admin/products/add', 'class' => 'form-horizontal', 'id' => 'productadd-form', 'role' => 'form', 'files' => true, 'method' => 'POST')) }}
+        {{ Form::open(array('url' =>  $_ENV['URL'] . '/admin/products', 'class' => 'form-horizontal', 'id' => 'productadd-form', 'role' => 'form', 'files' => true, 'method' => 'POST')) }}
 
         <div class="form-group">
           {{ Form::label('productcategory-name', 'Category', array('class' => 'col-sm-3 control-label')) }}

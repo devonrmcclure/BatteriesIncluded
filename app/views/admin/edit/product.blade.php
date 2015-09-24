@@ -11,7 +11,7 @@
 	<div class="content-card col-md-10 col-md-offset-1">
 		<h2>Edit {{$product->product_name}}</h2>
 
-		{{Form::open(array('url' =>  $_ENV['URL'] . '/admin/products/edit/' . $product->id, 'class' => 'form-horizontal', 'id' => 'productadd-form', 'role' => 'form', 'method' => 'put', 'files' => true))}}
+		{{Form::open(array('url' =>  $_ENV['URL'] . '/admin/products/' . $product->id, 'class' => 'form-horizontal', 'id' => 'productadd-form', 'role' => 'form', 'method' => 'put', 'files' => true))}}
 
 		    <div class="form-group">
 		      {{ Form::label('productcategory-name', 'Category', array('class' => 'col-sm-3 control-label')) }}
