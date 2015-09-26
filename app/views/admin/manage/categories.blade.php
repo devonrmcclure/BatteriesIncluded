@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Batteries Included - Manage Products
+    Batteries Included - Manage categories
 @stop
 
 @section('content')
@@ -9,20 +9,22 @@
     <div class="content-card col-md-10 col-md-offset-1">
         <table class="material-table">
           	<tr>
-    	        <th>Product</th>
     	        <th>Category</th>
+    	        <th>Parent Category</th>
     	        <th>Created</th>
     	        <th>Manage</th>
           	</tr>
-    	    @foreach($products as $product)
+    	    @foreach($categories as $category)
 				<tr class="test">
-				  	<td>{{$product->product_name}}</td>
-				  	<td>{{$product->category->category_name}}</td>
-                    <td>{{$product->created_at->format('F j, Y')}}</td>
+				  	<td>{{$category->category_name}}</td>
+                    <td>
+                        {{$parentCategories[$category->category_name]['parent']}}
+                    </td>
+                    <td>{{$category->created_at->format('F j, Y')}}</td>
 				  	<td>
-                        <span class="ripple-effect material-flat-button material-flat-add"><a href="/admin/products/create">add</a></span>
-				  		<span class="ripple-effect material-flat-button material-flat-edit"><a href="/admin/products/{{$product->id}}/edit">edit</a></span>
-						<span class="ripple-effect material-flat-button material-flat-delete" data-id="{{$product->id}}" data-name="{{$product->product_name}}"><a href="#" class="deleteConfirm" data-toggle="modal" data-target="#myModal">delete</a></span></td>
+                        <span class="ripple-effect material-flat-button material-flat-add"><a href="/admin/categories/create">add</a></span>
+				  		<span class="ripple-effect material-flat-button material-flat-edit"><a href="/admin/categories/{{$category->id}}/edit">edit</a></span>
+					</td>
 				</tr>
     	    @endforeach
         </table>
@@ -39,9 +41,9 @@
             </div>
         </div>
             TODO: <br />
-            - List products <br />
-            - Allow editing/delete of products inline (LATER TOTO: AJAX search function to search for specific products to manage) <br />
-            - Popup modal to add a product (alternatively, a form pops up on the page to add)
+            - List categories <br />
+            - Allow editing/delete of categories inline (LATER TOTO: AJAX search function to search for specific categories to manage) <br />
+            - Popup modal to add a category (alternatively, a form pops up on the page to add)
     </div>
 
 @stop

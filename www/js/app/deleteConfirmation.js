@@ -1,11 +1,11 @@
 $(function() {
-	$('.deleteProduct').click(function(e) {
+	$('.deleteConfirm').click(function(e) {
 		e.preventDefault();
 
-		var productID = $(this).parent().data('product-id');
-		var productName = $(this).parent().data('product-name');
-    	$('<p>Are you sure you want to delete <b>' + productName + '</b>?</p>').appendTo('.modal-body');
-    	$('.confirmDelete').attr('href', '/admin/products/' + productID);
+		var id = $(this).parent().data('id');
+		var name = $(this).parent().data('name');
+    	$('<p>Are you sure you want to delete <b>' + name + '</b>?</p>').appendTo('.modal-body');
+    	$('.confirmDelete').attr('href', '/admin/products/' + id);
 	});
 });
 

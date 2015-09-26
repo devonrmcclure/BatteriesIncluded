@@ -46,6 +46,8 @@ Route::get('/admin/products/delete/{id}', 'ProductsController@destroy');*/
 
 Route::resource('admin/products', 'ProductsController');
 
+Route::resource('admin/categories', 'CategoriesController');
+
 Route::get('/admin/settings', 'AdminController@settingsIndex');
 Route::get('/admin/settings/password', 'AdminController@getUpdatePassword');
 Route::put('/admin/settings/password', 'AdminController@putUpdatePassword');
