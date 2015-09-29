@@ -11,7 +11,6 @@
           	<tr>
     	        <th>Question</th>
     	        <th>Answer</th>
-                <th>Priority</th>
     	        <th>Created</th>
     	        <th>Manage</th>
           	</tr>
@@ -19,7 +18,6 @@
 				<tr class="test">
 				  	<td>{{$faq->question}}</td>
 				  	<td>{{$faq->answer}}</td>
-                    <td>{{$faq->priority}}</td>
                     <td>{{$faq->created_at->format('F j, Y')}}</td>
 				  	<td>
                         <span class="ripple-effect material-flat-button material-flat-add"><a href="/admin/faqs/create">add</a></span>

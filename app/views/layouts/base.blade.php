@@ -42,7 +42,7 @@
 
 		<li class="fab-item ripple-effect fab-deep-purple hidden"><a href="/admin/products/create"><i class="material-icons md-24 md-white">shopping_cart</i></a></li>
 
-		<li class="fab-item ripple-effect fab-light-blue hidden"><a href="/admin/add/faq"><i class="material-icons md-24 md-white">help</i></a></li>
+		<li class="fab-item ripple-effect fab-light-blue hidden"><a href="/admin/faqs/create"><i class="material-icons md-24 md-white">help</i></a></li>
 
 	</ul>
 	@endif
