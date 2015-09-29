@@ -1,12 +1,13 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 $(function() {
-	$('.deleteConfirm').click(function(e) {
+	$('.delete').click(function(e) {
 		e.preventDefault();
 
 		var id = $(this).parent().data('id');
 		var name = $(this).parent().data('name');
     	$('<p>Are you sure you want to delete <b>' + name + '</b>?</p>').appendTo('.modal-body');
-    	$('.confirmDelete').attr('href', '/admin/products/' + id);
+    	$('.confirmDelete').parent().parent().attr('action', '/admin/products/' + id);
+    	//$('.confirmDelete').parent().parent().attr('method', 'delete');
 	});
 });
 
@@ -15,6 +16,12 @@ $(function() {
 		e.preventDefault();
 		$('.modal-title').empty();
 		$('.modal-body').empty();
+	});
+});
+
+$(function() {
+	$('.confirmDelete').click(function(e) {
+		$('form#deleteForm').submit();
 	});
 });
 },{}],2:[function(require,module,exports){

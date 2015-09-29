@@ -22,7 +22,7 @@
 				  	<td>
                         <span class="ripple-effect material-flat-button material-flat-add"><a href="/admin/products/create">add</a></span>
 				  		<span class="ripple-effect material-flat-button material-flat-edit"><a href="/admin/products/{{$product->id}}/edit">edit</a></span>
-						<span class="ripple-effect material-flat-button material-flat-delete" data-id="{{$product->id}}" data-name="{{$product->product_name}}"><a href="#" class="deleteConfirm" data-toggle="modal" data-target="#myModal">delete</a></span></td>
+						<span class="ripple-effect material-flat-button material-flat-delete" data-id="{{$product->id}}" data-name="{{$product->product_name}}"><a href="#" class="delete" data-toggle="modal" data-target="#myModal">delete</a></span></td>
 				</tr>
     	    @endforeach
         </table>
@@ -32,8 +32,10 @@
                     <div class="modal-body"></div>
                     <div class="modal-footer">
 
-                        <span class="ripple-effect material-flat-button material-flat-delete"><a href="#" class="confirmDelete">delete</a></span>
-                        <span class="ripple-effect material-flat-button material-flat-edit"><a href="#" data-dismiss="modal" class="cancelDelete">Cancel</a></span>
+                    {{Form::open(array('url' => '', 'class' => 'form-horizontal', 'id' => 'deleteForm', 'role' => 'form', 'method' => 'delete'))}}
+                        <span class="ripple-effect material-flat-button material-flat-delete"><a class="confirmDelete">delete</a></span>
+                        <span class="ripple-effect material-flat-button material-flat-edit"><a data-dismiss="modal" class="cancelDelete">Cancel</a></span>
+                    {{Form::close()}}
                     </div>
                 </div>
             </div>

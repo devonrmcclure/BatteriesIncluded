@@ -21,7 +21,7 @@ class ProductsController extends \BaseController {
         if($data['productcategory-id'] != 'selectproductcategory' && $data['product-brand'] != '' && $data['product-name'] != '') {
             //Check if product is already created.
             if(Product::whereproduct_name($data['product-name'])->first()) {
-                return Redirect::to($_ENV['URL'] . '/admin/products/create')
+                return Redirect::to('/admin/products/create')
                                 ->with('alert-class', 'error')
                                 ->with('flash-message', 'Product already exists!')
                                 ->withInput();
@@ -59,33 +59,38 @@ class ProductsController extends \BaseController {
             $product->updated_at = Carbon::now();
             $product->save();
 
-            return Redirect::to($_ENV['URL'] . '/admin/products')
+            return Redirect::to('/admin/products')
                             ->with('alert-class', 'success')
                             ->with('flash-message', 'Product <b>' . $data['product-name'] . '</b> has been successfully added!');
 
 
         } elseif($data['product-name'] == '') {
-            return Redirect::to($_ENV['URL'] . '/admin/products/create')
+            return Redirect::to('/admin/products/create')
                             ->with('alert-class', 'error')
                             ->with('flash-message', 'Please enter a product name!')
                             ->withInput();
         } elseif($data['productcategory-id'] == 'selectproductcategory') {
-            return Redirect::to($_ENV['URL'] . '/admin/products/create')
+            return Redirect::to('/admin/products/create')
                             ->with('alert-class', 'error')
                             ->with('flash-message', 'Please enter a category!')
                             ->withInput();
         } elseif($data['product-brand'] == '') {
-            return Redirect::to($_ENV['URL'] . '/admin/products/create')
+            return Redirect::to('/admin/products/create')
                             ->with('alert-class', 'error')
                             ->with('flash-message', 'Please enter a brand!')
                             ->withInput();
 
         } else {
-            return Redirect::to($_ENV['URL'] . '/admin/products/add')
+            return Redirect::to('/admin/products/add')
                             ->with('alert-class', 'error')
                             ->with('flash-message', 'Unknown error!')
                             ->withInput();
         }
+    }
+
+    //There is no reason to show a single product unless you are already in the edit form that is taken care of my the edit() method. Plus no one will be able to access this URL unless they type it in, so just redirect back to the index of products.
+    public function show($id) {
+        return Redirect::to('/admin/products');
     }
 
     public function edit($id) {
@@ -143,35 +148,36 @@ class ProductsController extends \BaseController {
             $product->updated_at = Carbon::now();
             $product->save();
 
-            return Redirect::to($_ENV['URL'] . '/admin/products')
+            return Redirect::to('/admin/products')
                             ->with('alert-class', 'success')
                             ->with('flash-message', 'Product <b>' . $data['product-name'] . '</b> has been successfully updated!');
 
 
         } elseif($data['product-name'] == '') {
-            return Redirect::to($_ENV['URL'] . '/admin/products/'. $product->id . '/edit')
+            return Redirect::to('/admin/products/'. $product->id . '/edit')
                             ->with('alert-class', 'error')
                             ->with('flash-message', 'Please enter a product name!')
                             ->withInput();
         }elseif($data['product-brand'] == '') {
-            return Redirect::to($_ENV['URL'] . '/admin/products/'. $product->id . '/edit')
+            return Redirect::to('/admin/products/'. $product->id . '/edit')
                             ->with('alert-class', 'error')
                             ->with('flash-message', 'Please enter a brand!')
                             ->withInput();
 
         } else {
-            return Redirect::to($_ENV['URL'] . '/admin/products/'. $product->id . '/edit')
+            return Redirect::to('/admin/products/'. $product->id . '/edit')
                             ->with('alert-class', 'error')
                             ->with('flash-message', 'Unknown error!')
                             ->withInput();
         }
     }
 
-    public function show($id) {
+    //This is deleting
+    public function destroy($id) {
         $product = Product::find($id);
         $oldName = $product->product_name;
         $product->delete();
-        return Redirect::to($_ENV['URL'] . '/admin/products')
+        return Redirect::to('/admin/products')
                         ->with('alert-class', 'success')
                         ->with('flash-message', 'Product <b>' . $oldName . '</b> has been deleted!');
     }
