@@ -88,11 +88,6 @@ class ProductsController extends \BaseController {
         }
     }
 
-    //There is no reason to show a single product unless you are already in the edit form that is taken care of my the edit() method. Plus no one will be able to access this URL unless they type it in, so just redirect back to the index of products.
-    public function show($id) {
-        return Redirect::to('/admin/products');
-    }
-
     public function edit($id) {
         $product    = Product::find($id);
         $categories = Category::orderBy('category_name', 'ASC')->get();

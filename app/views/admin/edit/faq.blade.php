@@ -1,24 +1,24 @@
 @extends('layouts.admin')
 
 @section('title')
-    Batteries Included - Add Catalog Item
+    Batteries Included - Edit FAQ
 @stop
 
 @section('content')
 
 <div class="content-card col-md-10 col-md-offset-1">
   <h2>
-      Add FAQ
+      Edit {{$faq->question}}
   </h2>
 
 
-      {{ Form::open(array('url' => '/admin/add/faq', 'class' => 'form-horizontal', 'id' => 'faqadd-form', 'role' => 'form', 'method' => 'POST')) }}
+      {{ Form::open(array('url' => '/admin/faqs/' . $faq->id, 'class' => 'form-horizontal', 'id' => 'faqadd-form', 'role' => 'form', 'method' => 'put')) }}
 
       <div class="form-group">
         {{ Form::label('faq-question', 'Question', array('class' => 'col-sm-3 control-label')) }}
 
         <div class="col-sm-5">
-          {{ Form::textarea('faq-question', '', array('class' => 'form-control', 'id' => 'faq-question', 'placeholder' => 'Question', 'rows' => '3')) }}
+          {{ Form::textarea('faq-question', $faq->question, array('class' => 'form-control', 'id' => 'faq-question', 'placeholder' => 'Question', 'rows' => '3')) }}
         </div>
       </div>
 
@@ -26,7 +26,7 @@
         {{ Form::label('faq-answer', 'Answer', array('class' => 'col-sm-3 control-label')) }}
 
         <div class="col-sm-5">
-          {{ Form::textarea('faq-answer', '', array('class' => 'form-control', 'id' => 'faq-answer', 'placeholder' => 'Answer', 'rows' => '5')) }}
+          {{ Form::textarea('faq-answer', $faq->answer, array('class' => 'form-control', 'id' => 'faq-answer', 'placeholder' => 'Answer', 'rows' => '5')) }}
         </div>
       </div>
 

@@ -5,9 +5,8 @@ $(function() {
 
 		var id = $(this).parent().data('id');
 		var name = $(this).parent().data('name');
-    	$('<p>Are you sure you want to delete <b>' + name + '</b>?</p>').appendTo('.modal-body');
-    	$('.confirmDelete').parent().parent().attr('action', '/admin/products/' + id);
-    	//$('.confirmDelete').parent().parent().attr('method', 'delete');
+    	$('<p>Are you sure you want to delete "<b>' + name + '</b>"?</p>').appendTo('.modal-body');
+    	$('.confirmDelete').parent().parent().attr('action', window.location.pathname + '/' + id);
 	});
 });
 

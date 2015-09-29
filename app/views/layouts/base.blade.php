@@ -40,7 +40,7 @@
 	<ul class="fab z-index-25">
 		<a href="#" class="fab-toggle"><li class="fab-main ripple-effect"><i class="material-icons md-24 md-white">add</i></li></a>
 
-		<li class="fab-item ripple-effect fab-deep-purple hidden"><a href="/admin/products/add"><i class="material-icons md-24 md-white">shopping_cart</i></a></li>
+		<li class="fab-item ripple-effect fab-deep-purple hidden"><a href="/admin/products/create"><i class="material-icons md-24 md-white">shopping_cart</i></a></li>
 
 		<li class="fab-item ripple-effect fab-light-blue hidden"><a href="/admin/add/faq"><i class="material-icons md-24 md-white">help</i></a></li>
 

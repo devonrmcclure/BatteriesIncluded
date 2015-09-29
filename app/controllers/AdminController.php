@@ -109,7 +109,7 @@ class AdminController extends \BaseController {
 	{
 		Auth::logout();
 
-		return Redirect::to($_ENV['URL']);
+		return Redirect::to('/');
 	}
 
 	public function addIndex() {
@@ -120,31 +120,7 @@ class AdminController extends \BaseController {
 		return View::make('admin.add.faqs');
 	}
 
-	public function postFAQ() {
-		// > Get information
-		// > Check for completeness
-		// > Post to DB
-		// > Redirect to add FAQ page with success or error message.
-		$data = Input::all();
-		if($data['faq-question'] == '' || $data['faq-answer'] == '')
-		{
-		    return Redirect::to($_ENV['URL'] . '/admin/add/faq')
-		    				->with('alert-class', 'error')
-		                    ->with('flash-message', 'Please fill out all fields to add a FAQ!');
 
-		} else {
-		    $FAQ = new FAQ;
-		    $FAQ->question = $data['faq-question'];
-		    $FAQ->answer = $data['faq-answer'];
-		    $FAQ->priority = $data['priority'];
-		    $FAQ->created_at = Carbon::now();
-		    $FAQ->updated_at = Carbon::now();
-		    $FAQ->save();
-		    return Redirect::to('/admin/add/faq')
-		    	->with('alert-class', 'success')
-		    	->with('flash-message', 'FAQ Successfully created!');
-		}
-	}
 
 
 
