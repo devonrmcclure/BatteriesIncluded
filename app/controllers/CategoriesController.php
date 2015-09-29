@@ -32,9 +32,39 @@ class CategoriesController extends \BaseController {
                     ->with('parentCategories', $parentCategories);
     }
 
-    public function create() {}
+    public function create() {
+        $categories = Category::orderBy('category_name', 'ASC')->get();
 
-    public function store() {}
+        return View::make('admin.add.category')
+                    ->with('categories', $categories);
+    }
+
+    public function store() {
+        $data = Input::all();
+
+        $category = new Category;
+
+        if($data['category-name'] != '')
+        {
+            // If the Parent Category is anything other than "Select Parent Category", update that as well.
+            if($data['parentcategory-id'] != 'selectparentcategory') {
+                $category->parent_id = $data['parentcategory-id'];
+            }
+            $category->category_name = $data['category-name'];
+            $category->created_at = Carbon::now();
+            $category->updated_at = Carbon::now();
+            $category->save();
+
+            return Redirect::to($_ENV['URL'] . '/admin/categories')
+                            ->with('alert-class', 'success')
+                            ->with('flash-message', 'The category <b>' . $data['category-name'] . '</b> was successfully added!');
+        } else {
+            return Redirect::to($_ENV['URL'] . '/admin/categories/create')
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You can not have an empty category name!')
+                            ->withInput();
+        }
+    }
 
     public function edit($id)
     {
@@ -65,9 +95,15 @@ class CategoriesController extends \BaseController {
             $category->updated_at = Carbon::now();
             $category->save();
 
-            return Redirect::to($_ENV['URL'] . '/admin/categories')
-                            ->with('alert-class', 'success')
-                            ->with('flash-message', 'The category <b>' . $oldName . '</b> was successfully updated to <b>' . $category->category_name . '</b>!');
+            if($oldName !== $data['category-name']) {
+                return Redirect::to($_ENV['URL'] . '/admin/categories')
+                                ->with('alert-class', 'success')
+                                ->with('flash-message', 'The category <b>' . $oldName . '</b> was successfully updated to <b>' . $category->category_name . '</b>!');
+            } else {
+                return Redirect::to($_ENV['URL'] . '/admin/categories')
+                                ->with('alert-class', 'success')
+                                ->with('flash-message', 'The category <b>' . $oldName . '</b> was successfully updated!');
+            }
         } else {
             return Redirect::to($_ENV['URL'] . '/admin/categories/' . $id . '/edit')
                             ->with('alert-class', 'error')
