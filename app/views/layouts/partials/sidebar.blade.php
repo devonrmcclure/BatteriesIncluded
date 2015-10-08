@@ -46,7 +46,7 @@
 			<!-- Define Sidebar-nav Links -->
 			@section('sidebar-nav-links')
 				<li class="ripple-effect"><a href="{{$_ENV['URL']}}"><i class="material-icons md-24 indigo500">home</i> Home</a></li>
-				<li class="ripple-effect"><a href="{{$_ENV['URL']}}/catalog"><i class="material-icons md-24 yellowA700">shopping_cart</i> Catalog</a></li>
+				<li class="ripple-effect"><a href="{{$_ENV['URL']}}/catalog"><i class="material-icons md-24 green500">shopping_cart</i> Catalog</a></li>
 				<li class="ripple-effect"><a href="{{$_ENV['URL']}}/servicing"><i class="material-icons md-24 grey700">build</i> Servicing</a></li>
 				<li class="ripple-effect"><a href="{{$_ENV['URL']}}/faq"><i class="material-icons md-24 deep-purple500">help</i> FAQ</a></li>
 				<li class="ripple-effect"><a href="{{$_ENV['URL']}}/locations-contact"><i class="material-icons md-24 redA700">location_on</i> Locations & Contact</a></li>
