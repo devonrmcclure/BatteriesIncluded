@@ -23,7 +23,7 @@
 		<h4><a href="/admin/categories">Categories</a></h4>
 		<h4><a href="/admin/servicing">Servicing</a></h4>
 		<h4><a href="/admin/faqs">FAQs</a></h4>
-		<h4><a href="/admin/locations-contact">Locations & Contact</a></h4>
+		<h4><a href="/admin/locations">Locations</a></h4>
 	</div>
 
 @stop

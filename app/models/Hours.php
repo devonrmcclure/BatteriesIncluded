@@ -4,6 +4,6 @@ class Hours extends Eloquent {
 
     public function locations()
     {
-        return $this->belongsTo('locations');
+        return $this->belongsTo('Locations');
     }
 }

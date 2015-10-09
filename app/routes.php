@@ -48,8 +48,8 @@ Route::resource('admin/products', 'ProductsController', array('except' => array(
 Route::resource('admin/categories', 'CategoriesController', array('except' => array('show', 'destroy')));
 Route::get('/faq', 'FAQController@show');
 Route::resource('admin/faqs', 'FAQController', array('except' => array('show')));
-Route::get('/locations-contact', 'LocationsController@show');
-Route::resource('admin/locations-contact', 'LocationsController', array('except' => array('show')));
+Route::get('/locations', 'LocationsController@show');
+Route::resource('admin/locations', 'LocationsController', array('except' => array('show')));
 
 Route::get('/admin/settings', 'AdminController@settingsIndex');
 Route::get('/admin/settings/password', 'AdminController@getUpdatePassword');

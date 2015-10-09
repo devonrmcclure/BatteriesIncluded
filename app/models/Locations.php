@@ -2,7 +2,7 @@
 
 class Locations extends Eloquent {
 
-    public function locations()
+    public function hours()
     {
         return $this->hasMany('Hours');
     }

@@ -9,20 +9,19 @@
     <div class="content-card col-md-10 col-md-offset-1">
         <table class="material-table">
           	<tr>
-    	        <th>Product</th>
-    	        <th>Category</th>
-    	        <th>Created</th>
+    	        <th>City</th>
+    	        <th>Address</th>
+    	        <th>Phone</th>
     	        <th>Manage</th>
           	</tr>
-    	    @foreach($products as $product)
+    	    @foreach($locations as $location)
 				<tr class="test">
-				  	<td>{{$product->product_name}}</td>
-				  	<td>{{$product->category->category_name}}</td>
-                    <td>{{$product->created_at->format('F j, Y')}}</td>
+				  	<td>{{$location->city}}</td>
+				  	<td>{{$location->address}}</td>
+                    <td>{{$location->phone}}</td>
 				  	<td>
-                        <span class="ripple-effect material-flat-button material-flat-add"><a href="/admin/products/create">add</a></span>
-				  		<span class="ripple-effect material-flat-button material-flat-edit"><a href="/admin/products/{{$product->id}}/edit">edit</a></span>
-						<span class="ripple-effect material-flat-button material-flat-delete" data-id="{{$product->id}}" data-name="{{$product->product_name}}"><a href="#" class="delete" data-toggle="modal" data-target="#myModal">delete</a></span></td>
+				  		<span class="ripple-effect material-flat-button material-flat-edit"><a href="/admin/locations/{{$location->id}}/edit">edit</a></span>
+						</td>
 				</tr>
     	    @endforeach
         </table>

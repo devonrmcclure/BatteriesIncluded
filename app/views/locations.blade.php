@@ -20,55 +20,59 @@
         <th>Friday</th>
         <th>Saturday</th>
       </tr>
+
       <tr>
-       <th>Maple Ridge</th>
-       <td>12:00pm - 5:00pm</td>
-       <td>9:30am - 5:30pm</td>
-       <td>9:30am - 5:30pm</td>
-       <td>9:30am - 5:30pm</td>
-       <td>9:30am - 9:00pm</td>
-       <td>9:30am - 9:00pm</td>
-       <td>9:30am - 5:30pm</td>
-     </tr>
+
+
       <tr>
-        <th>Guildford</th>
-        <td>CLOSED</td>
-        <td>12:00pm - 6:00pm</td>
-        <td>12:00pm - 6:00pm</td>
-        <td>12:00pm - 6:00pm</td>
-        <td>12:00pm - 6:00pm</td>
-        <td>12:00pm - 6:00pm</td>
-        <td>10:00am - 3:30pm</td>
+        <th>Maple Ridge</th>
+        @foreach($mr as $hour)
+          @if($hour->open == '00:00:00')
+            <td>CLOSED</td>
+          @else
+            <td>{{date('h:ia', strtotime($hour->open))}} - {{date('h:ia', strtotime($hour->close))}}</td>
+          @endif
+        @endforeach
       </tr>
-      <tr>
-        <th>Nanaimo</th>
-        <td>11:00am - 5:00pm</td>
-        <td>10:00am - 6:00pm</td>
-        <td>10:00am - 6:00pm</td>
-        <td>10:00am - 6:00pm</td>
-        <td>10:00am - 9:00pm</td>
-        <td>10:00am - 9:00pm</td>
-        <td>10:00am - 6:00pm</td>
+
+      <th>Nanaimo</th>
+        @foreach($nm as $hour)
+          @if($hour->open == '00:00:00')
+            <td>CLOSED</td>
+          @else
+            <td>{{date('h:ia', strtotime($hour->open))}} - {{date('h:ia', strtotime($hour->close))}}</td>
+          @endif
+        @endforeach
       </tr>
-      <tr>
-        <th>Richmond</th>
-        <td>11:00am - 6:00pm</td>
-        <td>10:00am - 6:00pm</td>
-        <td>10:00am - 6:00pm</td>
-        <td>10:00am - 9:00pm</td>
-        <td>10:00am - 9:00pm</td>
-        <td>10:00am - 9:00pm</td>
-        <td>9:30am - 6:00pm</td>
+
+      <th>Surrey (Guildford)</th>
+        @foreach($gf as $hour)
+          @if($hour->open == '00:00:00')
+            <td>CLOSED</td>
+          @else
+            <td>{{date('h:ia', strtotime($hour->open))}} - {{date('h:ia', strtotime($hour->close))}}</td>
+          @endif
+        @endforeach
       </tr>
-      <tr>
-        <th>White Rock</th>
-        <td>12:00pm - 5:00pm</td>
-        <td>10:00am - 6:00pm</td>
-        <td>10:00am - 6:00pm</td>
-        <td>10:00am - 6:00pm</td>
-        <td>10:00am - 8:00pm</td>
-        <td>10:00am - 8:00pm</td>
-        <td>10:00am - 6:00pm</td>
+
+      <th>Richmond</th>
+        @foreach($rm as $hour)
+          @if($hour->open == '00:00:00')
+            <td>CLOSED</td>
+          @else
+            <td>{{date('h:ia', strtotime($hour->open))}} - {{date('h:ia', strtotime($hour->close))}}</td>
+          @endif
+        @endforeach
+      </tr>
+
+      <th>White Rock</th>
+        @foreach($wr as $hour)
+          @if($hour->open == '00:00:00')
+            <td>CLOSED</td>
+          @else
+            <td>{{date('h:ia', strtotime($hour->open))}} - {{date('h:ia', strtotime($hour->close))}}</td>
+          @endif
+        @endforeach
       </tr>
     </table>
   </div>

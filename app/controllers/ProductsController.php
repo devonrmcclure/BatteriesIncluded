@@ -153,7 +153,7 @@ class ProductsController extends \BaseController {
                             ->with('alert-class', 'error')
                             ->with('flash-message', 'Please enter a product name!')
                             ->withInput();
-        }elseif($data['product-brand'] == '') {
+        } elseif($data['product-brand'] == '') {
             return Redirect::to('/admin/products/'. $product->id . '/edit')
                             ->with('alert-class', 'error')
                             ->with('flash-message', 'Please enter a brand!')
