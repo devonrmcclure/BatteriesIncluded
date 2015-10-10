@@ -11,11 +11,6 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('index');
-});
-
 Route::get('/catalog', 'CatalogController@showIndex');
 Route::get('/catalog/{category}', 'CatalogController@showCategory');
 Route::get('/catalog/product/{id}', 'CatalogController@showSingleProduct');
@@ -28,6 +23,10 @@ Route::get('/admin', 'AdminController@showIndex');
 Route::get('/admin/login', 'AdminController@showLogin');
 Route::post('/admin/login', 'AdminController@postLogin');
 Route::get('/admin/logout', 'AdminController@destroy');
+
+Route::get('/', 'HomeController@show');
+Route::resource('/admin/home', 'HomeController', array('except' => array('show')));
+Route::resource('/admin/carousels', 'CarouselController', array('except' => array('show')));
 
 Route::get('/services', 'ServicesController@show');
 Route::resource('/admin/services', 'ServicesController', array('except' => array('show')));

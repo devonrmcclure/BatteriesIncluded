@@ -897,6 +897,9 @@ input[type=checkbox]:checked ~ label .check {
 .content .product-tile .product-description {
   height: 70px;
 }
+.material-button-carousel {
+  background: #c5cae9;
+}
 .material-flat-button {
   display: inline-block;
   text-transform: uppercase;

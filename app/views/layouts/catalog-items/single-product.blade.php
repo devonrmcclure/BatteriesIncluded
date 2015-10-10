@@ -7,7 +7,7 @@
 	@if(Auth::check())
 	<span class="pull-right">
 		<span class="ripple-effect material-flat-button material-flat-edit"><a href="/admin/products/{{$product->id}}/edit">edit</a></span>
-		<span class="ripple-effect material-flat-button material-flat-delete"><a href="#">delete</a></span>
+		<span class="ripple-effect material-flat-button material-flat-delete" data-id="{{$product->id}}" data-name="{{$product->product_name}}"><a href="#" class="delete" data-toggle="modal" data-target="#deleteConfirm">delete</a></span>
 	</span>
 	@endif
 
@@ -34,5 +34,20 @@
 			@endif
 		</span>
 
+    </div>
+
+    <div class="modal fade" id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="deleteConfirm">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+
+                {{Form::open(array('url' => '', 'class' => 'form-horizontal', 'id' => 'deleteForm', 'role' => 'form', 'method' => 'delete'))}}
+                    <span class="ripple-effect material-flat-button material-flat-delete"><a class="confirmDelete">delete</a></span>
+                    <span class="ripple-effect material-flat-button material-flat-edit"><a data-dismiss="modal" class="cancelDelete">Cancel</a></span>
+                {{Form::close()}}
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -22,9 +22,7 @@ class CatalogController extends \BaseController {
         $menuItems = Category::orderBy('category_name', 'ASC')->whereparent_id(NULL)->get();
         $menu = $this->drawMenu($menuItems);
 
-        $products = new ProductsController;
-        $products = $products->getProducts(NULL, 12);
-
+        $products = Product::orderBy('created_at', 'DESC')->take(12)->get();
         $featured = Product::orderBy('featured', 'DESC')->first();
 
 		return View::make('catalog')
@@ -46,8 +44,12 @@ class CatalogController extends \BaseController {
         $categories = Category::orderBy('category_name', 'ASC')->wherecategory_name($category)->get();
         $crumbs = $this->drawBreadcrumbs($categories);
 
-        $products = new ProductsController;
-        $products = $products->getProducts($categories);
+        $products = $this->getProducts($categories);
+
+        /*foreach($categories as $cat)
+        {
+            $this->products[] = Product::wherecategory_id($cat->id)->get();
+        }*/
 
         return View::make('catalog')
             ->with('menu', $menu)
@@ -85,7 +87,7 @@ class CatalogController extends \BaseController {
         {
 
             //var_dump($productCount);
-            $this->text .= "<li class=\"catalog-nav-item\"><a href=\"" . $_ENV['URL'] . "/catalog/" . $item->category_name . "\">" . $item->category_name . "</a>";
+            $this->text .= "<li class=\"catalog-nav-item\"><a href=\"/catalog/" . $item->category_name . "\">" . $item->category_name . "</a>";
                 if($this->hasChildren($item))
                 {
                     $this->text .= "<ul class=\"list-group-inner\">";
@@ -116,5 +118,38 @@ class CatalogController extends \BaseController {
             }
         }
         return $this->crumbs;
+    }
+
+    public function makeProducts($category = '', $maxProducts = NULL)
+    {
+        if(!$category)
+        {
+            if($maxProducts) {
+                $this->products[] = Product::orderBy('created_at', 'DESC')->take($maxProducts)->get();
+            } else {
+                $this->products[] = Product::orderBy('created_at', 'DESC')->get();
+            }
+        } else {
+            // Get all products in this category
+            foreach($category as $cat)
+            {
+                $this->products[] = Product::wherecategory_id($cat->id)->get();
+            }
+
+            // Does this category have a subcategory?
+            foreach($category as $cat)
+            {
+                $subCats = Category::whereparent_id($cat->id)->get();
+                $this->getProducts($subCats);
+            }
+            //$this->pagination = Paginator::make($this->products, count($this->products), 9);
+        }
+    }
+
+    // Return the products
+    public function getProducts($category = '', $maxProducts = NULL)
+    {
+        $this->makeProducts($category, $maxProducts);
+        return $this->products;
     }
 }

@@ -103,7 +103,7 @@ class FAQController extends \BaseController {
                                 ->with('alert-class', 'success');
 
         } else {
-            return Redirect::to($_ENV['URL'] . '/admin/faqs/' . $faq->id . '/edit')
+            return Redirect::to('/admin/faqs/' . $faq->id . '/edit')
                             ->with('flash-message', 'Please fill out all fields to update a FAQ!')
                             ->with('alert-class', 'error');
         }

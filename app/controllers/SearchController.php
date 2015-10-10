@@ -11,7 +11,7 @@ class SearchController extends \BaseController {
         $search = Input::get('search');
         if($search == '')
         {
-            return Redirect::to($_ENV['URL'] . '/catalog');
+            return Redirect::to('/catalog');
         } else {
             $products[] = Product::where('product_name', 'LIKE', '%'.$search.'%')->get();
 

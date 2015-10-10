@@ -111,24 +111,4 @@ class AdminController extends \BaseController {
 
 		return Redirect::to('/');
 	}
-
-	public function addIndex() {
-		return View::make('admin.add.index');
-	}
-
-	public function addFAQ() {
-		return View::make('admin.add.faqs');
-	}
-
-
-
-
-
-	public function manageIndex() {
-		return View::make('admin.manage.index');
-	}
-
-	public function settingsIndex() {
-		return View::make('admin.settings.index');
-	}
 }

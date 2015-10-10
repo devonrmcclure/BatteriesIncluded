@@ -40,8 +40,6 @@
                 </div>
             </div>
         </div>
-            TODO: <br />
-            - AJAX search function to search for specific FAQs to manage <br />
     </div>
 
 @stop

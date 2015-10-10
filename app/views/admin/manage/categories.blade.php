@@ -40,10 +40,6 @@
                 </div>
             </div>
         </div>
-            TODO: <br />
-            - List categories <br />
-            - Allow editing/delete of categories inline (LATER TOTO: AJAX search function to search for specific categories to manage) <br />
-            - Popup modal to add a category (alternatively, a form pops up on the page to add)
     </div>
 
 @stop

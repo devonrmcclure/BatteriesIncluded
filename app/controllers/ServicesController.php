@@ -95,7 +95,7 @@ class ServicesController extends \BaseController {
                                 ->with('alert-class', 'success');
 
         } else {
-            return Redirect::to($_ENV['URL'] . '/admin/services/' . $service->id . '/edit')
+            return Redirect::to('/admin/services/' . $service->id . '/edit')
                             ->with('flash-message', 'Please fill out all fields to update a service!')
                             ->with('alert-class', 'error');
         }

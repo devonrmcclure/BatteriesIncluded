@@ -18,7 +18,8 @@
 
 	<div class="content-card col-md-10 col-md-offset-1">
 		<h2>Manage Content</h2>
-		<h4><a href="/admin/home">Home Page</a></h4>
+		<h4><a href="/admin/home">Home Page Content</a></h4>
+		<h4><a href="/admin/carousels">Carousels</a></h4>
 		<h4><a href="/admin/products">Products</a></h4>
 		<h4><a href="/admin/categories">Categories</a></h4>
 		<h4><a href="/admin/services">Servicing</a></h4>
