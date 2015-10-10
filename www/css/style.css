@@ -46,6 +46,10 @@ p {
   margin: 0;
   padding: 0;
 }
+.location-open {
+  display: inline-block;
+  float: left;
+}
 .material-icons.md-18 {
   font-size: 18px;
 }

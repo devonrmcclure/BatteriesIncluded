@@ -42,15 +42,18 @@ class LocationsController extends \BaseController {
 
     public function edit($id) {
     	$location = Locations::whereid($id)->first();
+    	$hours    = Hours::wherelocations_id($id)->get();
 
     	return View::make('admin.edit.location')
-    				->with('location', $location);
+    				->with('location', $location)
+    				->with('hours', $hours);
     }
 
     public function update($id) {
 
-    	$data = Input::all();
+    	$data 	  = Input::all();
     	$location = Locations::find($id);
+    	$hours    = Hours::wherelocations_id($id)->get();
 
     	if($data['location-address'] != '' && $data['location-email'] != '' && $data['location-phone'] != '' && $data['location-description'] != '') {
     	    //Check if a file is being uploaded
@@ -63,8 +66,53 @@ class LocationsController extends \BaseController {
     	        $filename = $location->image;
     	    }
 
-
-    	    //Upload the location.
+    	    //Check the hours for updating.
+    	    //TODO: Some validation.
+    	    //
+    	    if(
+    	    	preg_match("/\d\d:\d\d:\d\d/", $data['Sunday-open']) &&
+    	    	preg_match("/\d\d:\d\d:\d\d/", $data['Sunday-close']) &&
+    	    	preg_match("/\d\d:\d\d:\d\d/", $data['Monday-open']) &&
+    	    	preg_match("/\d\d:\d\d:\d\d/", $data['Monday-close']) &&
+    	    	preg_match("/\d\d:\d\d:\d\d/", $data['Tuesday-open']) &&
+    	    	preg_match("/\d\d:\d\d:\d\d/", $data['Tuesday-close']) &&
+    	    	preg_match("/\d\d:\d\d:\d\d/", $data['Wednesday-open']) &&
+    	    	preg_match("/\d\d:\d\d:\d\d/", $data['Wednesday-close']) &&
+    	    	preg_match("/\d\d:\d\d:\d\d/", $data['Thursday-open']) &&
+    	    	preg_match("/\d\d:\d\d:\d\d/", $data['Thursday-close']) &&
+    	    	preg_match("/\d\d:\d\d:\d\d/", $data['Friday-open']) &&
+    	    	preg_match("/\d\d:\d\d:\d\d/", $data['Friday-close']) &&
+    	    	preg_match("/\d\d:\d\d:\d\d/", $data['Saturday-open']) &&
+    	    	preg_match("/\d\d:\d\d:\d\d/", $data['Saturday-close'])
+    	    ) {
+    	    	$hours[0]->open = $data['Sunday-open'];
+    	    	$hours[0]->close = $data['Sunday-close'];
+    	    	$hours[0]->save();
+    	    	$hours[1]->open = $data['Monday-open'];
+    	    	$hours[1]->close = $data['Monday-close'];
+    	    	$hours[1]->save();
+    	    	$hours[2]->open = $data['Tuesday-open'];
+    	    	$hours[2]->close = $data['Tuesday-close'];
+    	    	$hours[2]->save();
+    	    	$hours[3]->open = $data['Wednesday-open'];
+    	    	$hours[3]->close = $data['Wednesday-close'];
+    	    	$hours[3]->save();
+    	    	$hours[4]->open = $data['Thursday-open'];
+    	    	$hours[4]->close = $data['Thursday-close'];
+    	    	$hours[4]->save();
+    	    	$hours[5]->open = $data['Friday-open'];
+    	    	$hours[5]->close = $data['Friday-close'];
+    	    	$hours[5]->save();
+    	    	$hours[6]->open = $data['Saturday-open'];
+    	    	$hours[6]->close = $data['Saturday-close'];
+    	    	$hours[6]->save();
+    	    } else {
+    	    	return Redirect::to('/admin/locations/'. $location->id . '/edit')
+    	    	                ->with('alert-class', 'error')
+    	    	                ->with('flash-message', 'Please make sure the times are in the format 00:00:00!')
+    	    	                ->withInput();
+    	    }
+    	    //
     	    $location->address = $data['location-address'];
     	    $location->email = $data['location-email'];
     	    $location->phone = $data['location-phone'];

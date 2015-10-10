@@ -39,8 +39,6 @@
                 </div>
             </div>
         </div>
-            TODO: <br />
-            - AJAX search function to search for specific products to manage <br />
     </div>
 
 @stop

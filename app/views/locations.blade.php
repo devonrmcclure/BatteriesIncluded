@@ -22,9 +22,6 @@
       </tr>
 
       <tr>
-
-
-      <tr>
         <th>Maple Ridge</th>
         @foreach($mr as $hour)
           @if($hour->open == '00:00:00')
