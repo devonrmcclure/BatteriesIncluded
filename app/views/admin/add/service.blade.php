@@ -1,32 +1,32 @@
 @extends('layouts.admin')
 
 @section('title')
-    Batteries Included - Add FAQ
+    Batteries Included - Add Service
 @stop
 
 @section('content')
 
 <div class="content-card col-md-10 col-md-offset-1">
   <h2>
-      Add FAQ
+      Add Service
   </h2>
 
 
-      {{ Form::open(array('url' => '/admin/faqs', 'class' => 'form-horizontal', 'id' => 'faqadd-form', 'role' => 'form', 'method' => 'POST')) }}
+      {{ Form::open(array('url' => '/admin/services', 'class' => 'form-horizontal', 'id' => 'serviceadd-form', 'role' => 'form', 'method' => 'POST')) }}
 
       <div class="form-group">
-        {{ Form::label('faq-question', 'Question', array('class' => 'col-sm-3 control-label')) }}
+        {{ Form::label('service-question', 'Subject', array('class' => 'col-sm-3 control-label')) }}
 
         <div class="col-sm-5">
-          {{ Form::textarea('faq-question', '', array('class' => 'form-control', 'id' => 'faq-question', 'placeholder' => 'Question', 'rows' => '3')) }}
+          {{ Form::textarea('service-subject', '', array('class' => 'form-control', 'id' => 'service-subject', 'placeholder' => 'Subject', 'rows' => '3')) }}
         </div>
       </div>
 
       <div class="form-group">
-        {{ Form::label('faq-answer', 'Answer', array('class' => 'col-sm-3 control-label')) }}
+        {{ Form::label('service-info', 'Info', array('class' => 'col-sm-3 control-label')) }}
 
         <div class="col-sm-5">
-          {{ Form::textarea('faq-answer', '', array('class' => 'form-control', 'id' => 'faq-answer', 'placeholder' => 'Answer', 'rows' => '5')) }}
+          {{ Form::textarea('service-info', '', array('class' => 'form-control', 'id' => 'service-info', 'placeholder' => 'Info', 'rows' => '5')) }}
         </div>
       </div>
 

@@ -5,8 +5,10 @@ $(function() {
 
 		var id = $(this).parent().data('id');
 		var name = $(this).parent().data('name');
+		var path = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+
     	$('<p>Are you sure you want to delete "<b>' + name + '</b>"?</p>').appendTo('.modal-body');
-    	$('.confirmDelete').parent().parent().attr('action', window.location.pathname + '/' + id);
+    	$('.confirmDelete').parent().parent().attr('action', '/admin/' + path + '/' + id);
 	});
 });
 

@@ -22,30 +22,18 @@ Route::get('/catalog/product/{id}', 'CatalogController@showSingleProduct');
 
 Route::get('/servicing', 'ServicingController@showIndex');
 //Route::get('servicing/{subject}', 'ServicingController@showSubject');
-Route::get('/servicing/shavers', 'ServicingController@showShavers');
-Route::get('/servicing/appliance-repair', 'ServicingController@showApplianceRepair');
-Route::get('/servicing/warranty', 'ServicingController@showWarranty');
-Route::get('/servicing/battery-changes', 'ServicingController@showBatteryChanges');
 
-
-
-
-//Route::post('/locations-contact/send', 'ContactController@postContact');
 
 Route::get('/admin', 'AdminController@showIndex');
 Route::get('/admin/login', 'AdminController@showLogin');
 Route::post('/admin/login', 'AdminController@postLogin');
 Route::get('/admin/logout', 'AdminController@destroy');
 
-/*Route::get('/admin/products', 'ProductsController@productIndex');
-Route::get('/admin/products/add', 'ProductsController@productAdd');
-Route::post('/admin/products/add', 'ProductsController@productAdd');
-Route::get('/admin/products/edit/{id}', 'ProductsController@productEdit');
-Route::put('/admin/products/edit/{id}', 'ProductsController@putEditProduct');
-Route::get('/admin/products/delete/{id}', 'ProductsController@destroy');*/
+Route::get('/services', 'ServicesController@show');
+Route::resource('/admin/services', 'ServicesController', array('except' => array('show')));
 
-Route::resource('admin/products', 'ProductsController', array('except' => array('show')));
-Route::resource('admin/categories', 'CategoriesController', array('except' => array('show', 'destroy')));
+Route::resource('/admin/products', 'ProductsController', array('except' => array('show')));
+Route::resource('/admin/categories', 'CategoriesController', array('except' => array('show', 'destroy')));
 Route::get('/faq', 'FAQController@show');
 Route::resource('admin/faqs', 'FAQController', array('except' => array('show')));
 Route::get('/locations', 'LocationsController@show');

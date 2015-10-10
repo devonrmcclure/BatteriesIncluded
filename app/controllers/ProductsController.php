@@ -2,6 +2,12 @@
 
 class ProductsController extends \BaseController {
 
+    public function __construct()
+    {
+        $this->beforeFilter('auth');
+        $this->beforeFilter('pass_expired');
+    }
+
     public function index() {
         $products = Product::orderBy('created_at', 'DESC')->get();
 

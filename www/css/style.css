@@ -46,9 +46,31 @@ p {
   margin: 0;
   padding: 0;
 }
-.location-open {
-  display: inline-block;
-  float: left;
+.faq a {
+  text-decoration: none;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+}
+.faq a .question-heading {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
+.faq a .question-heading .material-icons {
+  vertical-align: middle;
+}
+.faq a:hover {
+  color: #000000;
+}
+.faq .faq-answer {
+  padding-top: 20px;
+}
+.faq .faq-answer a {
+  color: #2196f3;
+}
+.faq .faq-answer a:hover {
+  color: #0d47a1;
 }
 .material-icons.md-18 {
   font-size: 18px;
@@ -753,32 +775,6 @@ input[type=checkbox]:checked ~ label .check {
   marign: 0 auto;
   width: 90%;
   vertical-align: middle;
-}
-.faq a {
-  text-decoration: none;
-  color: #000000;
-  margin: 0;
-  padding: 0;
-}
-.faq a .question-heading {
-  margin: 0;
-  padding: 0;
-  font-size: 20px;
-}
-.faq a .question-heading .material-icons {
-  vertical-align: middle;
-}
-.faq a:hover {
-  color: #000000;
-}
-.faq .faq-answer {
-  padding-top: 20px;
-}
-.faq .faq-answer a {
-  color: #2196f3;
-}
-.faq .faq-answer a:hover {
-  color: #0d47a1;
 }
 .content {
   max-width: 2000px;

@@ -31,7 +31,7 @@ class LocationsController extends \BaseController {
     }
 
     /**
-     * The following methods are for an Admin to add/edit/delete a Location
+     * The following methods are for an Admin to edit a Location
      */
 
     public function index() {

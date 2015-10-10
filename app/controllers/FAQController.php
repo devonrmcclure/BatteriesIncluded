@@ -62,7 +62,7 @@ class FAQController extends \BaseController {
             $FAQ->save();
             return Redirect::to('/admin/faqs')
                 ->with('alert-class', 'success')
-                ->with('flash-message', 'FAQ Successfully created!');
+                ->with('flash-message', 'FAQ successfully created!');
         }
 
     }
@@ -74,7 +74,7 @@ class FAQController extends \BaseController {
             return View::make('admin.edit.faq')
                     ->with('faq', $faq);
         } else {
-            // Product doesn't exits (IE: User enters a number in the URL)
+            // FAQ doesn't exits (IE: User enters a number in the URL)
             return Redirect::to('/admin/faqs')
                             ->with('alert-class', 'error')
                             ->with('flash-message', 'The FAQ you requested does\'nt exist!');

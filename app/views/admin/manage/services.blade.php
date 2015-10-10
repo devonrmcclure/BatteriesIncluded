@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Batteries Included - Manage FAQs
+    Batteries Included - Manage Services
 @stop
 
 @section('content')
@@ -9,20 +9,20 @@
     <div class="content-card col-md-10 col-md-offset-1">
         <table class="material-table">
           	<tr>
-    	        <th>Question</th>
-    	        <th>Answer</th>
+    	        <th>Subject</th>
+    	        <th>Info</th>
     	        <th>Created</th>
     	        <th>Manage</th>
           	</tr>
-    	    @foreach($faqs as $faq)
+    	    @foreach($services as $service)
 				<tr class="test">
-				  	<td>{{$faq->question}}</td>
-				  	<td>{{$faq->answer}}</td>
-                    <td>{{$faq->created_at->format('F j, Y')}}</td>
+				  	<td>{{$service->subject}}</td>
+				  	<td>{{$service->info}}</td>
+                    <td>{{$service->created_at->format('F j, Y')}}</td>
 				  	<td>
-                        <span class="ripple-effect material-flat-button material-flat-add"><a href="/admin/faqs/create">add</a></span>
-				  		<span class="ripple-effect material-flat-button material-flat-edit"><a href="/admin/faqs/{{$faq->id}}/edit">edit</a></span>
-						<span class="ripple-effect material-flat-button material-flat-delete" data-id="{{$faq->id}}" data-name="{{$faq->question}}"><a href="#" class="delete" data-toggle="modal" data-target="#myModal">delete</a></span></td>
+                        <span class="ripple-effect material-flat-button material-flat-add"><a href="/admin/services/create">add</a></span>
+				  		<span class="ripple-effect material-flat-button material-flat-edit"><a href="/admin/services/{{$service->id}}/edit">edit</a></span>
+						<span class="ripple-effect material-flat-button material-flat-delete" data-id="{{$service->id}}" data-name="{{$service->subject}}"><a href="#" class="delete" data-toggle="modal" data-target="#myModal">delete</a></span></td>
 				</tr>
     	    @endforeach
         </table>
@@ -40,8 +40,6 @@
                 </div>
             </div>
         </div>
-            TODO: <br />
-            - AJAX search function to search for specific FAQs to manage <br />
     </div>
 
 @stop
