@@ -883,6 +883,16 @@ input[type=checkbox]:checked ~ label .check {
   margin-right: 0;
   margin-left: 3%;
 }
+@media (max-width: 1280px) {
+  .content .product-tile {
+    width: auto;
+    margin-right: 40px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background: transparent;
+  }
+}
 .content .product-tile .product-img {
   disply: block;
   margin: 0 auto;

@@ -27,21 +27,30 @@
                     {{$faq->answer}}
 
                     @if(Auth::check())
-                        <span class="pull-right btn btn-default btn-primary modal-admin">
-                            <a href="{{ $_ENV['URL'] }}/admin/edit/faqs/{{$faq->id}}" data-toggle="modal">
-                                <span class="glyphicon glyphicon-edit"></span> Edit
-                            </a>
+                         <span class="pull-right">
+                            <span class="ripple-effect material-flat-button material-flat-edit"><a href="/admin/faqs/{{$faq->id}}/edit">edit</a></span>
+                            <span class="ripple-effect material-flat-button material-flat-delete" data-id="{{$faq->id}}" data-name="{{$faq->question}}"><a href="#" class="delete" data-toggle="modal" data-target="#myModal">delete</a></span>
                         </span>
-                        <span class="pull-right btn btn-default btn-danger modal-admin">
-                            <a href="{{ $_ENV['URL'] }}/admin/delete/faqs/{{$faq->id}}" data-toggle="modal">
-                                <span class="glyphicon glyphicon-trash"></span> Delete
-                            </a>
-                        </span>
-                        <br/>
                     @endif
                 </div>
             </div>
         @endforeach
     @endif
+    </div>
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+
+                {{Form::open(array('url' => '', 'class' => 'form-horizontal', 'id' => 'deleteForm', 'role' => 'form', 'method' => 'delete'))}}
+                    <span class="ripple-effect material-flat-button material-flat-delete"><a class="confirmDelete">delete</a></span>
+                    <span class="ripple-effect material-flat-button material-flat-edit"><a data-dismiss="modal" class="cancelDelete">Cancel</a></span>
+                {{Form::close()}}
+                </div>
+            </div>
+        </div>
     </div>
 @stop

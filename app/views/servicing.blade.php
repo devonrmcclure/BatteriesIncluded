@@ -9,7 +9,7 @@
           <div class="content-card col-md-10 col-md-offset-1">
             <p>There doesn't seem to be anything here!</p>
             @if(Auth::check())
-              Why not <a href="{{ $_ENV['URL'] }}/admin/services/create">add a service?</a>
+              Why not <a href="/admin/services/create">add a service?</a>
             @endif
           </div>
         @else
@@ -17,7 +17,6 @@
                 <div class="content-card faq col-md-10 col-md-offset-1">
                     <a class="question" data-toggle="collapse" href="#question{{$service->id}}" aria-expanded="false" aria-controls="question">
                         <div class="question-heading">
-                            <i class="material-icons md-36 indigo500">help</i>
                                 {{$service->subject}}
                             <span class="glyphicon glyphicon-menu-down pull-right" aria-hidden="true"></span>
                         </div>
@@ -29,7 +28,7 @@
                         @if(Auth::check())
                             <span class="pull-right">
                                 <span class="ripple-effect material-flat-button material-flat-edit"><a href="/admin/services/{{$service->id}}/edit">edit</a></span>
-                                <span class="ripple-effect material-flat-button material-flat-delete" data-id="{{$service->id}}" data-name="{{$service->subject}}"><a href="#" class="delete" data-toggle="modal" data-target="#myModal">delete</a></span>
+                                <span class="ripple-effect material-flat-button material-flat-delete" data-id="{{$service->id}}" data-name="{{$service->subject}}"><a href="#" class="delete" data-toggle="modal" data-target="#deleteModal">delete</a></span>
                             </span>
                         @endif
 
@@ -40,7 +39,7 @@
         </div>
 
 
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body"></div>

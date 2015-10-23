@@ -35,7 +35,7 @@
 	<!-- End Content -->
 
 
-	<!-- Floating Action Button -->
+	<!-- Floating Action Button
 	@if(Auth::check())
 	<ul class="fab z-index-25">
 		<a href="#" class="fab-toggle"><li class="fab-main ripple-effect"><i class="material-icons md-24 md-white">add</i></li></a>
@@ -46,7 +46,7 @@
 
 	</ul>
 	@endif
-	<!-- End Floating Action Button -->
+	 End Floating Action Button -->
 
 	<!-- Toast Style Notification Popup -->
 	@if(Session::has('flash-message'))
