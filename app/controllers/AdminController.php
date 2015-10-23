@@ -17,12 +17,7 @@ class AdminController extends \BaseController {
 	 */
 	public function showIndex()
 	{
-
-		$id = Auth::user()->id;
-		$userInfo = User::find($id);
-
-		return View::make('admin.index')
-			->with('userInfo', $userInfo);
+		return View::make('admin.index');
 	}
 
 	/**
@@ -36,7 +31,7 @@ class AdminController extends \BaseController {
 		{
 			return View::make('admin.login');
 		} else {
-			return Redirect::to($_ENV['URL'] . '/admin');
+			return Redirect::to('/admin');
 		}
 
 	}
@@ -54,11 +49,10 @@ class AdminController extends \BaseController {
 			// Get login info then attempt to login.
 			if(Auth::attempt(array('username' => $username, 'password' => $password)))
 			{
-
-				return Redirect::to($_ENV['URL'] . '/admin');
+				return Redirect::to('/admin');
 			} else {
-				return Redirect::to($_ENV['URL'] . '/admin/login')
-					->with('alert-class', 'alert-danger')
+				return Redirect::to('/admin/login')
+					->with('alert-class', 'error')
 					->with('flash-message', 'The username and password combination does not exist!');
 			}
 		} else {
@@ -97,11 +91,11 @@ class AdminController extends \BaseController {
 			$user->save();
 
 			return Redirect::to($_ENV['URL'] . '/admin')
-					->with('alert-class', 'alert-success')
+					->with('alert-class', 'success')
 					->with('flash-message', 'Password for <b>' . $user->username . '</b> has been updated!');
 		} else {
-			return Redirect::to($_ENV['URL'] . '/admin/password')
-					->with('alert-class', 'alert-danger')
+			return Redirect::to($_ENV['URL'] . '/admin/settings/password')
+					->with('alert-class', 'error')
 					->with('flash-message', 'The passwords did not match!');
 		}
 	}
@@ -115,8 +109,6 @@ class AdminController extends \BaseController {
 	{
 		Auth::logout();
 
-		return Redirect::to($_ENV['URL']);
+		return Redirect::to('/');
 	}
-
-
 }

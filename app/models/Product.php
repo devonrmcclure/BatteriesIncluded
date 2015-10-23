@@ -6,9 +6,4 @@ class Product extends Eloquent {
     {
         return $this->belongsTo('Category');
     }
-
-    public function subcategory()
-    {
-        return $this->belongsTo('Subcategory');
-    }
 }

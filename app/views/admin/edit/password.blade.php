@@ -7,8 +7,9 @@
 
 @section('content')
 
+    <div class="content-card col-md-6 col-md-offset-3">
     <h1>Update Password</h1>
-    {{ Form::open(array('url' => $_ENV['URL'] . '/admin/password', 'class' => 'form-horizontal', 'id' => 'login-form', 'role' => 'form', 'method' => 'put')) }}
+    {{ Form::open(array('url' => $_ENV['URL'] . '/admin/settings/password', 'class' => 'form-horizontal', 'id' => 'login-form', 'role' => 'form', 'method' => 'PUT')) }}
 
         <div class="form-group">
           {{ Form::label('currentPass', 'Current Password', array('class' => 'col-sm-4 control-label')) }}
@@ -35,9 +36,9 @@
         </div>
 
 
-        {{ Form::submit('Submit', array('class' => 'btn btn-default submit-button submit-button', 'id' => 'submit-button', 'name' => 'submit')) }}
+        {{ Form::submit('Submit', array('class' => '', 'id' => 'submit-button', 'name' => 'submit')) }}
 
     {{ Form::close() }}
-
+    </div>
 
 @stop

@@ -1,23 +1,33 @@
-@import "lib.less";
+.faq {
+	a {
+		text-decoration: none;
+		color: #000000;
+		margin: 0;
+		padding: 0;
 
-.faq-question {
-  margin: 7px 0;
-}
+		.question-heading {
+			margin: 0;
+			padding: 0;
+			font-size: 20px;
+			.material-icons {
+				vertical-align: middle;
+			}
+		}
+	}
 
-.faq-question > .question > .question-heading {
-  height: 33px;
-  background: @mainColor;
-  padding: 7px;
-  border-radius: 10px 10px 0 0;
-}
+	a:hover {
+		color: #000000;
+	}
 
-.faq-question > a {
-  color: #FFF;
-  text-decoration: none;
-}
+	.faq-answer {
+		padding-top: 20px;
 
-.faq-question > .collapse > .well{
-  border-radius: 0 0 5px 5px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .10);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .10);
+		a {
+			color: @blue;
+		}
+
+		a:hover {
+			color: @blue-900;
+		}
+	}
 }

@@ -11,68 +11,40 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('index');
-});
+Route::get('/catalog', 'CatalogController@showIndex');
+Route::get('/catalog/{category}', 'CatalogController@showCategory');
+Route::get('/catalog/product/{id}', 'CatalogController@showSingleProduct');
 
-Route::get('catalog', 'CatalogController@showIndex');
-Route::get('catalog/{category}', 'CatalogController@showCategory');
-
-Route::get('servicing', 'ServicingController@showIndex');
+Route::get('/servicing', 'ServicingController@showIndex');
 //Route::get('servicing/{subject}', 'ServicingController@showSubject');
-Route::get('servicing/shavers', 'ServicingController@showShavers');
-Route::get('servicing/appliance-repair', 'ServicingController@showApplianceRepair');
-Route::get('servicing/warranty', 'ServicingController@showWarranty');
-Route::get('servicing/battery-changes', 'ServicingController@showBatteryChanges');
 
-Route::get('faq', 'FAQController@showIndex');
 
-Route::get('locations-contact', 'ContactController@showIndex');
-Route::post('locations-contact/send', 'ContactController@postContact');
+Route::get('/admin', 'AdminController@showIndex');
+Route::get('/admin/login', 'AdminController@showLogin');
+Route::post('/admin/login', 'AdminController@postLogin');
+Route::get('/admin/logout', 'AdminController@destroy');
 
-Route::get('privacy-policy', function()
-{
-	return View::make('privacy-policy');
-});
+Route::get('/', 'HomeController@show');
+Route::resource('/admin/home', 'HomeController', array('except' => array('show')));
+Route::resource('/admin/carousels', 'CarouselController', array('except' => array('show')));
 
-Route::get('admin', 'AdminController@showIndex');
-Route::get('admin/login', 'AdminController@showLogin');
-Route::post('admin/login', 'AdminController@postLogin');
-Route::get('admin/logout', 'AdminController@destroy');
+Route::get('/services', 'ServicesController@show');
+Route::resource('/admin/services', 'ServicesController', array('except' => array('show')));
 
-Route::get('admin/add/', 'CreateCatalogItemController@showIndex');
-Route::post('admin/add/category', 'CreateCatalogItemController@postCreateCategory');
-Route::post('admin/add/product', 'CreateCatalogItemController@postCreateProduct');
+Route::resource('/admin/products', 'ProductsController', array('except' => array('show')));
+Route::resource('/admin/categories', 'CategoriesController', array('except' => array('show', 'destroy')));
+Route::get('/faq', 'FAQController@show');
+Route::resource('admin/faqs', 'FAQController', array('except' => array('show')));
+Route::get('/locations', 'LocationsController@show');
+Route::resource('admin/locations', 'LocationsController', array('except' => array('show')));
 
-Route::get('admin/add/faqs', 'CreateFAQController@showIndex');
-Route::post('admin/add/faqs', 'CreateFAQController@postAddFAQ');
-Route::get('admin/edit/faqs', 'EditFAQController@showIndex');
-Route::get('admin/edit/faqs/{id}', 'EditFAQController@getEditFAQ');
-Route::put('admin/edit/faqs/{id}', 'EditFAQController@putEditFAQ');
+Route::get('/admin/settings', 'AdminController@settingsIndex');
+Route::get('/admin/settings/password', 'AdminController@getUpdatePassword');
+Route::put('/admin/settings/password', 'AdminController@putUpdatePassword');
 
-Route::get('admin/delete/faqs/{id}', 'DeleteFAQController@getFAQ');
-Route::delete('admin/delete/faqs/{id}', 'DeleteFAQController@deleteFAQ');
+Route::get('/search', 'SearchController@getResults');
 
-Route::get('admin/edit/categories', 'EditCategoryController@showIndex');
-
-Route::get('admin/edit/category/{id}', 'EditCategoryController@getCategory');
-Route::put('admin/edit/category/{id}', 'EditCategoryController@putEditCategory');
-
-Route::get('admin/edit/products', 'EditProductsController@showIndex');
-Route::get('admin/edit/products/{category}', 'EditProductsController@showCategoryItems');
-Route::get('admin/edit/product/{id}', 'EditProductsController@postEditProducts');
-Route::put('admin/edit/product/{id}', 'EditProductsController@putEditProducts');
-
-Route::get('admin/delete/product/{id}', 'DeleteProductsController@getProduct');
-Route::delete('admin/delete/product/{id}', 'DeleteProductsController@deleteProduct');
-
-Route::get('admin/password', 'AdminController@getUpdatePassword');
-Route::put('admin/password', 'AdminController@putUpdatePassword');
-
-Route::get('search', 'SearchController@getResults');
-
-Route::get('404', function()
+Route::get('/404', function()
 {
     return View::make('404');
 });
