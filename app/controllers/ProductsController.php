@@ -132,11 +132,8 @@ class ProductsController extends \BaseController {
 
             if(isset($data['featured']))
             {
-                $featured = Carbon::now();
-            } else {
-                $featured = '0000-00-00 00:00:00';
+                $product->featured = Carbon::now();
             }
-
 
             //Upload the Product.
             $product->product_name = $data['product-name'];
@@ -145,7 +142,6 @@ class ProductsController extends \BaseController {
             $product->quantity = $data['product-quantity'];
             $product->price = $data['product-price'];
             $product->image = $filename;
-            $product->featured = $featured;
             $product->updated_at = Carbon::now();
             $product->save();
 
