@@ -13,7 +13,7 @@
 
 Route::get('/catalog', 'CatalogController@showIndex');
 Route::get('/catalog/{category}', 'CatalogController@showCategory');
-Route::get('/catalog/product/{id}', 'CatalogController@showSingleProduct');
+Route::get('/catalog/product/{slug}', 'CatalogController@showSingleProduct');
 
 Route::get('/servicing', 'ServicingController@showIndex');
 //Route::get('servicing/{subject}', 'ServicingController@showSubject');

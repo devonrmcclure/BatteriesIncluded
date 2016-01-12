@@ -35,7 +35,7 @@
 				@endif
 			</p>
 
-			<p class="material-flat-button material-flat-product ripple-effect"><a href="/catalog/product/{{$product->id}}">More Info</a></p>
+			<p class="material-flat-button material-flat-product ripple-effect"><a href="/catalog/product/{{$product->slug}}">More Info</a></p>
 	    </div>
 	@endforeach
 @endfor

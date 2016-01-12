@@ -55,6 +55,7 @@ class ProductsController extends \BaseController {
             $product = new Product;
             $product->category_id = $data['productcategory-id'];
             $product->product_name = $data['product-name'];
+            $product->sluge = strtolower(str_replace(" ", "-", $data['product-name']));
             $product->product_description = $data['product-description'];
             $product->brand = $data['product-brand'];
             $product->quantity = $data['product-quantity'];
@@ -120,7 +121,7 @@ class ProductsController extends \BaseController {
                 $product->category_id = $data['productcategory-id'];
             }
 
-            //Check if a file is being uploaded
+            //Check if a file is being updated
             if($file = Input::file('image'))
             {
                 $destinationPath = 'img/catalog/';
@@ -135,7 +136,7 @@ class ProductsController extends \BaseController {
                 $product->featured = Carbon::now();
             }
 
-            //Upload the Product.
+            //Update the Product.
             $product->product_name = $data['product-name'];
             $product->product_description = $data['product-description'];
             $product->brand = $data['product-brand'];

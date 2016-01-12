@@ -58,11 +58,11 @@ class CatalogController extends \BaseController {
             ->with('products', $products);
     }
 
-    public function showSingleProduct($id) {
+    public function showSingleProduct($slug) {
         $menuItems = Category::orderBy('category_name', 'ASC')->whereparent_id(NULL)->get();
         $menu = $this->drawMenu($menuItems);
 
-        $product = Product::whereid($id)->first();
+        $product = Product::whereslug($slug)->first();
 
         return View::make('catalog')
             ->with('menu', $menu)

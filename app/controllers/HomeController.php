@@ -14,6 +14,19 @@ class HomeController extends \BaseController {
      */
     public function show()
     {
+        /*One time, create all slugs for a product
+        $products = Product::all();
+
+        foreach($products as $product) {
+            $id = $product->id;
+            echo $id . "<br/>";
+            $product1 = Product::find($id);
+            $slug = strtolower(str_replace(" ", "-", $product->product_name));
+            $product1->slug = $slug;
+            $product1->save();
+            echo $slug . "<br/>";
+        }
+        die;*/
         $contents = Home::orderBy('created_at', 'DESC')->get();
         $carousels = Carousel::orderBy('id', 'ASC')->get();
         return View::make('index')
