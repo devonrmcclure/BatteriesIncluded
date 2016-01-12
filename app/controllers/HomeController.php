@@ -14,7 +14,7 @@ class HomeController extends \BaseController {
      */
     public function show()
     {
-        $contents = Home::orderBy('id', 'ASC')->get();
+        $contents = Home::orderBy('created_at', 'DESC')->get();
         $carousels = Carousel::orderBy('id', 'ASC')->get();
         return View::make('index')
                     ->with('carousels', $carousels)
