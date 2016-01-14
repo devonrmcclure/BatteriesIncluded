@@ -36,15 +36,16 @@ class CatalogController extends \BaseController {
      * @param  [string] $category [pass in the category to be able to get all the sub categories and products in that category]
      * @return [View]           [create the view with the applicable products]
      */
-    public function showCategory($category)
+    public function showCategory($slug)
     {
         $menuItems = Category::orderBy('category_name', 'ASC')->whereparent_id(NULL)->get();
         $menu = $this->drawMenu($menuItems);
 
-        $categories = Category::orderBy('category_name', 'ASC')->wherecategory_name($category)->get();
+        $categories = Category::orderBy('category_name', 'ASC')->whereslug($slug)->get();
         $crumbs = $this->drawBreadcrumbs($categories);
 
         $products = $this->getProducts($categories);
+        $category = Category::orderBy('category_name', 'ACS')->whereslug($slug)->first();
 
         /*foreach($categories as $cat)
         {
@@ -54,7 +55,7 @@ class CatalogController extends \BaseController {
         return View::make('catalog')
             ->with('menu', $menu)
             ->with('breadcrumbs', $crumbs)
-            ->with('category', $category)
+            ->with('category', $category->category_name)
             ->with('products', $products);
     }
 

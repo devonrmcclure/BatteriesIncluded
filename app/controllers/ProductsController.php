@@ -55,7 +55,7 @@ class ProductsController extends \BaseController {
             $product = new Product;
             $product->category_id = $data['productcategory-id'];
             $product->product_name = $data['product-name'];
-            $product->sluge = strtolower(str_replace(" ", "-", $data['product-name']));
+            $product->slug = strtolower(str_replace(" ", "-", $data['product-name']));
             $product->product_description = $data['product-description'];
             $product->brand = $data['product-brand'];
             $product->quantity = $data['product-quantity'];

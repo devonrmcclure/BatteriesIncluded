@@ -15,7 +15,7 @@
 		<img src="/img/catalog/{{$product->image}}" class="img-responsive featured-img" alt="Product Name"/>
 
 		<h3></h3>
-		<small class="category"><b>Category:</b> <a href="/catalog/{{$product->category->category_name}}">{{$product->category->category_name}}</a></small><br />
+		<small class="category"><b>Category:</b> <a href="/catalog/{{$product->category->slug}}">{{$product->category->category_name}}</a></small><br />
 		<small class="category"><b>Brand:</b> {{$product->brand}}</small>
 
 		<p class="featured-description">
