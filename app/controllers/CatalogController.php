@@ -109,11 +109,11 @@ class CatalogController extends \BaseController {
             //Is it a top level category?
             if(!$crumb->parent_id)
             {
-                $this->crumbs[] = "<li><a href=\"/catalog/" . $crumb->category_name . "\">" . $crumb->category_name . "</a></li>";
+                $this->crumbs[] = "<li><a href=\"/catalog/" . $crumb->slug . "\">" . $crumb->category_name . "</a></li>";
             } else {
                 // If it's not a top level category, get the parent categor(ies).
                 $parent = Category::whereid($crumb->parent_id)->get();
-                $this->crumbs[] = "<li><a href=\"/catalog/" . $crumb->category_name . "\">" . $crumb->category_name . "</a></li>";
+                $this->crumbs[] = "<li><a href=\"/catalog/" . $crumb->slug . "\">" . $crumb->category_name . "</a></li>";
                 // Loop through all categories.
                 $this->drawBreadcrumbs($parent);
             }
