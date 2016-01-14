@@ -93,7 +93,7 @@ Route::filter('pass_expired', function()
 {
 	//$lastChanged = Auth::user()->last_password_change;
 	//$lastChanged = $lastChanged->diffForHumans();
-	if(Auth::user()->last_password_change->diffInDays() >= '90')
+	if(Auth::user()->last_password_change->diffInDays() >= '90' || Auth::user()->force_password_change)
 	{
 		return Redirect::to($_ENV['URL'] . '/admin/settings/password')
 						->with('alert-class', 'error')

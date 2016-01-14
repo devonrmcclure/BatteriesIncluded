@@ -86,6 +86,7 @@ class AdminController extends \BaseController {
 		if($pass1 === $pass2 && $pass1 != '' && $pass2 != '' && Hash::check($currentPass, Auth::user()->password))
 		{
 			$user->password = Hash::make($pass1);
+			$user->force_password_change = 0;
 			$user->last_password_change = Carbon::now();
 			$user->updated_at = Carbon::now();
 			$user->save();
