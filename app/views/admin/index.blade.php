@@ -25,6 +25,9 @@
 		<h4><a href="/admin/services">Servicing</a></h4>
 		<h4><a href="/admin/faqs">FAQs</a></h4>
 		<h4><a href="/admin/locations">Locations</a></h4>
+		<h4><a href="/admin/roles">Roles</a></h4>
+		<h4><a href="/admin/users">Users</a></h4>
+
 	</div>
 
 @stop

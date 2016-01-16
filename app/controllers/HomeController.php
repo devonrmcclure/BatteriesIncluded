@@ -14,6 +14,41 @@ class HomeController extends \BaseController {
      */
     public function show()
     {
+
+        /*One time, create all slugs for a product*/
+        $permissions = ['add_product', 'edit_product', 'delete_product', 'add_category', 'edit_category', 'add_user', 'edit_user', 'delete_user', 'add_faq', 'edit_faq', 'delete_faq', 'add_carousel', 'edit_carousel', 'delete_carousel', 'add_home_content', 'edit_home_content', 'delete_home_content', 'add_service', 'edit_service', 'delete_service', 'add_location', 'edit_location', 'delete_location', 'add_role', 'edit_role', 'delete_role'];
+
+
+        /*for($i = 0; $i < count($permissions); $i++)
+        {
+            $permission = new Permissions;
+            $permission->role_id = 1;
+            $permission->permission = $permissions[$i];
+            $permission->save();
+        }
+        die;*/
+        /*foreach($products as $product) {
+            $id = $product->id;
+            echo $id . "<br/>";
+            $slug = strtolower(str_replace(" ", "-", $product->product_name));
+            $product1->slug = $slug;
+            echo $slug . "<br/>";
+        }*/
+
+
+        /*Testing Permission relationships*/
+        if(Auth::check()){
+            $user = Auth::user();
+            echo $user->username . "<br/>";
+            echo $user->role->name . "<br/>";
+
+            foreach($user->role->permissions as $permission)
+            {
+                echo "Permission: <b>" . $permission->permission . "</b></br>";
+            }
+            die;
+        }
+
         /*One time, create all slugs for a product
         $products = Product::all();
 

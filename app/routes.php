@@ -38,6 +38,8 @@ Route::resource('admin/faqs', 'FAQController', array('except' => array('show')))
 Route::get('/locations', 'LocationsController@show');
 Route::resource('admin/locations', 'LocationsController', array('except' => array('show')));
 
+Route::resource('admin/roles', 'RolesController');
+
 Route::get('/admin/settings', 'AdminController@settingsIndex');
 Route::get('/admin/settings/password', 'AdminController@getUpdatePassword');
 Route::put('/admin/settings/password', 'AdminController@putUpdatePassword');
@@ -52,5 +54,5 @@ Route::get('/404', function()
 // TODO: Create 404 page.
 App::missing(function($exception)
 {
-    return Redirect::to($_ENV['URL'] . '/404');
+    return Redirect::to('/404');
 });
