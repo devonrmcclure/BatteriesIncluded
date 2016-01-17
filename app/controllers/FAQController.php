@@ -27,6 +27,13 @@ class FAQController extends \BaseController {
      */
     public function index()
     {
+        $requiredPermissions = ['manage_faq'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         // Get all FAQs and order them by the set priority.
         $faqs = FAQ::orderBy('priority', 'DESC')->get();
 
@@ -35,10 +42,24 @@ class FAQController extends \BaseController {
     }
 
     public function create() {
+        $requiredPermissions = ['add_faq'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         return View::make('admin.add.faq');
     }
 
     public function store() {
+        $requiredPermissions = ['add_faq'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $data = Input::all();
 
         if($data['faq-question'] == '' || $data['faq-answer'] == '') {
@@ -69,6 +90,13 @@ class FAQController extends \BaseController {
 
     public function edit($id)
     {
+        $requiredPermissions = ['edit_faq'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         if($faq = FAQ::find($id))
         {
             return View::make('admin.edit.faq')
@@ -83,6 +111,13 @@ class FAQController extends \BaseController {
 
     public function update($id)
     {
+        $requiredPermissions = ['edit_faq'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $data = Input::all();
         $FAQ  = FAQ::find($id);
 
@@ -110,6 +145,13 @@ class FAQController extends \BaseController {
     }
 
     public function destroy($id) {
+        $requiredPermissions = ['delete_faq'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $faq = FAQ::find($id);
         $oldName = $faq->question;
         $faq->delete();

@@ -35,12 +35,26 @@ class LocationsController extends \BaseController {
      */
 
     public function index() {
+        $requiredPermissions = ['manage_location'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
     	$locations = Locations::orderBy('city', 'ASC')->get();
     	return View::make('admin.manage.locations')
     				->with('locations', $locations);
     }
 
     public function edit($id) {
+        $requiredPermissions = ['edit_location'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
     	$location = Locations::whereid($id)->first();
     	$hours    = Hours::wherelocations_id($id)->get();
 
@@ -50,7 +64,13 @@ class LocationsController extends \BaseController {
     }
 
     public function update($id) {
-
+        $requiredPermissions = ['edit_location'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
     	$data 	  = Input::all();
     	$location = Locations::find($id);
     	$hours    = Hours::wherelocations_id($id)->get();

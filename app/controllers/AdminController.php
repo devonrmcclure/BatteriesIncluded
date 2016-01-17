@@ -95,7 +95,7 @@ class AdminController extends \BaseController {
 					->with('alert-class', 'success')
 					->with('flash-message', 'Password for <b>' . $user->username . '</b> has been updated!');
 		} else {
-			return Redirect::to($_ENV['URL'] . '/admin/settings/password')
+			return Redirect::to('/admin/settings/password')
 					->with('alert-class', 'error')
 					->with('flash-message', 'The passwords did not match!');
 		}

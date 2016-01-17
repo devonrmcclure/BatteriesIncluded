@@ -23,6 +23,13 @@ class ServicesController extends \BaseController {
      */
 
     public function index() {
+        $requiredPermissions = ['manage_service'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $services = Services::orderBy('created_at', 'DESC')->get();
 
         return View::make('admin.manage.services')
@@ -30,10 +37,24 @@ class ServicesController extends \BaseController {
     }
 
     public function create() {
+        $requiredPermissions = ['add_service'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         return View::make('admin.add.service');
     }
 
     public function store() {
+        $requiredPermissions = ['add_service'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $data = Input::all();
 
         if($data['service-subject'] == '' || $data['service-info'] == '') {
@@ -62,6 +83,13 @@ class ServicesController extends \BaseController {
     }
 
     public function edit($id) {
+        $requiredPermissions = ['edit_service'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         if($service = Services::find($id))
         {
             return View::make('admin.edit.service')
@@ -75,6 +103,13 @@ class ServicesController extends \BaseController {
     }
 
     public function update($id) {
+        $requiredPermissions = ['edit_service'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $data = Input::all();
         $service  = Services::find($id);
 
@@ -102,6 +137,13 @@ class ServicesController extends \BaseController {
     }
 
     public function destroy($id) {
+        $requiredPermissions = ['delete_service'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $service = Services::find($id);
         $oldName = $service->subject;
         $service->delete();

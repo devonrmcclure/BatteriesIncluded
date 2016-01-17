@@ -16,7 +16,7 @@ class HomeController extends \BaseController {
     {
 
         /*One time, create all slugs for a product*/
-        $permissions = ['add_product', 'edit_product', 'delete_product', 'add_category', 'edit_category', 'add_user', 'edit_user', 'delete_user', 'add_faq', 'edit_faq', 'delete_faq', 'add_carousel', 'edit_carousel', 'delete_carousel', 'add_home_content', 'edit_home_content', 'delete_home_content', 'add_service', 'edit_service', 'delete_service', 'add_location', 'edit_location', 'delete_location', 'add_role', 'edit_role', 'delete_role'];
+        $permissions = ['manage_product', 'add_product', 'edit_product', 'delete_product', 'manage_category', 'add_category', 'edit_category', 'manage_user', 'add_user', 'edit_user', 'delete_user', 'manage_faq', 'add_faq', 'edit_faq', 'delete_faq', 'manage_carousel', 'add_carousel', 'edit_carousel', 'delete_carousel', 'manage_home_content', 'add_home_content', 'edit_home_content', 'delete_home_content', 'manage_service', 'add_service', 'edit_service', 'delete_service', 'manage_location', 'add_location', 'edit_location', 'delete_location', 'manage_role', 'add_role', 'edit_role', 'delete_role'];
 
 
         /*for($i = 0; $i < count($permissions); $i++)
@@ -39,6 +39,13 @@ class HomeController extends \BaseController {
         /*Testing Permission relationships*/
         if(Auth::check()){
             $user = Auth::user();
+            if(!parent::checkPermissions($permissions))
+            {
+                return Redirect::back()
+                                ->with('alert-class', 'error')
+                                ->with('flash-message', 'You do not have the required permissions to do that!');
+            }
+
             echo $user->username . "<br/>";
             echo $user->role->name . "<br/>";
 
@@ -80,6 +87,13 @@ class HomeController extends \BaseController {
      */
     public function index()
     {
+        $requiredPermissions = ['manage_home_content'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         //Get all carousel images and show them, and all main page content.
         // Get all content and order them by the set priority.
         $contents = Home::orderBy('created_at', 'DESC')->get();
@@ -89,10 +103,24 @@ class HomeController extends \BaseController {
     }
 
     public function create() {
+        $requiredPermissions = ['add_home_content'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         return View::make('admin.add.home');
     }
 
     public function store() {
+        $requiredPermissions = ['add_home_content'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $data = Input::all();
 
         if($data['home-heading'] == '' || $data['home-content'] == '') {
@@ -117,6 +145,13 @@ class HomeController extends \BaseController {
 
     public function edit($id)
     {
+        $requiredPermissions = ['edit_home_content'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         if($content = Home::find($id))
         {
             return View::make('admin.edit.home')
@@ -131,6 +166,13 @@ class HomeController extends \BaseController {
 
     public function update($id)
     {
+        $requiredPermissions = ['edit_home_content'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $data = Input::all();
         $home  = Home::find($id);
 
@@ -152,6 +194,13 @@ class HomeController extends \BaseController {
     }
 
     public function destroy($id) {
+        $requiredPermissions = ['delete_home_content'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $home = Home::find($id);
         $oldName = $home->heading;
         $home->delete();

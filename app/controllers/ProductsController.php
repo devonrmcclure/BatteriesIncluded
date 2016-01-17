@@ -9,6 +9,13 @@ class ProductsController extends \BaseController {
     }
 
     public function index() {
+        $requiredPermissions = ['manage_product'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $products = Product::orderBy('created_at', 'DESC')->get();
 
         return View::make('admin.manage.products')
@@ -16,12 +23,26 @@ class ProductsController extends \BaseController {
     }
 
     public function create() {
+        $requiredPermissions = ['add_product'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $categories = Category::orderBy('category_name', 'ASC')->get();
         return View::make('admin.add.product')
                 ->with('categories', $categories);
     }
 
     public function store() {
+        $requiredPermissions = ['add_product'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $data = Input::all();
 
         if($data['productcategory-id'] != 'selectproductcategory' && $data['product-brand'] != '' && $data['product-name'] != '') {
@@ -96,6 +117,13 @@ class ProductsController extends \BaseController {
     }
 
     public function edit($id) {
+        $requiredPermissions = ['edit_product'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $product    = Product::find($id);
         $categories = Category::orderBy('category_name', 'ASC')->get();
 
@@ -111,7 +139,13 @@ class ProductsController extends \BaseController {
      */
     public function update($id)
     {
-
+        $requiredPermissions = ['edit_product'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $data = Input::all();
         $product = Product::find($id);
 
@@ -172,6 +206,13 @@ class ProductsController extends \BaseController {
 
     //This is deleting
     public function destroy($id) {
+        $requiredPermissions = ['delete_product'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $product = Product::find($id);
         $oldName = $product->product_name;
         $product->delete();

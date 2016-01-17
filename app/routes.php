@@ -40,6 +40,8 @@ Route::resource('admin/locations', 'LocationsController', array('except' => arra
 
 Route::resource('admin/roles', 'RolesController');
 
+Route::resource('admin/users', 'UserController');
+
 Route::get('/admin/settings', 'AdminController@settingsIndex');
 Route::get('/admin/settings/password', 'AdminController@getUpdatePassword');
 Route::put('/admin/settings/password', 'AdminController@putUpdatePassword');

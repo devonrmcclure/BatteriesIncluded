@@ -14,6 +14,13 @@ class CarouselController extends \BaseController {
      */
     public function index()
     {
+        $requiredPermissions = ['manage_carousel'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         //Get all carousel images and show them
         $carousels = Carousel::orderBy('created_at', 'DESC')->get();
 
@@ -22,11 +29,24 @@ class CarouselController extends \BaseController {
     }
 
     public function create() {
+        $requiredPermissions = ['add_carousel'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         return View::make('admin.add.carousel');
     }
 
     public function store() {
-
+        $requiredPermissions = ['add_carousel'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         if(count(Carousel::orderBy('id', 'ASC')->get()) == 10) {
             return Redirect::to('/admin/carousels')
                             ->with('alert-class', 'error')
@@ -71,6 +91,13 @@ class CarouselController extends \BaseController {
 
     public function edit($id)
     {
+        $requiredPermissions = ['edit_carousel'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         if($carousel = Carousel::find($id))
         {
             return View::make('admin.edit.carousel')
@@ -85,6 +112,13 @@ class CarouselController extends \BaseController {
 
     public function update($id)
     {
+        $requiredPermissions = ['edit_carousel'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $data = Input::all();
         $carousel  = Carousel::find($id);
 
@@ -117,6 +151,13 @@ class CarouselController extends \BaseController {
     }
 
     public function destroy($id) {
+        $requiredPermissions = ['delete_carousel'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $carousel = Carousel::find($id);
         $oldName = $carousel->title;
         $carousel->delete();

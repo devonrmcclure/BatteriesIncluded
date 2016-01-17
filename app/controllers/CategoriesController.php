@@ -14,6 +14,13 @@ class CategoriesController extends \BaseController {
 
     public function index()
     {
+        $requiredPermissions = ['manage_category'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $categories = Category::orderBy('category_name', 'ASC')->get();
 
         foreach($categories as $category) {
@@ -33,6 +40,13 @@ class CategoriesController extends \BaseController {
     }
 
     public function create() {
+        $requiredPermissions = ['add_category'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $categories = Category::orderBy('category_name', 'ASC')->get();
 
         return View::make('admin.add.category')
@@ -40,6 +54,13 @@ class CategoriesController extends \BaseController {
     }
 
     public function store() {
+        $requiredPermissions = ['add_category'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $data = Input::all();
 
         $category = new Category;
@@ -68,6 +89,13 @@ class CategoriesController extends \BaseController {
 
     public function edit($id)
     {
+        $requiredPermissions = ['edit_category'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $category = Category::find($id);
         $categories = Category::orderBy('category_name', 'ASC')->get();
         return View::make('admin.edit.category')
@@ -81,6 +109,13 @@ class CategoriesController extends \BaseController {
      */
     public function update($id)
     {
+        $requiredPermissions = ['edit_category'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
         $data = Input::all();
         $category = Category::find($id);
 
