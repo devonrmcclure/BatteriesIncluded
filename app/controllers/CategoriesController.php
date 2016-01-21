@@ -76,6 +76,11 @@ class CategoriesController extends \BaseController {
             $category->updated_at = Carbon::now();
             $category->save();
 
+            $log = new Logs();
+            $log->user_id = Auth::user()->id;
+            $log->action = "Created the category <b>" . $data['category-name'] . "</b>";
+            $log->save();
+
             return Redirect::to($_ENV['URL'] . '/admin/categories')
                             ->with('alert-class', 'success')
                             ->with('flash-message', 'The category <b>' . $data['category-name'] . '</b> was successfully added!');
@@ -129,6 +134,11 @@ class CategoriesController extends \BaseController {
             $category->category_name = $data['category-name'];
             $category->updated_at = Carbon::now();
             $category->save();
+
+            $log = new Logs();
+            $log->user_id = Auth::user()->id;
+            $log->action = "Updated the category <b>" . $data['category-name'] . "</b>";
+            $log->save();
 
             if($oldName !== $data['category-name']) {
                 return Redirect::to($_ENV['URL'] . '/admin/categories')

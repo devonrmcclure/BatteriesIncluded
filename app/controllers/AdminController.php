@@ -49,6 +49,11 @@ class AdminController extends \BaseController {
 			// Get login info then attempt to login.
 			if(Auth::attempt(array('username' => $username, 'password' => $password)))
 			{
+				$log = new Logs();
+				$log->user_id = Auth::user()->id;
+				$log->action = "Logged in";
+				$log->save();
+
 				return Redirect::to('/admin');
 			} else {
 				return Redirect::to('/admin/login')
@@ -56,7 +61,7 @@ class AdminController extends \BaseController {
 					->with('flash-message', 'The username and password combination does not exist!');
 			}
 		} else {
-			return Redirect::to($_ENV['URL']);
+			return Redirect::to('/');
 		}
 	}
 
@@ -91,7 +96,12 @@ class AdminController extends \BaseController {
 			$user->updated_at = Carbon::now();
 			$user->save();
 
-			return Redirect::to($_ENV['URL'] . '/admin')
+			$log = new Logs();
+			$log->user_id = Auth::user()->id;
+			$log->action = "Updated their password";
+			$log->save();
+
+			return Redirect::to('/admin')
 					->with('alert-class', 'success')
 					->with('flash-message', 'Password for <b>' . $user->username . '</b> has been updated!');
 		} else {

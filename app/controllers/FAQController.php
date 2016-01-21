@@ -81,6 +81,12 @@ class FAQController extends \BaseController {
             $FAQ->created_at = Carbon::now();
             $FAQ->updated_at = Carbon::now();
             $FAQ->save();
+
+            $log = new Logs();
+            $log->user_id = Auth::user()->id;
+            $log->action = "Created the FAQ <b>" . $data['faq-question'] . "</b>";
+            $log->save();
+
             return Redirect::to('/admin/faqs')
                 ->with('alert-class', 'success')
                 ->with('flash-message', 'FAQ successfully created!');
@@ -133,6 +139,12 @@ class FAQController extends \BaseController {
                 $FAQ->answer = $data['faq-answer'];
                 $FAQ->updated_at = Carbon::now();
                 $FAQ->save();
+
+                $log = new Logs();
+                $log->user_id = Auth::user()->id;
+                $log->action = "Updated the FAQ <b>" . $data['faq-question'] . "</b>";
+                $log->save();
+
                 return Redirect::to('/admin/faqs')
                                 ->with('flash-message', 'FAQ has been successfully updated!')
                                 ->with('alert-class', 'success');
@@ -155,6 +167,11 @@ class FAQController extends \BaseController {
         $faq = FAQ::find($id);
         $oldName = $faq->question;
         $faq->delete();
+
+        $log = new Logs();
+        $log->user_id = Auth::user()->id;
+        $log->action = "Deleted the FAQ <b>" . $oldName . "</b>";
+        $log->save();
         return Redirect::to('/admin/faqs')
                         ->with('alert-class', 'success')
                         ->with('flash-message', 'FAQ <b>' . $oldName . '</b> has been deleted!');

@@ -76,6 +76,12 @@ class ServicesController extends \BaseController {
             $service->created_at = Carbon::now();
             $service->updated_at = Carbon::now();
             $service->save();
+
+            $log = new Logs();
+            $log->user_id = Auth::user()->id;
+            $log->action = "Created the service <b>" . $data['service-subject'] . "</b>";
+            $log->save();
+
             return Redirect::to('/admin/services')
                 ->with('alert-class', 'success')
                 ->with('flash-message', 'Service successfully created!');
@@ -125,6 +131,12 @@ class ServicesController extends \BaseController {
                 $service->info = $data['service-info'];
                 $service->updated_at = Carbon::now();
                 $service->save();
+
+                $log = new Logs();
+                $log->user_id = Auth::user()->id;
+                $log->action = "Updated the service <b>" . $data['service-subject'] . "</b>";
+                $log->save();
+
                 return Redirect::to('/admin/services')
                                 ->with('flash-message', 'Service has been successfully updated!')
                                 ->with('alert-class', 'success');
@@ -147,6 +159,11 @@ class ServicesController extends \BaseController {
         $service = Services::find($id);
         $oldName = $service->subject;
         $service->delete();
+
+        $log = new Logs();
+        $log->user_id = Auth::user()->id;
+        $log->action = "Deleted the service <b>" . $oldName . "</b>";
+        $log->save();
         return Redirect::to('/admin/services')
                         ->with('alert-class', 'success')
                         ->with('flash-message', 'Service <b>' . $oldName . '</b> has been deleted!');

@@ -97,6 +97,11 @@ class UserController extends \BaseController {
 			$user->force_password_change = 1;
 			$user->save();
 
+			$log = new Logs();
+			$log->user_id = Auth::user()->id;
+			$log->action = "Created the user <b>" . $data['username'] . "</b>";
+			$log->save();
+
 			return Redirect::to('/admin/users')
 			                ->with('alert-class', 'success')
 			                ->with('flash-message', 'User created!')
@@ -175,6 +180,11 @@ class UserController extends \BaseController {
 		}
 			$user->save();
 
+			$log = new Logs();
+			$log->user_id = Auth::user()->id;
+			$log->action = "Updated the user <b>" . $data['username'] . "</b>";
+			$log->save();
+
 			return Redirect::to('/admin/users')
 			                ->with('alert-class', 'success')
 			                ->with('flash-message', 'User updated!')
@@ -200,6 +210,11 @@ class UserController extends \BaseController {
 		$user = User::find($id);
 		$oldName = $user->username;
 		$user->delete();
+		//Create a log of the Event
+		$log = new Logs();
+		$log->user_id = Auth::user()->id;
+		$log->action = "Deleted the user <b>" . $oldName . "</b>";
+		$log->save();
 		return Redirect::to('/admin/users')
 		                ->with('alert-class', 'success')
 		                ->with('flash-message', 'User <b>' . $oldName . '</b> has been deleted!');

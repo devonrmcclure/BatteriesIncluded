@@ -141,6 +141,11 @@ class LocationsController extends \BaseController {
     	    $location->updated_at = Carbon::now();
     	    $location->save();
 
+            $log = new Logs();
+            $log->user_id = Auth::user()->id;
+            $log->action = "Updated the location <b>" . $location->city . "</b>";
+            $log->save();
+
     	    return Redirect::to('/admin/locations')
     	                    ->with('alert-class', 'success')
     	                    ->with('flash-message', 'Location <b>' . $location->city . '</b> has been successfully updated!');

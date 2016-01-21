@@ -87,6 +87,11 @@ class ProductsController extends \BaseController {
             $product->updated_at = Carbon::now();
             $product->save();
 
+            $log = new Logs();
+            $log->user_id = Auth::user()->id;
+            $log->action = "Created the product <b>" . $data['product-name'] . "</b>";
+            $log->save();
+
             return Redirect::to('/admin/products')
                             ->with('alert-class', 'success')
                             ->with('flash-message', 'Product <b>' . $data['product-name'] . '</b> has been successfully added!');
@@ -180,6 +185,11 @@ class ProductsController extends \BaseController {
             $product->updated_at = Carbon::now();
             $product->save();
 
+            $log = new Logs();
+            $log->user_id = Auth::user()->id;
+            $log->action = "Updated the product <b>" . $data['product-name'] . "</b>";
+            $log->save();
+
             return Redirect::to('/admin/products')
                             ->with('alert-class', 'success')
                             ->with('flash-message', 'Product <b>' . $data['product-name'] . '</b> has been successfully updated!');
@@ -216,6 +226,11 @@ class ProductsController extends \BaseController {
         $product = Product::find($id);
         $oldName = $product->product_name;
         $product->delete();
+
+        $log = new Logs();
+        $log->user_id = Auth::user()->id;
+        $log->action = "Deleted the product <b>" . $oldName . "</b>";
+        $log->save();
         return Redirect::to('/admin/products')
                         ->with('alert-class', 'success')
                         ->with('flash-message', 'Product <b>' . $oldName . '</b> has been deleted!');

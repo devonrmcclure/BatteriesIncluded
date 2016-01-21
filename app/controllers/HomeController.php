@@ -14,61 +14,6 @@ class HomeController extends \BaseController {
      */
     public function show()
     {
-
-        /*One time, create all slugs for a product*/
-        $permissions = ['manage_product', 'add_product', 'edit_product', 'delete_product', 'manage_category', 'add_category', 'edit_category', 'manage_user', 'add_user', 'edit_user', 'delete_user', 'manage_faq', 'add_faq', 'edit_faq', 'delete_faq', 'manage_carousel', 'add_carousel', 'edit_carousel', 'delete_carousel', 'manage_home_content', 'add_home_content', 'edit_home_content', 'delete_home_content', 'manage_service', 'add_service', 'edit_service', 'delete_service', 'manage_location', 'add_location', 'edit_location', 'delete_location', 'manage_role', 'add_role', 'edit_role', 'delete_role'];
-
-
-        /*for($i = 0; $i < count($permissions); $i++)
-        {
-            $permission = new Permissions;
-            $permission->role_id = 1;
-            $permission->permission = $permissions[$i];
-            $permission->save();
-        }
-        die;*/
-        /*foreach($products as $product) {
-            $id = $product->id;
-            echo $id . "<br/>";
-            $slug = strtolower(str_replace(" ", "-", $product->product_name));
-            $product1->slug = $slug;
-            echo $slug . "<br/>";
-        }*/
-
-
-        /*Testing Permission relationships*/
-        if(Auth::check()){
-            $user = Auth::user();
-            if(!parent::checkPermissions($permissions))
-            {
-                return Redirect::back()
-                                ->with('alert-class', 'error')
-                                ->with('flash-message', 'You do not have the required permissions to do that!');
-            }
-
-            echo $user->username . "<br/>";
-            echo $user->role->name . "<br/>";
-
-            foreach($user->role->permissions as $permission)
-            {
-                echo "Permission: <b>" . $permission->permission . "</b></br>";
-            }
-            die;
-        }
-
-        /*One time, create all slugs for a product
-        $products = Product::all();
-
-        foreach($products as $product) {
-            $id = $product->id;
-            echo $id . "<br/>";
-            $product1 = Product::find($id);
-            $slug = strtolower(str_replace(" ", "-", $product->product_name));
-            $product1->slug = $slug;
-            $product1->save();
-            echo $slug . "<br/>";
-        }
-        die;*/
         $contents = Home::orderBy('created_at', 'DESC')->get();
         $carousels = Carousel::orderBy('id', 'ASC')->get();
         return View::make('index')
@@ -136,6 +81,12 @@ class HomeController extends \BaseController {
             $home->created_at = Carbon::now();
             $home->updated_at = Carbon::now();
             $home->save();
+
+            $log = new Logs();
+            $log->user_id = Auth::user()->id;
+            $log->action = "Created the home content <b>" . $data['home-heading'] . "</b>";
+            $log->save();
+
             return Redirect::to('/admin/home')
                 ->with('alert-class', 'success')
                 ->with('flash-message', 'Home content successfully created!');
@@ -182,6 +133,11 @@ class HomeController extends \BaseController {
             $home->content = $data['home-content'];
             $home->updated_at = Carbon::now();
             $home->save();
+
+            $log = new Logs();
+            $log->user_id = Auth::user()->id;
+            $log->action = "Updated the home content <b>" . $data['home-heading'] . "</b>";
+            $log->save();
             return Redirect::to('/admin/home')
                             ->with('flash-message', 'Content has been successfully updated!')
                             ->with('alert-class', 'success');
@@ -204,6 +160,12 @@ class HomeController extends \BaseController {
         $home = Home::find($id);
         $oldName = $home->heading;
         $home->delete();
+
+        $log = new Logs();
+        $log->user_id = Auth::user()->id;
+        $log->action = "Deleted the home content <b>" . $oldName . "</b>";
+        $log->save();
+
         return Redirect::to('/admin/home')
                         ->with('alert-class', 'success')
                         ->with('flash-message', 'Content <b>' . $oldName . '</b> has been deleted!');

@@ -27,6 +27,7 @@
 		<h4><a href="/admin/locations">Locations</a></h4>
 		<h4><a href="/admin/roles">Roles</a></h4>
 		<h4><a href="/admin/users">Users</a></h4>
+		<h4><a href="/admin/logs">Logs</a></h4>
 
 	</div>
 

@@ -38,9 +38,11 @@ Route::resource('admin/faqs', 'FAQController', array('except' => array('show')))
 Route::get('/locations', 'LocationsController@show');
 Route::resource('admin/locations', 'LocationsController', array('except' => array('show')));
 
-Route::resource('admin/roles', 'RolesController');
+Route::resource('/admin/roles', 'RolesController');
 
-Route::resource('admin/users', 'UserController');
+Route::resource('/admin/users', 'UserController');
+
+Route::get('/admin/logs', 'LogsController@show');
 
 Route::get('/admin/settings', 'AdminController@settingsIndex');
 Route::get('/admin/settings/password', 'AdminController@getUpdatePassword');

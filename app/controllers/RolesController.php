@@ -73,6 +73,11 @@ class RolesController extends \BaseController {
 			$role->name = $data['role-name'];
 			$role->save();
 
+			$log = new Logs();
+			$log->user_id = Auth::user()->id;
+			$log->action = "Created the role <b>" . $data['role-name'] . "</b>";
+			$log->save();
+
 			/* Once the role is created, get the ID from the database, and assign permissions to it.*/
 			$roleID = Role::wherename($data['role-name'])->first();
 			$roleID = $roleID->id;
@@ -132,7 +137,7 @@ class RolesController extends \BaseController {
 		                    ->with('alert-class', 'error')
 		                    ->with('flash-message', 'You do not have the required permissions to do that!');
 		}
-		//
+		//TODO: Allow edditing of roles
 	}
 
 	/**
@@ -160,6 +165,11 @@ class RolesController extends \BaseController {
 		}
 		$oldName = $role->name;
 		$role->delete();
+
+		$log = new Logs();
+		$log->user_id = Auth::user()->id;
+		$log->action = "Deleted the role <b>" . $oldName . "</b>";
+		$log->save();
 		return Redirect::to('/admin/roles')
 		                ->with('alert-class', 'success')
 		                ->with('flash-message', 'Role <b>' . $oldName . '</b> has been deleted!');
