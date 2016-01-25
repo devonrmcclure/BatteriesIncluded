@@ -43,6 +43,8 @@ Route::resource('/admin/roles', 'RolesController');
 Route::resource('/admin/users', 'UserController');
 
 Route::get('/admin/logs', 'LogsController@show');
+Route::get('/admin/logs/{id}', 'LogsController@showByID');
+
 
 Route::get('/admin/settings', 'AdminController@settingsIndex');
 Route::get('/admin/settings/password', 'AdminController@getUpdatePassword');

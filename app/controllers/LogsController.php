@@ -23,4 +23,20 @@ class LogsController extends \BaseController {
         return View::make('admin.manage.logs')
                 ->with('logs', $logs);
     }
+
+    public function showByID($id)
+    {
+        $requiredPermissions = ['view_logs'];
+        if(!parent::checkPermissions($requiredPermissions))
+        {
+            return Redirect::back()
+                            ->with('alert-class', 'error')
+                            ->with('flash-message', 'You do not have the required permissions to do that!');
+        }
+
+        $logs = Logs::orderBy('created_at', 'DESC')->whereuser_id($id)->get();
+
+        return View::make('admin.manage.logs')
+                ->with('logs', $logs);
+    }
 }

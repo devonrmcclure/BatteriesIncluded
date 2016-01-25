@@ -17,7 +17,9 @@ class AdminController extends \BaseController {
 	 */
 	public function showIndex()
 	{
-		return View::make('admin.index');
+		$actions = Logs::orderBy('created_at', 'DESC')->limit(5)->get();
+		return View::make('admin.index')
+				->with('actions', $actions);
 	}
 
 	/**

@@ -11,12 +11,18 @@
           	<tr>
     	        <th>User</th>
     	        <th>Role</th>
+                @if(Auth::user()->role->name == 'Admin')
+                    <th>View Logs</th>
+                @endif
     	        <th>Manage</th>
           	</tr>
     	    @foreach($users as $user)
 				<tr class="test">
 				  	<td>{{$user->username}}</td>
 				  	<td>{{$user->role->name}}</td>
+                    @if(Auth::user()->role->name == 'Admin')
+                        <td><a href="/admin/logs/{{$user->id}}">{{$user->username}} logs</a></td>
+                    @endif
 				  	<td>
 				  		<span class="ripple-effect material-flat-button material-flat-add"><a href="/admin/users/create">add</a></span>
                         <span class="ripple-effect material-flat-button material-flat-edit"><a href="/admin/users/{{$user->id}}/edit">edit</a></span>
