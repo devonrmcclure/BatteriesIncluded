@@ -16,7 +16,6 @@
 				<span class="username">{{Auth::user()->username}} <i class="caret"></i></span></a>
 			<ul class="dropdown-menu">
 				<li class="ripple-effect"><a href="{{$_ENV['URL']}}/admin"><i class="material-icons md-24 indigo500">home</i>Admin Dashboard</a></li>
-				<li class="ripple-effect"><a href="{{$_ENV['URL']}}/admin/settings"><i class="material-icons md-24 grey700">settings</i>Settings</a></li>
 				<li role="separator" class="divider"></li>
 				<li class="ripple-effect"><a href="{{$_ENV['URL']}}/admin/logout"><i class="material-icons md-24 redA700">power_settings_new</i>Log out</a></li>
 			</ul>
