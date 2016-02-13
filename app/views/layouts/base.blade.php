@@ -74,6 +74,8 @@
 		<!-- Scripts are placed here -->
 		{{HTML::script('bower_components/jquery/dist/jquery.min.js')}}
 		{{HTML::script('bower_components/bootstrap/dist/js/bootstrap.min.js')}}
+		{{HTML::script('bower_components/bootstrap/dist/js/bootstrap.min.js')}}
+		{{HTML::script('bower_components/filterTable/jquery.filtertable.js')}}
 		{{HTML::script('js/app.js')}}
 		<!-- End Scripts -->
 	@show

@@ -6,8 +6,18 @@
 
 @section('content')
 
+
     <div class="content-card col-md-10 col-md-offset-1">
-        <table class="material-table">
+        <div class="group">
+            {{Form::text('rt-search', '', array('type' => 'text', 'name' => 'rt-search', 'class' => 'search', 'id' => 'rt-search', 'required'))}}
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            {{Form::label('search', 'Filter')}}
+        </div>
+    </div>
+
+    <div class="content-card col-md-10 col-md-offset-1">
+        <table class="material-table" id="manage-table">
           	<tr>
     	        <th>Product</th>
     	        <th>Category</th>
@@ -41,5 +51,9 @@
             </div>
         </div>
     </div>
+
+    <script>
+    $('#manage-table').filterTable();
+    </script>
 
 @stop

@@ -7,6 +7,15 @@
 @section('content')
 
     <div class="content-card col-md-10 col-md-offset-1">
+        <div class="group">
+            {{Form::text('rt-search', '', array('type' => 'text', 'name' => 'rt-search', 'class' => 'search', 'id' => 'rt-search', 'required'))}}
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            {{Form::label('search', 'Filter')}}
+        </div>
+    </div>
+
+    <div class="content-card col-md-10 col-md-offset-1">
         <table class="material-table">
           	<tr>
     	        <th>Question</th>

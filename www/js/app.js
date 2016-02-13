@@ -40,6 +40,20 @@ $(function() {
 	});
 });
 },{}],3:[function(require,module,exports){
+$("#rt-search").keyup(function () {
+    var value = this.value.toLowerCase().trim();
+
+    $("table tr").each(function (index) {
+        if (!index) return;
+        $(this).find("td").each(function () {
+            var id = $(this).text().toLowerCase().trim();
+            var not_found = (id.indexOf(value) == -1);
+            $(this).closest('tr').toggle(!not_found);
+            return not_found;
+        });
+    });
+});
+},{}],4:[function(require,module,exports){
 /**
  * Created by Kupletsky Sergey on 16.09.14.
  *
@@ -145,7 +159,7 @@ function materialRipple() {
 function recycler() {
     $('html').find('.ripple:not(.active)').remove();
 }
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 $(function() {
 
   $("label.bg-danger").hide();
@@ -232,7 +246,7 @@ $(function() {
 
     //return false; // avoid to execute the actual submit of the form.
 });
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 $(".sidebar-toggle").click(function(e) {
     e.preventDefault();
     $(".sidebar").toggleClass("toggled");
@@ -245,9 +259,9 @@ $(".fab-toggle").click(function(e) {
 	e.preventDefault();
 	$(".fab-item").toggleClass("hidden");
 });
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 $(document).ready(function(){
 	$(".toast").fadeIn(1000);
 	$(".toast").delay(3000).fadeOut(1000);
 });
-},{}]},{},[1,2,3,4,5,6]);
+},{}]},{},[1,2,3,4,5,6,7]);
