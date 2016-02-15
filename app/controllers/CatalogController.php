@@ -88,7 +88,7 @@ class CatalogController extends \BaseController {
         {
 
             //var_dump($productCount);
-            $this->text .= "<li class=\"catalog-nav-item\"><a href=\"/catalog/" . $item->category_name . "\">" . $item->category_name . "</a>";
+            $this->text .= "<li class=\"catalog-nav-item\"><a href=\"/catalog/" . $item->slug . "\">" . $item->category_name . "</a>";
                 if($this->hasChildren($item))
                 {
                     $this->text .= "<ul class=\"list-group-inner\">";
