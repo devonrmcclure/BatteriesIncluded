@@ -8,6 +8,8 @@
 	    </title>
 	    <meta charset="utf-8" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="description" content="Batteries Included Service Center. We have a variety of services including blender parts, shaver repair, battery changes, button cell batteries, and more!">
+	    <meta name="keywords" content="batteries, button cell batteries, cell phone, shaver repair, shaver parts, small appliance repair, warranty service, blender parts, south surrey, white rock, richmond, nanaimo, guildford, maple ridge">
 
 	    <!-- CSS are placed here -->
 	    @section('head')
