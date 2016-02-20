@@ -71,12 +71,16 @@ class ProductsController extends \BaseController {
                 $featured = '0000-00-00 00:00:00';
             }
 
+            $slug = iconv('UTF-8', 'ASCII//TRANSLIT', $data['product-name']);
+            $slug = preg_replace("/[^a-zA-Z0-9\/_| -]/", '', $slug);
+            $slug = strtolower(trim($slug, '-'));
+            $slug = preg_replace("/[\/_| -]+/", '-', $slug);
 
             //Upload the Product.
             $product = new Product;
             $product->category_id = $data['productcategory-id'];
             $product->product_name = $data['product-name'];
-            $product->slug = strtolower(str_replace(" ", "-", $data['product-name']));
+            $product->slug = $slug;
             $product->product_description = $data['product-description'];
             $product->brand = $data['product-brand'];
             $product->quantity = $data['product-quantity'];
