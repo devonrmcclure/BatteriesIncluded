@@ -13,10 +13,11 @@ class SearchController extends \BaseController {
         {
             return Redirect::to('/catalog');
         } else {
-            $products[] = Product::where('product_name', 'LIKE', '%'.$search.'%')->get();
+            $products[] = Product::where('product_name', 'LIKE', "%$search%", 'OR');
+            $products[] = Product::where('product_description', 'LIKE', "%$search%")->get();
 
             $menuItems = Category::orderBy('category_name', 'ASC')->whereparent_id(NULL)->get();
-            $menu = new CatalogMenuController;
+            $menu = new CatalogController;
             $menu = $menu->drawMenu($menuItems);
 
             return View::make('search.results')
