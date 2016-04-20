@@ -12,9 +12,9 @@
 	<div class="sidebar-header">
 		<span class="user-image"><a href="/admin"><i class="material-icons md-48">account_circle</i></a></span>
 		<div class="user-info dropdown">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+			<a href="#" id="user-dropdown" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<span class="username">{{Auth::user()->username}} <i class="caret"></i></span></a>
-			<ul class="dropdown-menu">
+			<ul class="dropdown-menu pull-right" aria-labelledby="user-dropdown">
 				<li class="ripple-effect"><a href="{{$_ENV['URL']}}/admin"><i class="material-icons md-24 indigo500">home</i>Admin Dashboard</a></li>
 				<li role="separator" class="divider"></li>
 				<li class="ripple-effect"><a href="{{$_ENV['URL']}}/admin/logout"><i class="material-icons md-24 redA700">power_settings_new</i>Log out</a></li>
