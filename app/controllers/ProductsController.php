@@ -179,8 +179,13 @@ class ProductsController extends \BaseController {
                 $product->featured = Carbon::now();
             }
 
+            $slug = iconv('UTF-8', 'ASCII//TRANSLIT', $data['product-name']);
+            $slug = preg_replace("/[^a-zA-Z0-9\/_| -]/", '', $slug);
+            $slug = strtolower(trim($slug, '-'));
+            $slug = preg_replace("/[\/_| -]+/", '-', $slug);
             //Update the Product.
             $product->product_name = $data['product-name'];
+            $product->slug = $slug;
             $product->product_description = $data['product-description'];
             $product->brand = $data['product-brand'];
             $product->quantity = $data['product-quantity'];
