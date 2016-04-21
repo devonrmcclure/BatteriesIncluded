@@ -1,4 +1,4 @@
- <?php
+<?php
 
 class CategoriesController extends \BaseController {
 
@@ -71,7 +71,13 @@ class CategoriesController extends \BaseController {
             if($data['parentcategory-id'] != 'selectparentcategory') {
                 $category->parent_id = $data['parentcategory-id'];
             }
+            $slug = iconv('UTF-8', 'ASCII//TRANSLIT', $data['category-name']);
+            $slug = preg_replace("/[^a-zA-Z0-9\/_| -]/", '', $slug);
+            $slug = strtolower(trim($slug, '-'));
+            $slug = preg_replace("/[\/_| -]+/", '-', $slug);
+
             $category->category_name = $data['category-name'];
+            $category->slug = $slug;
             $category->created_at = Carbon::now();
             $category->updated_at = Carbon::now();
             $category->save();
