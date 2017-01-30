@@ -55,6 +55,7 @@ class CarouselController extends \BaseController {
         }
 
         $data = Input::all();
+        $file = $data['image'];
 
         if($data['carousel-title'] == '' || $data['carousel-info'] == '') {
             return Redirect::to('/admin/carousels/create')
@@ -64,7 +65,7 @@ class CarouselController extends \BaseController {
 
         }
 
-        elseif(!$file = Input::file('image')) {
+        elseif(!isset($data['image'])) {
             return Redirect::to('/admin/carousels/create')
                             ->with('alert-class', 'error')
                             ->with('flash-message', 'Please upload a file!')

@@ -34,7 +34,7 @@
         {{ Form::label('image', 'Image', array('class' => 'col-sm-3 control-label')) }}
 
         <div class="col-sm-5">
-          {{ Form::file('image', '', array('class' => 'form-control', 'id' => 'image')) }}
+          {{ Form::file('image', '', array('class' => 'form-control', 'id' => 'image', 'name' => 'image')) }}
         </div>
       </div>
 
