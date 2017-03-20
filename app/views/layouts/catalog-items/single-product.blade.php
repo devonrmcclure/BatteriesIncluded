@@ -1,3 +1,7 @@
+@section('title')
+    {{$product->product_name}} - Batteries Included
+@stop
+
 <div class="content-card featured col-md-12">
 
 	<small class=""><a href="/catalog">Back to Catalog</a></small>

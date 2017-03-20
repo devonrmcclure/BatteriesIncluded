@@ -1,3 +1,7 @@
+@section('title')
+    {{$category}} - Batteries Included
+@stop
+
 
 <div class="content-card col-md-12">
 	@if(isset($category))

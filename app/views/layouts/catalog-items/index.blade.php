@@ -1,3 +1,7 @@
+@section('title')
+    Batteries Included Catalog
+@stop
+
 <div class="content-card col-md-12">
 	@if(isset($category))
 		<h2 class="product-heading">{{$category}}</h2>

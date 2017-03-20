@@ -1,8 +1,8 @@
 @extends('layouts.base')
 
-@section('title')
+{{-- @section('title')
   Batteries Included - Catalog
-@stop
+@stop --}}
 
 
 @section('content')
