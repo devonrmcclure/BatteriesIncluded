@@ -32,16 +32,6 @@
         @endforeach
       </tr>
 
-      <th>Nanaimo</th>
-        @foreach($nm as $hour)
-          @if($hour->open == '00:00:00')
-            <td>CLOSED</td>
-          @else
-            <td>{{date('h:ia', strtotime($hour->open))}} - {{date('h:ia', strtotime($hour->close))}}</td>
-          @endif
-        @endforeach
-      </tr>
-
       <th>Surrey (Guildford)</th>
         @foreach($gf as $hour)
           @if($hour->open == '00:00:00')
