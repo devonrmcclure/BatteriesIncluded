@@ -23,7 +23,7 @@
       </div>
 
       <div class="form-group">
-        {{ Form::label('service-info', 'Ibfo', array('class' => 'col-sm-3 control-label')) }}
+        {{ Form::label('service-info', 'Info', array('class' => 'col-sm-3 control-label')) }}
 
         <div class="col-sm-5">
           {{ Form::textarea('service-info', $service->info, array('class' => 'form-control', 'id' => 'service-info', 'placeholder' => 'Info', 'rows' => '5')) }}
