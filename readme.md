@@ -1,1 +1,1 @@
-Batteries Included website. Created by Devon McClure (Phinocio) using the Laravel Framework.
+Batteries Included website. Created by Devon McClure using the Laravel Framework.
